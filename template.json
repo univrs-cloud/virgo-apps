@@ -9,7 +9,7 @@
 				"Tools"
 			],
 			"image": "b4bz/homer:latest",
-			"logo": "",
+			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homer.png",
 			"name": "homer",
 			"platform": "linux",
 			"ports": [
