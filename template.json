@@ -1,0 +1,28 @@
+{
+	"version": "2",
+	"templates": [
+    {
+      "title": "Homer",
+			"description": "A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.",
+      "categories": [
+				"Other",
+				"Tools"
+			],
+			"image": "b4bz/homer:latest",
+			"logo": "",
+			"name": "homer",
+			"platform": "linux",
+			"ports": [
+				"80:8080/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/Homer/assets",
+					"container": "/www/assets"
+				}
+			]
+		}
+  ]
+}
