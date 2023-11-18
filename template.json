@@ -26,7 +26,7 @@
 		},
 		{
 			"title": "WireGuard Server",
-			"description": "Fast VPN Server with easy to use User Interface",
+			"description": "An extremely simple yet fast and modern VPN.",
 			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
 			"categories": [
 				"Other",
