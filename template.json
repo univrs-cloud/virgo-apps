@@ -4,12 +4,12 @@
 		{
 			"title": "Homer",
 			"description": "A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.",
+			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homer.png",
 			"categories": [
 				"Other",
 				"Tools"
 			],
 			"image": "b4bz/homer:latest",
-			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homer.png",
 			"name": "homer",
 			"platform": "linux",
 			"ports": [
@@ -23,6 +23,56 @@
 					"container": "/www/assets"
 				}
 			]
+		},
+		{
+			"title": "WireGuard Server",
+			"description": "Fast VPN Server with easy to use User Interface",
+			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
+			"categories": [
+				"Other",
+				"VPN"
+			],
+			"env": [
+				{
+					"description": "DDNS domain",
+					"default": "example.domain.com",
+					"label": "WG_HOST",
+					"name": "WG_HOST"
+				},
+				{
+					"description": "Leave blank to access WebUI without loggin",
+					"default": "ENTER A PASSWORD",
+					"label": "PASSWORD",
+					"name": "PASSWORD"
+				},
+				{
+					"default": "51820",
+					"label": "WG_PORT",
+					"name": "WG_PORT"
+				},
+				{
+					"default": "1.1.1.1",
+					"label": "WG_DEFAULT_DNS",
+					"name": "WG_DEFAULT_DNS"
+				},
+				{
+					"default": "10.6.0.x",
+					"label": "WG_DEFAULT_ADDRESS",
+					"name": "WG_DEFAULT_ADDRESS"
+				},
+				{
+					"default": "0.0.0.0/0, ::/0",
+					"label": "WG_ALLOWED_IPS",
+					"name": "WG_ALLOWED_IPS"
+				}
+			],
+			"name": "wg-easy",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/portainer/"
+				"stackfile": "stack/wireguard-easy.yml",
+			},
+			"type": 3
 		}
 	]
 }
