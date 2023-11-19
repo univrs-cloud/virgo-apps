@@ -69,8 +69,8 @@
 			"name": "wg-easy",
 			"platform": "linux",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/portainer/"
-				"stackfile": "stack/wireguard-easy.yml",
+				"url": "https://github.com/univrs-cloud/portainer/",
+				"stackfile": "stack/wireguard-easy.yml"
 			},
 			"type": 3
 		},
