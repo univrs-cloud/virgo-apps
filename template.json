@@ -73,6 +73,46 @@
 				"stackfile": "stack/wireguard-easy.yml",
 			},
 			"type": 3
+		},
+		{
+			"title": "qBittorrent",
+			"description": "The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
+			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
+			"categories": [
+				"Downloaders"
+			],
+			"env": [
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "100",
+					"label": "PGID",
+					"name": "PGID"
+				}
+			],
+			"image": "lscr.io/linuxserver/qbittorrent:latest",
+			"name": "qbittorrent",
+			"platform": "linux",
+			"ports": [
+				"6881:6881/tcp",
+				"6881:6881/udp",
+				"8080:8080/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"type": 1,
+			"volumes": [
+				{
+					"bind": "/portainer/Files/AppData/Config/qBittorrent",
+					"container": "/config"
+				},
+				{
+					"bind": "/portainer/Downloads",
+					"container": "/downloads"
+				}
+			]
 		}
 	]
 }
