@@ -109,7 +109,7 @@
 					"container": "/config"
 				},
 				{
-					"bind": "/portainer/Downloads",
+					"bind": "/downloads",
 					"container": "/downloads"
 				}
 			]
