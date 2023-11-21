@@ -82,6 +82,20 @@
 				"Other",
 				"Tools"
 			],
+			"env": [
+				{
+					"description": "Host",
+					"default": "192.168.0.100",
+					"label": "SSH_HOST",
+					"name": "SSH_HOST"
+				},
+				{
+					"description": "User",
+					"default": "dave",
+					"label": "SSH_USER",
+					"name": "SSH_USER"
+				}
+			]
 			"image": "wettyoss/wetty:latest",
 			"name": "wetty",
 			"platform": "linux",
