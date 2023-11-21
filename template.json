@@ -35,10 +35,24 @@
 			],
 			"env": [
 				{
-					"default": "192.168.0.X",
-					"description": "Insert the Raspberry Pi IP here",
-					"label": "ServerIP",
-					"name": "ServerIP"
+					"default": "192.168.0.x",
+					"label": "FTLCONF_LOCAL_IPV4",
+					"name": "FTLCONF_LOCAL_IPV4"
+				},
+				{
+					"default": "monolith",
+					"label": "HOSTNAME",
+					"name": "HOSTNAME"
+				},
+				{
+					"default": "univrs",
+					"label": "DOMAIN_NAME",
+					"name": "DOMAIN_NAME"
+				},
+				{
+					"default": "admin",
+					"label": "WEBPASSWORD",
+					"name": "WEBPASSWORD"
 				},
 				{
 					"default": "Europe\\London",
@@ -50,11 +64,11 @@
 					"name": "DNSSEC",
 					"select": [
 						{
-							"default": true,
 							"text": "Enable DNSSEC",
 							"value": "true"
 						},
 						{
+							"default": true,
 							"text": "Disable DNSSEC",
 							"value": "false"
 						}
@@ -79,7 +93,7 @@
 			"ports": [
 				"53:53/tcp",
 				"53:53/udp",
-				"1010:80/tcp",
+				"8000:80/tcp",
 				"4443:443/tcp"
 			],
 			"restart_policy": "unless-stopped",
