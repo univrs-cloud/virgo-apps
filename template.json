@@ -75,6 +75,23 @@
 			"type": 3
 		},
 		{
+			"title": "WeTTY",
+			"description": "Terminal over HTTP and https.",
+			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/terminal.png",
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"image": "wettyoss/wetty:latest",
+			"name": "wetty",
+			"platform": "linux",
+			"ports": [
+				"2222:3000/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"type": 1
+		},
+		{
 			"title": "qBittorrent",
 			"description": "The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
 			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
