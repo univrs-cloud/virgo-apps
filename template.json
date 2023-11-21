@@ -95,7 +95,7 @@
 					"label": "SSHUSER",
 					"name": "SSHUSER"
 				}
-			]
+			],
 			"image": "wettyoss/wetty:latest",
 			"name": "wetty",
 			"platform": "linux",
