@@ -95,7 +95,7 @@
 					"label": "SSH_USER",
 					"name": "SSH_USER"
 				}
-			]
+			],
 			"image": "wettyoss/wetty:latest",
 			"name": "wetty",
 			"platform": "linux",
