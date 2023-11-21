@@ -86,14 +86,14 @@
 				{
 					"description": "Host",
 					"default": "192.168.0.100",
-					"label": "SSH_HOST",
-					"name": "SSH_HOST"
+					"label": "SSHHOST",
+					"name": "SSHHOST"
 				},
 				{
 					"description": "User",
 					"default": "dave",
-					"label": "SSH_USER",
-					"name": "SSH_USER"
+					"label": "SSHUSER",
+					"name": "SSHUSER"
 				}
 			]
 			"image": "wettyoss/wetty:latest",
