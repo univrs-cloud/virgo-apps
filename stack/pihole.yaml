@@ -1,11 +1,11 @@
-version: '2'
+version: "3.8"
 
 services:
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
-    hostname: pi-hole
-    mac_address: d0:ca:ab:cd:ef:01
+    hostname: monolith
+    mac_address: "d0:ca:ab:cd:ef:01"
     cap_add:
       - NET_ADMIN
     ports:
@@ -16,39 +16,36 @@ services:
       - 80/tcp
       - 22/tcp
     environment:
-      - FTLCONF_LOCAL_IPV4=192.168.100.5
+      - FTLCONF_LOCAL_IPV4=192.168.100.201
       - WEBPASSWORD=${WEBPASSWORD}
-      - PIHOLE_DNS_=192.168.100.6;192.168.100.13
+      - PIHOLE_DNS_=192.168.100.202
     volumes:
-      - /volume1/docker/pihole-unbound/pihole/volume:/etc/pihole:rw
-      - /volume1/docker/pihole-unbound/pihole/config/hosts:/etc/hosts:ro
-      - /volume1/docker/pihole-unbound/pihole/config/resolv.conf:/etc/resolv.conf:ro
-      - /volume1/docker/pihole-unbound/pihole/config/dnsmasq.conf:/etc/dnsmasq.d/02-network.conf:ro
-      - /volume1/docker/pihole-unbound/pihole/config/pihole-FTL.conf:/etc/pihole/pihole-FTL.conf:ro
+      - /portainer/Files/AppData/Config/pihole:/etc/pihole:rw
+      - /portainer/Files/AppData/Config/pihole/dns:/etc/dnsmasq.d:ro
     networks:
       home:
-        ipv4_address: 192.168.100.5
+        ipv4_address: 192.168.100.201
     restart: always
   unbound:
     container_name: unbound
     image: mvance/unbound:latest
-    hostname: monolith
-    mac_address: d0:ca:ab:cd:ef:02
+    hostname: unbound
+    mac_address: "d0:ca:ab:cd:ef:02"
     ports:
       - 53/tcp
       - 53/udp
     networks:
       home:
-        ipv4_address: 192.168.100.6
+        ipv4_address: 192.168.100.202
     restart: always
 
 networks:
   home:
     driver: macvlan
     driver_opts:
-      parent: ovs_eth1
+      parent: wlan0
     ipam:
       config:
         - subnet: 192.168.100.0/24
           gateway: 192.168.100.1
-          ip_range: 192.168.100.5/30 # 192.168.100.5 and 192.168.100.6
+          ip_range: 192.168.100.201/30
