@@ -34,11 +34,6 @@
 			],
 			"env": [
 				{
-					"default": "192.168.0.x",
-					"label": "ServerIP",
-					"name": "ServerIP"
-				},
-				{
 					"default": "monolith",
 					"label": "HOSTNAME",
 					"name": "HOSTNAME"
@@ -49,12 +44,6 @@
 					"name": "DOMAIN_NAME"
 				},
 				{
-					"default": "8000",
-					"label": "WEB_PORT",
-					"name": "WEB_PORT",
-					"preset": true
-				},
-				{
 					"default": "admin",
 					"label": "WEBPASSWORD",
 					"name": "WEBPASSWORD"
@@ -63,42 +52,15 @@
 					"default": "Europe\\London",
 					"label": "TZ",
 					"name": "TZ"
-				},
-				{
-					"default": "false",
-					"label": "DNSSEC",
-					"name": "DNSSEC",
-					"preset": true
-				},
-				{
-					"default": "127.0.0.1#5335",
-					"label": "DNS1",
-					"name": "DNS1",
-					"preset": true
-				},
-				{
-					"default": "127.0.0.1#5335",
-					"label": "DNS2",
-					"name": "DNS2",
-					"preset": true
 				}
 			],
-			"image": "cbcrowe/pihole-unbound:latest",
 			"name": "pihole",
-			"network": "host",
 			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/portainer/Files/AppData/Config/PiHole-Unbound",
-					"container": "/etc/pihole"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config/PiHole-Unbound/DNS",
-					"container": "/etc/dnsmasq.d"
-				}
-			]
+			"repository": {
+				"url": "https://github.com/univrs-cloud/portainer/",
+				"stackfile": "stack/pihole.yaml"
+			},
+			"type": 3
 		},
 		{
 			"title": "WireGuard Server",
@@ -146,7 +108,7 @@
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/portainer/",
-				"stackfile": "stack/wireguard-easy.yml"
+				"stackfile": "stack/wireguard-easy.yaml"
 			},
 			"type": 3
 		},
