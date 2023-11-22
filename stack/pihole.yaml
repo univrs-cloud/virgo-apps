@@ -10,7 +10,7 @@ services:
       - 443:443/tcp
       - 53:53/tcp
       - 53:53/udp
-      - ${PIHOLE_WEBPORT:-8000}:80/tcp #Allows use of different port to access pihole web interface when other docker containers use port 80
+      - ${WEBPORT:-8000}:80/tcp #Allows use of different port to access pihole web interface when other docker containers use port 80
     environment:
       - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
       - TZ=${TZ:-UTC}
