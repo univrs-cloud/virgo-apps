@@ -27,8 +27,8 @@ services:
       - DHCP_END=192.168.100.250
       - PIHOLE_DNS_=192.168.100.202
     volumes:
-      - /portainer/Files/AppData/Config/pihole:/etc/pihole:rw
-      - /portainer/Files/AppData/Config/pihole/dnsmasq.d:/etc/dnsmasq.d:rw
+      - /portainer/Files/AppData/Config/pihole:/etc/pihole
+      - /portainer/Files/AppData/Config/pihole/dnsmasq.d:/etc/dnsmasq.d
     networks:
       home:
         ipv4_address: 192.168.100.201
