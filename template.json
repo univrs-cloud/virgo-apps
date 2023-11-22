@@ -50,6 +50,12 @@
 					"name": "DOMAIN_NAME"
 				},
 				{
+					"default": "8000",
+					"label": "WEB_PORT",
+					"name": "WEB_PORT",
+					"preset": true
+				},
+				{
 					"default": "admin",
 					"label": "WEBPASSWORD",
 					"name": "WEBPASSWORD"
@@ -60,19 +66,10 @@
 					"name": "TZ"
 				},
 				{
+					"default": "false",
 					"label": "DNSSEC",
 					"name": "DNSSEC",
-					"select": [
-						{
-							"text": "Enable DNSSEC",
-							"value": "true"
-						},
-						{
-							"default": true,
-							"text": "Disable DNSSEC",
-							"value": "false"
-						}
-					]
+					"preset": true
 				},
 				{
 					"default": "127.0.0.1#5335",
@@ -88,14 +85,9 @@
 				}
 			],
 			"image": "cbcrowe/pihole-unbound:latest",
-			"name": "pihole-unbound",
+			"name": "pihole",
+			"network": "host",
 			"platform": "linux",
-			"ports": [
-				"53:53/tcp",
-				"53:53/udp",
-				"8000:80/tcp",
-				"4443:443/tcp"
-			],
 			"restart_policy": "unless-stopped",
 			"type": 1,
 			"volumes": [
