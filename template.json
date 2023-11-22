@@ -35,8 +35,8 @@
 			"env": [
 				{
 					"default": "192.168.0.x",
-					"label": "FTLCONF_LOCAL_IPV4",
-					"name": "FTLCONF_LOCAL_IPV4"
+					"label": "ServerIP",
+					"name": "ServerIP"
 				},
 				{
 					"default": "monolith",
