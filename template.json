@@ -44,6 +44,11 @@
 					"name": "DOMAIN_NAME"
 				},
 				{
+					"default": "192.168.0.x",
+					"label": "FTLCONF_LOCAL_IPV4",
+					"name": "FTLCONF_LOCAL_IPV4"
+				},
+				{
 					"default": "admin",
 					"label": "WEBPASSWORD",
 					"name": "WEBPASSWORD"
