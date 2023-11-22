@@ -1,58 +1,25 @@
-version: "2"
+version: "3.0"
 
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:latest
+    image: cbcrowe/pihole-unbound:latest
     hostname: ${HOSTNAME}
     domainname: ${DOMAIN_NAME}
-    mac_address: "d0:ca:ab:cd:ef:01"
-    cap_add:
-      - NET_ADMIN
     ports:
-      - 443/tcp
-      - 53/tcp
-      - 53/udp
-      - 67/udp
-      - 80/tcp
-      - 22/tcp
+      - 443:443/tcp
+      - 53:53/tcp
+      - 53:53/udp
+      - ${PIHOLE_WEBPORT:-8000}:80/tcp #Allows use of different port to access pihole web interface when other docker containers use port 80
     environment:
-      - FTLCONF_LOCAL_IPV4=192.168.100.201
-      - VIRTUAL_HOST=${HOSTNAME}
-      - PIHOLE_DOMAIN=${DOMAIN_NAME}
-      - WEB_PORT=8080
+      - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
+      - TZ=${TZ:-UTC}
       - WEBPASSWORD=${WEBPASSWORD}
-      - DHCP_ACTIVE=true
-      - DHCP_START=192.168.100.100
-      - DHCP_END=192.168.100.250
-      - PIHOLE_DNS_=192.168.100.202
+      - PIHOLE_DNS_=127.0.0.1#5335
+      - DNSSEC=false
+      - DNSMASQ_LISTENING=single
     volumes:
       - /portainer/Files/AppData/Config/pihole:/etc/pihole
       - /portainer/Files/AppData/Config/pihole/dnsmasq.d:/etc/dnsmasq.d
-    networks:
-      home:
-        ipv4_address: 192.168.100.201
-    restart: always
-  unbound:
-    container_name: unbound
-    image: mvance/unbound:latest
-    hostname: unbound
-    mac_address: "d0:ca:ab:cd:ef:02"
-    ports:
-      - 53/tcp
-      - 53/udp
-    networks:
-      home:
-        ipv4_address: 192.168.100.202
-    restart: always
-
-networks:
-  home:
-    driver: macvlan
-    driver_opts:
-      parent: wlan0
-    ipam:
-      config:
-        - subnet: 192.168.100.0/24
-          gateway: 192.168.100.1
-          ip_range: 192.168.100.201/30
+    restart: unless-stopped
+    
