@@ -18,11 +18,18 @@ services:
       - 22/tcp
     environment:
       - FTLCONF_LOCAL_IPV4=192.168.100.201
+      - VIRTUAL_HOST=${HOSTNAME}
+      - PIHOLE_DOMAIN=${DOMAIN_NAME}
+      - WEB_PORT=8080
       - WEBPASSWORD=${WEBPASSWORD}
+      - DHCP_ACTIVE=true
+      - DHCP_START=192.168.100.100
+      - DHCP_END=192.168.100.250
       - PIHOLE_DNS_=192.168.100.202
     volumes:
       - /portainer/Files/AppData/Config/pihole:/etc/pihole
-      - /portainer/Files/AppData/Config/pihole/dns:/etc/dnsmasq.d
+      - /portainer/Files/AppData/Config/pihole/dnsmasq.d:/etc/dnsmasq.d
+      - /portainer/Files/AppData/Config/pihole/resolv.conf:/etc/resolv.conf
     networks:
       home:
         ipv4_address: 192.168.100.201
