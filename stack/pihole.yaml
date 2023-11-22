@@ -20,8 +20,8 @@ services:
       - WEBPASSWORD=${WEBPASSWORD}
       - PIHOLE_DNS_=192.168.100.202
     volumes:
-      - /portainer/Files/AppData/Config/pihole:/etc/pihole:rw
-      - /portainer/Files/AppData/Config/pihole/dns:/etc/dnsmasq.d:ro
+      - /portainer/Files/AppData/Config/pihole:/etc/pihole
+      - /portainer/Files/AppData/Config/pihole/dns:/etc/dnsmasq.d
     networks:
       home:
         ipv4_address: 192.168.100.201
