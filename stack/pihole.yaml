@@ -22,4 +22,5 @@ services:
       - /portainer/Files/AppData/Config/pihole:/etc/pihole
       - /portainer/Files/AppData/Config/pihole/dnsmasq.d:/etc/dnsmasq.d
     restart: unless-stopped
-    
+    cap_add:
+      - NET_ADMIN
