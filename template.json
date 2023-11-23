@@ -35,8 +35,8 @@
 			"env": [
 				{
 					"default": "monolith",
-					"label": "HOSTNAME",
-					"name": "HOSTNAME"
+					"label": "VIRTUAL_HOST",
+					"name": "VIRTUAL_HOST"
 				},
 				{
 					"default": "univrs",
@@ -44,12 +44,32 @@
 					"name": "DOMAIN_NAME"
 				},
 				{
-					"default": "192.168.0.x",
+					"default": "192.168.0.2",
 					"label": "FTLCONF_LOCAL_IPV4",
 					"name": "FTLCONF_LOCAL_IPV4"
 				},
 				{
-					"default": "admin",
+					"default": "true",
+					"label": "DHCP_ACTIVE",
+					"name": "DHCP_ACTIVE"
+				},
+				{
+					"default": "192.168.0.100",
+					"label": "DHCP_START",
+					"name": "DHCP_START"
+				},
+				{
+					"default": "192.168.0.250",
+					"label": "DHCP_END",
+					"name": "DHCP_END"
+				},
+				{
+					"default": "192.168.0.1",
+					"label": "DHCP_ROUTER",
+					"name": "DHCP_ROUTER"
+				},
+				{
+					"default": "pa$$word",
 					"label": "WEBPASSWORD",
 					"name": "WEBPASSWORD"
 				},
