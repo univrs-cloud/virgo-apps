@@ -1,32 +1,30 @@
 version: "3"
-
 services:
   pihole:
-    container_name: pihole
     image: cbcrowe/pihole-unbound:latest
-    hostname: monolith
+    container_name: pihole
+    environment:
+      - TZ=${TZ}
+      - WEBPASSWORD=${WEBPASSWORD}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
+      - DNSMASQ_LISTENING=all
+      - PIHOLE_DOMAIN=${DOMAIN_NAME}
+      - PIHOLE_DNS_=127.0.0.1#5335;127.0.0.1#5335
+      - DHCP_ACTIVE=${DHCP_ACTIVE}
+      - DHCP_START=${DHCP_START}
+      - DHCP_END=${DHCP_END}
+      - DHCP_ROUTER=${DHCP_ROUTER}
+      - DHCP_rapid_commit=true
+    volumes:
+      - /portainer/etc-pihole/:/etc/pihole/
+      - /portainer/etc-dnsmasq.d/:/etc/dnsmasq.d/
     ports:
       - "53:53/tcp"
       - "53:53/udp"
       - "80:80/tcp"
       - "443:443/tcp"
       - "8000:80/tcp"
-    environment:
-      VIRTUAL_HOST: monolith
-      FTLCONF_LOCAL_IPV4: 192.168.100.201
-      TZ: "Europe/Bucharest"
-      WEBPASSWORD: "9000"
-      DNSMASQ_LISTENING: all
-      PIHOLE_DOMAIN: univrs
-      PIHOLE_DNS_: 127.0.0.1#5335;127.0.0.1#5335
-      DHCP_ACTIVE: true
-      DHCP_START: 192.168.100.241
-      DHCP_END: 192.168.100.250
-      DHCP_ROUTER: 192.168.100.1
-      DHCP_rapid_commit: true
-    volumes:
-      - /portainer/etc-pihole/:/etc/pihole/
-      - /portainer/etc-dnsmasq.d/:/etc/dnsmasq.d/
     depends_on:
       - dhcphelper
     cap_add:
