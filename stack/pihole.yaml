@@ -1,26 +1,57 @@
-version: "3.0"
+version: "3"
 
 services:
   pihole:
     container_name: pihole
     image: cbcrowe/pihole-unbound:latest
-    hostname: ${HOSTNAME}
-    domainname: ${DOMAIN_NAME}
+    hostname: monolith
     ports:
-      - 443:443/tcp
-      - 53:53/tcp
-      - 53:53/udp
-      - ${WEBPORT:-8000}:80/tcp #Allows use of different port to access pihole web interface when other docker containers use port 80
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+      - "8000:80/tcp"
     environment:
-      - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
-      - TZ=${TZ:-UTC}
-      - WEBPASSWORD=${WEBPASSWORD}
-      - PIHOLE_DNS_=127.0.0.1#5335
-      - DNSSEC=false
-      - DNSMASQ_LISTENING=single
+      VIRTUAL_HOST: monolith
+      FTLCONF_LOCAL_IPV4: 192.168.100.201
+      TZ: "Europe/Bucharest"
+      WEBPASSWORD: "9000"
+      DNSMASQ_LISTENING: all
+      PIHOLE_DOMAIN: univrs
+      PIHOLE_DNS_: 127.0.0.1#5335;127.0.0.1#5335
+      DHCP_ACTIVE: true
+      DHCP_START: 192.168.100.241
+      DHCP_END: 192.168.100.250
+      DHCP_ROUTER: 192.168.100.1
+      DHCP_rapid_commit: true
     volumes:
-      - /portainer/Files/AppData/Config/pihole:/etc/pihole
-      - /portainer/Files/AppData/Config/pihole/dnsmasq.d:/etc/dnsmasq.d
-    restart: unless-stopped
+      - /portainer/etc-pihole/:/etc/pihole/
+      - /portainer/etc-dnsmasq.d/:/etc/dnsmasq.d/
+    depends_on:
+      - dhcphelper
     cap_add:
       - NET_ADMIN
+    dns:
+      - 127.0.0.1
+    networks:
+      app_net:
+        ipv4_address: 172.26.0.2
+    restart: unless-stopped
+
+  dhcphelper:
+    container_name: dhcphelper
+    image: homeall/dhcphelper:latest
+    network_mode: "host"
+    environment:
+      IP: 172.26.0.2
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.26.0.0/16
+          gateway: 172.26.0.1
