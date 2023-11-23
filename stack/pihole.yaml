@@ -17,8 +17,8 @@ services:
       - DHCP_ROUTER=${DHCP_ROUTER}
       - DHCP_rapid_commit=true
     volumes:
-      - /portainer/etc-pihole/:/etc/pihole/
-      - /portainer/etc-dnsmasq.d/:/etc/dnsmasq.d/
+      - /portainer/Files/AppData/Config/pihole/:/etc/pihole/
+      - /portainer/Files/AppData/Config/pihole-dnsmasq.d/:/etc/dnsmasq.d/
     ports:
       - "53:53/tcp"
       - "53:53/udp"
