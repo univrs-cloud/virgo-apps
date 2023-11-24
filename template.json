@@ -34,7 +34,7 @@
 			],
 			"env": [
 				{
-					"default": "monolith",
+					"default": "pihole",
 					"label": "VIRTUAL_HOST",
 					"name": "VIRTUAL_HOST"
 				},
@@ -147,14 +147,12 @@
 			],
 			"env": [
 				{
-					"description": "Host",
 					"default": "192.168.0.100",
 					"label": "SSHHOST",
 					"name": "SSHHOST"
 				},
 				{
-					"description": "User",
-					"default": "dave",
+					"default": "explorer",
 					"label": "SSHUSER",
 					"name": "SSHUSER"
 				}
