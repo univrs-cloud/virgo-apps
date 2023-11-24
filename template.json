@@ -183,6 +183,12 @@
 					"default": "100",
 					"label": "PGID",
 					"name": "PGID"
+				},
+				{
+					"default": "6080",
+					"label": "WEBUI_PORT",
+					"name": "WEBUI_PORT",
+					"preset": true
 				}
 			],
 			"image": "lscr.io/linuxserver/qbittorrent:latest",
@@ -191,7 +197,7 @@
 			"ports": [
 				"6881:6881/tcp",
 				"6881:6881/udp",
-				"8080:8080/tcp"
+				"6080:6080/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"type": 1,
