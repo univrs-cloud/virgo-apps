@@ -28,6 +28,7 @@ services:
 
 networks:
   app_net:
+    name: app_net
     driver: default
     ipam:
       config:
