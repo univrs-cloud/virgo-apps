@@ -20,8 +20,8 @@ services:
       - /portainer/Files/AppData/Config/pihole/:/etc/pihole/
       - /portainer/Files/AppData/Config/pihole-dnsmasq.d/:/etc/dnsmasq.d/
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
+      - "${FTLCONF_LOCAL_IPV4}:53:53/udp"
       - "443:443/tcp"
       - "8080:80/tcp"
     depends_on:
@@ -38,7 +38,7 @@ services:
   dhcphelper:
     container_name: dhcphelper
     image: homeall/dhcphelper:latest
-    network_mode: "host"
+    network_mode: host
     environment:
       IP: 172.30.0.2
     cap_add:
