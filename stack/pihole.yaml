@@ -32,7 +32,7 @@ services:
       - 127.0.0.1
     networks:
       app_net:
-        ipv4_address: 172.26.0.2
+        ipv4_address: 172.30.0.2
     restart: unless-stopped
 
   dhcphelper:
@@ -40,7 +40,7 @@ services:
     image: homeall/dhcphelper:latest
     network_mode: "host"
     environment:
-      IP: 172.26.0.2
+      IP: 172.30.0.2
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
@@ -50,5 +50,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.26.0.0/16
-          gateway: 172.26.0.1
+        - subnet: 172.30.0.0/16
+          gateway: 172.30.0.1
