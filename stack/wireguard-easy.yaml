@@ -15,16 +15,18 @@ services:
     ports:
       - "${WG_PORT}:51820/udp"
       - "51821:51821/tcp"
+    dns:
+      - 172.30.0.1
     networks:
       app_net:
         ipv4_address: 172.30.0.3
-    restart: unless-stopped
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped
 
 networks:
   app_net:
