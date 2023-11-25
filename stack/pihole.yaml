@@ -26,13 +26,13 @@ services:
       - "8080:80/tcp"
     depends_on:
       - dhcphelper
-    cap_add:
-      - NET_ADMIN
     dns:
       - 127.0.0.1
     networks:
       app_net:
         ipv4_address: 172.30.0.2
+    cap_add:
+      - NET_ADMIN
     restart: unless-stopped
 
   dhcphelper:
