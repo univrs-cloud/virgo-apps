@@ -48,7 +48,7 @@ services:
 networks:
   app_net:
     name: app_net
-    driver: default
+    driver: bridge
     ipam:
       config:
         - subnet: 172.30.0.0/16
