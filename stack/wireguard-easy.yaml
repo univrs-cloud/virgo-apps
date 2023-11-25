@@ -1,6 +1,8 @@
 version: "3.8"
 services:
   wg-easy:
+    image: weejewel/wg-easy
+    container_name: wg-easy
     environment:
       - PASSWORD=${PASSWORD}
       - WG_HOST=${WG_HOST}
@@ -8,8 +10,6 @@ services:
       - WG_DEFAULT_ADDRESS=${WG_DEFAULT_ADDRESS}
       - WG_DEFAULT_DNS=${WG_DEFAULT_DNS}
       - WG_ALLOWED_IPS=${WG_ALLOWED_IPS}
-    image: weejewel/wg-easy
-    container_name: wg-easy
     volumes:
       - /portainer/Files/AppData/Config/wireguard:/etc/wireguard
     ports:
