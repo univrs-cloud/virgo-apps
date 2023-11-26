@@ -22,7 +22,6 @@ services:
     ports:
       - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
       - "${FTLCONF_LOCAL_IPV4}:53:53/udp"
-      - "443:443/tcp"
       - "8080:80/tcp"
     depends_on:
       - dhcphelper
