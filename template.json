@@ -13,7 +13,7 @@
 			"name": "homarr",
 			"platform": "linux",
 			"ports": [
-				"80:7575/tcp"
+				"7575:7575/tcp"
 			],
 			"restart_policy": "unless-stopped",
 			"type": 1,
