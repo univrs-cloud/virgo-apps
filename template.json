@@ -9,6 +9,14 @@
 				"Other",
 				"Tools"
 			],
+			"env": [
+				{
+					"default": "true",
+					"label": "DISABLE_IPV6",
+					"name": "DISABLE_IPV6",
+					"preset":true
+				}
+			],
 			"image":"jc21/nginx-proxy-manager:latest",
 			"name":"nginx-proxy-manager",
 			"plarform":"linux",
