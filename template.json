@@ -1,226 +1,255 @@
 {
-	"version": "2",
-	"templates": [
+	"version":"2",
+	"templates":[
 		{
-			"title": "Homarr",
-			"description": "A simple, yet powerful dashboard for your server.",
-			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homarr.png",
-			"categories": [
+			"title":"Nginx Proxy Manager",
+			"description":"Expose your services easily and securely.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nginx-proxy-manager.png",
+			"categories":[
 				"Other",
 				"Tools"
 			],
-			"image": "ghcr.io/ajnart/homarr:latest",
-			"name": "homarr",
-			"platform": "linux",
-			"ports": [
-				"7575:7575/tcp"
+			"image":"jc21/nginx-proxy-manager:latest",
+			"name":"nginx-proxy-manager",
+			"plarform":"linux",
+			"ports":[
+				"80:80/tcp",
+				"81:81/tcp",
+				"443:443/tcp"
 			],
-			"restart_policy": "unless-stopped",
-			"type": 1,
-			"volumes": [
+			"restart_policy":"unless-stopped",
+			"type":1,
+			"volumes":[
 				{
-					"bind": "/var/run/docker.sock",
-					"container": "/var/run/docker.sock"
+					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/data",
+					"container":"/data"
 				},
 				{
-					"bind": "/portainer/Files/AppData/Config/homarr/configs",
-					"container": "/app/data/configs"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config/homarr/data",
-					"container": "/data"
-				},
-				{
-					"bind": "/portainer/Files/AppData/Config/homarr/icons",
-					"container": "/app/public/icons"
+					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/letsencrypt",
+					"container":"/etc/letsencrypt"
 				}
 			]
 		},
 		{
-			"title": "Pi-Hole + Unbound",
-			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/pihole.png",
-			"categories": [
+			"title":"Homarr",
+			"description":"A simple, yet powerful dashboard for your server.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homarr.png",
+			"categories":[
 				"Other",
 				"Tools"
 			],
-			"env": [
-				{
-					"default": "pihole",
-					"label": "VIRTUAL_HOST",
-					"name": "VIRTUAL_HOST"
-				},
-				{
-					"default": "univrs",
-					"label": "DOMAIN_NAME",
-					"name": "DOMAIN_NAME"
-				},
-				{
-					"default": "192.168.0.2",
-					"label": "FTLCONF_LOCAL_IPV4",
-					"name": "FTLCONF_LOCAL_IPV4"
-				},
-				{
-					"default": "true",
-					"label": "DHCP_ACTIVE",
-					"name": "DHCP_ACTIVE"
-				},
-				{
-					"default": "192.168.0.100",
-					"label": "DHCP_START",
-					"name": "DHCP_START"
-				},
-				{
-					"default": "192.168.0.250",
-					"label": "DHCP_END",
-					"name": "DHCP_END"
-				},
-				{
-					"default": "192.168.0.1",
-					"label": "DHCP_ROUTER",
-					"name": "DHCP_ROUTER"
-				},
-				{
-					"default": "pa$$word",
-					"label": "WEBPASSWORD",
-					"name": "WEBPASSWORD"
-				},
-				{
-					"default": "Europe\\London",
-					"label": "TZ",
-					"name": "TZ"
-				}
+			"image":"ghcr.io/ajnart/homarr:latest",
+			"name":"homarr",
+			"platform":"linux",
+			"ports":[
+				"7575:7575/tcp"
 			],
-			"name": "pihole",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/portainer/",
-				"stackfile": "stack/pihole.yaml"
-			},
-			"type": 3
+			"restart_policy":"unless-stopped",
+			"type":1,
+			"volumes":[
+				{
+					"bind":"/var/run/docker.sock",
+					"container":"/var/run/docker.sock"
+				},
+				{
+					"bind":"/portainer/Files/AppData/Config/homarr/configs",
+					"container":"/app/data/configs"
+				},
+				{
+					"bind":"/portainer/Files/AppData/Config/homarr/data",
+					"container":"/data"
+				},
+				{
+					"bind":"/portainer/Files/AppData/Config/homarr/icons",
+					"container":"/app/public/icons"
+				}
+			]
 		},
 		{
-			"title": "WireGuard Server",
-			"description": "An extremely simple yet fast and modern VPN.",
-			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
-			"categories": [
+			"title":"Pi-Hole + Unbound",
+			"description":"A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/pihole.png",
+			"categories":[
+				"Other",
+				"Tools"
+			],
+			"env":[
+				{
+					"default":"pihole",
+					"label":"VIRTUAL_HOST",
+					"name":"VIRTUAL_HOST"
+				},
+				{
+					"default":"univrs",
+					"label":"DOMAIN_NAME",
+					"name":"DOMAIN_NAME"
+				},
+				{
+					"default":"192.168.0.2",
+					"label":"FTLCONF_LOCAL_IPV4",
+					"name":"FTLCONF_LOCAL_IPV4"
+				},
+				{
+					"default":"true",
+					"label":"DHCP_ACTIVE",
+					"name":"DHCP_ACTIVE"
+				},
+				{
+					"default":"192.168.0.100",
+					"label":"DHCP_START",
+					"name":"DHCP_START"
+				},
+				{
+					"default":"192.168.0.250",
+					"label":"DHCP_END",
+					"name":"DHCP_END"
+				},
+				{
+					"default":"192.168.0.1",
+					"label":"DHCP_ROUTER",
+					"name":"DHCP_ROUTER"
+				},
+				{
+					"default":"pa$$word",
+					"label":"WEBPASSWORD",
+					"name":"WEBPASSWORD"
+				},
+				{
+					"default":"Europe\\London",
+					"label":"TZ",
+					"name":"TZ"
+				}
+			],
+			"name":"pihole",
+			"platform":"linux",
+			"repository":{
+				"url":"https://github.com/univrs-cloud/portainer/",
+				"stackfile":"stack/pihole.yaml"
+			},
+			"type":3
+		},
+		{
+			"title":"WireGuard Server",
+			"description":"An extremely simple yet fast and modern VPN.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
+			"categories":[
 				"Other",
 				"VPN"
 			],
-			"env": [
+			"env":[
 				{
-					"description": "DDNS domain",
-					"default": "example.domain.com",
-					"label": "WG_HOST",
-					"name": "WG_HOST"
+					"description":"DDNS domain",
+					"default":"example.domain.com",
+					"label":"WG_HOST",
+					"name":"WG_HOST"
 				},
 				{
-					"description": "Leave blank to access WebUI without loggin",
-					"default": "ENTER A PASSWORD",
-					"label": "PASSWORD",
-					"name": "PASSWORD"
+					"description":"Leave blank to access WebUI without loggin",
+					"default":"ENTER A PASSWORD",
+					"label":"PASSWORD",
+					"name":"PASSWORD"
 				},
 				{
-					"default": "51820",
-					"label": "WG_PORT",
-					"name": "WG_PORT"
+					"default":"51820",
+					"label":"WG_PORT",
+					"name":"WG_PORT"
 				},
 				{
-					"default": "1.1.1.1",
-					"label": "WG_DEFAULT_DNS",
-					"name": "WG_DEFAULT_DNS"
+					"default":"1.1.1.1",
+					"label":"WG_DEFAULT_DNS",
+					"name":"WG_DEFAULT_DNS"
 				},
 				{
-					"default": "10.6.0.x",
-					"label": "WG_DEFAULT_ADDRESS",
-					"name": "WG_DEFAULT_ADDRESS"
+					"default":"10.6.0.x",
+					"label":"WG_DEFAULT_ADDRESS",
+					"name":"WG_DEFAULT_ADDRESS"
 				},
 				{
-					"default": "0.0.0.0/0, ::/0",
-					"label": "WG_ALLOWED_IPS",
-					"name": "WG_ALLOWED_IPS"
+					"default":"0.0.0.0/0, ::/0",
+					"label":"WG_ALLOWED_IPS",
+					"name":"WG_ALLOWED_IPS"
 				}
 			],
-			"name": "wg-easy",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/portainer/",
-				"stackfile": "stack/wireguard-easy.yaml"
+			"name":"wg-easy",
+			"platform":"linux",
+			"repository":{
+				"url":"https://github.com/univrs-cloud/portainer/",
+				"stackfile":"stack/wireguard-easy.yaml"
 			},
-			"type": 3
+			"type":3
 		},
 		{
-			"title": "WeTTY",
-			"description": "Terminal over HTTP and https.",
-			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/terminal.png",
-			"categories": [
+			"title":"WeTTY",
+			"description":"Terminal over HTTP and https.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/terminal.png",
+			"categories":[
 				"Other",
 				"Tools"
 			],
-			"env": [
+			"env":[
 				{
-					"default": "192.168.0.100",
-					"label": "SSHHOST",
-					"name": "SSHHOST"
+					"default":"192.168.0.100",
+					"label":"SSHHOST",
+					"name":"SSHHOST"
 				},
 				{
-					"default": "explorer",
-					"label": "SSHUSER",
-					"name": "SSHUSER"
+					"default":"explorer",
+					"label":"SSHUSER",
+					"name":"SSHUSER"
 				}
 			],
-			"image": "wettyoss/wetty:latest",
-			"name": "wetty",
-			"platform": "linux",
-			"ports": [
+			"image":"wettyoss/wetty:latest",
+			"name":"wetty",
+			"platform":"linux",
+			"ports":[
 				"2222:3000/tcp"
 			],
-			"restart_policy": "unless-stopped",
-			"type": 1
+			"restart_policy":"unless-stopped",
+			"type":1
 		},
 		{
-			"title": "qBittorrent",
-			"description": "The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
-			"logo": "https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
-			"categories": [
+			"title":"qBittorrent",
+			"description":"The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
+			"categories":[
 				"Downloaders"
 			],
-			"env": [
+			"env":[
 				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
+					"default":"1000",
+					"label":"PUID",
+					"name":"PUID"
 				},
 				{
-					"default": "100",
-					"label": "PGID",
-					"name": "PGID"
+					"default":"100",
+					"label":"PGID",
+					"name":"PGID"
 				},
 				{
-					"default": "6080",
-					"label": "WEBUI_PORT",
-					"name": "WEBUI_PORT",
-					"preset": true
+					"default":"6080",
+					"label":"WEBUI_PORT",
+					"name":"WEBUI_PORT",
+					"preset":true
 				}
 			],
-			"image": "lscr.io/linuxserver/qbittorrent:latest",
-			"name": "qbittorrent",
-			"platform": "linux",
-			"ports": [
+			"image":"lscr.io/linuxserver/qbittorrent:latest",
+			"name":"qbittorrent",
+			"platform":"linux",
+			"ports":[
 				"6881:6881/tcp",
 				"6881:6881/udp",
 				"6080:6080/tcp"
 			],
-			"restart_policy": "unless-stopped",
-			"type": 1,
-			"volumes": [
+			"restart_policy":"unless-stopped",
+			"type":1,
+			"volumes":[
 				{
-					"bind": "/portainer/Files/AppData/Config/qBittorrent",
-					"container": "/config"
+					"bind":"/portainer/Files/AppData/Config/qbittorrent",
+					"container":"/config"
 				},
 				{
-					"bind": "/downloads",
-					"container": "/downloads"
+					"bind":"/downloads",
+					"container":"/downloads"
 				}
 			]
 		}
