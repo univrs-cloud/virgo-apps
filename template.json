@@ -9,11 +9,11 @@
 				"Other",
 				"Tools"
 			],
-			"env": [
+			"env":[
 				{
-					"default": "true",
-					"label": "DISABLE_IPV6",
-					"name": "DISABLE_IPV6",
+					"label":"DISABLE_IPV6",
+					"name":"DISABLE_IPV6",
+					"default":"true",
 					"preset":true
 				}
 			],
@@ -83,49 +83,44 @@
 			],
 			"env":[
 				{
-					"default":"pihole",
-					"label":"VIRTUAL_HOST",
-					"name":"VIRTUAL_HOST"
-				},
-				{
-					"default":"univrs",
 					"label":"DOMAIN_NAME",
-					"name":"DOMAIN_NAME"
+					"name":"DOMAIN_NAME",
+					"default":"univrs"
 				},
 				{
-					"default":"192.168.0.2",
 					"label":"FTLCONF_LOCAL_IPV4",
-					"name":"FTLCONF_LOCAL_IPV4"
+					"name":"FTLCONF_LOCAL_IPV4",
+					"default":"192.168.0.2"
 				},
 				{
-					"default":"true",
 					"label":"DHCP_ACTIVE",
-					"name":"DHCP_ACTIVE"
+					"name":"DHCP_ACTIVE",
+					"default":"true"
 				},
 				{
-					"default":"192.168.0.100",
 					"label":"DHCP_START",
-					"name":"DHCP_START"
+					"name":"DHCP_START",
+					"default":"192.168.0.100"
 				},
 				{
-					"default":"192.168.0.250",
 					"label":"DHCP_END",
-					"name":"DHCP_END"
+					"name":"DHCP_END",
+					"default":"192.168.0.250"
 				},
 				{
-					"default":"192.168.0.1",
 					"label":"DHCP_ROUTER",
-					"name":"DHCP_ROUTER"
+					"name":"DHCP_ROUTER",
+					"default":"192.168.0.1"
 				},
 				{
-					"default":"pa$$word",
 					"label":"WEBPASSWORD",
-					"name":"WEBPASSWORD"
+					"name":"WEBPASSWORD",
+					"default":"pa$$word"
 				},
 				{
-					"default":"Europe\\London",
 					"label":"TZ",
-					"name":"TZ"
+					"name":"TZ",
+					"default":"Europe\\London"
 				}
 			],
 			"name":"pihole",
@@ -147,35 +142,35 @@
 			"env":[
 				{
 					"description":"DDNS domain",
-					"default":"example.domain.com",
 					"label":"WG_HOST",
-					"name":"WG_HOST"
+					"name":"WG_HOST",
+					"default":"example.domain.com"
 				},
 				{
 					"description":"Leave blank to access WebUI without loggin",
-					"default":"ENTER A PASSWORD",
 					"label":"PASSWORD",
-					"name":"PASSWORD"
+					"name":"PASSWORD",
+					"default":"ENTER A PASSWORD"
 				},
 				{
-					"default":"51820",
 					"label":"WG_PORT",
-					"name":"WG_PORT"
+					"name":"WG_PORT",
+					"default":"51820"
 				},
 				{
-					"default":"1.1.1.1",
 					"label":"WG_DEFAULT_DNS",
-					"name":"WG_DEFAULT_DNS"
+					"name":"WG_DEFAULT_DNS",
+					"default":"1.1.1.1"
 				},
 				{
-					"default":"10.6.0.x",
 					"label":"WG_DEFAULT_ADDRESS",
-					"name":"WG_DEFAULT_ADDRESS"
+					"name":"WG_DEFAULT_ADDRESS",
+					"default":"10.6.0.x"
 				},
 				{
-					"default":"0.0.0.0/0, ::/0",
 					"label":"WG_ALLOWED_IPS",
-					"name":"WG_ALLOWED_IPS"
+					"name":"WG_ALLOWED_IPS",
+					"default":"0.0.0.0/0"
 				}
 			],
 			"name":"wg-easy",
@@ -196,14 +191,14 @@
 			],
 			"env":[
 				{
-					"default":"192.168.0.100",
 					"label":"SSHHOST",
-					"name":"SSHHOST"
+					"name":"SSHHOST",
+					"default":"192.168.0.2"
 				},
 				{
-					"default":"explorer",
 					"label":"SSHUSER",
-					"name":"SSHUSER"
+					"name":"SSHUSER",
+					"default":"voyager"
 				}
 			],
 			"image":"wettyoss/wetty:latest",
@@ -224,19 +219,19 @@
 			],
 			"env":[
 				{
-					"default":"1000",
 					"label":"PUID",
-					"name":"PUID"
+					"name":"PUID",
+					"default":"1000"
 				},
 				{
-					"default":"100",
 					"label":"PGID",
-					"name":"PGID"
+					"name":"PGID",
+					"default":"100"
 				},
 				{
-					"default":"6080",
 					"label":"WEBUI_PORT",
 					"name":"WEBUI_PORT",
+					"default":"6080",
 					"preset":true
 				}
 			],
@@ -244,9 +239,9 @@
 			"name":"qbittorrent",
 			"platform":"linux",
 			"ports":[
+				"6080:6080/tcp",
 				"6881:6881/tcp",
-				"6881:6881/udp",
-				"6080:6080/tcp"
+				"6881:6881/udp"
 			],
 			"restart_policy":"unless-stopped",
 			"type":1,
