@@ -18,6 +18,7 @@ services:
       - DHCP_rapid_commit=true
     volumes:
       - /portainer/Files/AppData/Config/pihole/:/etc/pihole/
+      - /portainer/Files/AppData/Config/pihole-logs/:/var/log/
       - /portainer/Files/AppData/Config/pihole-dnsmasq.d/:/etc/dnsmasq.d/
     ports:
       - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
