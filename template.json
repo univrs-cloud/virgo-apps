@@ -255,6 +255,56 @@
 					"container":"/downloads"
 				}
 			]
+		},
+		{
+			"title":"NextCloud",
+			"description":"Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"note":"The database user is nextcloud and the database is nextcloud_db. The host of the database will be nextcloud_db.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
+			"categories":[
+				"Cloud",
+				"Productivity",
+				"Tools",
+				"Other",
+				"Web"
+			],
+			"env":[
+				{
+					"default":"1000",
+					"label":"PUID",
+					"name":"PUID"
+				},
+				{
+					"default":"100",
+					"label":"PGID",
+					"name":"PGID"
+				},
+				{
+					"label":"DATABASE_PASSWORD",
+					"name":"DATABASE_PASSWORD"
+				},
+				{
+					"label":"MYSQL_ROOT_PASSWORD",
+					"name":"MYSQL_ROOT_PASSWORD"
+				},
+				{
+					"label":"PORT",
+					"name":"PORT",
+					"default":"8443"
+				},
+				{
+					"label":"TZ",
+					"name":"TZ",
+					"default":"Europe\\London"
+				}
+			],
+			"name":"nextcloud",
+			"platform":"linux",
+			"repository":{
+				"url":"https://github.com/univrs-cloud/portainer/",
+				"stackfile":"stack/nextcloud.yaml"
+			},
+			"type":3
 		}
 	]
 }
