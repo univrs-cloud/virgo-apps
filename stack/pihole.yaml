@@ -4,11 +4,9 @@ services:
     image: cbcrowe/pihole-unbound:latest
     container_name: pihole
     environment:
-      - TZ=${TZ}
-      - WEBPASSWORD=${WEBPASSWORD}
-      - VIRTUAL_HOST=${VIRTUAL_HOST}
       - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
       - DNSMASQ_LISTENING=all
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
       - PIHOLE_DOMAIN=${DOMAIN_NAME}
       - PIHOLE_DNS_=127.0.0.1#5335;127.0.0.1#5335
       - DHCP_ACTIVE=${DHCP_ACTIVE}
@@ -16,6 +14,8 @@ services:
       - DHCP_END=${DHCP_END}
       - DHCP_ROUTER=${DHCP_ROUTER}
       - DHCP_rapid_commit=true
+      - WEBPASSWORD=${WEBPASSWORD}
+      - TZ=${TZ}
     volumes:
       - /portainer/Files/AppData/Config/pihole/:/etc/pihole/
       - /portainer/Files/AppData/Config/pihole-logs/pihole:/var/log/pihole
