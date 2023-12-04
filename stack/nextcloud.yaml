@@ -10,7 +10,7 @@ services:
     volumes:
       - /portainer/Files/AppData/Config/nextcloud/config:/config
     ports:
-      - "${PORT}:443/tcp"
+      - "8443:443/tcp"
     depends_on:
       - nextcloud_db
     restart: unless-stopped
