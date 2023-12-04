@@ -221,12 +221,14 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":"1000"
+					"default":"1000",
+					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":"100"
+					"default":"1000",
+					"preset":true
 				},
 				{
 					"label":"WEBUI_PORT",
@@ -259,7 +261,7 @@
 		{
 			"title":"NextCloud",
 			"description":"Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
-			"note":"The database user is nextcloud and the database is nextcloud_db. The host of the database will be nextcloud_db.",
+			"note":"The host of the database is nextcloud_db:3306. The database user is nextcloud and the database is nextcloud.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
 			"categories":[
 				"Cloud",
@@ -270,18 +272,8 @@
 			],
 			"env":[
 				{
-					"default":"1000",
-					"label":"PUID",
-					"name":"PUID"
-				},
-				{
-					"default":"100",
-					"label":"PGID",
-					"name":"PGID"
-				},
-				{
-					"label":"DATABASE_PASSWORD",
-					"name":"DATABASE_PASSWORD"
+					"label":"MYSQL_PASSWORD",
+					"name":"MYSQL_PASSWORD"
 				},
 				{
 					"label":"MYSQL_ROOT_PASSWORD",
