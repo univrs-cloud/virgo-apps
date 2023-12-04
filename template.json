@@ -153,11 +153,6 @@
 					"default":"ENTER A PASSWORD"
 				},
 				{
-					"label":"WG_PORT",
-					"name":"WG_PORT",
-					"default":"51820"
-				},
-				{
 					"label":"WG_DEFAULT_DNS",
 					"name":"WG_DEFAULT_DNS",
 					"default":"1.1.1.1"
@@ -278,11 +273,6 @@
 				{
 					"label":"MYSQL_ROOT_PASSWORD",
 					"name":"MYSQL_ROOT_PASSWORD"
-				},
-				{
-					"label":"PORT",
-					"name":"PORT",
-					"default":"8443"
 				},
 				{
 					"label":"TZ",
