@@ -4,6 +4,8 @@ services:
     image: weejewel/wg-easy:latest
     container_name: wg-easy
     environment:
+      - PUID=1000
+      - PGID=1000
       - PASSWORD=${PASSWORD}
       - WG_HOST=${WG_HOST}
       - WG_PORT=${WG_PORT}
