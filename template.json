@@ -296,7 +296,7 @@
 				{
 					"label":"TZ",
 					"name":"TZ",
-					"default":"Europe\\London"
+					"default":"Europe/London"
 				}
 			],
 			"name":"nextcloud",
