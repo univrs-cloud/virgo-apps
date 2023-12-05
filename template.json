@@ -222,7 +222,7 @@
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":"1000",
+					"default":"100",
 					"preset":true
 				},
 				{
