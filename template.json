@@ -2,7 +2,7 @@
 	"version":"2",
 	"templates":[
 		{
-			"title":"Nginx Proxy Manager",
+			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nginx-proxy-manager.png",
 			"categories":[
@@ -255,7 +255,7 @@
 		},
 		{
 			"title":"NextCloud",
-			"description":"Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"description":"Where are your photos and documents? With NextCloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. NextCloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
 			"note":"The host of the database is nextcloud_db:3306. The database user is nextcloud and the database is nextcloud.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
 			"categories":[
@@ -266,6 +266,25 @@
 				"Web"
 			],
 			"env":[
+				{
+					"label":"NEXTCLOUD_ADMIN_USER",
+					"name":"NEXTCLOUD_ADMIN_USER",
+					"default":"voyager"
+				},
+				{
+					"label":"NEXTCLOUD_ADMIN_PASSWORD",
+					"name":"NEXTCLOUD_ADMIN_PASSWORD",
+					"default":"pa$$word"
+				},
+				{
+					"label":"NEXTCLOUD_TRUSTED_DOMAINS",
+					"name":"NEXTCLOUD_TRUSTED_DOMAINS"
+				},
+				{
+					"label":"NEXTCLOUD_DATA_DIR",
+					"name":"NEXTCLOUD_DATA_DIR",
+					"default":"/nextcloud"
+				},
 				{
 					"label":"MYSQL_PASSWORD",
 					"name":"MYSQL_PASSWORD"
