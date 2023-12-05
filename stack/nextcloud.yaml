@@ -5,7 +5,7 @@ services:
     container_name: nextcloud
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=100
       - MYSQL_HOST=nextcloud_db
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
@@ -29,7 +29,7 @@ services:
     container_name: nextcloud_db
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=100
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
