@@ -6,9 +6,13 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
+      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
+      - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS}
       - TZ=${TZ}
     volumes:
       - /portainer/Files/AppData/Config/nextcloud/config:/config
+      - ${NEXTCLOUD_DATA_DIR}:/data
     ports:
       - "8443:443/tcp"
     depends_on:
