@@ -46,6 +46,13 @@
 				"Other",
 				"Tools"
 			],
+			"env":[
+				{
+					"label":"TZ",
+					"name":"TZ",
+					"default":"Europe/London"
+				}
+			],
 			"image":"nicolargo/glances:latest",
 			"name":"glances",
 			"platform":"linux",
