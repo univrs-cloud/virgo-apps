@@ -48,6 +48,12 @@
 			],
 			"env":[
 				{
+					"label":"GLANCES_OPT",
+					"name":"GLANCES_OPT",
+					"default":"-w",
+					"preset":true
+				},
+				{
 					"label":"TZ",
 					"name":"TZ",
 					"default":"Europe/London"
