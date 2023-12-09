@@ -39,18 +39,18 @@
 			]
 		},
 		{
-			"title":"Homarr",
-			"description":"A simple, yet powerful dashboard for your server.",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homarr.png",
+			"title":"Homepage",
+			"description":"A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homepage.png",
 			"categories":[
 				"Other",
 				"Tools"
 			],
-			"image":"ghcr.io/ajnart/homarr:latest",
-			"name":"homarr",
+			"image":"ghcr.io/gethomepage/homepage:latest",
+			"name":"homepage",
 			"platform":"linux",
 			"ports":[
-				"7575:7575/tcp"
+				"7575:3000/tcp"
 			],
 			"restart_policy":"unless-stopped",
 			"type":1,
@@ -60,16 +60,8 @@
 					"container":"/var/run/docker.sock"
 				},
 				{
-					"bind":"/portainer/Files/AppData/Config/homarr/configs",
-					"container":"/app/data/configs"
-				},
-				{
-					"bind":"/portainer/Files/AppData/Config/homarr/data",
-					"container":"/data"
-				},
-				{
-					"bind":"/portainer/Files/AppData/Config/homarr/icons",
-					"container":"/app/public/icons"
+					"bind":"/portainer/Files/AppData/Config/homepage",
+					"container":"/app/config"
 				}
 			]
 		},
