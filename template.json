@@ -39,6 +39,28 @@
 			]
 		},
 		{
+			"title":"Glances",
+			"description":"Glances is a cross-platform system monitoring tool.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/glances.png",
+			"categories":[
+				"Other",
+				"Tools"
+			],
+			"image":"nicolargo/glances:latest",
+			"name":"glances",
+			"platform":"linux",
+			"network":"host",
+			"restart_policy":"unless-stopped",
+			"type":1,
+			"volumes":[
+				{
+					"bind":"/var/run/docker.sock",
+					"container":"/var/run/docker.sock",
+					"readonly":true
+				}
+			]
+		},
+		{
 			"title":"Homepage",
 			"description":"A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homepage.png",
@@ -57,7 +79,8 @@
 			"volumes":[
 				{
 					"bind":"/var/run/docker.sock",
-					"container":"/var/run/docker.sock"
+					"container":"/var/run/docker.sock",
+					"readonly":true
 				},
 				{
 					"bind":"/portainer/Files/AppData/Config/homepage",
