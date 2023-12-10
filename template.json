@@ -35,6 +35,11 @@
 				{
 					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/letsencrypt",
 					"container":"/etc/letsencrypt"
+				},
+				{
+					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/snippets",
+					"container":"/snippets",
+					"readonly":true
 				}
 			]
 		},
