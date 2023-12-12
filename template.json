@@ -64,7 +64,7 @@
 					"default":"Europe/London"
 				}
 			],
-			"image":"nicolargo/glances:latest",
+			"image":"nicolargo/glances:ubuntu-latest",
 			"name":"glances",
 			"platform":"linux",
 			"network":"host",
