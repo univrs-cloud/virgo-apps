@@ -44,6 +44,29 @@
 			]
 		},
 		{
+			"title":"Authelia",
+			"description":"The Single Sign-On Multi-Factor portal for web apps.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/authelia.png",
+			"categories":[
+				"Other",
+				"Tools"
+			],
+			"image":"authelia/authelia:latest",
+			"name":"authelia",
+			"platform":"linux",
+			"ports":[
+				"9091:9091/tcp"
+			],
+			"restart_policy":"unless-stopped",
+			"type":1,
+			"volumes":[
+				{
+					"bind":"/portainer/Files/AppData/Config/authelia",
+					"container":"/config"
+				}
+			]
+		},
+		{
 			"title":"Homepage",
 			"description":"A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homepage.png",
