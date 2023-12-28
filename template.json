@@ -19,7 +19,7 @@
 			],
 			"image":"jc21/nginx-proxy-manager:latest",
 			"name":"nginx-proxy-manager",
-			"plarform":"linux",
+			"platform":"linux",
 			"ports":[
 				"80:80/tcp",
 				"81:81/tcp",
@@ -153,7 +153,7 @@
 			"type":3
 		},
 		{
-			"title":"WireGuard Server",
+			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
 			"categories":[
