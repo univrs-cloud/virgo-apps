@@ -329,7 +329,7 @@
 			"type":3
 		},
 		{
-			"name":"Watchtower",
+			"title":"Watchtower",
 			"description":"A process for automating Docker container base image updates.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/watchtower.png",
 			"categories":[
