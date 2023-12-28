@@ -27,7 +27,7 @@ authentication_backend:
   file:
     path: /config/users.yml #this is where your authorized users are stored
     password:
-      algorithm: argon2
+      algorithm: bcrypt
 
 access_control:
   default_policy: one_factor
