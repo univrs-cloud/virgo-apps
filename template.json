@@ -2,6 +2,44 @@
 	"version":"2",
 	"templates":[
 		{
+			"title":"DuckDNS",
+			"description":"A free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/duck-dns.png",
+			"categories":[
+				"Other",
+				"Tools"
+			],
+			"env":[
+				{
+					"label":"PUID",
+					"name":"PUID",
+					"default":"1000",
+					"preset":true
+				},
+				{
+					"label":"PGID",
+					"name":"PGID",
+					"default":"100",
+					"preset":true
+				},
+				{
+					"label":"SUBDOMAINS",
+					"name":"SUBDOMAINS",
+					"set":""
+				},
+				{
+					"label":"TOKEN",
+					"name":"TOKEN",
+					"set":""
+				}
+			],
+			"image":"lscr.io/linuxserver/duckdns:latest",
+			"name":"duck-dns",
+			"platform":"linux",
+			"restart_policy":"unless-stopped",
+			"type":1
+		},
+		{
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nginx-proxy-manager.png",
