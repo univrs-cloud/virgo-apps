@@ -4,7 +4,7 @@
 		{
 			"title":"DuckDNS",
 			"description":"A free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/duck-dns.png",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/duckdns.png",
 			"categories":[
 				"Other",
 				"Tools"
@@ -34,7 +34,7 @@
 				}
 			],
 			"image":"lscr.io/linuxserver/duckdns:latest",
-			"name":"duck-dns",
+			"name":"duckdns",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
 			"type":1
