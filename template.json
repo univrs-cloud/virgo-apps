@@ -5,10 +5,6 @@
 			"title":"ddclient",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/ddns-updater.png",
-			"categories":[
-				"Other",
-				"Tools"
-			],
 			"env":[
 				{
 					"label":"PUID",
