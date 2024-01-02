@@ -2,9 +2,9 @@
 	"version":"2",
 	"templates":[
 		{
-			"title":"DuckDNS",
-			"description":"A free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice.",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/duckdns.png",
+			"title":"ddclient",
+			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/ddclient.png",
 			"categories":[
 				"Other",
 				"Tools"
@@ -21,23 +21,19 @@
 					"name":"PGID",
 					"default":"100",
 					"preset":true
-				},
-				{
-					"label":"SUBDOMAINS",
-					"name":"SUBDOMAINS",
-					"set":""
-				},
-				{
-					"label":"TOKEN",
-					"name":"TOKEN",
-					"set":""
 				}
 			],
-			"image":"lscr.io/linuxserver/duckdns:latest",
-			"name":"duckdns",
+			"image":"lscr.io/linuxserver/ddclient:latest",
+			"name":"ddclient",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
-			"type":1
+			"type":1,
+			"volumes":[
+				{
+					"bind":"/portainer/Files/AppData/Config/ddclient",
+					"container":"/config"
+				}
+			]
 		},
 		{
 			"title":"NGINX Proxy Manager",
