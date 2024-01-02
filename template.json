@@ -92,10 +92,6 @@
 			"title":"Homepage",
 			"description":"A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homepage.png",
-			"categories":[
-				"Other",
-				"Tools"
-			],
 			"image":"ghcr.io/gethomepage/homepage:latest",
 			"name":"homepage",
 			"platform":"linux",
@@ -120,10 +116,6 @@
 			"title":"Pi-Hole + Unbound",
 			"description":"A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/pihole.png",
-			"categories":[
-				"Other",
-				"Tools"
-			],
 			"env":[
 				{
 					"label":"DOMAIN_NAME",
@@ -178,10 +170,6 @@
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
-			"categories":[
-				"Other",
-				"VPN"
-			],
 			"env":[
 				{
 					"description":"DDNS domain",
@@ -223,10 +211,6 @@
 			"title":"WeTTY",
 			"description":"Terminal over HTTP and https.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/terminal.png",
-			"categories":[
-				"Other",
-				"Tools"
-			],
 			"env":[
 				{
 					"label":"SSHHOST",
@@ -252,9 +236,6 @@
 			"title":"qBittorrent",
 			"description":"The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
-			"categories":[
-				"Downloaders"
-			],
 			"env":[
 				{
 					"label":"PUID",
@@ -301,13 +282,6 @@
 			"description":"Where are your photos and documents? With NextCloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. NextCloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
 			"note":"The host of the database is nextcloud_db:3306. The database user is nextcloud and the database is nextcloud.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
-			"categories":[
-				"Cloud",
-				"Productivity",
-				"Tools",
-				"Other",
-				"Web"
-			],
 			"env":[
 				{
 					"label":"NEXTCLOUD_ADMIN_USER",
@@ -354,10 +328,6 @@
 			"title":"Watchtower",
 			"description":"A process for automating Docker container base image updates.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/watchtower.png",
-			"categories":[
-				"Other",
-				"Tools"
-			],
 			"image":"containrrr/watchtower:latest",
 			"name":"watchtower",
 			"platform":"linux",
