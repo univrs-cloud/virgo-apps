@@ -2,9 +2,9 @@
 	"version":"2",
 	"templates":[
 		{
-			"title":"ddclient",
+			"title":"ddns-updater",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/ddclient.png",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/ddns-updater.png",
 			"categories":[
 				"Other",
 				"Tools"
@@ -23,15 +23,15 @@
 					"preset":true
 				}
 			],
-			"image":"lscr.io/linuxserver/ddclient:latest",
-			"name":"ddclient",
+			"image":"qmcgaw/ddns-updater:latest",
+			"name":"ddns-updater",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
 			"type":1,
 			"volumes":[
 				{
-					"bind":"/portainer/Files/AppData/Config/ddclient",
-					"container":"/config"
+					"bind":"/portainer/Files/AppData/Config/ddns-updater",
+					"container":"/updater/data"
 				}
 			]
 		},
