@@ -10,6 +10,18 @@
 				"Tools"
 			],
 			"env":[
+				{
+					"label":"PUID",
+					"name":"PUID",
+					"default":"1000",
+					"preset":true
+				},
+				{
+					"label":"PGID",
+					"name":"PGID",
+					"default":"100",
+					"preset":true
+				}
 			],
 			"image":"qmcgaw/ddns-updater:latest",
 			"name":"ddns-updater",
