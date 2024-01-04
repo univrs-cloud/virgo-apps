@@ -151,11 +151,6 @@
 					"label":"WEBPASSWORD",
 					"name":"WEBPASSWORD",
 					"default":"pa$$word"
-				},
-				{
-					"label":"TZ",
-					"name":"TZ",
-					"default":"Europe\\London"
 				}
 			],
 			"name":"pihole",
@@ -309,11 +304,6 @@
 				{
 					"label":"MYSQL_ROOT_PASSWORD",
 					"name":"MYSQL_ROOT_PASSWORD"
-				},
-				{
-					"label":"TZ",
-					"name":"TZ",
-					"default":"Europe/London"
 				}
 			],
 			"name":"nextcloud",
