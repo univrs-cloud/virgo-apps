@@ -14,7 +14,6 @@ services:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS}
-      - TZ=${TZ}
     volumes:
       - /portainer/Files/AppData/Config/nextcloud/config:/config
       - ${NEXTCLOUD_DATA_DIR}:/data
@@ -34,7 +33,6 @@ services:
       - MYSQL_USER=nextcloud
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - TZ=${TZ}
     volumes:
       - /portainer/Files/AppData/Config/nextcloud/db:/config
     restart: unless-stopped
