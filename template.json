@@ -125,7 +125,7 @@
 				{
 					"label":"FTLCONF_LOCAL_IPV4",
 					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.0.2"
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"DHCP_ACTIVE",
@@ -135,17 +135,17 @@
 				{
 					"label":"DHCP_START",
 					"name":"DHCP_START",
-					"default":"192.168.0.100"
+					"default":"192.168.100.100"
 				},
 				{
 					"label":"DHCP_END",
 					"name":"DHCP_END",
-					"default":"192.168.0.250"
+					"default":"192.168.100.250"
 				},
 				{
 					"label":"DHCP_ROUTER",
 					"name":"DHCP_ROUTER",
-					"default":"192.168.0.1"
+					"default":"192.168.100.1"
 				},
 				{
 					"label":"WEBPASSWORD",
@@ -210,7 +210,7 @@
 				{
 					"label":"SSHHOST",
 					"name":"SSHHOST",
-					"default":"192.168.0.2"
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"SSHUSER",
