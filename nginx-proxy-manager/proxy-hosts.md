@@ -1,6 +1,6 @@
 **Domain: auth.origin.univrs.cloud**\
 Scheme: http\
-Forward IP: 192.168.100.3\
+Forward IP: 192.168.100.2\
 Forward port: 9091\
 Block common exploits+\
 Websocket support+\
@@ -17,7 +17,7 @@ location / {
 \
 **Domain: dash.origin.univrs.cloud**\
 Scheme: http\
-Forward IP: 192.168.100.3\
+Forward IP: 192.168.100.2\
 Forward port: 7575\
 Block common exploits+\
 Websocket support+\
@@ -37,7 +37,7 @@ location / {
 \
 **Domain: proxy.origin.univrs.cloud**\
 Scheme: http\
-Forward IP: 192.168.100.3\
+Forward IP: 192.168.100.2\
 Forward port: 81\
 Block common exploits+\
 Websocket support+\
@@ -51,7 +51,7 @@ location / {
     include /snippets/proxy.conf;
     include /snippets/authelia-authrequest.conf;
  
-	proxy_pass http://192.168.100.3:81;
+	proxy_pass http://192.168.100.2:81;
 	if ($request_method = 'OPTIONS') {
 		add_header 'Access-Control-Allow-Origin' '*';
 		add_header 'Access-Control-Allow-Credentials' 'true';
