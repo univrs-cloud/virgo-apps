@@ -20,8 +20,8 @@ services:
       - /portainer/Files/AppData/Config/pihole-logs/lighttpd:/var/log/lighttpd
       - /portainer/Files/AppData/Config/pihole-dnsmasq.d/:/etc/dnsmasq.d/
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
+      - "${FTLCONF_LOCAL_IPV4}:53:53/udp"
       - "5335:5335/tcp"
       - "8080:80/tcp"
     depends_on:
