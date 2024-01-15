@@ -1,7 +1,7 @@
 version: "3"
 services:
   pihole:
-    image: cbcrowe/pihole-unbound:latest
+    image: aleksanderbl/pihole-unbound:latest
     container_name: pihole
     environment:
       - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
