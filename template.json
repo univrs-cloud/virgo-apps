@@ -19,7 +19,7 @@
 					"preset":true
 				}
 			],
-			"image":"lscr.io/linuxserver/ddclient:latest",
+			"image":"ghcr.io/linuxserver/ddclient:latest",
 			"name":"ddclient",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
