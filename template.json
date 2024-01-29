@@ -218,7 +218,7 @@
 					"default":"voyager"
 				}
 			],
-			"image":"wettyoss/wetty:latest",
+			"image":"ghcr.io/butlerx/wetty:latest",
 			"name":"wetty",
 			"platform":"linux",
 			"ports":[
