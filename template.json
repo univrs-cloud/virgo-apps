@@ -73,7 +73,7 @@
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/authelia.png",
-			"image":"authelia/authelia:latest",
+			"image":"ghcr.io/authelia/authelia:latest",
 			"name":"authelia",
 			"platform":"linux",
 			"ports":[
