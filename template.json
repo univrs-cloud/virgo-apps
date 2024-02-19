@@ -49,9 +49,6 @@
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/authelia.png",
 			"name":"authelia",
 			"platform":"linux",
-			"ports":[
-				"9091:9091/tcp"
-			],
 			"repository":{
 				"url":"https://github.com/univrs-cloud/portainer/",
 				"stackfile":"stack/authelia.yaml"
