@@ -16,7 +16,7 @@ services:
       - "81:81/tcp"
       - "443:443/tcp"
     networks:
-      security:
+      app_net:
         ipv4_address: 172.20.0.3
     restart: unless-stopped
 
