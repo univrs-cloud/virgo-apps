@@ -12,7 +12,7 @@ services:
       - "9091:9091/tcp"
     networks:
       security:
-        ipv4_address: 172.10.0.1
+        ipv4_address: 172.15.0.1
     restart: unless-stopped
 
 networks:
@@ -21,5 +21,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.10.0.0/16
-          gateway: 172.10.0.1
+        - subnet: 172.15.0.0/16
+          gateway: 172.15.0.1
