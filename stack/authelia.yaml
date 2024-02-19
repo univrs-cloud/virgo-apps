@@ -1,1 +1,25 @@
+version: "3.8"
+services:
+  authelia:
+    image: ghcr.io/authelia/authelia:master
+    container_name: authelia
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /portainer/Files/AppData/Config/authelia:/config
+    ports:
+      - "9091:9091/tcp"
+    networks:
+      security:
+        ipv4_address: 172.10.0.1
+    restart: unless-stopped
 
+networks:
+  security:
+    name: security
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.10.0.0/16
+          gateway: 172.10.0.1
