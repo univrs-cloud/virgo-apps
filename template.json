@@ -35,39 +35,13 @@
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nginx-proxy-manager.png",
-			"env":[
-				{
-					"label":"DISABLE_IPV6",
-					"name":"DISABLE_IPV6",
-					"default":"true",
-					"preset":true
-				}
-			],
-			"image":"jc21/nginx-proxy-manager:latest",
 			"name":"nginx-proxy-manager",
 			"platform":"linux",
-			"ports":[
-				"80:80/tcp",
-				"81:81/tcp",
-				"443:443/tcp"
-			],
-			"restart_policy":"unless-stopped",
-			"type":1,
-			"volumes":[
-				{
-					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/data",
-					"container":"/data"
-				},
-				{
-					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/letsencrypt",
-					"container":"/etc/letsencrypt"
-				},
-				{
-					"bind":"/portainer/Files/AppData/Config/nginx-proxy-manager/snippets",
-					"container":"/snippets",
-					"readonly":true
-				}
-			]
+			"repository":{
+				"url":"https://github.com/univrs-cloud/portainer/",
+				"stackfile":"stack/nginx-proxy-manager.yaml"
+			},
+			"type":3
 		},
 		{
 			"title":"Authelia",
@@ -78,7 +52,6 @@
 			"ports":[
 				"9091:9091/tcp"
 			],
-			"restart_policy":"unless-stopped",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/portainer/",
 				"stackfile":"stack/authelia.yaml"
