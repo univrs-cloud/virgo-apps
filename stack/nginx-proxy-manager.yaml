@@ -17,7 +17,7 @@ services:
       - "443:443/tcp"
     networks:
       app_net:
-        ipv4_address: 172.20.0.3
+        ipv4_address: 172.30.0.3
     restart: unless-stopped
 
 networks:
