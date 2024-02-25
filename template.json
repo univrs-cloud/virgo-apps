@@ -56,30 +56,6 @@
 			"type":3
 		},
 		{
-			"title":"Homepage",
-			"description":"A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/homepage.png",
-			"image":"ghcr.io/gethomepage/homepage:latest",
-			"name":"homepage",
-			"platform":"linux",
-			"ports":[
-				"7575:3000/tcp"
-			],
-			"restart_policy":"unless-stopped",
-			"type":1,
-			"volumes":[
-				{
-					"bind":"/var/run/docker.sock",
-					"container":"/var/run/docker.sock",
-					"readonly":true
-				},
-				{
-					"bind":"/portainer/Files/AppData/Config/homepage",
-					"container":"/app/config"
-				}
-			]
-		},
-		{
 			"title":"Pi-Hole + Unbound",
 			"description":"A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/pihole.png",
