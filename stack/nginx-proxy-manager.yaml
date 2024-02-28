@@ -20,11 +20,11 @@ services:
         ipv4_address: 172.30.0.3
     restart: unless-stopped
 
-networks:
-  virgo:
-    name: virgo
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.30.0.0/16
-          gateway: 172.30.0.1
+#networks:
+#  virgo:
+#    name: virgo
+#    driver: bridge
+#    ipam:
+#      config:
+#        - subnet: 172.30.0.0/16
+#          gateway: 172.30.0.1
