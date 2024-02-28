@@ -18,7 +18,7 @@ services:
       - "51820:51820/udp"
       - "51821:51821/tcp"
     networks:
-      app_net:
+      virgo:
         ipv4_address: 172.30.0.5
     cap_add:
       - NET_ADMIN
@@ -29,8 +29,8 @@ services:
     restart: unless-stopped
 
 networks:
-  app_net:
-    name: app_net
+  virgo:
+    name: virgo
     driver: bridge
     ipam:
       config:
