@@ -124,7 +124,7 @@
 				{
 					"label":"WG_DEFAULT_DNS",
 					"name":"WG_DEFAULT_DNS",
-					"default":"1.1.1.1"
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"WG_DEFAULT_ADDRESS",
