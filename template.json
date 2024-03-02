@@ -5,6 +5,7 @@
 			"title":"DDclient",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/ddns-updater.png",
+			"category":"Networking",
 			"env":[
 				{
 					"label":"PUID",
@@ -35,6 +36,7 @@
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nginx-proxy-manager.png",
+			"category":"Networking",
 			"name":"nginx-proxy-manager",
 			"platform":"linux",
 			"repository":{
@@ -47,6 +49,7 @@
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/authelia.png",
+			"category":"System",
 			"name":"authelia",
 			"platform":"linux",
 			"repository":{
