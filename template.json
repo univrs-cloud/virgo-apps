@@ -57,7 +57,7 @@
 		},
 		{
 			"title":"Pi-Hole + Unbound",
-			"description":"A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
+			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/pihole.png",
 			"env":[
 				{
@@ -147,7 +147,7 @@
 		},
 		{
 			"title":"WeTTY",
-			"description":"Terminal over HTTP and https.",
+			"description":"A terminal in a browser.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/terminal.png",
 			"env":[
 				{
@@ -172,7 +172,7 @@
 		},
 		{
 			"title":"qBittorrent",
-			"description":"The qBittorrent project aims to provide an open-source software alternative to µTorrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
+			"description":"A BitTorrent client.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
 			"env":[
 				{
@@ -261,7 +261,7 @@
 		},
 		{
 			"title":"Penpot",
-			"description":"Penpot is a design & prototyping tool for product teams.",
+			"description":"A design & prototyping tool for product teams.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.png",
 			"env":[
 				{
@@ -285,7 +285,7 @@
 		},
 		{
 			"title":"Watchtower",
-			"description":"A process for automating Docker container base image updates.",
+			"description":"Automatically updates your apps to the latest version.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/watchtower.png",
 			"image":"ghcr.io/containrrr/watchtower:latest",
 			"command": "--cleanup",
