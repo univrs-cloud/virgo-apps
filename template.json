@@ -262,7 +262,7 @@
 		{
 			"title":"Penpot",
 			"description":"Penpot is the Open-Source Design & Prototyping Tool for Product Teams.",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.jpg",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.png",
 			"env":[
 				{
 					"label":"PUBLIC_URI",
