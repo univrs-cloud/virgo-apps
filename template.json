@@ -5,7 +5,7 @@
 			"title":"DDclient",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/ddns-updater.png",
-			"category":"Networking",
+			"categories":["Networking"],
 			"env":[
 				{
 					"label":"PUID",
@@ -36,7 +36,7 @@
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nginx-proxy-manager.png",
-			"category":"Networking",
+			"categories":["Networking"],
 			"name":"nginx-proxy-manager",
 			"platform":"linux",
 			"repository":{
@@ -49,7 +49,7 @@
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/authelia.png",
-			"category":"System",
+			"categories":["System"],
 			"name":"authelia",
 			"platform":"linux",
 			"repository":{
@@ -62,6 +62,7 @@
 			"title":"Pi-Hole + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/pihole.png",
+			"categories":["Networking"],
 			"env":[
 				{
 					"label":"DOMAIN_NAME",
@@ -111,6 +112,7 @@
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/wireguard.png",
+			"categories":["Networking"],
 			"env":[
 				{
 					"description":"DDNS domain",
@@ -152,6 +154,7 @@
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/terminal.png",
+			"categories":["Networking"],
 			"env":[
 				{
 					"label":"SSHHOST",
@@ -177,6 +180,7 @@
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/qbittorrent.png",
+			"categories":["Productivity"],
 			"env":[
 				{
 					"label":"PUID",
@@ -223,6 +227,7 @@
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note":"The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
+			"categories":["Productivity"],
 			"env":[
 				{
 					"label":"NEXTCLOUD_ADMIN_USER",
@@ -266,6 +271,7 @@
 			"title":"Penpot",
 			"description":"A design & prototyping tool for product teams.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.png",
+			"categories":["Productivity"],
 			"env":[
 				{
 					"label":"PUBLIC_URI",
@@ -290,6 +296,7 @@
 			"title":"Watchtower",
 			"description":"Automatically updates your apps to the latest version.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/watchtower.png",
+			"categories":["System"],
 			"image":"ghcr.io/containrrr/watchtower:latest",
 			"command": "--cleanup",
 			"name":"watchtower",
