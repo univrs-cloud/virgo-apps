@@ -217,7 +217,7 @@
 		},
 		{
 			"title":"NextCloud",
-			"description":"Where are your photos and documents? With NextCloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. NextCloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note":"The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
 			"env":[
@@ -261,7 +261,7 @@
 		},
 		{
 			"title":"Penpot",
-			"description":"Penpot is the Open-Source Design & Prototyping Tool for Product Teams.",
+			"description":"Penpot is a design & prototyping tool for product teams.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.png",
 			"env":[
 				{
