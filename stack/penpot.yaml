@@ -1,0 +1,82 @@
+version: "3.5"
+services:
+  penpot-frontend:
+    image: "penpotapp/frontend:latest"
+    container_name: penpot-frontend
+    environment:
+      - PENPOT_FLAGS=enable-registration enable-login-with-password
+    volumes:
+      - /portainer/Files/AppData/Config/penpot/assets:/opt/data/assets
+    ports:
+      - "5080:80/tcp"
+    depends_on:
+      - penpot-backend
+      - penpot-exporter
+    networks:
+      - penpot
+    restart: unless-stopped
+
+  penpot-backend:
+    image: "penpotapp/backend:latest"
+    container_name: penpot-backend
+    environment:
+      - PENPOT_FLAGS=enable-registration enable-login-with-password disable-email-verification enable-smtp enable-prepl-server
+      - PENPOT_PUBLIC_URI=${PUBLIC_URI}
+      - PENPOT_DATABASE_URI=postgresql://penpot-postgres/penpot
+      - PENPOT_DATABASE_USERNAME=penpot
+      - PENPOT_DATABASE_PASSWORD=penpot
+      - PENPOT_REDIS_URI=redis://penpot-redis/0
+      - PENPOT_ASSETS_STORAGE_BACKEND=assets-fs
+      - PENPOT_STORAGE_ASSETS_FS_DIRECTORY=/opt/data/assets
+      - PENPOT_TELEMETRY_ENABLED=false
+      #- PENPOT_SMTP_DEFAULT_FROM=
+      #- PENPOT_SMTP_DEFAULT_REPLY_TO=
+      #- PENPOT_SMTP_HOST=
+      #- PENPOT_SMTP_PORT=
+      #- PENPOT_SMTP_USERNAME=
+      #- PENPOT_SMTP_PASSWORD=
+      #- PENPOT_SMTP_TLS=true
+      #- PENPOT_SMTP_SSL=false
+    volumes:
+      - /portainer/Files/AppData/Config/penpot/assets:/opt/data/assets
+    depends_on:
+      - penpot-postgres
+      - penpot-redis
+    networks:
+      - penpot
+    restart: unless-stopped
+
+  penpot-exporter:
+    image: "penpotapp/exporter:latest"
+    container_name: penpot-exporter
+    environment:
+      - PENPOT_PUBLIC_URI=http://penpot-frontend
+      - PENPOT_REDIS_URI=redis://penpot-redis/0
+    networks:
+      - penpot
+    restart: unless-stopped
+      
+  penpot-postgres:
+    image: "postgres:15"
+    container_name: penpot-postgres
+    environment:
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - POSTGRES_DB=penpot
+      - POSTGRES_USER=penpot
+      - POSTGRES_PASSWORD=penpot
+    volumes:
+      - /portainer/Files/AppData/Config/penpot/postgres:/var/lib/postgresql/data
+    networks:
+      - penpot
+    restart: unless-stopped
+    stop_signal: SIGINT
+
+  penpot-redis:
+    image: redis:7
+    container_name: penpot-redis
+    networks:
+      - penpot
+    restart: unless-stopped
+
+networks:
+  penpot:
