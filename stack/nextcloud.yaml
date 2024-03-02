@@ -25,7 +25,7 @@ services:
     
   nextcloud_db:
     image: lscr.io/linuxserver/mariadb:latest
-    container_name: nextcloud_db
+    container_name: nextcloud-db
     environment:
       - PUID=1000
       - PGID=100
