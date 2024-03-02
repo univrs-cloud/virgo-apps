@@ -262,7 +262,7 @@
 {
 			"title":"PenPot",
 			"description":"",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.png",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.jpg",
 			"env":[
 				{
 					"label":"PUBLIC_URI",
