@@ -1,0 +1,2 @@
+docker exec -it --user root <penpot-backend container id> /bin/bash
+chown -R penpot:penpot /opt/data
