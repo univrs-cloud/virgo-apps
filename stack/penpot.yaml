@@ -24,7 +24,7 @@ services:
       - PENPOT_PUBLIC_URI=${PUBLIC_URI}
       - PENPOT_DATABASE_URI=postgresql://penpot-postgres/penpot
       - PENPOT_DATABASE_USERNAME=penpot
-      - PENPOT_DATABASE_PASSWORD=penpot
+      - PENPOT_DATABASE_PASSWORD=${POSTGRES_PASSWORD}
       - PENPOT_REDIS_URI=redis://penpot-redis/0
       - PENPOT_ASSETS_STORAGE_BACKEND=assets-fs
       - PENPOT_STORAGE_ASSETS_FS_DIRECTORY=/opt/data/assets
@@ -63,7 +63,7 @@ services:
       - POSTGRES_INITDB_ARGS=--data-checksums
       - POSTGRES_DB=penpot
       - POSTGRES_USER=penpot
-      - POSTGRES_PASSWORD=penpot
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - /portainer/Files/AppData/Config/penpot/postgres:/var/lib/postgresql/data
     networks:
@@ -72,7 +72,7 @@ services:
     stop_signal: SIGINT
 
   penpot-redis:
-    image: redis:7
+    image: "redis:7"
     container_name: penpot-redis
     networks:
       - penpot
