@@ -218,7 +218,7 @@
 		{
 			"title":"NextCloud",
 			"description":"Where are your photos and documents? With NextCloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. NextCloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
-			"note":"The host of the database is nextcloud_db:3306. The database user is nextcloud and the database is nextcloud.",
+			"note":"The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/nextcloud.png",
 			"env":[
 				{
@@ -242,11 +242,13 @@
 				},
 				{
 					"label":"MYSQL_PASSWORD",
-					"name":"MYSQL_PASSWORD"
+					"name":"MYSQL_PASSWORD",
+					"default":"nextcloud"
 				},
 				{
 					"label":"MYSQL_ROOT_PASSWORD",
-					"name":"MYSQL_ROOT_PASSWORD"
+					"name":"MYSQL_ROOT_PASSWORD",
+					"default":"nextcloud"
 				}
 			],
 			"name":"nextcloud",
@@ -254,6 +256,30 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/portainer/",
 				"stackfile":"stack/nextcloud.yaml"
+			},
+			"type":3
+		},
+{
+			"title":"PenPot",
+			"description":"",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/penpot.png",
+			"env":[
+				{
+					"label":"PUBLIC_URI",
+					"name":"PUBLIC_URI",
+					"default":"http://ip:5080"
+				},
+				{
+					"label":"POSTGRES_PASSWORD",
+					"name":"POSTGRES_PASSWORD",
+					"default":"penpot"
+				}
+			],
+			"name":"penpot",
+			"platform":"linux",
+			"repository":{
+				"url":"https://github.com/univrs-cloud/portainer/",
+				"stackfile":"stack/penpot.yaml"
 			},
 			"type":3
 		},
