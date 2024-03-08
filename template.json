@@ -170,11 +170,11 @@
 			"image":"ghcr.io/butlerx/wetty:latest",
 			"name":"wetty",
 			"platform":"linux",
+			"restart_policy":"unless-stopped",
+			"type":1,
 			"ports":[
 				"2222:3000/tcp"
-			],
-			"restart_policy":"unless-stopped",
-			"type":1
+			]
 		},
 		{
 			"title":"qBittorrent",
@@ -204,13 +204,13 @@
 			"image":"lscr.io/linuxserver/qbittorrent:latest",
 			"name":"qbittorrent",
 			"platform":"linux",
+			"restart_policy":"unless-stopped",
+			"type":1,
 			"ports":[
 				"6080:6080/tcp",
 				"6881:6881/tcp",
 				"6881:6881/udp"
 			],
-			"restart_policy":"unless-stopped",
-			"type":1,
 			"volumes":[
 				{
 					"bind":"/portainer/Files/AppData/Config/qbittorrent",
