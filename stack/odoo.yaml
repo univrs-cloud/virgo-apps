@@ -10,6 +10,7 @@ services:
       - PASSWORD=odoo
     volumes:
       - /portainer/Files/AppData/Config/odoo/data:/var/lib/odoo
+      - /portainer/Files/AppData/Config/odoo/extra-addons:/mnt/extra-addons
     ports:
       - "8069:8069/tcp"
     depends_on:
