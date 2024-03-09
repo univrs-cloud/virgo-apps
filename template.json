@@ -293,9 +293,9 @@
 			"type":3
 		},
 		{
-			"title":"Gitea",
+			"title":"Forgejo",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/gitea.png",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/forgejo.png",
 			"categories":["Productivity"],
 			"env":[
 				{
@@ -311,8 +311,8 @@
 					"preset":true
 				}
 			],
-			"image":"gitea/gitea:latest",
-			"name":"gitea",
+			"image":"codeberg.org/forgejo/forgejo",
+			"name":"forgejo",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
 			"type":1,
@@ -322,7 +322,7 @@
 			],
 			"volumes":[
 				{
-					"bind": "/portainer/Files/AppData/Config/gitea",
+					"bind": "/portainer/Files/AppData/Config/forgejo",
 					"container": "/data"
 				},
 				{
