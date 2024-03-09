@@ -10,13 +10,13 @@ jobs:
     refs: refs/heads/* refs/tags/*
     withLfs: false
     force: false
-    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+    condition: ALWAYS
   - !PushRepository
     name: push
     remoteUrl: https://github.com/univrs-cloud/portainer.git
     passwordSecret: GitHub
     force: false
-    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+    condition: ALWAYS
   triggers:
   - !ScheduleTrigger
     cronExpression: 0 0 1 * * ?
