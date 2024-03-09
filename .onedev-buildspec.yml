@@ -11,6 +11,12 @@ jobs:
     withLfs: false
     force: false
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  - !PushRepository
+    name: push
+    remoteUrl: https://github.com/univrs-cloud/portainer.git
+    passwordSecret: GitHub
+    force: false
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   triggers:
   - !ScheduleTrigger
     cronExpression: 0 0 1 * * ?
