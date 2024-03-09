@@ -293,9 +293,9 @@
 			"type":3
 		},
 		{
-			"title":"Gitea",
+			"title":"OneDev",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
-			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/gitea.png",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/portainer/main/images/onedev.png",
 			"categories":["Productivity"],
 			"env":[
 				{
@@ -311,28 +311,23 @@
 					"preset":true
 				}
 			],
-			"image":"gitea/gitea:latest",
-			"name":"gitea",
+			"image":"1dev/server:latest",
+			"name":"onedev",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
 			"type":1,
 			"ports": [
-				"4080:3000/tcp",
-				"4022:22/tcp"
+				"6610:6610/tcp",
+				"6611:6611/tcp"
 			],
 			"volumes":[
 				{
-					"bind": "/portainer/Files/AppData/Config/gitea",
-					"container": "/data"
+					"bind": "/portainer/Files/AppData/Config/onedev",
+					"container": "/opt/onedev"
 				},
 				{
-					"bind":"/etc/timezone",
-					"container":"/etc/timezone",
-					"readonly":true
-				},
-				{
-					"bind":"/etc/localtime",
-					"container":"/etc/localtime",
+					"bind":"/var/run/docker.sock",
+					"container":"/var/run/docker.sock",
 					"readonly":true
 				}
 			]
