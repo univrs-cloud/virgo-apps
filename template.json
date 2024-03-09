@@ -311,7 +311,7 @@
 					"preset":true
 				}
 			],
-			"image":"codeberg.org/forgejo/forgejo",
+			"image":"codeberg.org/forgejo/forgejo:1.21",
 			"name":"forgejo",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
