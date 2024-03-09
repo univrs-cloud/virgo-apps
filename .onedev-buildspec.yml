@@ -4,7 +4,7 @@ jobs:
   steps:
   - !PullRepository
     name: pull
-    remoteUrl: https://github.com/univrs-cloud/portainer
+    remoteUrl: https://github.com/univrs-cloud/portainer.git
     syncToChildProject: false
     passwordSecret: GitHub
     refs: refs/heads/* refs/tags/*
