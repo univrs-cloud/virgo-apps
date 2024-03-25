@@ -1,1 +1,7 @@
-{}
+{
+  "system": false,
+  "virgo": [
+    "api",
+    "ui"
+  ]
+}
