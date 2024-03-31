@@ -1,11 +1,13 @@
 # yamllint disable rule:comments-indentation
 ---
-theme: light #light/dark/grey/auto
+theme: "dark" #light/dark/grey/auto
 
-jwt_secret: virgoOS_123 #any text or number you want to add here to create jwt Token
+identity_validation:
+  reset_password:
+    jwt_secret: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this" #any text or number you want to add here to create jwt Token
 
 server:
-  address: tcp://0.0.0.0:9091/
+  address: "tcp://0.0.0.0:9091/"
   asset_path: "/config/assets/"
   disable_healthcheck: false
   endpoints:
@@ -16,48 +18,51 @@ server:
     certificate: ""
 
 log:
-  level: debug
+  level: "debug"
   #keep_stdout: true
 
 authentication_backend:
   password_reset:
     disable: false
-  refresh_interval: 5m
+  refresh_interval: "5m"
   file:
-    path: /config/users.yml #this is where your authorized users are stored
+    path: "/config/users.yml" #this is where your authorized users are stored
     password:
-      algorithm: bcrypt
+      algorithm: "bcrypt"
+      bcrypt:
+        variant: "standard"
+        cost: "12"
 
 access_control:
-  default_policy: one_factor
+  default_policy: "one_factor"
   rules:
   - domain: "auth.origin.univrs.cloud" #this should be your authentication URL
-    policy: bypass
+    policy: "bypass"
   - domain: "*.origin.univrs.cloud"
-    policy: bypass
+    policy: "bypass"
     networks:
-      - 192.168.0.0/16 #bypass if connected on local network
-      - 10.6.0.0/16 #bypass if connected over VPN
+      - "192.168.0.0/16" #bypass if connected on local network
+      - "10.6.0.0/16" #bypass if connected over VPN
 
 session:
-  name: virgoOS
-  secret: virgoOS_123 #any text or number you want to add here to create jwt Token
+  name: "virgoOS"
+  secret: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this" #any text or number you want to add here to create jwt Token
   cookies:
-    - domain: origin.univrs.cloud  #should match whatever your root protected domain is
-      authelia_url: https://auth.origin.univrs.cloud
+    - domain: "origin.univrs.cloud"  #should match whatever your root protected domain is
+      authelia_url: "https://auth.origin.univrs.cloud"
 
 regulation:
-  max_retries: 3
-  find_time: 10m
-  ban_time: 12h
+  max_retries: "3"
+  find_time: "10m"
+  ban_time: "12h"
 
 storage:
   local:
-    path: /config/db.sqlite3
-  encryption_key: virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this
+    path: "/config/db.sqlite3"
+  encryption_key: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this"
 
 notifier:
   disable_startup_check: true
   filesystem:
-    filename: /config/notification.txt
+    filename: "/config/notification.txt"
 ...
