@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   authelia:
-    image: ghcr.io/authelia/authelia:latest
+    image: ghcr.io/authelia/authelia:master
     container_name: authelia
     environment:
       - PUID=1000
