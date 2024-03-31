@@ -2,23 +2,22 @@
 ---
 theme: light #light/dark/grey/auto
 
-default_redirection_url: https://auth.origin.univrs.cloud/ #where to redirect for a non-existent URL
-
 jwt_secret: virgoOS_123 #any text or number you want to add here to create jwt Token
 
 server:
-  host: 0.0.0.0
-  port: 9091
-  path: ""
-  enable_pprof: false
-  enable_expvars: false
+  address: tcp://0.0.0.0:9091/
+  asset_path: "/config/assets/"
   disable_healthcheck: false
+  endpoints:
+    enable_pprof: false
+    enable_expvars: false
   tls:
     key: ""
     certificate: ""
 
 log:
   level: debug
+  #keep_stdout: true
 
 authentication_backend:
   password_reset:
@@ -43,9 +42,9 @@ access_control:
 session:
   name: virgoOS
   secret: virgoOS_123 #any text or number you want to add here to create jwt Token
-  expiration: 3600  #1 hour
-  inactivity: 300  #5 minutes
-  domain: origin.univrs.cloud  #should match whatever your root protected domain is
+  cookies:
+    - domain: origin.univrs.cloud  #should match whatever your root protected domain is
+      authelia_url: https://auth.origin.univrs.cloud
 
 regulation:
   max_retries: 3
