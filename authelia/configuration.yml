@@ -18,7 +18,7 @@ server:
     certificate: ""
 
 log:
-  level: "debug"
+  level: "info"
   #keep_stdout: true
 
 authentication_backend:
