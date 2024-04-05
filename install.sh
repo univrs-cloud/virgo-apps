@@ -18,4 +18,4 @@ function check_internet() {
 check_internet
 
 sudo docker pull portainer/portainer-ce:latest || error "Failed to pull latest Portainer docker image!"
-sudo docker run -d -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /portainer:/data portainer/portainer-ce:2.20.0 || error "Failed to run Portainer docker image!"
+sudo docker run -d -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /portainer:/data portainer/portainer-ce:2.20.1 || error "Failed to run Portainer docker image!"
