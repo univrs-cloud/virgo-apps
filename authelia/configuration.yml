@@ -4,7 +4,7 @@ theme: "dark" #light/dark/grey/auto
 
 identity_validation:
   reset_password:
-    jwt_secret: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this" #any text or number you want to add here to create jwt Token
+    jwt_secret: "virgoOS_generare_random_string" #any text or number you want to add here to create jwt Token
 
 server:
   address: "tcp://0.0.0.0:9091/"
@@ -19,7 +19,7 @@ server:
 
 log:
   level: "info"
-  #keep_stdout: true
+  keep_stdout: false
 
 authentication_backend:
   password_reset:
@@ -36,9 +36,9 @@ authentication_backend:
 access_control:
   default_policy: "one_factor"
   rules:
-  - domain: "auth.origin.univrs.cloud" #this should be your authentication URL
+  - domain: "auth.somewhere.univrs.cloud" #this should be your authentication URL
     policy: "bypass"
-  - domain: "*.origin.univrs.cloud"
+  - domain: "*.somewhere.univrs.cloud"
     policy: "bypass"
     networks:
       - "192.168.0.0/16" #bypass if connected on local network
@@ -46,10 +46,10 @@ access_control:
 
 session:
   name: "virgoOS"
-  secret: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this" #any text or number you want to add here to create jwt Token
+  secret: "virgoOS_generare_random_string" #any text or number you want to add here to create jwt Token
   cookies:
-    - domain: "origin.univrs.cloud"  #should match whatever your root protected domain is
-      authelia_url: "https://auth.origin.univrs.cloud"
+    - domain: "somewhere.univrs.cloud" #should match whatever your root protected domain is
+      authelia_url: "https://auth.somewhere.univrs.cloud"
 
 regulation:
   max_retries: "3"
@@ -59,10 +59,21 @@ regulation:
 storage:
   local:
     path: "/config/db.sqlite3"
-  encryption_key: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this"
+  encryption_key: "virgoOS_generare_random_string"
 
 notifier:
-  disable_startup_check: true
-  filesystem:
-    filename: "/config/notification.txt"
+  disable_startup_check: false
+#  filesystem:
+#    filename: "/config/notification.txt"
+  smtp:
+    address: "submission://smtp-relay.brevo.com:587"
+    timeout: "5s"
+    username: "username"
+    password: "password"
+    sender: "Authelia <voyager@somewhere.univrs.cloud>"
+    subject: "[Authelia] {title}"
+    startup_check_address: "user@domain"
+    disable_require_tls: true
+    disable_starttls: false
+    disable_html_emails: false
 ...
