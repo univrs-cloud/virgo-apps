@@ -59,7 +59,7 @@ regulation:
 storage:
   local:
     path: "/config/db.sqlite3"
-  encryption_key: "virgoOS_generare_random_string"
+  encryption_key: "virgoOS_you_must_generate_a_random_string_of_more_than_twenty_chars_and_configure_this"
 
 notifier:
   disable_startup_check: false
