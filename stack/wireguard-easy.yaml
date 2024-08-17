@@ -6,7 +6,7 @@ services:
     environment:
       - PUID=1000
       - PGID=100
-      - PASSWORD=${PASSWORD}
+      - PASSWORD_HASH=${PASSWORD_HASH}
       - WG_HOST=${WG_HOST}
       - WG_PORT=${WG_PORT}
       - WG_DEFAULT_ADDRESS=${WG_DEFAULT_ADDRESS}
