@@ -27,7 +27,7 @@
 			"type":1,
 			"volumes":[
 				{
-					"bind":"/virgo-apps/Files/AppData/Config/ddclient",
+					"bind":"/portainer/Files/AppData/Config/ddclient",
 					"container":"/config"
 				}
 			]
@@ -213,7 +213,7 @@
 			],
 			"volumes":[
 				{
-					"bind":"/virgo-apps/Files/AppData/Config/qbittorrent",
+					"bind":"/portainer/Files/AppData/Config/qbittorrent",
 					"container":"/config"
 				},
 				{
@@ -322,7 +322,7 @@
 			],
 			"volumes":[
 				{
-					"bind": "/virgo-apps/Files/AppData/Config/onedev",
+					"bind": "/portainer/Files/AppData/Config/onedev",
 					"container": "/opt/onedev"
 				},
 				{
