@@ -50,6 +50,9 @@ session:
   cookies:
     - domain: "somewhere.univrs.cloud" #should match whatever your root protected domain is
       authelia_url: "https://auth.somewhere.univrs.cloud"
+  redis:
+    host: authelia_redis
+    port: 6379
 
 regulation:
   max_retries: "3"
