@@ -15,6 +15,22 @@ services:
         ipv4_address: 172.30.0.2
     restart: unless-stopped
 
+  redis:
+    image: redis:latest
+    container_name: authelia_redis
+    command: ["redis-server", "--appendonly", "no", "--maxmemory", "32mb", "--maxmemory-policy", "allkeys-lru"]
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /portainer/Files/AppData/Config/authelia_redis:/data
+    ports:
+      - "9092:6379/tcp"
+    networks:
+      virgo:
+        ipv4_address: 172.30.0.6
+    restart: unless-stopped
+
 networks:
   virgo:
     external: true
