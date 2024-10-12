@@ -45,13 +45,13 @@ services:
       - PGID=100
       - JWT_SECRET=${ONLYOFFICE_JWT_SECRET}
     volumes:
-      - /portainer/Files/AppData/Config/onlyoffice/logs:/var/log/onlyoffice
-      - /portainer/Files/AppData/Config/onlyoffice/data:/var/www/onlyoffice/Data
-      - /portainer/Files/AppData/Config/onlyoffice/lib:/var/lib/onlyoffice
-      - /portainer/Files/AppData/Config/onlyoffice/db:/var/lib/postgresql
-      - /portainer/Files/AppData/Config/onlyoffice/redis:/var/lib/redis
-      - /portainer/Files/AppData/Config/onlyoffice/rabbitmq:/var/lib/rabbitmq
-      - /portainer/Files/AppData/Config/onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/logs:/var/log/onlyoffice
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/data:/var/www/onlyoffice/Data
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/lib:/var/lib/onlyoffice
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/db:/var/lib/postgresql
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/redis:/var/lib/redis
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/rabbitmq:/var/lib/rabbitmq
+      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
     ports:
       - "10080:80/tcp"
     restart: unless-stopped
