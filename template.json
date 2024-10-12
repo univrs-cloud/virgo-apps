@@ -257,6 +257,10 @@
 					"label":"MYSQL_ROOT_PASSWORD",
 					"name":"MYSQL_ROOT_PASSWORD",
 					"default":"nextcloud"
+				},
+				{
+					"label":"ONLYOFFICE_JWT_SECRET",
+					"name":"ONLYOFFICE_JWT_SECRET",
 				}
 			],
 			"name":"nextcloud",
