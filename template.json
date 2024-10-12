@@ -260,7 +260,7 @@
 				},
 				{
 					"label":"ONLYOFFICE_JWT_SECRET",
-					"name":"ONLYOFFICE_JWT_SECRET",
+					"name":"ONLYOFFICE_JWT_SECRET"
 				}
 			],
 			"name":"nextcloud",
