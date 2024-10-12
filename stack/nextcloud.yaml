@@ -37,7 +37,7 @@ services:
       - /portainer/Files/AppData/Config/nextcloud/db:/config
     restart: unless-stopped
     
-  nextcloud-onlyoffice
+  nextcloud-onlyoffice:
     image: onlyoffice/documentserver:latest
     container_name: nextcloud-onlyoffice
     environment:
