@@ -7,6 +7,8 @@ services:
       - PUID=1000
       - PGID=100
       - DISABLE_IPV6=true
+      - INITIAL_ADMIN_EMAIL=${ADMIN_EMAIL}
+      - INITIAL_ADMIN_PASSWORD=${ADMIN_PASSWORD}
     volumes:
       - /portainer/Files/AppData/Config/nginx-proxy-manager/data:/data
       - /portainer/Files/AppData/Config/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
