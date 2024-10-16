@@ -38,6 +38,18 @@
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/nginx-proxy-manager.png",
 			"categories":["Networking"],
 			"name":"nginx-proxy-manager",
+			"env":[
+				{
+					"label":"ADMIN_EMAIL",
+					"name":"ADMIN_EMAIL",
+					"default":""
+				},
+				{
+					"label":"ADMIN_PASSWORD",
+					"name":"ADMIN_PASSWORD",
+					"default":""
+				}
+			],
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
