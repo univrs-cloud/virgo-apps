@@ -13,7 +13,7 @@ services:
       - WG_DEFAULT_DNS=${WG_DEFAULT_DNS}
       - WG_ALLOWED_IPS=${WG_ALLOWED_IPS}
     volumes:
-      - /portainer/Files/AppData/Config/wireguard:/etc/wireguard
+      - /messier/apps/wireguard:/etc/wireguard
     ports:
       - "51820:51820/udp"
       - "51821:51821/tcp"
