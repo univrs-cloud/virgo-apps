@@ -9,8 +9,8 @@ services:
       - USER=odoo
       - PASSWORD=odoo
     volumes:
-      - /portainer/Files/AppData/Config/odoo/data:/var/lib/odoo
-      - /portainer/Files/AppData/Config/odoo/extra-addons:/mnt/extra-addons
+      - /messier/apps/odoo/data:/var/lib/odoo
+      - /messier/apps/odoo/extra-addons:/mnt/extra-addons
     ports:
       - "8069:8069/tcp"
     depends_on:
@@ -25,5 +25,5 @@ services:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
     volumes:
-      - /portainer/Files/AppData/Config/odoo/postgres:/var/lib/postgresql/data
+      - /messier/apps/odoo/postgres:/var/lib/postgresql/data
     restart: unless-stopped
