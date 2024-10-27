@@ -15,7 +15,7 @@ services:
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS}
     volumes:
-      - /portainer/Files/AppData/Config/nextcloud/config:/config
+      - /messier/apps/nextcloud/config:/config
       - ${NEXTCLOUD_DATA_DIR}:/data
     ports:
       - "8443:443/tcp"
@@ -34,7 +34,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     volumes:
-      - /portainer/Files/AppData/Config/nextcloud/db:/config
+      - /messier/apps/nextcloud/db:/config
     restart: unless-stopped
     
   nextcloud-onlyoffice:
@@ -45,13 +45,13 @@ services:
       - PGID=100
       - JWT_SECRET=${ONLYOFFICE_JWT_SECRET}
     volumes:
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/logs:/var/log/onlyoffice
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/data:/var/www/onlyoffice/Data
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/lib:/var/lib/onlyoffice
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/db:/var/lib/postgresql
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/redis:/var/lib/redis
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/rabbitmq:/var/lib/rabbitmq
-      - /portainer/Files/AppData/Config/nextcloud/onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
+      - /messier/apps/nextcloud/onlyoffice/logs:/var/log/onlyoffice
+      - /messier/apps/nextcloud/onlyoffice/data:/var/www/onlyoffice/Data
+      - /messier/apps/nextcloud/onlyoffice/lib:/var/lib/onlyoffice
+      - /messier/apps/nextcloud/onlyoffice/db:/var/lib/postgresql
+      - /messier/apps/nextcloud/onlyoffice/redis:/var/lib/redis
+      - /messier/apps/nextcloud/onlyoffice/rabbitmq:/var/lib/rabbitmq
+      - /messier/apps/nextcloud/onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
     ports:
       - "10080:80/tcp"
     restart: unless-stopped
