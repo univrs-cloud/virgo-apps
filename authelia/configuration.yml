@@ -1,6 +1,6 @@
 # yamllint disable rule:comments-indentation
 ---
-theme: "dark" #light/dark/grey/auto
+theme: "light" #light/dark/grey/auto
 
 identity_validation:
   reset_password:
