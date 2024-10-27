@@ -27,7 +27,7 @@
 			"type":1,
 			"volumes":[
 				{
-					"bind":"/portainer/Files/AppData/Config/ddclient",
+					"bind":"/messier/apps/ddclient",
 					"container":"/config"
 				}
 			]
@@ -225,7 +225,7 @@
 			],
 			"volumes":[
 				{
-					"bind":"/portainer/Files/AppData/Config/qbittorrent",
+					"bind":"/messier/apps/qbittorrent",
 					"container":"/config"
 				},
 				{
@@ -338,7 +338,7 @@
 			],
 			"volumes":[
 				{
-					"bind": "/portainer/Files/AppData/Config/onedev",
+					"bind": "/messier/apps/onedev",
 					"container": "/opt/onedev"
 				},
 				{
