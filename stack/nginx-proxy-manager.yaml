@@ -10,9 +10,9 @@ services:
       - INITIAL_ADMIN_EMAIL=${ADMIN_EMAIL}
       - INITIAL_ADMIN_PASSWORD=${ADMIN_PASSWORD}
     volumes:
-      - /portainer/Files/AppData/Config/nginx-proxy-manager/data:/data
-      - /portainer/Files/AppData/Config/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
-      - /portainer/Files/AppData/Config/nginx-proxy-manager/snippets:/snippets:ro
+      - /messier/apps/nginx-proxy-manager/data:/data
+      - /messier/apps/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+      - /messier/apps/nginx-proxy-manager/snippets:/snippets:ro
     ports:
       - "80:80/tcp"
       - "81:81/tcp"
