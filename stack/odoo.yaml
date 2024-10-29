@@ -5,21 +5,22 @@ services:
     container_name: "odoo"
     user: root
     environment:
-      - HOST=odoo-postgres
+      - HOST=odoo-db
       - USER=odoo
       - PASSWORD=odoo
     volumes:
       - /messier/apps/odoo/data:/var/lib/odoo
-      - /messier/apps/odoo/extra-addons:/mnt/extra-addons
+      - /messier/apps/odoo/config:/etc/odoo
+      - /messier/apps/odoo/addons:/mnt/extra-addons
     ports:
       - "8069:8069/tcp"
     depends_on:
-      - odoo-postgres
+      - odoo-db
     restart: unless-stopped
   
-  odoo-postgres:
+  odoo-db:
     image: "postgres:15"
-    container_name: odoo-postgres
+    container_name: odoo-db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=odoo
