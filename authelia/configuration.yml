@@ -35,6 +35,7 @@ authentication_backend:
   refresh_interval: "5m"
   file:
     path: "/config/users.yml" #this is where your authorized users are stored
+    watch: true
     password:
       algorithm: "bcrypt"
       bcrypt:
