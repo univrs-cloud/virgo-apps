@@ -13,6 +13,8 @@ services:
     networks:
       virgo:
         ipv4_address: 172.30.0.2
+    depends_on:
+      - redis
     restart: unless-stopped
 
   redis:
