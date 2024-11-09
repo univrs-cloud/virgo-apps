@@ -23,6 +23,7 @@ services:
       - "8443:443/tcp"
     depends_on:
       - nextcloud-db
+      - nextcloud-onlyoffice
     restart: unless-stopped
     
   nextcloud-db:
