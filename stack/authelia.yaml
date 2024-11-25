@@ -14,10 +14,10 @@ services:
       virgo:
         ipv4_address: 172.30.0.2
     depends_on:
-      - redis
+      - authelia-redis
     restart: unless-stopped
 
-  redis:
+  authelia-redis:
     image: redis:latest
     container_name: authelia-redis
     command: ["redis-server", "--appendonly", "yes", "--protected-mode", "no", "--maxmemory", "32mb", "--maxmemory-policy", "allkeys-lru"]
