@@ -169,14 +169,20 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"label":"SSHHOST",
-					"name":"SSHHOST",
+					"label":"SSH_HOST",
+					"name":"SSH_HOST",
 					"default":"192.168.100.2"
 				},
 				{
-					"label":"SSHUSER",
-					"name":"SSHUSER",
+					"label":"SSH_USER",
+					"name":"SSH_USER",
 					"default":"voyager"
+				},
+				{
+					"label":"BASE",
+					"name":"BASE",
+					"default":"/",
+					"preset":true
 				}
 			],
 			"image":"ghcr.io/butlerx/wetty:latest",
