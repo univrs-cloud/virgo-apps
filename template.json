@@ -163,7 +163,7 @@
 			"type":3
 		},
 		{
-			"title":"ttyd",
+			"title":"WeTTY",
 			"description":"A terminal in a browser.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/terminal.png",
 			"categories":["Networking"],
@@ -179,13 +179,13 @@
 					"default":"voyager"
 				}
 			],
-			"image":"tsl0922/ttyd:latest",
-			"name":"ttyd",
+			"image":"ghcr.io/butlerx/wetty:latest",
+			"name":"wetty",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
 			"type":1,
 			"ports":[
-				"2222:7681/tcp"
+				"2222:3000/tcp"
 			]
 		},
 		{
