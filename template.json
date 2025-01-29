@@ -174,8 +174,8 @@
 					"default":"192.168.100.2"
 				},
 				{
-					"label":"SSH_USER",
-					"name":"SSH_USER",
+					"label":"SSHUSER",
+					"name":"SSHUSER",
 					"default":"voyager"
 				},
 				{
@@ -185,6 +185,7 @@
 					"preset":true
 				}
 			],
+			"command":"--ssh-user=voyager",
 			"image":"ghcr.io/butlerx/wetty:latest",
 			"name":"wetty",
 			"platform":"linux",
