@@ -169,8 +169,8 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"label":"SSH_HOST",
-					"name":"SSH_HOST",
+					"label":"SSHHOST",
+					"name":"SSHHOST",
 					"default":"192.168.100.2"
 				},
 				{
