@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   pihole:
-    image: aleksanderbl/pihole-unbound:latest
+    image: mpgirro/docker-pihole-unbound:latest
     container_name: pihole
     environment:
       - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
@@ -12,7 +12,7 @@ services:
       - DHCP_START=${DHCP_START}
       - DHCP_END=${DHCP_END}
       - DHCP_ROUTER=${DHCP_ROUTER}
-      - DHCP_rapid_commit=true
+      - DHCP_RAPID_COMMIT=true
       - WEBPASSWORD=${WEBPASSWORD}
     volumes:
       - /messier/apps/pihole/:/etc/pihole/
