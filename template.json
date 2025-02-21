@@ -2,7 +2,8 @@
 	"version":"3",
 	"templates":[
 		{
-			"id": 1,
+			"id":1,
+			"type":1,
 			"title":"DDclient",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/ddns-updater.png",
@@ -25,7 +26,6 @@
 			"name":"ddclient",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
-			"type":1,
 			"volumes":[
 				{
 					"bind":"/messier/apps/ddclient",
@@ -34,7 +34,8 @@
 			]
 		},
 		{
-			"id": 2,
+			"id":2,
+			"type":3,
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/nginx-proxy-manager.png",
@@ -56,11 +57,11 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile":"stack/nginx-proxy-manager.yaml"
-			},
-			"type":3
+			}
 		},
 		{
-			"id": 3,
+			"id":3,
+			"type":3,
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/authelia.png",
@@ -70,11 +71,11 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile":"stack/authelia.yaml"
-			},
-			"type":3
+			}
 		},
 		{
-			"id": 4,
+			"id":4,
+			"type":3,
 			"title":"Pi-Hole + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/pihole.png",
@@ -121,11 +122,11 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile":"stack/pihole.yaml"
-			},
-			"type":3
+			}
 		},
 		{
-			"id": 5,
+			"id":5,
+			"type":3,
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/wireguard.png",
@@ -164,11 +165,11 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile":"stack/wireguard-easy.yaml"
-			},
-			"type":3
+			}
 		},
 		{
-			"id": 6,
+			"id":6,
+			"type":1,
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/terminal.png",
@@ -196,13 +197,13 @@
 			"name":"wetty",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
-			"type":1,
 			"ports":[
 				"2222:3000/tcp"
 			]
 		},
 		{
-			"id": 7,
+			"id":7,
+			"type":1,
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/qbittorrent.png",
@@ -231,7 +232,6 @@
 			"name":"qbittorrent",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
-			"type":1,
 			"ports":[
 				"6080:6080/tcp",
 				"6881:6881/tcp",
@@ -249,7 +249,8 @@
 			]
 		},
 		{
-			"id": 8,
+			"id":8,
+			"type":3,
 			"title":"NextCloud",
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note":"The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
@@ -295,11 +296,11 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile":"stack/nextcloud.yaml"
-			},
-			"type":3
+			}
 		},
 		{
-			"id": 9,
+			"id":9,
+			"type":3,
 			"title":"Penpot",
 			"description":"A design & prototyping tool for product teams.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/penpot.png",
@@ -321,10 +322,11 @@
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile":"stack/penpot.yaml"
-			},
-			"type":3
+			}
 		},
 		{
+			"id":10,
+			"type":1,
 			"title":"OneDev",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/onedev.png",
@@ -347,15 +349,14 @@
 			"name":"onedev",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
-			"type":1,
-			"ports": [
+			"ports":[
 				"6610:6610/tcp",
 				"6611:6611/tcp"
 			],
 			"volumes":[
 				{
-					"bind": "/messier/apps/onedev",
-					"container": "/opt/onedev"
+					"bind":"/messier/apps/onedev",
+					"container":"/opt/onedev"
 				},
 				{
 					"bind":"/var/run/docker.sock",
@@ -365,16 +366,17 @@
 			]
 		},
 		{
+			"id":11,
+			"type":1,
 			"title":"Watchtower",
 			"description":"Automatically updates your apps to the latest version.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/watchtower.png",
 			"categories":["System"],
 			"image":"ghcr.io/containrrr/watchtower:latest",
-			"command": "--cleanup",
+			"command":"--cleanup",
 			"name":"watchtower",
 			"platform":"linux",
 			"restart_policy":"unless-stopped",
-			"type":1,
 			"volumes":[
 				{
 					"bind":"/var/run/docker.sock",
