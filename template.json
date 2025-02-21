@@ -2,6 +2,7 @@
 	"version":"3",
 	"templates":[
 		{
+			"id": 1,
 			"title":"DDclient",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/ddns-updater.png",
@@ -33,6 +34,7 @@
 			]
 		},
 		{
+			"id": 2,
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/nginx-proxy-manager.png",
@@ -58,6 +60,7 @@
 			"type":3
 		},
 		{
+			"id": 3,
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/authelia.png",
@@ -71,6 +74,7 @@
 			"type":3
 		},
 		{
+			"id": 4,
 			"title":"Pi-Hole + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/pihole.png",
@@ -121,6 +125,7 @@
 			"type":3
 		},
 		{
+			"id": 5,
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/wireguard.png",
@@ -163,6 +168,7 @@
 			"type":3
 		},
 		{
+			"id": 6,
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/terminal.png",
@@ -196,6 +202,7 @@
 			]
 		},
 		{
+			"id": 7,
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/qbittorrent.png",
@@ -242,6 +249,7 @@
 			]
 		},
 		{
+			"id": 8,
 			"title":"NextCloud",
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note":"The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
@@ -291,6 +299,7 @@
 			"type":3
 		},
 		{
+			"id": 9,
 			"title":"Penpot",
 			"description":"A design & prototyping tool for product teams.",
 			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/penpot.png",
