@@ -15,10 +15,10 @@ services:
       - DHCP_RAPID_COMMIT=true
       - WEBPASSWORD=${WEBPASSWORD}
     volumes:
-      - /messier/apps/pihole/data/:/etc/pihole/
-      - /messier/apps/pihole/logs/pihole/:/var/log/pihole
-      - /messier/apps/pihole/logs/lighttpd/:/var/log/lighttpd
-      - /messier/apps/pihole/dnsmasq.d/:/etc/dnsmasq.d/
+      - /messier/apps/pihole/data:/etc/pihole/
+      - /messier/apps/pihole/logs/pihole:/var/log/pihole
+      - /messier/apps/pihole/logs/lighttpd:/var/log/lighttpd
+      - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d/
     ports:
       - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
       - "${FTLCONF_LOCAL_IPV4}:53:53/udp"
