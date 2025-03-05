@@ -7,7 +7,7 @@ services:
       - PUID=1000
       - PGID=100
     volumes:
-      - /messier/apps/authelia:/config
+      - /messier/apps/authelia/config:/config
     ports:
       - "9091:9091/tcp"
     networks:
@@ -25,7 +25,7 @@ services:
       - PUID=1000
       - PGID=100
     volumes:
-      - /messier/apps/authelia-redis:/data
+      - /messier/apps/authelia/redis:/data
     ports:
       - "9092:6379/tcp"
     networks:
