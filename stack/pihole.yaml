@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   pihole:
-    image: mpgirro/docker-pihole-unbound:latest
+    image: mpgirro/pihole-unbound:2024.07.0
     container_name: pihole
     environment:
       - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
