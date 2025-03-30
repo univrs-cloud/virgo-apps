@@ -73,8 +73,59 @@
 				"stackfile":"stack/authelia.yaml"
 			}
 		},
-		{
+{
 			"id":4,
+			"type":3,
+			"title":"Pi-Hole6 + Unbound",
+			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
+			"logo":"https://raw.githubusercontent.com/univrs-cloud/virgo-apps/main/images/pihole.png",
+			"categories":["Networking"],
+			"env":[
+				{
+					"label":"DOMAIN_NAME",
+					"name":"DOMAIN_NAME",
+					"default":"univrs"
+				},
+				{
+					"label":"FTLCONF_LOCAL_IPV4",
+					"name":"FTLCONF_LOCAL_IPV4",
+					"default":"192.168.100.2"
+				},
+				{
+					"label":"DHCP_ACTIVE",
+					"name":"DHCP_ACTIVE",
+					"default":"true"
+				},
+				{
+					"label":"DHCP_START",
+					"name":"DHCP_START",
+					"default":"192.168.100.100"
+				},
+				{
+					"label":"DHCP_END",
+					"name":"DHCP_END",
+					"default":"192.168.100.250"
+				},
+				{
+					"label":"DHCP_ROUTER",
+					"name":"DHCP_ROUTER",
+					"default":"192.168.100.1"
+				},
+				{
+					"label":"WEBPASSWORD",
+					"name":"WEBPASSWORD",
+					"default":"pa$$word"
+				}
+			],
+			"name":"pihole",
+			"platform":"linux",
+			"repository":{
+				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile":"stack/pihole6.yaml"
+			}
+		},
+		{
+			"id":5,
 			"type":3,
 			"title":"Pi-Hole + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
@@ -125,7 +176,7 @@
 			}
 		},
 		{
-			"id":5,
+			"id":6,
 			"type":3,
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
@@ -168,7 +219,7 @@
 			}
 		},
 		{
-			"id":6,
+			"id":7,
 			"type":1,
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
@@ -202,7 +253,7 @@
 			]
 		},
 		{
-			"id":7,
+			"id":8,
 			"type":1,
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
@@ -249,7 +300,7 @@
 			]
 		},
 		{
-			"id":8,
+			"id":9,
 			"type":3,
 			"title":"NextCloud",
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
@@ -299,7 +350,7 @@
 			}
 		},
 		{
-			"id":9,
+			"id":10,
 			"type":3,
 			"title":"Penpot",
 			"description":"A design & prototyping tool for product teams.",
@@ -325,7 +376,7 @@
 			}
 		},
 		{
-			"id":10,
+			"id":11,
 			"type":1,
 			"title":"OneDev",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
@@ -366,7 +417,7 @@
 			]
 		},
 		{
-			"id":11,
+			"id":12,
 			"type":1,
 			"title":"Watchtower",
 			"description":"Automatically updates your apps to the latest version.",
