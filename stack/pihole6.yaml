@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  pihole:
+    image: mpgirro/pihole-unbound:latest
+    container_name: pihole
+    environment:
+      - TZ=Europe/Bucharest
+      - PIHOLE_UID=1000
+      - PIHOLE_GID=100
+      - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
+      - FTLCONF_dns_listeningMode=all
+      - FTLCONF_misc_etc_dnsmasq_d=true
+      - FTLCONF_dns_domain=${DOMAIN_NAME}
+      - FTLCONF_dns_upstreams=127.0.0.1#5335;127.0.0.1#5335
+      - FTLCONF_dhcp_active=${DHCP_ACTIVE}
+      - FTLCONF_dhcp_start=${DHCP_START}
+      - FTLCONF_dhcp_end=${DHCP_END}
+      - FTLCONF_dhcp_router=${DHCP_ROUTER}
+      - FTLCONF_dhcp_rapidCommit=true
+
+      - FTLCONF_webserver_api_password=${WEBPASSWORD}
+    volumes:
+      - /messier/apps/pihole/data:/etc/pihole/
+      - /messier/apps/pihole/logs:/var/log/pihole
+      - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d/
+    ports:
+      - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
+      - "${FTLCONF_LOCAL_IPV4}:53:53/udp"
+      - "5335:5335/tcp"
+      - "5443:443/tcp"
+    depends_on:
+      - dhcphelper
+    dns:
+      - 127.0.0.1
+    networks:
+      virgo:
+        ipv4_address: 172.30.0.4
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+  dhcphelper:
+    container_name: dhcphelper
+    image: homeall/dhcphelper:latest
+    network_mode: host
+    environment:
+      IP: 172.30.0.4
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true
