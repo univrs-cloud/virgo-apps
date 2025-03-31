@@ -3,38 +3,6 @@
 	"templates":[
 		{
 			"id":1,
-			"type":1,
-			"title":"DDclient",
-			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
-			"logo":"https://apps.univrs.cloud/images/ddns-updater.png",
-			"categories":["Networking"],
-			"env":[
-				{
-					"label":"PUID",
-					"name":"PUID",
-					"default":1000,
-					"preset":true
-				},
-				{
-					"label":"PGID",
-					"name":"PGID",
-					"default":100,
-					"preset":true
-				}
-			],
-			"image":"lscr.io/linuxserver/ddclient:latest",
-			"name":"ddclient",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"volumes":[
-				{
-					"bind":"/messier/apps/ddclient",
-					"container":"/config"
-				}
-			]
-		},
-		{
-			"id":2,
 			"type":3,
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
@@ -64,7 +32,7 @@
 			}
 		},
 		{
-			"id":3,
+			"id":2,
 			"type":3,
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
@@ -78,7 +46,7 @@
 			}
 		},
 {
-			"id":4,
+			"id":3,
 			"type":3,
 			"title":"Pi-Hole6 + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
@@ -143,7 +111,7 @@
 			}
 		},
 		{
-			"id":5,
+			"id":4,
 			"type":3,
 			"title":"Pi-Hole + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
@@ -208,7 +176,7 @@
 			}
 		},
 		{
-			"id":6,
+			"id":5,
 			"type":3,
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
@@ -259,7 +227,7 @@
 			}
 		},
 		{
-			"id":7,
+			"id":6,
 			"type":1,
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
@@ -297,7 +265,7 @@
 			]
 		},
 		{
-			"id":8,
+			"id":7,
 			"type":1,
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
@@ -344,7 +312,7 @@
 			]
 		},
 		{
-			"id":9,
+			"id":8,
 			"type":3,
 			"title":"NextCloud",
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
@@ -408,7 +376,7 @@
 			}
 		},
 		{
-			"id":10,
+			"id":9,
 			"type":3,
 			"title":"Penpot",
 			"description":"A design & prototyping tool for product teams.",
@@ -438,7 +406,7 @@
 			}
 		},
 		{
-			"id":11,
+			"id":10,
 			"type":1,
 			"title":"OneDev",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
@@ -479,7 +447,7 @@
 			]
 		},
 		{
-			"id":12,
+			"id":11,
 			"type":1,
 			"title":"Watchtower",
 			"description":"Automatically updates your apps to the latest version.",
@@ -495,6 +463,38 @@
 					"bind":"/var/run/docker.sock",
 					"container":"/var/run/docker.sock",
 					"readonly":true
+				}
+			]
+		},
+		{
+			"id":12,
+			"type":1,
+			"title":"DDclient",
+			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
+			"logo":"https://apps.univrs.cloud/images/ddns-updater.png",
+			"categories":["Networking"],
+			"env":[
+				{
+					"label":"PUID",
+					"name":"PUID",
+					"default":1000,
+					"preset":true
+				},
+				{
+					"label":"PGID",
+					"name":"PGID",
+					"default":100,
+					"preset":true
+				}
+			],
+			"image":"lscr.io/linuxserver/ddclient:latest",
+			"name":"ddclient",
+			"platform":"linux",
+			"restart_policy":"unless-stopped",
+			"volumes":[
+				{
+					"bind":"/messier/apps/ddclient",
+					"container":"/config"
 				}
 			]
 		}
