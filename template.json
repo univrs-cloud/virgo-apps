@@ -12,13 +12,13 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":"1000",
+					"default":1000,
 					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":"100",
+					"default":100,
 					"preset":true
 				}
 			],
@@ -46,13 +46,15 @@
 					"label":"Email address",
 					"name":"ADMIN_EMAIL",
 					"default":"",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Password",
 					"name":"ADMIN_PASSWORD",
 					"default":"pa$$word",
-					"type":"password"
+					"type":"password",
+					"description":""
 				}
 			],
 			"platform":"linux",
@@ -87,43 +89,50 @@
 					"label":"Domain name",
 					"name":"DOMAIN_NAME",
 					"default":"univrs",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Host IP address",
 					"name":"FTLCONF_LOCAL_IPV4",
 					"default":"192.168.100.2",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"DHCP server enabled",
 					"name":"DHCP_ACTIVE",
 					"default":"true",
-					"type":"checkbox"
+					"type":"checkbox",
+					"description":""
 				},
 				{
 					"label":"DHCP from",
 					"name":"DHCP_START",
 					"default":"192.168.100.100",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"DHCP to",
 					"name":"DHCP_END",
 					"default":"192.168.100.250",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Router (gateway) IP address",
 					"name":"DHCP_ROUTER",
 					"default":"192.168.100.1",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Password",
 					"name":"WEBPASSWORD",
 					"default":"pa$$word",
-					"type":"password"
+					"type":"password",
+					"description":""
 				}
 			],
 			"name":"pihole",
@@ -145,43 +154,50 @@
 					"label":"Domain name",
 					"name":"DOMAIN_NAME",
 					"default":"univrs",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Host IP address",
 					"name":"FTLCONF_LOCAL_IPV4",
 					"default":"192.168.100.2",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"DHCP server enabled",
 					"name":"DHCP_ACTIVE",
 					"default":"true",
-					"type":"checkbox"
+					"type":"checkbox",
+					"description":""
 				},
 				{
 					"label":"DHCP from",
 					"name":"DHCP_START",
 					"default":"192.168.100.100",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"DHCP to",
 					"name":"DHCP_END",
 					"default":"192.168.100.250",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Router (gateway) IP address",
 					"name":"DHCP_ROUTER",
 					"default":"192.168.100.1",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Password",
 					"name":"WEBPASSWORD",
 					"default":"pa$$word",
-					"type":"password"
+					"type":"password",
+					"description":""
 				}
 			],
 			"name":"pihole",
@@ -200,36 +216,39 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"description":"DDNS domain",
 					"label":"Host",
 					"name":"WG_HOST",
 					"default":"vpn.domain.com",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Password hash (brypt)",
 					"name":"PASSWORD_HASH",
 					"default":"",
 					"type":"text",
-					"description":"Leave blank to access UI without logging in"
+					"description":"Leave blank to access UI without logging in."
 				},
 				{
 					"label":"DNS",
 					"name":"WG_DEFAULT_DNS",
 					"default":"192.168.100.2",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Default address",
 					"name":"WG_DEFAULT_ADDRESS",
 					"default":"10.6.0.x",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Allowed IPs",
 					"name":"WG_ALLOWED_IPS",
 					"default":"0.0.0.0/0",
-					"type":"text"
+					"type":"text",
+					"description":""
 				}
 			],
 			"name":"wg-easy",
@@ -248,22 +267,24 @@
 			"categories":["Networking"],
 			"env":[
 				{
+					"label":"BASE",
+					"name":"BASE",
+					"default":"/",
+					"preset":true
+				},
+				{
 					"label":"Host",
 					"name":"SSHHOST",
 					"default":"192.168.100.2",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Username",
 					"name":"SSHUSER",
 					"default":"voyager",
-					"type":"text"
-				},
-				{
-					"label":"BASE",
-					"name":"BASE",
-					"default":"/",
-					"preset":true
+					"type":"text",
+					"description":""
 				}
 			],
 			"command":"--ssh-user=voyager",
@@ -286,13 +307,13 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":"1000",
+					"default":1000,
 					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":"100",
+					"default":100,
 					"preset":true
 				},
 				{
@@ -335,41 +356,48 @@
 					"label":"Username",
 					"name":"NEXTCLOUD_ADMIN_USER",
 					"default":"voyager",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Password",
 					"name":"NEXTCLOUD_ADMIN_PASSWORD",
 					"default":"pa$$word",
-					"type":"password"
+					"type":"password",
+					"description":""
 				},
 				{
 					"label":"Trusted domains",
 					"name":"NEXTCLOUD_TRUSTED_DOMAINS",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"Data folder path",
 					"name":"NEXTCLOUD_DATA_DIR",
 					"default":"/nextcloud",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"MySQL password",
 					"name":"MYSQL_PASSWORD",
 					"default":"nextcloud",
-					"type":"password"
+					"type":"password",
+					"description":""
 				},
 				{
 					"label":"MySQL root password",
 					"name":"MYSQL_ROOT_PASSWORD",
 					"default":"nextcloud",
-					"type":"password"
+					"type":"password",
+					"description":""
 				},
 				{
 					"label":"OnlyOffice JWT secret",
 					"name":"ONLYOFFICE_JWT_SECRET",
-					"type":"text"
+					"type":"text",
+					"description":""
 				}
 			],
 			"name":"nextcloud",
@@ -391,13 +419,15 @@
 					"label":"Public address",
 					"name":"PUBLIC_URI",
 					"default":"http://ip:5080",
-					"type":"text"
+					"type":"text",
+					"description":""
 				},
 				{
 					"label":"PostgreSQL password",
 					"name":"POSTGRES_PASSWORD",
 					"default":"penpot",
-					"type":"password"
+					"type":"password",
+					"description":""
 				}
 			],
 			"name":"penpot",
@@ -418,13 +448,13 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":"1000",
+					"default":1000,
 					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":"100",
+					"default":100,
 					"preset":true
 				}
 			],
