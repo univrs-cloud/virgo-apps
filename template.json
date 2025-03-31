@@ -13,14 +13,12 @@
 				{
 					"label":"Email address",
 					"name":"ADMIN_EMAIL",
-					"default":"",
-					"description":""
+					"default":""
 				},
 				{
 					"label":"Password",
 					"name":"ADMIN_PASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				}
 			],
 			"platform":"linux",
@@ -54,14 +52,12 @@
 				{
 					"label":"Domain name",
 					"name":"DOMAIN_NAME",
-					"default":"univrs",
-					"description":""
+					"default":"univrs"
 				},
 				{
 					"label":"Host IP address",
 					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"DHCP server enabled",
@@ -76,32 +72,27 @@
 							"value":"false",
 							"text":"No"
 						}
-					],
-					"description":""
+					]
 				},
 				{
 					"label":"DHCP from",
 					"name":"DHCP_START",
-					"default":"192.168.100.100",
-					"description":""
+					"default":"192.168.100.100"
 				},
 				{
 					"label":"DHCP to",
 					"name":"DHCP_END",
-					"default":"192.168.100.250",
-					"description":""
+					"default":"192.168.100.250"
 				},
 				{
 					"label":"Router (gateway) IP address",
 					"name":"DHCP_ROUTER",
-					"default":"192.168.100.1",
-					"description":""
+					"default":"192.168.100.1"
 				},
 				{
 					"label":"Password",
 					"name":"WEBPASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				}
 			],
 			"name":"pihole",
@@ -122,14 +113,12 @@
 				{
 					"label":"Domain name",
 					"name":"DOMAIN_NAME",
-					"default":"univrs",
-					"description":""
+					"default":"univrs"
 				},
 				{
 					"label":"Host IP address",
 					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"DHCP server enabled",
@@ -144,32 +133,27 @@
 							"value":"false",
 							"text":"No"
 						}
-					],
-					"description":""
+					]
 				},
 				{
 					"label":"DHCP from",
 					"name":"DHCP_START",
-					"default":"192.168.100.100",
-					"description":""
+					"default":"192.168.100.100"
 				},
 				{
 					"label":"DHCP to",
 					"name":"DHCP_END",
-					"default":"192.168.100.250",
-					"description":""
+					"default":"192.168.100.250"
 				},
 				{
 					"label":"Router (gateway) IP address",
 					"name":"DHCP_ROUTER",
-					"default":"192.168.100.1",
-					"description":""
+					"default":"192.168.100.1"
 				},
 				{
 					"label":"Password",
 					"name":"WEBPASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				}
 			],
 			"name":"pihole",
@@ -190,8 +174,7 @@
 				{
 					"label":"Host",
 					"name":"WG_HOST",
-					"default":"vpn.domain.com",
-					"description":""
+					"default":"vpn.domain.com"
 				},
 				{
 					"label":"Password hash (brypt)",
@@ -202,20 +185,17 @@
 				{
 					"label":"DNS",
 					"name":"WG_DEFAULT_DNS",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"Default address",
 					"name":"WG_DEFAULT_ADDRESS",
-					"default":"10.6.0.x",
-					"description":""
+					"default":"10.6.0.x"
 				},
 				{
 					"label":"Allowed IPs",
 					"name":"WG_ALLOWED_IPS",
-					"default":"0.0.0.0/0",
-					"description":""
+					"default":"0.0.0.0/0"
 				}
 			],
 			"name":"wg-easy",
@@ -242,14 +222,12 @@
 				{
 					"label":"Host",
 					"name":"SSHHOST",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
 					"label":"Username",
 					"name":"SSHUSER",
-					"default":"voyager",
-					"description":""
+					"default":"voyager"
 				}
 			],
 			"command":"--ssh-user=voyager",
@@ -320,42 +298,35 @@
 				{
 					"label":"Username",
 					"name":"NEXTCLOUD_ADMIN_USER",
-					"default":"voyager",
-					"description":""
+					"default":"voyager"
 				},
 				{
 					"label":"Password",
 					"name":"NEXTCLOUD_ADMIN_PASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				},
 				{
 					"label":"Trusted domains",
-					"name":"NEXTCLOUD_TRUSTED_DOMAINS",
-					"description":""
+					"name":"NEXTCLOUD_TRUSTED_DOMAINS"
 				},
 				{
 					"label":"Data folder path",
 					"name":"NEXTCLOUD_DATA_DIR",
-					"default":"/nextcloud",
-					"description":""
+					"default":"/nextcloud"
 				},
 				{
 					"label":"MySQL password",
 					"name":"MYSQL_PASSWORD",
-					"default":"nextcloud",
-					"description":""
+					"default":"nextcloud"
 				},
 				{
 					"label":"MySQL root password",
 					"name":"MYSQL_ROOT_PASSWORD",
-					"default":"nextcloud",
-					"description":""
+					"default":"nextcloud"
 				},
 				{
 					"label":"OnlyOffice JWT secret",
-					"name":"ONLYOFFICE_JWT_SECRET",
-					"description":""
+					"name":"ONLYOFFICE_JWT_SECRET"
 				}
 			],
 			"name":"nextcloud",
@@ -376,14 +347,12 @@
 				{
 					"label":"Public address",
 					"name":"PUBLIC_URI",
-					"default":"http://ip:5080",
-					"description":""
+					"default":"http://ip:5080"
 				},
 				{
 					"label":"PostgreSQL password",
 					"name":"POSTGRES_PASSWORD",
-					"default":"penpot",
-					"description":""
+					"default":"penpot"
 				}
 			],
 			"name":"penpot",
