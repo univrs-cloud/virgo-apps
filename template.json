@@ -272,13 +272,13 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":1000,
+					"default":"1000",
 					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":100,
+					"default":"100",
 					"preset":true
 				},
 				{
@@ -404,13 +404,13 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":1000,
+					"default":"1000",
 					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":100,
+					"default":"100",
 					"preset":true
 				}
 			],
@@ -465,13 +465,13 @@
 				{
 					"label":"PUID",
 					"name":"PUID",
-					"default":1000,
+					"default":"1000",
 					"preset":true
 				},
 				{
 					"label":"PGID",
 					"name":"PGID",
-					"default":100,
+					"default":"100",
 					"preset":true
 				}
 			],
