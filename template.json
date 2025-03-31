@@ -82,37 +82,37 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"label":"DOMAIN_NAME",
+					"label":"Domain name",
 					"name":"DOMAIN_NAME",
 					"default":"univrs"
 				},
 				{
-					"label":"FTLCONF_LOCAL_IPV4",
+					"label":"Host IP address",
 					"name":"FTLCONF_LOCAL_IPV4",
 					"default":"192.168.100.2"
 				},
 				{
-					"label":"DHCP_ACTIVE",
+					"label":"DHCP server enabled",
 					"name":"DHCP_ACTIVE",
 					"default":"true"
 				},
 				{
-					"label":"DHCP_START",
+					"label":"DHCP from",
 					"name":"DHCP_START",
 					"default":"192.168.100.100"
 				},
 				{
-					"label":"DHCP_END",
+					"label":"DHCP to",
 					"name":"DHCP_END",
 					"default":"192.168.100.250"
 				},
 				{
-					"label":"DHCP_ROUTER",
+					"label":"Router (gateway) IP address",
 					"name":"DHCP_ROUTER",
 					"default":"192.168.100.1"
 				},
 				{
-					"label":"WEBPASSWORD",
+					"label":"Password",
 					"name":"WEBPASSWORD",
 					"default":"pa$$word"
 				}
