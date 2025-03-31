@@ -23,7 +23,7 @@
 			],
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/nginx-proxy-manager.yaml"
 			}
 		},
@@ -37,7 +37,7 @@
 			"name":"authelia",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/authelia.yaml"
 			}
 		},
@@ -98,7 +98,7 @@
 			"name":"pihole",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/pihole6.yaml"
 			}
 		},
@@ -159,7 +159,7 @@
 			"name":"pihole",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/pihole.yaml"
 			}
 		},
@@ -201,7 +201,7 @@
 			"name":"wg-easy",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/wireguard-easy.yaml"
 			}
 		},
@@ -332,7 +332,7 @@
 			"name":"nextcloud",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/nextcloud.yaml"
 			}
 		},
@@ -358,7 +358,7 @@
 			"name":"penpot",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/penpot.yaml"
 			}
 		},
