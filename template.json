@@ -65,7 +65,7 @@
 					"select":[
 						{
 							"value":"true",
-							"default":"true",
+							"default":true,
 							"text":"Yes"
 						},
 						{
@@ -126,7 +126,7 @@
 					"select":[
 						{
 							"value":"true",
-							"default":"true",
+							"default":true,
 							"text":"Yes"
 						},
 						{
