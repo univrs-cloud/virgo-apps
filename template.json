@@ -3,6 +3,38 @@
 	"templates":[
 		{
 			"id":1,
+			"type":1,
+			"title":"DDclient",
+			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
+			"logo":"https://apps.univrs.cloud/images/ddns-updater.png",
+			"categories":["Networking"],
+			"env":[
+				{
+					"label":"PUID",
+					"name":"PUID",
+					"default":"1000",
+					"preset":true
+				},
+				{
+					"label":"PGID",
+					"name":"PGID",
+					"default":"100",
+					"preset":true
+				}
+			],
+			"image":"lscr.io/linuxserver/ddclient:latest",
+			"name":"ddclient",
+			"platform":"linux",
+			"restart_policy":"unless-stopped",
+			"volumes":[
+				{
+					"bind":"/messier/apps/ddclient",
+					"container":"/config"
+				}
+			]
+		},
+		{
+			"id":2,
 			"type":3,
 			"title":"NGINX Proxy Manager",
 			"description":"Expose your services easily and securely.",
@@ -11,26 +43,24 @@
 			"name":"nginx-proxy-manager",
 			"env":[
 				{
-					"label":"Email address",
+					"label":"ADMIN_EMAIL",
 					"name":"ADMIN_EMAIL",
-					"default":"",
-					"description":""
+					"default":""
 				},
 				{
-					"label":"Password",
+					"label":"ADMIN_PASSWORD",
 					"name":"ADMIN_PASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":""
 				}
 			],
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/nginx-proxy-manager.yaml"
 			}
 		},
 		{
-			"id":2,
+			"id":3,
 			"type":3,
 			"title":"Authelia",
 			"description":"The Single Sign-On Multi-Factor portal for web apps.",
@@ -39,12 +69,12 @@
 			"name":"authelia",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/authelia.yaml"
 			}
 		},
 {
-			"id":3,
+			"id":4,
 			"type":3,
 			"title":"Pi-Hole6 + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
@@ -52,67 +82,50 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"label":"Domain name",
+					"label":"DOMAIN_NAME",
 					"name":"DOMAIN_NAME",
-					"default":"univrs",
-					"description":""
+					"default":"univrs"
 				},
 				{
-					"label":"Host IP address",
+					"label":"FTLCONF_LOCAL_IPV4",
 					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
-					"label":"DHCP server enabled",
+					"label":"DHCP_ACTIVE",
 					"name":"DHCP_ACTIVE",
-					"select":[
-						{
-							"value":"true",
-							"default":"true",
-							"text":"Yes"
-						},
-						{
-							"value":"false",
-							"text":"No"
-						}
-					],
-					"description":""
+					"default":"true"
 				},
 				{
-					"label":"DHCP from",
+					"label":"DHCP_START",
 					"name":"DHCP_START",
-					"default":"192.168.100.100",
-					"description":""
+					"default":"192.168.100.100"
 				},
 				{
-					"label":"DHCP to",
+					"label":"DHCP_END",
 					"name":"DHCP_END",
-					"default":"192.168.100.250",
-					"description":""
+					"default":"192.168.100.250"
 				},
 				{
-					"label":"Router (gateway) IP address",
+					"label":"DHCP_ROUTER",
 					"name":"DHCP_ROUTER",
-					"default":"192.168.100.1",
-					"description":""
+					"default":"192.168.100.1"
 				},
 				{
-					"label":"Password",
+					"label":"WEBPASSWORD",
 					"name":"WEBPASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				}
 			],
 			"name":"pihole",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/pihole6.yaml"
 			}
 		},
 		{
-			"id":4,
+			"id":5,
 			"type":3,
 			"title":"Pi-Hole + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
@@ -120,67 +133,50 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"label":"Domain name",
+					"label":"DOMAIN_NAME",
 					"name":"DOMAIN_NAME",
-					"default":"univrs",
-					"description":""
+					"default":"univrs"
 				},
 				{
-					"label":"Host IP address",
+					"label":"FTLCONF_LOCAL_IPV4",
 					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
-					"label":"DHCP server enabled",
+					"label":"DHCP_ACTIVE",
 					"name":"DHCP_ACTIVE",
-					"select":[
-						{
-							"value":"true",
-							"default":"true",
-							"text":"Yes"
-						},
-						{
-							"value":"false",
-							"text":"No"
-						}
-					],
-					"description":""
+					"default":"true"
 				},
 				{
-					"label":"DHCP from",
+					"label":"DHCP_START",
 					"name":"DHCP_START",
-					"default":"192.168.100.100",
-					"description":""
+					"default":"192.168.100.100"
 				},
 				{
-					"label":"DHCP to",
+					"label":"DHCP_END",
 					"name":"DHCP_END",
-					"default":"192.168.100.250",
-					"description":""
+					"default":"192.168.100.250"
 				},
 				{
-					"label":"Router (gateway) IP address",
+					"label":"DHCP_ROUTER",
 					"name":"DHCP_ROUTER",
-					"default":"192.168.100.1",
-					"description":""
+					"default":"192.168.100.1"
 				},
 				{
-					"label":"Password",
+					"label":"WEBPASSWORD",
 					"name":"WEBPASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				}
 			],
 			"name":"pihole",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/pihole.yaml"
 			}
 		},
 		{
-			"id":5,
+			"id":6,
 			"type":3,
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
@@ -188,45 +184,42 @@
 			"categories":["Networking"],
 			"env":[
 				{
-					"label":"Host",
+					"description":"DDNS domain",
+					"label":"WG_HOST",
 					"name":"WG_HOST",
-					"default":"vpn.domain.com",
-					"description":""
+					"default":"example.domain.com"
 				},
 				{
-					"label":"Password hash (brypt)",
+					"description":"Leave blank to access WebUI without loggin",
+					"label":"PASSWORD_HASH",
 					"name":"PASSWORD_HASH",
-					"default":"",
-					"description":"Leave blank to access UI without logging in."
+					"default":"ENTER A BCRYPT PASSWORD HASH"
 				},
 				{
-					"label":"DNS",
+					"label":"WG_DEFAULT_DNS",
 					"name":"WG_DEFAULT_DNS",
-					"default":"192.168.100.2",
-					"description":""
+					"default":"192.168.100.2"
 				},
 				{
-					"label":"Default address",
+					"label":"WG_DEFAULT_ADDRESS",
 					"name":"WG_DEFAULT_ADDRESS",
-					"default":"10.6.0.x",
-					"description":""
+					"default":"10.6.0.x"
 				},
 				{
-					"label":"Allowed IPs",
+					"label":"WG_ALLOWED_IPS",
 					"name":"WG_ALLOWED_IPS",
-					"default":"0.0.0.0/0",
-					"description":""
+					"default":"0.0.0.0/0"
 				}
 			],
 			"name":"wg-easy",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/wireguard-easy.yaml"
 			}
 		},
 		{
-			"id":6,
+			"id":7,
 			"type":1,
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
@@ -234,22 +227,20 @@
 			"categories":["Networking"],
 			"env":[
 				{
+					"label":"SSHHOST",
+					"name":"SSHHOST",
+					"default":"192.168.100.2"
+				},
+				{
+					"label":"SSHUSER",
+					"name":"SSHUSER",
+					"default":"voyager"
+				},
+				{
 					"label":"BASE",
 					"name":"BASE",
 					"default":"/",
 					"preset":true
-				},
-				{
-					"label":"Host",
-					"name":"SSHHOST",
-					"default":"192.168.100.2",
-					"description":""
-				},
-				{
-					"label":"Username",
-					"name":"SSHUSER",
-					"default":"voyager",
-					"description":""
 				}
 			],
 			"command":"--ssh-user=voyager",
@@ -262,7 +253,7 @@
 			]
 		},
 		{
-			"id":7,
+			"id":8,
 			"type":1,
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
@@ -309,7 +300,7 @@
 			]
 		},
 		{
-			"id":8,
+			"id":9,
 			"type":3,
 			"title":"NextCloud",
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
@@ -318,55 +309,48 @@
 			"categories":["Productivity"],
 			"env":[
 				{
-					"label":"Username",
+					"label":"NEXTCLOUD_ADMIN_USER",
 					"name":"NEXTCLOUD_ADMIN_USER",
-					"default":"voyager",
-					"description":""
+					"default":"voyager"
 				},
 				{
-					"label":"Password",
+					"label":"NEXTCLOUD_ADMIN_PASSWORD",
 					"name":"NEXTCLOUD_ADMIN_PASSWORD",
-					"default":"pa$$word",
-					"description":""
+					"default":"pa$$word"
 				},
 				{
-					"label":"Trusted domains",
-					"name":"NEXTCLOUD_TRUSTED_DOMAINS",
-					"description":""
+					"label":"NEXTCLOUD_TRUSTED_DOMAINS",
+					"name":"NEXTCLOUD_TRUSTED_DOMAINS"
 				},
 				{
-					"label":"Data folder path",
+					"label":"NEXTCLOUD_DATA_DIR",
 					"name":"NEXTCLOUD_DATA_DIR",
-					"default":"/nextcloud",
-					"description":""
+					"default":"/nextcloud"
 				},
 				{
-					"label":"MySQL password",
+					"label":"MYSQL_PASSWORD",
 					"name":"MYSQL_PASSWORD",
-					"default":"nextcloud",
-					"description":""
+					"default":"nextcloud"
 				},
 				{
-					"label":"MySQL root password",
+					"label":"MYSQL_ROOT_PASSWORD",
 					"name":"MYSQL_ROOT_PASSWORD",
-					"default":"nextcloud",
-					"description":""
+					"default":"nextcloud"
 				},
 				{
-					"label":"OnlyOffice JWT secret",
-					"name":"ONLYOFFICE_JWT_SECRET",
-					"description":""
+					"label":"ONLYOFFICE_JWT_SECRET",
+					"name":"ONLYOFFICE_JWT_SECRET"
 				}
 			],
 			"name":"nextcloud",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/nextcloud.yaml"
 			}
 		},
 		{
-			"id":9,
+			"id":10,
 			"type":3,
 			"title":"Penpot",
 			"description":"A design & prototyping tool for product teams.",
@@ -374,27 +358,25 @@
 			"categories":["Productivity"],
 			"env":[
 				{
-					"label":"Public address",
+					"label":"PUBLIC_URI",
 					"name":"PUBLIC_URI",
-					"default":"http://ip:5080",
-					"description":""
+					"default":"http://ip:5080"
 				},
 				{
-					"label":"PostgreSQL password",
+					"label":"POSTGRES_PASSWORD",
 					"name":"POSTGRES_PASSWORD",
-					"default":"penpot",
-					"description":""
+					"default":"penpot"
 				}
 			],
 			"name":"penpot",
 			"platform":"linux",
 			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
+				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/penpot.yaml"
 			}
 		},
 		{
-			"id":10,
+			"id":11,
 			"type":1,
 			"title":"OneDev",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
@@ -435,7 +417,7 @@
 			]
 		},
 		{
-			"id":11,
+			"id":12,
 			"type":1,
 			"title":"Watchtower",
 			"description":"Automatically updates your apps to the latest version.",
@@ -451,38 +433,6 @@
 					"bind":"/var/run/docker.sock",
 					"container":"/var/run/docker.sock",
 					"readonly":true
-				}
-			]
-		},
-		{
-			"id":12,
-			"type":1,
-			"title":"DDclient",
-			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
-			"logo":"https://apps.univrs.cloud/images/ddns-updater.png",
-			"categories":["Networking"],
-			"env":[
-				{
-					"label":"PUID",
-					"name":"PUID",
-					"default":"1000",
-					"preset":true
-				},
-				{
-					"label":"PGID",
-					"name":"PGID",
-					"default":"100",
-					"preset":true
-				}
-			],
-			"image":"lscr.io/linuxserver/ddclient:latest",
-			"name":"ddclient",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"volumes":[
-				{
-					"bind":"/messier/apps/ddclient",
-					"container":"/config"
 				}
 			]
 		}
