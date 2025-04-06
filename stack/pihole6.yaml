@@ -29,8 +29,6 @@ services:
       - "5443:443/tcp"
     depends_on:
       - dhcphelper
-    dns:
-      - 127.0.0.1
     networks:
       virgo:
         ipv4_address: 172.30.0.4
