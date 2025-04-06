@@ -9,6 +9,9 @@ identity_validation:
 server:
   address: "tcp://0.0.0.0:9091/"
   asset_path: "/config/assets/"
+  buffers:
+    write: 8192
+    read: 8192
   disable_healthcheck: false
   endpoints:
     enable_pprof: false
