@@ -44,7 +44,7 @@
 {
 			"id":3,
 			"type":3,
-			"title":"Pi-Hole6 + Unbound",
+			"title":"Pi-Hole 6 + Unbound",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://apps.univrs.cloud/images/pihole.png",
 			"categories":["Networking"],
@@ -91,8 +91,8 @@
 				},
 				{
 					"label":"Password",
-					"name":"WEBPASSWORD",
-					"default":"pa$$word"
+					"name":"PASSWORD",
+					"default":"random.1"
 				}
 			],
 			"name":"pihole",
@@ -100,67 +100,6 @@
 			"repository":{
 				"url":"https://apps.univrs.cloud/",
 				"stackfile":"stack/pihole6.yaml"
-			}
-		},
-		{
-			"id":4,
-			"type":3,
-			"title":"Pi-Hole + Unbound",
-			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"logo":"https://apps.univrs.cloud/images/pihole.png",
-			"categories":["Networking"],
-			"env":[
-				{
-					"label":"Domain name",
-					"name":"DOMAIN_NAME",
-					"default":"univrs"
-				},
-				{
-					"label":"Host IP address",
-					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.100.2"
-				},
-				{
-					"label":"DHCP server enabled",
-					"name":"DHCP_ACTIVE",
-					"select":[
-						{
-							"value":"true",
-							"default":true,
-							"text":"Yes"
-						},
-						{
-							"value":"false",
-							"text":"No"
-						}
-					]
-				},
-				{
-					"label":"DHCP from",
-					"name":"DHCP_START",
-					"default":"192.168.100.100"
-				},
-				{
-					"label":"DHCP to",
-					"name":"DHCP_END",
-					"default":"192.168.100.250"
-				},
-				{
-					"label":"Router (gateway) IP address",
-					"name":"DHCP_ROUTER",
-					"default":"192.168.100.1"
-				},
-				{
-					"label":"Password",
-					"name":"WEBPASSWORD",
-					"default":"pa$$word"
-				}
-			],
-			"name":"pihole",
-			"platform":"linux",
-			"repository":{
-				"url":"https://apps.univrs.cloud/",
-				"stackfile":"stack/pihole.yaml"
 			}
 		},
 		{
