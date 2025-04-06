@@ -17,7 +17,7 @@ services:
       - FTLCONF_dhcp_end=${DHCP_END}
       - FTLCONF_dhcp_router=${DHCP_ROUTER}
       - FTLCONF_dhcp_rapidCommit=true
-      - FTLCONF_webserver_api_password=${WEBPASSWORD}
+      - FTLCONF_webserver_api_password=${PASSWORD}
     volumes:
       - /messier/apps/pihole/data:/etc/pihole/
       - /messier/apps/pihole/logs:/var/log/pihole
