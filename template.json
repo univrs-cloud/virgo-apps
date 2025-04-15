@@ -44,7 +44,7 @@
 {
 			"id":3,
 			"type":3,
-			"title":"Pi-Hole 6 + Unbound",
+			"title":"Pi-Hole",
 			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo":"https://apps.univrs.cloud/images/pihole.png",
 			"categories":["Networking"],
