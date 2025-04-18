@@ -1,6 +1,6 @@
 services:
   authelia:
-    image: ghcr.io/authelia/authelia:latest
+    image: authelia/authelia:latest
     container_name: authelia
     environment:
       - PUID=1000
