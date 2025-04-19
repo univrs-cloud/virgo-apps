@@ -103,7 +103,7 @@
 			}
 		},
 		{
-			"id":5,
+			"id":4,
 			"type":3,
 			"title":"WireGuard",
 			"description":"An extremely simple yet fast and modern VPN.",
@@ -145,7 +145,7 @@
 			}
 		},
 		{
-			"id":6,
+			"id":5,
 			"type":1,
 			"title":"WeTTY",
 			"description":"A terminal in a browser.",
@@ -179,7 +179,7 @@
 			]
 		},
 		{
-			"id":7,
+			"id":6,
 			"type":1,
 			"title":"qBittorrent",
 			"description":"A BitTorrent client.",
@@ -226,7 +226,7 @@
 			]
 		},
 		{
-			"id":8,
+			"id":7,
 			"type":3,
 			"title":"NextCloud",
 			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
@@ -276,33 +276,7 @@
 			}
 		},
 		{
-			"id":9,
-			"type":3,
-			"title":"Penpot",
-			"description":"A design & prototyping tool for product teams.",
-			"logo":"https://apps.univrs.cloud/images/penpot.png",
-			"categories":["Productivity"],
-			"env":[
-				{
-					"label":"Public address",
-					"name":"PUBLIC_URI",
-					"default":"http://ip:5080"
-				},
-				{
-					"label":"PostgreSQL password",
-					"name":"POSTGRES_PASSWORD",
-					"default":"penpot"
-				}
-			],
-			"name":"penpot",
-			"platform":"linux",
-			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"stack/penpot.yaml"
-			}
-		},
-		{
-			"id":10,
+			"id":8,
 			"type":1,
 			"title":"OneDev",
 			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
@@ -343,7 +317,7 @@
 			]
 		},
 		{
-			"id":11,
+			"id":9,
 			"type":1,
 			"title":"Watchtower",
 			"description":"Automatically updates your apps to the latest version.",
@@ -363,7 +337,7 @@
 			]
 		},
 		{
-			"id":12,
+			"id":10,
 			"type":1,
 			"title":"DDclient",
 			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
