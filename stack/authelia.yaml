@@ -5,14 +5,17 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     environment:
       - SMTP_PASSWORD=${SMTP_PASSWORD}
-    command: >
-      "mkdir -p /secrets &&
-      [ -f /secrets/jwt_secret ] || head -c 64 /dev/urandom | base64 | tr -d '\n' > /secrets/jwt_secret &&
-      [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 | tr -d '\n' > /secrets/session_secret &&
-      [ -f /secrets/storage_key ] || head -c 64 /dev/urandom | base64 | tr -d '\n' > /secrets/storage_key &&
-      [ -f /secrets/smtp_password ] || echo \"$SMTP_PASSWORD\" > /secrets/smtp_password &&
-      echo 'Secrets initialized.'"
+    command:
+      - |
+        mkdir -p /config/assets; \
+        mkdir -p /secrets; \
+        [ -f /secrets/jwt_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/jwt_secret; \
+        [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/session_secret; \
+        [ -f /secrets/storage_key ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/storage_key; \
+        [ -f /secrets/smtp_password ] || echo -n "$SMTP_PASSWORD" > /secrets/smtp_password; \
+        echo 'Secrets initialized.'
     volumes:
+      - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets
     restart: no
 
