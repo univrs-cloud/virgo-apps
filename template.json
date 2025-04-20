@@ -35,6 +35,63 @@
 			"logo":"https://apps.univrs.cloud/images/authelia.png",
 			"categories":["System"],
 			"name":"authelia",
+			"env":[
+				{
+					"label":"SMTP server address",
+					"name":"SMTP_ADDRESS",
+					"default":""
+				},
+				{
+					"label":"SMTP server username",
+					"name":"SMTP_USERNAME",
+					"default":""
+				},
+				{
+					"label":"SMTP server password",
+					"name":"SMTP_PASSWORD",
+					"default":""
+				},
+				{
+					"label":"SMTP sender",
+					"name":"SMTP_SENDER",
+					"default":""
+				},
+				{
+					"label":"SMTP startup check address",
+					"name":"SMTP_STARTUP_CHECK_ADDRESS",
+					"default":""
+				},
+				{
+					"label":"SMTP TLS",
+					"name":"SMTP_DISABLE_REQUIRE_TLS",
+					"select":[
+						{
+							"value":"false",
+							"text":"Yes"
+						},
+						{
+							"value":"true",
+							"default":true,
+							"text":"No"
+						}
+					]
+				},
+				{
+					"label":"SMTP STARTTLS",
+					"name":"SMTP_DISABLE_STARTTLS",
+					"select":[
+						{
+							"value":"false",
+							"default":true,
+							"text":"Yes"
+						},
+						{
+							"value":"true",
+							"text":"No"
+						}
+					]
+				}
+			],
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
