@@ -57,11 +57,6 @@
 					"default":""
 				},
 				{
-					"label":"SMTP startup check address",
-					"name":"SMTP_STARTUP_CHECK_ADDRESS",
-					"default":""
-				},
-				{
 					"label":"SMTP TLS",
 					"name":"SMTP_DISABLE_REQUIRE_TLS",
 					"select":[
