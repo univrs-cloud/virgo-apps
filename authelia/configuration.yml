@@ -1,29 +1,5 @@
 # yamllint disable rule:comments-indentation
 ---
-theme: "light" #light/dark/grey/auto
-
-identity_validation:
-  reset_password:
-    jwt_secret: "virgoOS_8674a91edc6fbe943d2d0b4b0048d1e27c48825482c99cc45e81e5c3b75d35a2" #any text or number you want to add here to create jwt Token
-
-server:
-  address: "tcp://0.0.0.0:9091/"
-  asset_path: "/config/assets/"
-  buffers:
-    write: 8192
-    read: 8192
-  disable_healthcheck: false
-  endpoints:
-    enable_pprof: false
-    enable_expvars: false
-  tls:
-    key: ""
-    certificate: ""
-
-log:
-  level: "info"
-  keep_stdout: false
-
 #administration:
 #  enable: true
 #  enable_ui: true
@@ -32,21 +8,7 @@ log:
 #  groups:
 #    - 'admins'
 
-authentication_backend:
-  password_reset:
-    disable: false
-  refresh_interval: "5m"
-  file:
-    path: "/config/users.yml" #this is where your authorized users are stored
-    watch: true
-    password:
-      algorithm: "bcrypt"
-      bcrypt:
-        variant: "standard"
-        cost: "12"
-
 access_control:
-  default_policy: "one_factor"
   rules:
   - domain: "auth.somewhere.univrs.cloud" #this should be your authentication URL
     policy: "bypass"
@@ -57,38 +19,7 @@ access_control:
       - "10.6.0.0/16" #bypass if connected over VPN
 
 session:
-  name: "virgoOS"
-  secret: "virgoOS_a055978875fd2a757333d2930650c84d7ffb989f287e3b80fa13d079aa0dddc4" #any text or number you want to add here to create jwt Token
   cookies:
     - domain: "somewhere.univrs.cloud" #should match whatever your root protected domain is
       authelia_url: "https://auth.somewhere.univrs.cloud"
-  redis:
-    host: authelia-redis
-    port: 6379
-
-regulation:
-  max_retries: "3"
-  find_time: "10m"
-  ban_time: "12h"
-
-storage:
-  local:
-    path: "/config/db.sqlite3"
-  encryption_key: "virgoOS_184dd8b8f696542596d86fbfd5fe07604dcef3800fefdc741004e1ca0a982976"
-
-notifier:
-  disable_startup_check: false
-#  filesystem:
-#    filename: "/config/notification.txt"
-  smtp:
-    address: "submission://smtp-relay.brevo.com:587"
-    timeout: "5s"
-    username: "username"
-    password: "password"
-    sender: "Authelia <user@gmail.com>"
-    subject: "[Authelia] {title}"
-    startup_check_address: "user@gmail.com"
-    disable_require_tls: true
-    disable_starttls: false
-    disable_html_emails: false
 ...
