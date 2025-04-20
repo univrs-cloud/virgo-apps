@@ -20,6 +20,6 @@ access_control:
 
 session:
   cookies:
-    - domain: "somewhere.univrs.cloud" #should match whatever your root protected domain is
-      authelia_url: "https://auth.somewhere.univrs.cloud"
+  - domain: "somewhere.univrs.cloud" #should match whatever your root protected domain is
+    authelia_url: "https://auth.somewhere.univrs.cloud"
 ...
