@@ -83,8 +83,6 @@ services:
       - PGID=100
     volumes:
       - /messier/apps/authelia/redis:/data
-    ports:
-      - "9092:6379/tcp"
     networks:
       virgo:
         ipv4_address: 172.30.0.6
