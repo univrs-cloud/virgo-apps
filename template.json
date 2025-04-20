@@ -24,7 +24,7 @@
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"stack/nginx-proxy-manager.yaml"
+				"stackfile":"nginx-proxy-manager/docker-compose.yml"
 			}
 		},
 		{
@@ -47,6 +47,7 @@
 					"default":""
 				},
 				{
+					"type": "password",
 					"label":"SMTP server password",
 					"name":"SMTP_PASSWORD",
 					"default":""
@@ -90,7 +91,7 @@
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"stack/authelia.yaml"
+				"stackfile":"authelia/docker-compose.yml"
 			}
 		},
 {
@@ -151,7 +152,7 @@
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"stack/pihole6.yaml"
+				"stackfile":"pihole/docker-compose.yml"
 			}
 		},
 		{
@@ -193,7 +194,7 @@
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"stack/wireguard-easy.yaml"
+				"stackfile":"wireguard-easy/docker-compose.yml"
 			}
 		},
 		{
@@ -324,7 +325,7 @@
 			"platform":"linux",
 			"repository":{
 				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"stack/nextcloud.yaml"
+				"stackfile":"nextcloud/docker-compose.yml"
 			}
 		},
 		{
