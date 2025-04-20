@@ -301,7 +301,7 @@
 			"type": 3,
 			"title": "NextCloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
-			"note": "The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
+			"note": "The host of the database is nextcloud-db:3306. The database, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.png",
 			"categories": ["Productivity"],
 			"env": [
@@ -339,7 +339,7 @@
 			"id": 8,
 			"type": 1,
 			"title": "OneDev",
-			"description": "Git hosting, code review, team collaboration, package registry and CI/CD",
+			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
 			"logo": "https://apps.univrs.cloud/images/onedev.png",
 			"categories": ["Productivity"],
 			"env": [
