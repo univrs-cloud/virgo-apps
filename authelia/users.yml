@@ -2,10 +2,10 @@
 ---
 users:
   voyager:
-    disabled: false
-    displayname: "voyager"
     password: "$2a$12$TFvGIS1xaDlObkB4/yv6O.OeaCN24tZz9ygT8WzMymWDAkU70n/He"
+    displayname: "Administrator"
     email: voyager@univrs.cloud
+    disabled: false
     groups:
       - admins
       - dev
