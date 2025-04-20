@@ -1,4 +1,21 @@
 services:
+  authelia-init-secrets:
+    image: alpine
+    container_name: authelia-init-secrets
+    entrypoint: ["/bin/sh", "-c"]
+    environment:
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+    command: >
+      "mkdir -p /secrets &&
+      [ -f /secrets/jwt_secret ] || head -c 64 /dev/urandom | base64 > /secrets/jwt_secret &&
+      [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 > /secrets/session_secret &&
+      [ -f /secrets/storage_key ] || head -c 64 /dev/urandom | base64 > /secrets/storage_key &&
+      [ -f /secrets/smtp_password ] || echo \"$SMTP_PASSWORD\" > /secrets/smtp_password &&
+      echo 'Secrets initialized.'"
+    volumes:
+      - /messier/apps/authelia/secrets:/secrets
+    restart: no
+
   authelia:
     image: authelia/authelia:latest
     container_name: authelia
@@ -40,14 +57,20 @@ services:
       - AUTHELIA_NOTIFIER_SMTP_DISABLE_STARTTLS=${SMTP_DISABLE_STARTTLS}
       - AUTHELIA_NOTIFIER_SMTP_DISABLE_HTML_EMAILS=false
       - AUTHELIA_NOTIFIER_SMTP_TIMEOUT=5s
+      - AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE=/secrets/jwt_secret
+      - AUTHELIA_SESSION_SECRET_FILE=/secrets/session_secret
+      - AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE=/secrets/storage_key
+      - AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE=/secrets/smtp_password
     volumes:
       - /messier/apps/authelia/config:/config
+      - /messier/apps/authelia/secrets:/secrets:ro
     ports:
       - "9091:9091/tcp"
     networks:
       virgo:
         ipv4_address: 172.30.0.2
     depends_on:
+      - authelia-init-secrets
       - authelia-redis
     restart: unless-stopped
 
