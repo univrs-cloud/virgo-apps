@@ -6,10 +6,9 @@ services:
       - TZ=Europe/Bucharest
       - PIHOLE_UID=1000
       - PIHOLE_GID=100
-      - FTLCONF_LOCAL_IPV4=${FTLCONF_LOCAL_IPV4}
       - FTLCONF_dns_listeningMode=all
       - FTLCONF_misc_etc_dnsmasq_d=true
-      - FTLCONF_misc_dnsmasq_lines=dhcp-option=6,${FTLCONF_LOCAL_IPV4}
+      - FTLCONF_misc_dnsmasq_lines=dhcp-option=6,${HOST_IP}
       - FTLCONF_dns_domain=${DOMAIN_NAME}
       - FTLCONF_dns_upstreams=127.0.0.1#5335;127.0.0.1#5335
       - FTLCONF_dhcp_active=${DHCP_ACTIVE}
@@ -23,10 +22,10 @@ services:
       - /messier/apps/pihole/logs:/var/log/pihole
       - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d/
     ports:
-      - "${FTLCONF_LOCAL_IPV4}:53:53/tcp"
-      - "${FTLCONF_LOCAL_IPV4}:53:53/udp"
-      - "5335:5335/tcp"
-      - "5443:443/tcp"
+      - ${HOST_IP}:53:53/tcp
+      - ${HOST_IP}:53:53/udp
+      - 5335:5335/tcp
+      - 5443:443/tcp
     depends_on:
       - dhcphelper
     networks:

@@ -67,7 +67,7 @@ services:
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets:ro
     ports:
-      - "9091:9091/tcp"
+      - 9091:9091/tcp
     networks:
       virgo:
         ipv4_address: 172.30.0.2

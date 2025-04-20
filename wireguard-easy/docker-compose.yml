@@ -6,16 +6,16 @@ services:
       - PUID=1000
       - PGID=100
       - PASSWORD_HASH=${PASSWORD_HASH}
-      - WG_HOST=${WG_HOST}
-      - WG_PORT=${WG_PORT}
-      - WG_DEFAULT_ADDRESS=${WG_DEFAULT_ADDRESS}
-      - WG_DEFAULT_DNS=${WG_DEFAULT_DNS}
-      - WG_ALLOWED_IPS=${WG_ALLOWED_IPS}
+      - WG_HOST=${HOST}
+      - WG_PORT=${PORT}
+      - WG_DEFAULT_ADDRESS=${DEFAULT_ADDRESS}
+      - WG_DEFAULT_DNS=${DEFAULT_DNS}
+      - WG_ALLOWED_IPS=${ALLOWED_IPS}
     volumes:
       - /messier/apps/wireguard:/etc/wireguard
     ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
+      - 51820:51820/udp
+      - 51821:51821/tcp
     networks:
       virgo:
         ipv4_address: 172.30.0.5

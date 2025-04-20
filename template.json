@@ -1,423 +1,434 @@
 {
-	"version":"3",
-	"templates":[
+	"version": "3",
+	"templates": [
 		{
-			"id":1,
-			"type":3,
-			"title":"NGINX Proxy Manager",
-			"description":"Expose your services easily and securely.",
-			"logo":"https://apps.univrs.cloud/images/nginx-proxy-manager.png",
-			"categories":["Networking"],
-			"name":"nginx-proxy-manager",
-			"env":[
+			"id": 1,
+			"type": 3,
+			"title": "NGINX Proxy Manager",
+			"description": "Expose your services easily and securely.",
+			"logo": "https://apps.univrs.cloud/images/nginx-proxy-manager.png",
+			"categories": ["Networking"],
+			"name": "nginx-proxy-manager",
+			"env": [
 				{
-					"label":"Email address",
-					"name":"ADMIN_EMAIL",
-					"default":""
-				},
-				{
-					"label":"Password",
-					"name":"ADMIN_PASSWORD",
-					"default":"random.1"
-				}
-			],
-			"platform":"linux",
-			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"nginx-proxy-manager/docker-compose.yml"
-			}
-		},
-		{
-			"id":2,
-			"type":3,
-			"title":"Authelia",
-			"description":"The Single Sign-On Multi-Factor portal for web apps.",
-			"logo":"https://apps.univrs.cloud/images/authelia.png",
-			"categories":["System"],
-			"name":"authelia",
-			"env":[
-				{
-					"label":"SMTP server address",
-					"name":"SMTP_ADDRESS",
-					"default":""
-				},
-				{
-					"label":"SMTP server username",
-					"name":"SMTP_USERNAME",
-					"default":""
+					"type": "email",
+					"label": "Email address (administrator)",
+					"name": "EMAIL",
+					"default": ""
 				},
 				{
 					"type": "password",
-					"label":"SMTP server password",
-					"name":"SMTP_PASSWORD",
-					"default":""
-				},
-				{
-					"label":"SMTP sender",
-					"name":"SMTP_SENDER",
-					"default":""
-				},
-				{
-					"label":"SMTP TLS",
-					"name":"SMTP_DISABLE_REQUIRE_TLS",
-					"select":[
-						{
-							"value":"false",
-							"text":"Yes"
-						},
-						{
-							"value":"true",
-							"default":true,
-							"text":"No"
-						}
-					]
-				},
-				{
-					"label":"SMTP STARTTLS",
-					"name":"SMTP_DISABLE_STARTTLS",
-					"select":[
-						{
-							"value":"false",
-							"default":true,
-							"text":"Yes"
-						},
-						{
-							"value":"true",
-							"text":"No"
-						}
-					]
+					"label": "Password (administrator)",
+					"name": "PASSWORD",
+					"default": ""
 				}
 			],
-			"platform":"linux",
-			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"authelia/docker-compose.yml"
-			}
-		},
-{
-			"id":3,
-			"type":3,
-			"title":"Pi-hole",
-			"description":"A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"logo":"https://apps.univrs.cloud/images/pihole.png",
-			"categories":["Networking"],
-			"env":[
-				{
-					"label":"Domain name",
-					"name":"DOMAIN_NAME",
-					"default":"univrs"
-				},
-				{
-					"label":"Host IP address",
-					"name":"FTLCONF_LOCAL_IPV4",
-					"default":"192.168.100.2"
-				},
-				{
-					"label":"DHCP server enabled",
-					"name":"DHCP_ACTIVE",
-					"select":[
-						{
-							"value":"true",
-							"default":true,
-							"text":"Yes"
-						},
-						{
-							"value":"false",
-							"text":"No"
-						}
-					]
-				},
-				{
-					"label":"DHCP from",
-					"name":"DHCP_START",
-					"default":"192.168.100.100"
-				},
-				{
-					"label":"DHCP to",
-					"name":"DHCP_END",
-					"default":"192.168.100.250"
-				},
-				{
-					"label":"Router (gateway) IP address",
-					"name":"DHCP_ROUTER",
-					"default":"192.168.100.1"
-				},
-				{
-					"label":"Password",
-					"name":"PASSWORD",
-					"default":"random.1"
-				}
-			],
-			"name":"pihole",
-			"platform":"linux",
-			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"pihole/docker-compose.yml"
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nginx-proxy-manager/docker-compose.yml"
 			}
 		},
 		{
-			"id":4,
-			"type":3,
-			"title":"WireGuard",
-			"description":"An extremely simple yet fast and modern VPN.",
-			"logo":"https://apps.univrs.cloud/images/wireguard.png",
-			"categories":["Networking"],
-			"env":[
+			"id": 2,
+			"type": 3,
+			"title": "Authelia",
+			"description": "The Single Sign-On Multi-Factor portal for web apps.",
+			"logo": "https://apps.univrs.cloud/images/authelia.png",
+			"categories": ["System"],
+			"name": "authelia",
+			"env": [
 				{
-					"label":"Host",
-					"name":"WG_HOST",
-					"default":"vpn.domain.com"
+					"type": "text",
+					"label": "SMTP server address",
+					"name": "SMTP_ADDRESS",
+					"default": ""
 				},
 				{
-					"label":"Password hash (brypt)",
-					"name":"PASSWORD_HASH",
-					"default":"",
-					"description":"Leave blank to access UI without logging in."
+					"type": "text",
+					"label": "SMTP server username",
+					"name": "SMTP_USERNAME",
+					"default": ""
 				},
 				{
-					"label":"DNS",
-					"name":"WG_DEFAULT_DNS",
-					"default":"192.168.100.2"
+					"type": "password",
+					"label": "SMTP server password",
+					"name": "SMTP_PASSWORD",
+					"default": ""
 				},
 				{
-					"label":"Default address",
-					"name":"WG_DEFAULT_ADDRESS",
-					"default":"10.6.0.x"
+					"type": "email",
+					"label": "SMTP sender",
+					"name": "SMTP_SENDER",
+					"default": ""
 				},
 				{
-					"label":"Allowed IPs",
-					"name":"WG_ALLOWED_IPS",
-					"default":"0.0.0.0/0"
+					"type": "radio",
+					"label": "SMTP TLS",
+					"name": "SMTP_DISABLE_REQUIRE_TLS",
+					"select": [
+						{
+							"value": "false",
+							"text": "Yes"
+						},
+						{
+							"value": "true",
+							"default": true,
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "radio",
+					"label": "SMTP STARTTLS",
+					"name": "SMTP_DISABLE_STARTTLS",
+					"select": [
+						{
+							"value": "false",
+							"default": true,
+							"text": "Yes"
+						},
+						{
+							"value": "true",
+							"text": "No"
+						}
+					]
 				}
 			],
-			"name":"wg-easy",
-			"platform":"linux",
-			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"wireguard-easy/docker-compose.yml"
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "authelia/docker-compose.yml"
 			}
 		},
 		{
-			"id":5,
-			"type":1,
-			"title":"WeTTY",
-			"description":"A terminal in a browser.",
-			"logo":"https://apps.univrs.cloud/images/terminal.png",
-			"categories":["Networking"],
-			"env":[
+			"id": 3,
+			"type": 3,
+			"title": "Pi-hole",
+			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
+			"logo": "https://apps.univrs.cloud/images/pihole.png",
+			"categories": ["Networking"],
+			"env": [
 				{
-					"label":"BASE",
-					"name":"BASE",
-					"default":"/",
-					"preset":true
+					"type": "text",
+					"label": "Domain name",
+					"name": "DOMAIN_NAME",
+					"default": "univrs"
 				},
 				{
-					"label":"Host",
-					"name":"SSHHOST",
-					"default":"192.168.100.2"
+					"type": "text",
+					"label": "Host IP address",
+					"name": "HOST_IP",
+					"default": "192.168.100.2"
 				},
 				{
-					"label":"Username",
-					"name":"SSHUSER",
-					"default":"voyager"
+					"type": "radio",
+					"label": "DHCP server enabled",
+					"name": "DHCP_ACTIVE",
+					"select": [
+						{
+							"value": "true",
+							"default": true,
+							"text": "Yes"
+						},
+						{
+							"value": "false",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"label": "DHCP from",
+					"name": "DHCP_START",
+					"default": "192.168.100.100"
+				},
+				{
+					"type": "text",
+					"label": "DHCP to",
+					"name": "DHCP_END",
+					"default": "192.168.100.250"
+				},
+				{
+					"type": "text",
+					"label": "Router (gateway) IP address",
+					"name": "DHCP_ROUTER",
+					"default": "192.168.100.1"
+				},
+				{
+					"type": "password",
+					"label": "Password",
+					"name": "PASSWORD",
+					"default": ""
 				}
 			],
-			"command":"--ssh-user=voyager",
-			"image":"ghcr.io/butlerx/wetty:latest",
-			"name":"wetty",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"ports":[
+			"name": "pihole",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "pihole/docker-compose.yml"
+			}
+		},
+		{
+			"id": 4,
+			"type": 3,
+			"title": "WireGuard",
+			"description": "An extremely simple yet fast and modern VPN.",
+			"logo": "https://apps.univrs.cloud/images/wireguard.png",
+			"categories": ["Networking"],
+			"env": [
+				{
+					"type": "text",
+					"label": "Host",
+					"name": "HOST",
+					"default": "vpn.domain.com"
+				},
+				{
+					"type": "text",
+					"label": "Password hash (brypt)",
+					"name": "PASSWORD_HASH",
+					"default": "",
+					"description": "Leave blank to access UI without logging in."
+				},
+				{
+					"type": "text",
+					"label": "DNS",
+					"name": "DEFAULT_DNS",
+					"default": "192.168.100.2"
+				},
+				{
+					"type": "text",
+					"label": "Default address",
+					"name": "DEFAULT_ADDRESS",
+					"default": "10.6.0.x"
+				},
+				{
+					"type": "text",
+					"label": "Allowed IPs",
+					"name": "ALLOWED_IPS",
+					"default": "0.0.0.0/0"
+				}
+			],
+			"name": "wg-easy",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "wireguard-easy/docker-compose.yml"
+			}
+		},
+		{
+			"id": 5,
+			"type": 1,
+			"title": "WeTTY",
+			"description": "A terminal in a browser.",
+			"logo": "https://apps.univrs.cloud/images/terminal.png",
+			"categories": ["Networking"],
+			"env": [
+				{
+					"type": "hidden",
+					"label": "BASE",
+					"name": "BASE",
+					"default": "/",
+					"preset": true
+				},
+				{
+					"type": "text",
+					"label": "Host",
+					"name": "SSHHOST",
+					"default": "192.168.100.2"
+				}
+			],
+			"image": "ghcr.io/butlerx/wetty:latest",
+			"name": "wetty",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"ports": [
 				"2222:3000/tcp"
 			]
 		},
 		{
-			"id":6,
-			"type":1,
-			"title":"qBittorrent",
-			"description":"A BitTorrent client.",
-			"logo":"https://apps.univrs.cloud/images/qbittorrent.png",
-			"categories":["Productivity"],
-			"env":[
+			"id": 6,
+			"type": 1,
+			"title": "qBittorrent",
+			"description": "A BitTorrent client.",
+			"logo": "https://apps.univrs.cloud/images/qbittorrent.png",
+			"categories": ["Productivity"],
+			"env": [
 				{
-					"label":"PUID",
-					"name":"PUID",
-					"default":"1000",
-					"preset":true
+					"type": "hidden",
+					"label": "PUID",
+					"name": "PUID",
+					"default": "1000",
+					"preset": true
 				},
 				{
-					"label":"PGID",
-					"name":"PGID",
-					"default":"100",
-					"preset":true
+					"type": "hidden",
+					"label": "PGID",
+					"name": "PGID",
+					"default": "100",
+					"preset": true
 				},
 				{
-					"label":"WEBUI_PORT",
-					"name":"WEBUI_PORT",
-					"default":"6080",
-					"preset":true
+					"type": "hidden",
+					"label": "WEBUI_PORT",
+					"name": "WEBUI_PORT",
+					"default": "6080",
+					"preset": true
 				}
 			],
-			"image":"lscr.io/linuxserver/qbittorrent:latest",
-			"name":"qbittorrent",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"ports":[
+			"image": "lscr.io/linuxserver/qbittorrent:latest",
+			"name": "qbittorrent",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"ports": [
 				"6080:6080/tcp",
 				"6881:6881/tcp",
 				"6881:6881/udp"
 			],
-			"volumes":[
+			"volumes": [
 				{
-					"bind":"/messier/apps/qbittorrent",
-					"container":"/config"
+					"bind": "/messier/apps/qbittorrent",
+					"container": "/config"
 				},
 				{
-					"bind":"/downloads",
-					"container":"/downloads"
+					"bind": "/downloads",
+					"container": "/downloads"
 				}
 			]
 		},
 		{
-			"id":7,
-			"type":3,
-			"title":"NextCloud",
-			"description":"A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
-			"note":"The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
-			"logo":"https://apps.univrs.cloud/images/nextcloud.png",
-			"categories":["Productivity"],
-			"env":[
+			"id": 7,
+			"type": 3,
+			"title": "NextCloud",
+			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
+			"note": "The host of the database is nextcloud-db:3306. The database user is nextcloud and the database is nextcloud.",
+			"logo": "https://apps.univrs.cloud/images/nextcloud.png",
+			"categories": ["Productivity"],
+			"env": [
 				{
-					"label":"Username",
-					"name":"NEXTCLOUD_ADMIN_USER",
-					"default":"voyager"
+					"type": "text",
+					"label": "Username (administrator)",
+					"name": "NEXTCLOUD_ADMIN_USER",
+					"default": "voyager"
 				},
 				{
-					"label":"Password",
-					"name":"NEXTCLOUD_ADMIN_PASSWORD",
-					"default":"random.1"
+					"type": "password",
+					"label": "Password (administrator)",
+					"name": "NEXTCLOUD_ADMIN_PASSWORD",
+					"default": ""
 				},
 				{
-					"label":"Trusted domains",
-					"name":"NEXTCLOUD_TRUSTED_DOMAINS"
+					"type": "text",
+					"label": "Trusted domains",
+					"name": "NEXTCLOUD_TRUSTED_DOMAINS"
 				},
 				{
-					"label":"Data folder path",
-					"name":"NEXTCLOUD_DATA_DIR",
-					"default":"/nextcloud"
-				},
-				{
-					"label":"MySQL password",
-					"name":"MYSQL_PASSWORD",
-					"default":"nextcloud"
-				},
-				{
-					"label":"MySQL root password",
-					"name":"MYSQL_ROOT_PASSWORD",
-					"default":"nextcloud"
-				},
-				{
-					"label":"OnlyOffice JWT secret",
-					"name":"ONLYOFFICE_JWT_SECRET"
+					"type": "text",
+					"label": "OnlyOffice JWT secret",
+					"name": "ONLYOFFICE_JWT_SECRET"
 				}
 			],
-			"name":"nextcloud",
-			"platform":"linux",
-			"repository":{
-				"url":"https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile":"nextcloud/docker-compose.yml"
+			"name": "nextcloud",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud/docker-compose.yml"
 			}
 		},
 		{
-			"id":8,
-			"type":1,
-			"title":"OneDev",
-			"description":"Git hosting, code review, team collaboration, package registry and CI/CD",
-			"logo":"https://apps.univrs.cloud/images/onedev.png",
-			"categories":["Productivity"],
-			"env":[
+			"id": 8,
+			"type": 1,
+			"title": "OneDev",
+			"description": "Git hosting, code review, team collaboration, package registry and CI/CD",
+			"logo": "https://apps.univrs.cloud/images/onedev.png",
+			"categories": ["Productivity"],
+			"env": [
 				{
-					"label":"PUID",
-					"name":"PUID",
-					"default":"1000",
-					"preset":true
+					"type": "hidden",
+					"label": "PUID",
+					"name": "PUID",
+					"default": "1000",
+					"preset": true
 				},
 				{
-					"label":"PGID",
-					"name":"PGID",
-					"default":"100",
-					"preset":true
+					"type": "hidden",
+					"label": "PGID",
+					"name": "PGID",
+					"default": "100",
+					"preset": true
 				}
 			],
-			"image":"1dev/server:latest",
-			"name":"onedev",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"ports":[
+			"image": "1dev/server:latest",
+			"name": "onedev",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"ports": [
 				"6610:6610/tcp",
 				"6611:6611/tcp"
 			],
-			"volumes":[
+			"volumes": [
 				{
-					"bind":"/messier/apps/onedev",
-					"container":"/opt/onedev"
+					"bind": "/messier/apps/onedev",
+					"container": "/opt/onedev"
 				},
 				{
-					"bind":"/var/run/docker.sock",
-					"container":"/var/run/docker.sock",
-					"readonly":true
+					"bind": "/var/run/docker.sock",
+					"container": "/var/run/docker.sock",
+					"readonly": true
 				}
 			]
 		},
 		{
-			"id":9,
-			"type":1,
-			"title":"Watchtower",
-			"description":"Automatically updates your apps to the latest version.",
-			"logo":"https://apps.univrs.cloud/images/watchtower.png",
-			"categories":["System"],
-			"image":"ghcr.io/containrrr/watchtower:latest",
-			"command":"--cleanup",
-			"name":"watchtower",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"volumes":[
+			"id": 9,
+			"type": 1,
+			"title": "Watchtower",
+			"description": "Automatically updates your apps to the latest version.",
+			"logo": "https://apps.univrs.cloud/images/watchtower.png",
+			"categories": ["System"],
+			"image": "ghcr.io/containrrr/watchtower:latest",
+			"command": "--cleanup",
+			"name": "watchtower",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"volumes": [
 				{
-					"bind":"/var/run/docker.sock",
-					"container":"/var/run/docker.sock",
-					"readonly":true
+					"bind": "/var/run/docker.sock",
+					"container": "/var/run/docker.sock",
+					"readonly": true
 				}
 			]
 		},
 		{
-			"id":10,
-			"type":1,
-			"title":"DDclient",
-			"description":"A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
-			"logo":"https://apps.univrs.cloud/images/ddns-updater.png",
-			"categories":["Networking"],
-			"env":[
+			"id": 10,
+			"type": 1,
+			"title": "DDclient",
+			"description": "A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
+			"logo": "https://apps.univrs.cloud/images/ddns-updater.png",
+			"categories": ["Networking"],
+			"env": [
 				{
-					"label":"PUID",
-					"name":"PUID",
-					"default":"1000",
-					"preset":true
+					"type": "hidden",
+					"label": "PUID",
+					"name": "PUID",
+					"default": "1000",
+					"preset": true
 				},
 				{
-					"label":"PGID",
-					"name":"PGID",
-					"default":"100",
-					"preset":true
+					"type": "hidden",
+					"label": "PGID",
+					"name": "PGID",
+					"default": "100",
+					"preset": true
 				}
 			],
-			"image":"lscr.io/linuxserver/ddclient:latest",
-			"name":"ddclient",
-			"platform":"linux",
-			"restart_policy":"unless-stopped",
-			"volumes":[
+			"image": "lscr.io/linuxserver/ddclient:latest",
+			"name": "ddclient",
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"volumes": [
 				{
-					"bind":"/messier/apps/ddclient",
-					"container":"/config"
+					"bind": "/messier/apps/ddclient",
+					"container": "/config"
 				}
 			]
 		}
