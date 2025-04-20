@@ -157,7 +157,7 @@
 				},
 				{
 					"type": "password",
-					"label": "Password",
+					"label": "Password (administrator)",
 					"name": "PASSWORD",
 					"default": ""
 				}
