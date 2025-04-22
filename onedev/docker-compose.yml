@@ -17,9 +17,9 @@ services:
       - "traefik.http.routers.onedev.service=onedev"
       - "traefik.http.routers.onedev.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.onedev.loadbalancer.server.port=6610"
-      - "traefik.tcp.routers.onedevssh.rule=HostSNI(`*`)"
-      - "traefik.tcp.routers.onedevssh.entrypoints=ssh"
-      - "traefik.tcp.services.onedevssh.loadbalancer.server.port=6611"
+      #- "traefik.tcp.routers.onedevssh.rule=HostSNI(`*`)"
+      #- "traefik.tcp.routers.onedevssh.entrypoints=ssh"
+      #- "traefik.tcp.services.onedevssh.loadbalancer.server.port=6611"
     networks:
       virgo:
     restart: unless-stopped
