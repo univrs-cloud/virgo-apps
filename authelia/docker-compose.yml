@@ -17,6 +17,8 @@ services:
     volumes:
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets
+    networks:
+      virgo:
     restart: no
 
   authelia:
