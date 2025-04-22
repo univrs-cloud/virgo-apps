@@ -269,6 +269,14 @@
 			"categories": [
 				"Productivity"
 			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": ""
+				}
+			],
 			"name": "qbittorrent",
 			"platform": "linux",
 			"repository": {
