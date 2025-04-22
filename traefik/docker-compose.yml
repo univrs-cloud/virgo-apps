@@ -29,9 +29,6 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
     labels:
       - "traefik.enable=true"
-      # HTTP to HTTPS redirect middleware
-      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
       # Special router for Let's Encrypt HTTP challenge
       - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
       - "traefik.http.routers.acme-challenge.entrypoints=web"
@@ -50,6 +47,9 @@ services:
       - "traefik.http.routers.dashboard.tls=true"
       - "traefik.http.routers.dashboard.tls.certresolver=le"
       - "traefik.http.routers.dashboard.middlewares=secure-headers@docker,authelia@docker"
+      # HTTP to HTTPS redirect middleware
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
       # Secure Headers Middleware (common for all services)
       - "traefik.http.middlewares.secure-headers.headers.sslRedirect=true"
       - "traefik.http.middlewares.secure-headers.headers.forceSTSHeader=true"
@@ -58,11 +58,11 @@ services:
       - "traefik.http.middlewares.secure-headers.headers.stsSeconds=31536000"
       - "traefik.http.middlewares.secure-headers.headers.contentTypeNosniff=true"
       - "traefik.http.middlewares.secure-headers.headers.browserXssFilter=true"
+      - "traefik.http.middlewares.secure-headers.headers.customRequestHeaders.X-Forwarded-Proto=https"
       # WebSocket Middleware
-      - "traefik.http.middlewares.websocket.headers.customRequestHeaders.X-Forwarded-Proto=https"
-      - "traefik.http.middlewares.websocket.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
-      - "traefik.http.middlewares.websocket.headers.customResponseHeaders.Access-Control-Allow-Methods=GET,OPTIONS,PUT"
-      - "traefik.http.middlewares.websocket.headers.customResponseHeaders.Access-Control-Allow-Headers=authorization,content-type"
+      - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
+      - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Methods=GET,OPTIONS,PUT"
+      - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Headers=authorization,content-type"
     ports:
       - 80:80
       - 443:443
