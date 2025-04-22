@@ -1,0 +1,77 @@
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    environment:
+      - PUID=1000
+      - PGID=100
+      - TZ=Europe/Bucharest
+      - DOMAIN=${DOMAIN}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /messier/apps/traefik/config:/etc/traefik/config
+      - /messier/apps/traefik/letsencrypt:/letsencrypt
+    command:
+      # API and Dashboard
+      - "--api.dashboard=true"
+      # EntryPoints
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      # Providers
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.file.watch=true"
+      - "--providers.file.directory=/etc/traefik/config" 
+      # ACME (Let's Encrypt)
+      - "--certificatesresolvers.le.acme.email=${EMAIL}"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.le.acme.httpchallenge=true"
+      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
+    labels:
+      - "traefik.enable=true"
+      # HTTP to HTTPS redirect middleware
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
+      # Special router for Let's Encrypt HTTP challenge
+      - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
+      - "traefik.http.routers.acme-challenge.entrypoints=web"
+      - "traefik.http.routers.acme-challenge.priority=100"
+      - "traefik.http.routers.acme-challenge.service=noop@internal"
+      # HTTP to HTTPS redirect router - lower priority (10) than the ACME router
+      - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.entrypoints=web"
+      - "traefik.http.routers.http-catchall.priority=10"
+      - "traefik.http.routers.http-catchall.middlewares=https-redirect"
+      - "traefik.http.routers.http-catchall.service=noop@internal"
+      # Dashboard configuration only
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN}`)"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.tls.certresolver=le"
+      - "traefik.http.routers.dashboard.middlewares=secure-headers@docker,authelia@docker"
+      # Secure Headers Middleware (common for all services)
+      - "traefik.http.middlewares.secure-headers.headers.sslRedirect=true"
+      - "traefik.http.middlewares.secure-headers.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.secure-headers.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.secure-headers.headers.stsPreload=true"
+      - "traefik.http.middlewares.secure-headers.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.secure-headers.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.secure-headers.headers.browserXssFilter=true"
+      - "traefik.http.middlewares.secure-headers.headers.customFrameOptionsValue=SAMEORIGIN"
+      # WebSocket Middleware
+      - "traefik.http.middlewares.websocket.headers.customRequestHeaders.X-Forwarded-Proto=https"
+      - "traefik.http.middlewares.websocket.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
+      - "traefik.http.middlewares.websocket.headers.customResponseHeaders.Access-Control-Allow-Methods=GET,OPTIONS,PUT"
+      - "traefik.http.middlewares.websocket.headers.customResponseHeaders.Access-Control-Allow-Headers=authorization,content-type"
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080 # Dashboard
+    networks:
+      virgo:
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

@@ -6,19 +6,25 @@ services:
       - PUID=1000
       - PGID=100
       - PASSWORD_HASH=${PASSWORD_HASH}
-      - WG_HOST=${HOST}
-      - WG_PORT=${PORT}
+      - WG_HOST=vpn.${DOMAIN}
       - WG_DEFAULT_ADDRESS=${DEFAULT_ADDRESS}
       - WG_DEFAULT_DNS=${DEFAULT_DNS}
       - WG_ALLOWED_IPS=${ALLOWED_IPS}
     volumes:
       - /messier/apps/wireguard:/etc/wireguard
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"
+      - "traefik.http.routers.wireguard.entrypoints=websecure"
+      - "traefik.http.routers.wireguard.tls=true"
+      - "traefik.http.routers.wireguard.tls.certresolver=le"
+      - "traefik.http.routers.wireguard.service=wireguard"
+      - "traefik.http.routers.wireguard.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.services.wireguard.loadbalancer.server.port=51821"
     ports:
       - 51820:51820/udp
-      - 51821:51821/tcp
     networks:
       virgo:
-        ipv4_address: 172.30.0.5
     cap_add:
       - NET_ADMIN
       - SYS_MODULE

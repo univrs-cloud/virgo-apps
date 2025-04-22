@@ -18,13 +18,22 @@ services:
     volumes:
       - /messier/apps/nextcloud/config:/config
       - /nextcloud:/data
-    ports:
-      - 8443:443/tcp
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.${DOMAIN}`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls=true"
+      - "traefik.http.routers.nextcloud.tls.certresolver=le"
+      - "traefik.http.routers.nextcloud.service=nextcloud"
+      - "traefik.http.routers.nextcloud.middlewares=secure-headers@docker"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+    networks:
+      virgo:
     depends_on:
       - nextcloud-db
       - nextcloud-onlyoffice
     restart: unless-stopped
-    
+
   nextcloud-db:
     image: lscr.io/linuxserver/mariadb:latest
     container_name: nextcloud-db
@@ -37,8 +46,10 @@ services:
       - MYSQL_ROOT_PASSWORD=nextcloud
     volumes:
       - /messier/apps/nextcloud/db:/config
+    networks:
+      virgo:
     restart: unless-stopped
-    
+
   nextcloud-onlyoffice:
     image: onlyoffice/documentserver:latest
     container_name: nextcloud-onlyoffice
@@ -54,6 +65,19 @@ services:
       - /messier/apps/nextcloud/onlyoffice/redis:/var/lib/redis
       - /messier/apps/nextcloud/onlyoffice/rabbitmq:/var/lib/rabbitmq
       - /messier/apps/nextcloud/onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
-    ports:
-      - 10080:80/tcp
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.onlyoffice.rule=Host(`onlyoffice.${DOMAIN}`)"
+      - "traefik.http.routers.onlyoffice.entrypoints=websecure"
+      - "traefik.http.routers.onlyoffice.tls=true"
+      - "traefik.http.routers.onlyoffice.tls.certresolver=le"
+      - "traefik.http.routers.onlyoffice.service=onlyoffice"
+      - "traefik.http.routers.onlyoffice.middlewares=secure-headers@docker"
+      - "traefik.http.services.onlyoffice.loadbalancer.server.port=80"
+    networks:
+      virgo:
     restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

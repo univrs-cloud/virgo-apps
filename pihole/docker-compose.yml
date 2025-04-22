@@ -9,7 +9,7 @@ services:
       - FTLCONF_dns_listeningMode=all
       - FTLCONF_misc_etc_dnsmasq_d=true
       - FTLCONF_misc_dnsmasq_lines=dhcp-option=6,${HOST_IP}
-      - FTLCONF_dns_domain=${DOMAIN_NAME}
+      - FTLCONF_dns_domain=univrs
       - FTLCONF_dns_upstreams=127.0.0.1#5335;127.0.0.1#5335
       - FTLCONF_dhcp_active=${DHCP_ACTIVE}
       - FTLCONF_dhcp_start=${DHCP_START}
@@ -21,16 +21,24 @@ services:
       - /messier/apps/pihole/data:/etc/pihole/
       - /messier/apps/pihole/logs:/var/log/pihole
       - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d/
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.pihole.rule=Host(`pihole.${DOMAIN}`)"
+      - "traefik.http.routers.pihole.entrypoints=websecure"
+      - "traefik.http.routers.pihole.tls=true"
+      - "traefik.http.routers.pihole.tls.certresolver=le"
+      - "traefik.http.routers.pihole.service=pihole"
+      - "traefik.http.routers.pihole.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.services.pihole.loadbalancer.server.port=80"
     ports:
       - ${HOST_IP}:53:53/tcp
       - ${HOST_IP}:53:53/udp
       - 5335:5335/tcp
-      - 5443:443/tcp
     depends_on:
       - dhcphelper
     networks:
       virgo:
-        ipv4_address: 172.30.0.4
+        ipv4_address: 172.30.0.2
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
@@ -40,7 +48,7 @@ services:
     image: homeall/dhcphelper:latest
     network_mode: host
     environment:
-      IP: 172.30.0.4
+      IP: 172.30.0.2
     cap_add:
       - NET_ADMIN
     restart: unless-stopped

@@ -66,11 +66,19 @@ services:
     volumes:
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets:ro
-    ports:
-      - 9091:9091/tcp
+    labels:
+      - "traefik.enable=true"
+      # Define the Authelia service
+      - "traefik.http.routers.authelia.rule=Host(`auth.${DOMAIN}`)"
+      - "traefik.http.routers.authelia.entrypoints=websecure"
+      - "traefik.http.routers.authelia.tls.certresolver=le"
+      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
+      # Define the Authelia middleware for other services to use
+      - "traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://auth.${DOMAIN}"
+      - "traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true"
+      - "traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email"
     networks:
       virgo:
-        ipv4_address: 172.30.0.2
     depends_on:
       - authelia-init-secrets
       - authelia-redis
@@ -87,7 +95,6 @@ services:
       - /messier/apps/authelia/redis:/data
     networks:
       virgo:
-        ipv4_address: 172.30.0.6
     restart: unless-stopped
 
 networks:

@@ -1,0 +1,29 @@
+services:
+  onedev:
+    image: 1dev/server:latest
+    container_name: onedev
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /messier/apps/onedev:/opt/onedev
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.onedev.rule=Host(`onedev.${DOMAIN}`)"
+      - "traefik.http.routers.onedev.entrypoints=websecure"
+      - "traefik.http.routers.onedev.tls=true"
+      - "traefik.http.routers.onedev.tls.certresolver=le"
+      - "traefik.http.routers.onedev.service=onedev"
+      - "traefik.http.routers.onedev.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.services.onedev.loadbalancer.server.port=6610"
+      - "traefik.tcp.routers.onedevssh.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.onedevssh.entrypoints=ssh"
+      - "traefik.tcp.services.onedevssh.loadbalancer.server.port=6611"
+    networks:
+      virgo:
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

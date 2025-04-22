@@ -4,22 +4,24 @@
 		{
 			"id": 1,
 			"type": 3,
-			"title": "NGINX Proxy Manager",
-			"description": "Expose your services easily and securely.",
-			"logo": "https://apps.univrs.cloud/images/nginx-proxy-manager.png",
-			"categories": ["Networking"],
-			"name": "nginx-proxy-manager",
+			"title": "Traefik",
+			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
+			"logo": "https://apps.univrs.cloud/images/traefik.png",
+			"categories": [
+				"Networking"
+			],
+			"name": "traefik",
 			"env": [
 				{
-					"type": "email",
-					"label": "Email address (administrator)",
-					"name": "EMAIL",
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
 					"default": ""
 				},
 				{
-					"type": "password",
-					"label": "Password (administrator)",
-					"name": "PASSWORD",
+					"type": "email",
+					"label": "Email address (Let's Encrypt)",
+					"name": "EMAIL",
 					"default": ""
 				}
 			],
@@ -35,9 +37,17 @@
 			"title": "Authelia",
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
 			"logo": "https://apps.univrs.cloud/images/authelia.png",
-			"categories": ["System"],
+			"categories": [
+				"System"
+			],
 			"name": "authelia",
 			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": ""
+				},
 				{
 					"type": "text",
 					"label": "SMTP server address",
@@ -107,12 +117,14 @@
 			"title": "Pi-hole",
 			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo": "https://apps.univrs.cloud/images/pihole.png",
-			"categories": ["Networking"],
+			"categories": [
+				"Networking"
+			],
 			"env": [
 				{
 					"type": "text",
-					"label": "Domain name",
-					"name": "DOMAIN_NAME",
+					"label": "Domain",
+					"name": "DOMAIN",
 					"default": "univrs"
 				},
 				{
@@ -175,13 +187,15 @@
 			"title": "WireGuard",
 			"description": "An extremely simple yet fast and modern VPN.",
 			"logo": "https://apps.univrs.cloud/images/wireguard.png",
-			"categories": ["Networking"],
+			"categories": [
+				"Networking"
+			],
 			"env": [
 				{
 					"type": "text",
-					"label": "Host",
-					"name": "HOST",
-					"default": "vpn.domain.com"
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": ""
 				},
 				{
 					"type": "text",
@@ -218,18 +232,19 @@
 		},
 		{
 			"id": 5,
-			"type": 1,
+			"type": 3,
 			"title": "WeTTY",
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.png",
-			"categories": ["Networking"],
+			"categories": [
+				"Networking"
+			],
 			"env": [
 				{
-					"type": "hidden",
-					"label": "BASE",
-					"name": "BASE",
-					"default": "/",
-					"preset": true
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": ""
 				},
 				{
 					"type": "text",
@@ -238,63 +253,28 @@
 					"default": "192.168.100.2"
 				}
 			],
-			"image": "ghcr.io/butlerx/wetty:latest",
 			"name": "wetty",
 			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"ports": [
-				"2222:3000/tcp"
-			]
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "wetty/docker-compose.yml"
+			}
 		},
 		{
 			"id": 6,
-			"type": 1,
+			"type": 3,
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
 			"logo": "https://apps.univrs.cloud/images/qbittorrent.png",
-			"categories": ["Productivity"],
-			"env": [
-				{
-					"type": "hidden",
-					"label": "PUID",
-					"name": "PUID",
-					"default": "1000",
-					"preset": true
-				},
-				{
-					"type": "hidden",
-					"label": "PGID",
-					"name": "PGID",
-					"default": "100",
-					"preset": true
-				},
-				{
-					"type": "hidden",
-					"label": "WEBUI_PORT",
-					"name": "WEBUI_PORT",
-					"default": "6080",
-					"preset": true
-				}
+			"categories": [
+				"Productivity"
 			],
-			"image": "lscr.io/linuxserver/qbittorrent:latest",
 			"name": "qbittorrent",
 			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"ports": [
-				"6080:6080/tcp",
-				"6881:6881/tcp",
-				"6881:6881/udp"
-			],
-			"volumes": [
-				{
-					"bind": "/messier/apps/qbittorrent",
-					"container": "/config"
-				},
-				{
-					"bind": "/downloads",
-					"container": "/downloads"
-				}
-			]
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "qbittorent/docker-compose.yml"
+			}
 		},
 		{
 			"id": 7,
@@ -303,8 +283,16 @@
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note": "The host of the database is nextcloud-db:3306. The database, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.png",
-			"categories": ["Productivity"],
+			"categories": [
+				"Productivity"
+			],
 			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": ""
+				},
 				{
 					"type": "text",
 					"label": "Username (administrator)",
@@ -337,100 +325,43 @@
 		},
 		{
 			"id": 8,
-			"type": 1,
+			"type": 3,
 			"title": "OneDev",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
 			"logo": "https://apps.univrs.cloud/images/onedev.png",
-			"categories": ["Productivity"],
+			"categories": [
+				"Productivity"
+			],
 			"env": [
 				{
-					"type": "hidden",
-					"label": "PUID",
-					"name": "PUID",
-					"default": "1000",
-					"preset": true
-				},
-				{
-					"type": "hidden",
-					"label": "PGID",
-					"name": "PGID",
-					"default": "100",
-					"preset": true
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": ""
 				}
 			],
-			"image": "1dev/server:latest",
 			"name": "onedev",
 			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"ports": [
-				"6610:6610/tcp",
-				"6611:6611/tcp"
-			],
-			"volumes": [
-				{
-					"bind": "/messier/apps/onedev",
-					"container": "/opt/onedev"
-				},
-				{
-					"bind": "/var/run/docker.sock",
-					"container": "/var/run/docker.sock",
-					"readonly": true
-				}
-			]
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "onedev/docker-compose.yml"
+			}
 		},
 		{
 			"id": 9,
-			"type": 1,
-			"title": "Watchtower",
-			"description": "Automatically updates your apps to the latest version.",
-			"logo": "https://apps.univrs.cloud/images/watchtower.png",
-			"categories": ["System"],
-			"image": "ghcr.io/containrrr/watchtower:latest",
-			"command": "--cleanup",
-			"name": "watchtower",
-			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"volumes": [
-				{
-					"bind": "/var/run/docker.sock",
-					"container": "/var/run/docker.sock",
-					"readonly": true
-				}
-			]
-		},
-		{
-			"id": 10,
-			"type": 1,
+			"type": 3,
 			"title": "DDclient",
 			"description": "A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
 			"logo": "https://apps.univrs.cloud/images/ddns-updater.png",
-			"categories": ["Networking"],
-			"env": [
-				{
-					"type": "hidden",
-					"label": "PUID",
-					"name": "PUID",
-					"default": "1000",
-					"preset": true
-				},
-				{
-					"type": "hidden",
-					"label": "PGID",
-					"name": "PGID",
-					"default": "100",
-					"preset": true
-				}
+			"categories": [
+				"Networking"
 			],
-			"image": "lscr.io/linuxserver/ddclient:latest",
 			"name": "ddclient",
 			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"volumes": [
-				{
-					"bind": "/messier/apps/ddclient",
-					"container": "/config"
-				}
-			]
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "ddclient/docker-compose.yml"
+			}
 		}
 	]
 }

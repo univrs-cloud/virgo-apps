@@ -14,8 +14,6 @@ services:
     depends_on:
       - penpot-backend
       - penpot-exporter
-    networks:
-      - penpot
     
   penpot-backend:
     image: penpotapp/backend:latest
@@ -47,8 +45,6 @@ services:
         condition: service_healthy
       penpot-redis:
         condition: service_healthy
-    networks:
-      - penpot
 
   penpot-exporter:
     image: penpotapp/exporter:latest
@@ -60,8 +56,6 @@ services:
     depends_on:
       penpot-redis:
         condition: service_healthy
-    networks:
-      - penpot
 
   penpot-postgres:
     image: postgres:15
@@ -81,8 +75,6 @@ services:
       - POSTGRES_PASSWORD=penpot
     volumes:
       - /messier/apps/penpot/postgres:/var/lib/postgresql/data
-    networks:
-      - penpot
 
   penpot-redis:
     image: redis:7.2
@@ -96,8 +88,3 @@ services:
       start_period: 3s
     volumes:
       - /messier/apps/penpot/redis:/data
-    networks:
-      - penpot
-
-networks:
-  penpot:

@@ -1,0 +1,23 @@
+http:
+  routers:
+    localservice:
+      rule: "Host(`{{ env `DOMAIN` }}`)"
+      entryPoints:
+        - "websecure"
+      service: "localservice"
+      tls:
+        certResolver: "le"
+      middlewares:
+        - "secure-headers@docker"
+        - "authelia@docker"
+
+  services:
+    localservice:
+      loadBalancer:
+        servers:
+          - url: "https://172.17.0.1:3000"
+        serversTransport: "insecure-transport"
+
+  serversTransports:
+    insecure-transport:
+      insecureSkipVerify: true

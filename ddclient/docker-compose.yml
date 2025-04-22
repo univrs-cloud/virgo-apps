@@ -1,0 +1,16 @@
+services:
+  ddclient:
+    image: lscr.io/linuxserver/ddclient:latest
+    container_name: ddclient
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /messier/apps/ddclient:/config
+    networks:
+      virgo:
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

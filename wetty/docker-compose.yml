@@ -1,0 +1,25 @@
+services:
+  wetty:
+    image: ghcr.io/butlerx/wetty:latest
+    container_name: wetty
+    environment:
+      - PUID=1000
+      - PGID=100
+      - BASE=/
+      - SSHHOST=${SSHHOST}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.wetty.rule=Host(`terminal.${DOMAIN}`)"
+      - "traefik.http.routers.wetty.entrypoints=websecure"
+      - "traefik.http.routers.wetty.tls=true"
+      - "traefik.http.routers.wetty.tls.certresolver=le"
+      - "traefik.http.routers.wetty.service=wetty"
+      - "traefik.http.routers.wetty.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.services.wetty.loadbalancer.server.port=3000"
+    networks:
+      virgo:
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true
