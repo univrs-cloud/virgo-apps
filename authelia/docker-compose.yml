@@ -3,8 +3,6 @@ services:
     image: alpine
     container_name: authelia-init-secrets
     entrypoint: ["/bin/sh", "-c"]
-    environment:
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
     command:
       - |
         mkdir -p /config/assets; \
@@ -12,7 +10,6 @@ services:
         [ -f /secrets/jwt_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/jwt_secret; \
         [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/session_secret; \
         [ -f /secrets/storage_key ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/storage_key; \
-        [ -f /secrets/smtp_password ] || echo -n "$SMTP_PASSWORD" > /secrets/smtp_password; \
         echo 'Secrets initialized.'
     volumes:
       - /messier/apps/authelia/config:/config
@@ -37,7 +34,7 @@ services:
       - AUTHELIA_SERVER_ENDPOINTS_ENABLE_PPROF=false
       - AUTHELIA_LOG_LEVEL=info
       - AUTHELIA_LOG_KEEP_STDOUT=false
-      - AUTHELIA_AUTHENTICATION_BACKEND_PASSWORD_RESET_DISABLE=false
+      - AUTHELIA_AUTHENTICATION_BACKEND_PASSWORD_RESET_DISABLE=true
       - AUTHELIA_AUTHENTICATION_BACKEND_REFRESH_INTERVAL=5m
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_PATH=/config/users.yml
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_WATCH=true
@@ -53,18 +50,10 @@ services:
       - AUTHELIA_REGULATION_BAN_TIME=12h
       - AUTHELIA_STORAGE_LOCAL_PATH=/config/db.sqlite3
       - AUTHELIA_NOTIFIER_DISABLE_STARTUP_CHECK=false
-      - AUTHELIA_NOTIFIER_SMTP_ADDRESS=${SMTP_ADDRESS}
-      - AUTHELIA_NOTIFIER_SMTP_USERNAME=${SMTP_USERNAME}
-      - AUTHELIA_NOTIFIER_SMTP_SENDER=${SMTP_SENDER}
-      - AUTHELIA_NOTIFIER_SMTP_SUBJECT="{title}"
-      - AUTHELIA_NOTIFIER_SMTP_DISABLE_REQUIRE_TLS=${SMTP_DISABLE_REQUIRE_TLS}
-      - AUTHELIA_NOTIFIER_SMTP_DISABLE_STARTTLS=${SMTP_DISABLE_STARTTLS}
-      - AUTHELIA_NOTIFIER_SMTP_DISABLE_HTML_EMAILS=false
-      - AUTHELIA_NOTIFIER_SMTP_TIMEOUT=5s
+      - AUTHELIA_NOTIFIER_FILESYSTEM_FILENAME=/config/notification.txt
       - AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE=/secrets/jwt_secret
       - AUTHELIA_SESSION_SECRET_FILE=/secrets/session_secret
       - AUTHELIA_STORAGE_ENCRYPTION_KEY_FILE=/secrets/storage_key
-      - AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE=/secrets/smtp_password
     volumes:
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets:ro
@@ -76,9 +65,9 @@ services:
       - "traefik.http.routers.authelia.tls.certresolver=le"
       - "traefik.http.services.authelia.loadbalancer.server.port=9091"
       # Define the Authelia middleware for other services to use
-      - "traefik.http.middlewares.authelia.forwardauth.address=http://authelia:9091/api/verify?rd=https://auth.${DOMAIN}"
-      - "traefik.http.middlewares.authelia.forwardauth.trustForwardHeader=true"
-      - "traefik.http.middlewares.authelia.forwardauth.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email"
+      - "traefik.http.middlewares.authelia.forwardAuth.address=http://authelia:9091/api/verify?rd=https://auth.${DOMAIN}"
+      - "traefik.http.middlewares.authelia.forwardAuth.trustForwardHeader=true"
+      - "traefik.http.middlewares.authelia.forwardAuth.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email"
     networks:
       virgo:
     depends_on:
