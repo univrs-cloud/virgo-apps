@@ -1,6 +1,6 @@
 services:
   wetty:
-    image: ghcr.io/butlerx/wetty:latest
+    image: wettyoss/wetty:latest
     container_name: wetty
     environment:
       - PUID=1000
