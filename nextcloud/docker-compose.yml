@@ -1,6 +1,6 @@
 services:
   nextcloud:
-    image: ghcr.io/linuxserver/nextcloud:latest
+    image: linuxserver/nextcloud:latest
     container_name: nextcloud
     environment:
       - PUID=1000
@@ -35,7 +35,7 @@ services:
     restart: unless-stopped
 
   nextcloud-db:
-    image: ghcr.io/linuxserver/mariadb:latest
+    image: linuxserver/mariadb:latest
     container_name: nextcloud-db
     environment:
       - PUID=1000
