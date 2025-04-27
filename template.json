@@ -16,7 +16,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "traefik."
 				},
 				{
 					"type": "radio",
@@ -62,7 +63,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "auth."
 				},
 				{
 					"type": "radio",
@@ -101,7 +103,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "pihole."
 				},
 				{
 					"type": "radio",
@@ -187,7 +190,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "vpn."
 				},
 				{
 					"type": "radio",
@@ -252,7 +256,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "terminal."
 				},
 				{
 					"type": "radio",
@@ -298,7 +303,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "torrent."
 				},
 				{
 					"type": "radio",
@@ -339,7 +345,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "nextcloud."
 				},
 				{
 					"type": "radio",
@@ -401,7 +408,8 @@
 					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
-					"default": ""
+					"default": "",
+					"prefix": "onedev."
 				},
 				{
 					"type": "radio",
