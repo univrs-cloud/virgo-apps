@@ -7,6 +7,8 @@ services:
       - PGID=100
       - TZ=Europe/Bucharest
       - DOMAIN=${DOMAIN}
+      - CERTRESOLVER=${CERTRESOLVER}
+      - TLS_CONFIG=${CERTRESOLVER:+with-cert}${CERTRESOLVER:-without-cert}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /messier/apps/traefik/config:/etc/traefik/config
@@ -45,7 +47,7 @@ services:
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.dashboard.tls=true"
-      - "traefik.http.routers.dashboard.tls.certresolver=le"
+      - "traefik.http.routers.dashboard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.dashboard.middlewares=secure-headers@docker,authelia@docker"
       # HTTP to HTTPS redirect middleware
       - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"

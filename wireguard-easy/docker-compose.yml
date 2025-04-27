@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"
       - "traefik.http.routers.wireguard.entrypoints=websecure"
       - "traefik.http.routers.wireguard.tls=true"
-      - "traefik.http.routers.wireguard.tls.certresolver=le"
+      - "traefik.http.routers.wireguard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.wireguard.service=wireguard"
       - "traefik.http.routers.wireguard.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.wireguard.loadbalancer.server.port=51821"

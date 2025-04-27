@@ -13,7 +13,7 @@ services:
       - "traefik.http.routers.onedev.rule=Host(`onedev.${DOMAIN}`)"
       - "traefik.http.routers.onedev.entrypoints=websecure"
       - "traefik.http.routers.onedev.tls=true"
-      - "traefik.http.routers.onedev.tls.certresolver=le"
+      - "traefik.http.routers.onedev.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.onedev.service=onedev"
       - "traefik.http.routers.onedev.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.onedev.loadbalancer.server.port=6610"

@@ -26,7 +26,7 @@ services:
       - "traefik.http.routers.pihole.rule=Host(`pihole.${DOMAIN}`)"
       - "traefik.http.routers.pihole.entrypoints=websecure"
       - "traefik.http.routers.pihole.tls=true"
-      - "traefik.http.routers.pihole.tls.certresolver=le"
+      - "traefik.http.routers.pihole.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.pihole.service=pihole"
       - "traefik.http.routers.pihole.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.pihole.loadbalancer.server.port=80"

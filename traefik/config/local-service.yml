@@ -5,8 +5,11 @@ http:
       entryPoints:
         - "websecure"
       service: "localservice"
-      tls:
-        certResolver: "le"
+      tls: {{ if eq (env `TLS_CONFIG`) "with-cert" }}
+        certResolver: "{{ env `CERTRESOLVER` }}"
+      {{ else }}
+        {}
+      {{ end }}
       middlewares:
         - "secure-headers@docker"
         - "authelia@docker"

@@ -19,6 +19,22 @@
 					"default": ""
 				},
 				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
 					"type": "email",
 					"label": "Email address (Let's Encrypt)",
 					"name": "EMAIL",
@@ -49,57 +65,17 @@
 					"default": ""
 				},
 				{
-					"type": "text",
-					"label": "SMTP server address",
-					"name": "SMTP_ADDRESS",
-					"default": ""
-				},
-				{
-					"type": "text",
-					"label": "SMTP server username",
-					"name": "SMTP_USERNAME",
-					"default": ""
-				},
-				{
-					"type": "password",
-					"label": "SMTP server password",
-					"name": "SMTP_PASSWORD",
-					"default": ""
-				},
-				{
-					"type": "email",
-					"label": "SMTP sender",
-					"name": "SMTP_SENDER",
-					"default": ""
-				},
-				{
 					"type": "radio",
-					"label": "SMTP TLS",
-					"name": "SMTP_DISABLE_REQUIRE_TLS",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
 					"select": [
 						{
-							"value": "false",
-							"text": "Yes"
+							"value": "le",
+							"text": "Yes",
+							"default": true
 						},
 						{
-							"value": "true",
-							"default": true,
-							"text": "No"
-						}
-					]
-				},
-				{
-					"type": "radio",
-					"label": "SMTP STARTTLS",
-					"name": "SMTP_DISABLE_STARTTLS",
-					"select": [
-						{
-							"value": "false",
-							"default": true,
-							"text": "Yes"
-						},
-						{
-							"value": "true",
+							"value": "",
 							"text": "No"
 						}
 					]
@@ -128,6 +104,22 @@
 					"default": ""
 				},
 				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
 					"type": "text",
 					"label": "Host IP address",
 					"name": "HOST_IP",
@@ -140,8 +132,8 @@
 					"select": [
 						{
 							"value": "true",
-							"default": true,
-							"text": "Yes"
+							"text": "Yes",
+							"default": true
 						},
 						{
 							"value": "false",
@@ -198,6 +190,22 @@
 					"default": ""
 				},
 				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
 					"type": "text",
 					"label": "Password hash (brypt)",
 					"name": "PASSWORD_HASH",
@@ -247,6 +255,22 @@
 					"default": ""
 				},
 				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
 					"type": "text",
 					"label": "Host",
 					"name": "SSHHOST",
@@ -275,6 +299,22 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": ""
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
 				}
 			],
 			"name": "qbittorrent",
@@ -300,6 +340,22 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": ""
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
 				},
 				{
 					"type": "text",
@@ -346,6 +402,22 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": ""
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
 				}
 			],
 			"name": "onedev",
