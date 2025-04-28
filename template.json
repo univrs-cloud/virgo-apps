@@ -10,7 +10,6 @@
 			"categories": [
 				"Networking"
 			],
-			"name": "traefik",
 			"env": [
 				{
 					"type": "text",
@@ -42,6 +41,7 @@
 					"default": ""
 				}
 			],
+			"name": "traefik",
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
@@ -57,7 +57,6 @@
 			"categories": [
 				"System"
 			],
-			"name": "authelia",
 			"env": [
 				{
 					"type": "text",
@@ -83,6 +82,7 @@
 					]
 				}
 			],
+			"name": "authelia",
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
@@ -327,7 +327,7 @@
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "qbittorent/docker-compose.yml"
+				"stackfile": "qbittorrent/docker-compose.yml"
 			}
 		},
 		{
