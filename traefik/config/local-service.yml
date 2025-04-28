@@ -5,7 +5,7 @@ http:
       entryPoints:
         - "websecure"
       service: "localservice"
-      tls: {{ if eq (env `TLS_CONFIG`) "with-cert" }}
+      tls: {{ if ne (env `CERTRESOLVER`) "" }}
         certResolver: "{{ env `CERTRESOLVER` }}"
       {{ else }}
         {}

@@ -8,7 +8,6 @@ services:
       - TZ=Europe/Bucharest
       - DOMAIN=${DOMAIN}
       - CERTRESOLVER=${CERTRESOLVER}
-      - TLS_CONFIG=${CERTRESOLVER:+with-cert}${CERTRESOLVER:-without-cert}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /messier/apps/traefik/config:/etc/traefik/config
