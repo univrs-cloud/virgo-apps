@@ -21,7 +21,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.${DOMAIN}`)"
-      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.entrypoints=https"
       - "traefik.http.routers.nextcloud.tls=true"
       - "traefik.http.routers.nextcloud.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.nextcloud.service=nextcloud"
@@ -68,7 +68,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.onlyoffice.rule=Host(`onlyoffice.${DOMAIN}`)"
-      - "traefik.http.routers.onlyoffice.entrypoints=websecure"
+      - "traefik.http.routers.onlyoffice.entrypoints=https"
       - "traefik.http.routers.onlyoffice.tls=true"
       - "traefik.http.routers.onlyoffice.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.onlyoffice.service=onlyoffice"

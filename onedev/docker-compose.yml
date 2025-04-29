@@ -11,7 +11,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.onedev.rule=Host(`onedev.${DOMAIN}`)"
-      - "traefik.http.routers.onedev.entrypoints=websecure"
+      - "traefik.http.routers.onedev.entrypoints=https"
       - "traefik.http.routers.onedev.tls=true"
       - "traefik.http.routers.onedev.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.onedev.service=onedev"

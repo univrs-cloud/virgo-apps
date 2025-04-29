@@ -3,7 +3,7 @@ http:
     localservice:
       rule: "Host(`{{ env `DOMAIN` }}`)"
       entryPoints:
-        - "websecure"
+        - "https"
       service: "localservice"
       tls: {{ if ne (env `CERTRESOLVER`) "" }}
         certResolver: "{{ env `CERTRESOLVER` }}"

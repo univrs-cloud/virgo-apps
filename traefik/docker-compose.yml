@@ -13,13 +13,20 @@ services:
       - /messier/apps/traefik/config:/etc/traefik/config
       - /messier/apps/traefik/letsencrypt:/letsencrypt
     command:
+      # Global
+      - "--global.sendAnonymousUsage=false"
+      - "--global.checkNewVersion=false"
       # API and Dashboard
       - "--api.dashboard=true"
       # EntryPoints
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      - "--entrypoints.websecure.http3=true"
-      - "--entrypoints.websecure.http3.advertisedPort=443"
+      - "--entrypoints.http.address=:80"
+      - "--entrypoints.https.address=:443"
+      - "--entrypoints.https.http3=true"
+      - "--entrypoints.https.http3.advertisedPort=443"
+      - "--entryPoints.https.forwardedHeaders.insecure=false"
+      - "--entryPoints.https.proxyProtocol.insecure=false"
+      - "--entryPoints.https.forwardedHeaders.trustedIPs=10.6.0.0/16,172.0.0.0/8,192.168.0.0/16"
+      - "--entryPoints.https.proxyProtocol.trustedIPs=10.6.0.0/16,172.0.0.0/8,192.168.0.0/16"
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -29,24 +36,24 @@ services:
       - "--certificatesresolvers.le.acme.email=${EMAIL}"
       - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
       - "--certificatesresolvers.le.acme.httpchallenge=true"
-      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=http"
     labels:
       - "traefik.enable=true"
       # Special router for Let's Encrypt HTTP challenge
       - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
-      - "traefik.http.routers.acme-challenge.entrypoints=web"
+      - "traefik.http.routers.acme-challenge.entrypoints=http"
       - "traefik.http.routers.acme-challenge.priority=100"
       - "traefik.http.routers.acme-challenge.service=noop@internal"
       # HTTP to HTTPS redirect router - lower priority (10) than the ACME router
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
-      - "traefik.http.routers.http-catchall.entrypoints=web"
+      - "traefik.http.routers.http-catchall.entrypoints=http"
       - "traefik.http.routers.http-catchall.priority=10"
       - "traefik.http.routers.http-catchall.middlewares=https-redirect"
       - "traefik.http.routers.http-catchall.service=noop@internal"
       # Dashboard configuration only
       - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN}`)"
       - "traefik.http.routers.dashboard.service=api@internal"
-      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.entrypoints=https"
       - "traefik.http.routers.dashboard.tls=true"
       - "traefik.http.routers.dashboard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.dashboard.middlewares=secure-headers@docker,authelia@docker"

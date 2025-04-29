@@ -15,7 +15,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"
-      - "traefik.http.routers.wireguard.entrypoints=websecure"
+      - "traefik.http.routers.wireguard.entrypoints=https"
       - "traefik.http.routers.wireguard.tls=true"
       - "traefik.http.routers.wireguard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.wireguard.service=wireguard"
