@@ -239,7 +239,7 @@
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "wireguard-easy/docker-compose.yml"
+				"stackfile": "wg-easy/docker-compose.yml"
 			}
 		},
 		{
