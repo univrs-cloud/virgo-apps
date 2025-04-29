@@ -19,8 +19,8 @@ services:
       - "traefik.http.routers.qbittorrent.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.qbittorrent.loadbalancer.server.port=80"
     ports:
-      - 6881:6881/tcp
-      - 6881:6881/udp
+      - "6881:6881/tcp"
+      - "6881:6881/udp"
     networks:
       virgo:
     restart: unless-stopped

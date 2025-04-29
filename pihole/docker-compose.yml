@@ -31,9 +31,9 @@ services:
       - "traefik.http.routers.pihole.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.pihole.loadbalancer.server.port=80"
     ports:
-      - ${HOST_IP}:53:53/tcp
-      - ${HOST_IP}:53:53/udp
-      - 5335:5335/tcp
+      - "${HOST_IP}:53:53/tcp"
+      - "${HOST_IP}:53:53/udp"
+      - "5335:5335/tcp"
     depends_on:
       - dhcphelper
     networks:

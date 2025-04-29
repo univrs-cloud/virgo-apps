@@ -8,7 +8,7 @@ services:
       - PENPOT_HTTP_SERVER_MAX_BODY_SIZE=31457280
       - PENPOT_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE=367001600
     ports:
-      - 5080:8080
+      - "5080:8080"
     volumes:
       - /messier/apps/penpot/frontend/assets:/opt/data/assets
     depends_on:

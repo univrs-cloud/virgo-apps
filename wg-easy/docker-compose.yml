@@ -22,7 +22,7 @@ services:
       - "traefik.http.routers.wireguard.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.wireguard.loadbalancer.server.port=51821"
     ports:
-      - 51820:51820/udp
+      - "51820:51820/udp"
     networks:
       virgo:
     cap_add:

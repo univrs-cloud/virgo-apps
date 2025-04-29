@@ -18,6 +18,8 @@ services:
       # EntryPoints
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.websecure.http3=true"
+      - "--entrypoints.websecure.http3.advertisedPort=443"
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -65,9 +67,10 @@ services:
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Methods=GET,OPTIONS,PUT"
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Headers=authorization,content-type"
     ports:
-      - 80:80
-      - 443:443
-      - 8080:8080 # Dashboard
+      - "80:80"
+      - "443:443/tcp"
+      - "443:443/udp"
+      - "8080:8080" # Dashboard
     networks:
       virgo:
     restart: unless-stopped
