@@ -10,9 +10,9 @@
 
 access_control:
   rules:
-  - domain: "auth.somewhere.univrs.cloud" #this should be your authentication URL
+  - domain: "auth.${DOMAIN}" #this should be your authentication URL
     policy: "bypass"
-  - domain: ["*.somewhere.univrs.cloud", "somewhere.univrs.cloud"]
+  - domain: ["*.${DOMAIN}", "${DOMAIN}"]
     policy: "bypass"
     networks:
       - "192.168.0.0/16" #bypass if connected on local network
@@ -20,6 +20,6 @@ access_control:
 
 session:
   cookies:
-  - domain: "somewhere.univrs.cloud" #should match whatever your root protected domain is
-    authelia_url: "https://auth.somewhere.univrs.cloud"
+  - domain: "${DOMAIN}" #should match whatever your root protected domain is
+    authelia_url: "https://auth.${DOMAIN}"
 ...
