@@ -10,9 +10,9 @@
 
 access_control:
   rules:
-  - domain: "auth.${DOMAIN}" #this should be your authentication URL
+  - domain: "auth.{{ env `DOMAIN` }}" #this should be your authentication URL
     policy: "bypass"
-  - domain: ["*.${DOMAIN}", "${DOMAIN}"]
+  - domain: ["*.{{ env `DOMAIN` }}", "{{ env `DOMAIN` }}"]
     policy: "bypass"
     networks:
       - "192.168.0.0/16" #bypass if connected on local network
@@ -20,6 +20,6 @@ access_control:
 
 session:
   cookies:
-  - domain: "${DOMAIN}" #should match whatever your root protected domain is
-    authelia_url: "https://auth.${DOMAIN}"
+  - domain: "{{ env `DOMAIN` }}" #should match whatever your root protected domain is
+    authelia_url: "https://auth.{{ env `DOMAIN` }}"
 ...
