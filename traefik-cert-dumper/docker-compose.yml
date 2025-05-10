@@ -1,0 +1,17 @@
+services:
+  certdumper:
+    image: ghcr.io/kereis/traefik-certs-dumper:latest
+    container_name: traefik-certs-dumper
+    volumes:
+      - /messier/apps/traefik/letsencrypt:/traefik:ro
+      - /messier/apps/traefik/certdump:/output
+    command: --restart-containers stalwart-mail
+    labels:
+      - "traefik.enable=false"
+    networks:
+      virgo:
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true
