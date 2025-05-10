@@ -34,13 +34,13 @@ services:
       - "${HOST_IP}:53:53/tcp"
       - "${HOST_IP}:53:53/udp"
       - "5335:5335/tcp"
-    depends_on:
-      - dhcphelper
     networks:
       virgo:
         ipv4_address: 172.30.0.2
     cap_add:
       - NET_ADMIN
+    depends_on:
+      - dhcphelper
     restart: unless-stopped
 
   dhcphelper:
