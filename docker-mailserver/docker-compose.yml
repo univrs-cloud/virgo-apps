@@ -33,7 +33,7 @@ services:
       - "traefik.http.routers.mail-cert.tls=true"
       - "traefik.http.routers.mail-cert.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.mail-cert.service=mail-service"
-      - "traefik.http.routers.mail-cert.middlewares=secure-headers@docker"
+      - "traefik.http.routers.mail-cert.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.mail-service.loadbalancer.server.port=80"
     ports:
       - "25:25"
