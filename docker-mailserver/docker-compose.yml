@@ -22,6 +22,7 @@ services:
       - ENABLE_SPAMASSASSIN=0
     volumes:
       - /messier/apps/traefik/letsencrypt/acme.json:/etc/letsencrypt/acme.json:ro
+      - /messier/apps/docker-mailserver/config/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf:ro
       - /messier/apps/docker-mailserver/data:/var/mail
       - /messier/apps/docker-mailserver/state:/var/mail-state
       - /messier/apps/docker-mailserver/logs:/var/log/mail
