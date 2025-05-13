@@ -246,7 +246,7 @@
 			"id": 5,
 			"type": 3,
 			"title": "MailServer",
-			"description": "A terminal in a browser.",
+			"description": "A production-ready fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
 			"logo": "https://apps.univrs.cloud/images/docker-mailserver.png",
 			"categories": [
 				"Productivity"
