@@ -1,64 +1,496 @@
-services:
-  mailserver:
-    image: ghcr.io/docker-mailserver/docker-mailserver:latest
-    container_name: mailserver
-    hostname: mail.${DOMAIN}
-    environment:
-      - PUID=1000
-      - PGID=100
-      - TZ=Europe/Bucharest
-      - SSL_TYPE=letsencrypt
-      - SSL_DOMAIN=mail.${DOMAIN}
-      - POSTMASTER_ADDRESS=postmaster@${DOMAIN}
-      - POSTFIX_INET_PROTOCOLS=ipv4
-      - POSTFIX_MESSAGE_SIZE_LIMIT=26214400
-      - ENABLE_MTA_STS=1
-      - ENABLE_MANAGESIEVE=1
-      - SPOOF_PROTECTION=1
-      - ENABLE_FAIL2BAN=1
-      - ENABLE_CLAMAV=1
-      - ENABLE_SPF=1
-      - ENABLE_RSPAMD=1
-      - RSPAMD_LEARN=1
-      - RSPAMD_GREYLISTING=0
-      - ENABLE_POSTGREY=0
-      - ENABLE_OPENDKIM=0
-      - ENABLE_OPENDMARC=0
-      - ENABLE_POLICYD_SPF=0
-      - ENABLE_AMAVIS=0
-      - ENABLE_SPAMASSASSIN=0
-    volumes:
-      - /messier/apps/traefik/letsencrypt/acme.json:/etc/letsencrypt/acme.json:ro
-      - /messier/apps/docker-mailserver/config/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf:ro
-      - /messier/apps/docker-mailserver/data:/var/mail
-      - /messier/apps/docker-mailserver/state:/var/mail-state
-      - /messier/apps/docker-mailserver/logs:/var/log/mail
-      - /messier/apps/docker-mailserver/config:/tmp/docker-mailserver
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.mail-cert.rule=Host(`mail.${DOMAIN}`)"
-      - "traefik.http.routers.mail-cert.entrypoints=https"
-      - "traefik.http.routers.mail-cert.tls=true"
-      - "traefik.http.routers.mail-cert.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.routers.mail-cert.service=noop@internal"
-      - "traefik.http.routers.mail-cert.middlewares=secure-headers@docker"
-    ports:
-      - "25:25"
-      - "465:465"
-      - "587:587"
-      - "993:993"
-      - "4190:4190"
-    networks:
-      virgo:
-    restart: unless-stopped
-    stop_grace_period: 1m
-    cap_add:
-      - NET_ADMIN
-    healthcheck:
-      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
-      timeout: 3s
-      retries: 0
-
-networks:
-  virgo:
-    external: true
+{
+	"version": "3",
+	"templates": [
+		{
+			"id": 1,
+			"type": 3,
+			"title": "Traefik",
+			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
+			"logo": "https://apps.univrs.cloud/images/traefik.png",
+			"categories": [
+				"Networking"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "traefik."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "email",
+					"label": "Email address (Let's Encrypt)",
+					"name": "EMAIL",
+					"default": ""
+				}
+			],
+			"name": "traefik",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nginx-proxy-manager/docker-compose.yml"
+			}
+		},
+		{
+			"id": 2,
+			"type": 3,
+			"title": "Authelia",
+			"description": "The Single Sign-On Multi-Factor portal for web apps.",
+			"logo": "https://apps.univrs.cloud/images/authelia.png",
+			"categories": [
+				"System"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "auth."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			],
+			"name": "authelia",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "authelia/docker-compose.yml"
+			}
+		},
+		{
+			"id": 3,
+			"type": 3,
+			"title": "Pi-hole",
+			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
+			"logo": "https://apps.univrs.cloud/images/pihole.png",
+			"categories": [
+				"Networking"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "pihole."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"label": "Host IP address",
+					"name": "HOST_IP",
+					"default": "192.168.100.2"
+				},
+				{
+					"type": "radio",
+					"label": "DHCP server enabled",
+					"name": "DHCP_ACTIVE",
+					"select": [
+						{
+							"value": "true",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "false",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"label": "DHCP from",
+					"name": "DHCP_START",
+					"default": "192.168.100.100"
+				},
+				{
+					"type": "text",
+					"label": "DHCP to",
+					"name": "DHCP_END",
+					"default": "192.168.100.250"
+				},
+				{
+					"type": "text",
+					"label": "Router (gateway) IP address",
+					"name": "DHCP_ROUTER",
+					"default": "192.168.100.1"
+				},
+				{
+					"type": "password",
+					"label": "Password (administrator)",
+					"name": "PASSWORD",
+					"default": ""
+				}
+			],
+			"name": "pihole",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "pihole/docker-compose.yml"
+			}
+		},
+		{
+			"id": 4,
+			"type": 3,
+			"title": "WireGuard",
+			"description": "An extremely simple yet fast and modern VPN.",
+			"logo": "https://apps.univrs.cloud/images/wireguard.png",
+			"categories": [
+				"Networking"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "vpn."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"label": "Password hash (brypt)",
+					"name": "PASSWORD_HASH",
+					"default": "",
+					"description": "Leave blank to access UI without logging in."
+				},
+				{
+					"type": "text",
+					"label": "DNS",
+					"name": "DEFAULT_DNS",
+					"default": "192.168.100.2"
+				},
+				{
+					"type": "text",
+					"label": "Default address",
+					"name": "DEFAULT_ADDRESS",
+					"default": "10.6.0.x"
+				},
+				{
+					"type": "text",
+					"label": "Allowed IPs",
+					"name": "ALLOWED_IPS",
+					"default": "0.0.0.0/0"
+				}
+			],
+			"name": "wg-easy",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "wg-easy/docker-compose.yml"
+			}
+		},
+		{
+			"id": 5,
+			"type": 3,
+			"title": "MailServer",
+			"description": "A terminal in a browser.",
+			"logo": "https://apps.univrs.cloud/images/docker-mailserver.png",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "terminal."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			],
+			"name": "docker-mailserver",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "docker-mailserver/docker-compose.yml"
+			}
+		},
+		{
+			"id": 6,
+			"type": 3,
+			"title": "WeTTY",
+			"description": "A terminal in a browser.",
+			"logo": "https://apps.univrs.cloud/images/terminal.png",
+			"categories": [
+				"Networking"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "terminal."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"label": "Host",
+					"name": "SSHHOST",
+					"default": "192.168.100.2"
+				}
+			],
+			"name": "wetty",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "wetty/docker-compose.yml"
+			}
+		},
+		{
+			"id": 7,
+			"type": 3,
+			"title": "qBittorrent",
+			"description": "A BitTorrent client.",
+			"logo": "https://apps.univrs.cloud/images/qbittorrent.png",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "torrent."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			],
+			"name": "qbittorrent",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "qbittorrent/docker-compose.yml"
+			}
+		},
+		{
+			"id": 8,
+			"type": 3,
+			"title": "NextCloud",
+			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
+			"note": "The host of the database is nextcloud-db:3306. The database, database user and database password is `nextcloud`.",
+			"logo": "https://apps.univrs.cloud/images/nextcloud.png",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "nextcloud."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "text",
+					"label": "Username (administrator)",
+					"name": "NEXTCLOUD_ADMIN_USER",
+					"default": "voyager"
+				},
+				{
+					"type": "password",
+					"label": "Password (administrator)",
+					"name": "NEXTCLOUD_ADMIN_PASSWORD",
+					"default": ""
+				},
+				{
+					"type": "text",
+					"label": "Trusted domains",
+					"name": "NEXTCLOUD_TRUSTED_DOMAINS"
+				},
+				{
+					"type": "text",
+					"label": "OnlyOffice JWT secret",
+					"name": "ONLYOFFICE_JWT_SECRET"
+				}
+			],
+			"name": "nextcloud",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud/docker-compose.yml"
+			}
+		},
+		{
+			"id": 9,
+			"type": 3,
+			"title": "OneDev",
+			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
+			"logo": "https://apps.univrs.cloud/images/onedev.png",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "onedev."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			],
+			"name": "onedev",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "onedev/docker-compose.yml"
+			}
+		},
+		{
+			"id": 10,
+			"type": 3,
+			"title": "DDclient",
+			"description": "A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
+			"logo": "https://apps.univrs.cloud/images/ddns-updater.png",
+			"categories": [
+				"Networking"
+			],
+			"name": "ddclient",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "ddclient/docker-compose.yml"
+			}
+		}
+	]
+}
