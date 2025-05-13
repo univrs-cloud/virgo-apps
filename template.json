@@ -245,6 +245,47 @@
 		{
 			"id": 5,
 			"type": 3,
+			"title": "MailServer",
+			"description": "A terminal in a browser.",
+			"logo": "https://apps.univrs.cloud/images/docker-mailserver.png",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "terminal."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			],
+			"name": "docker-mailserver",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "docker-mailserver/docker-compose.yml"
+			}
+		},
+		{
+			"id": 6,
+			"type": 3,
 			"title": "WeTTY",
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.png",
@@ -290,7 +331,7 @@
 			}
 		},
 		{
-			"id": 6,
+			"id": 7,
 			"type": 3,
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
@@ -331,7 +372,7 @@
 			}
 		},
 		{
-			"id": 7,
+			"id": 8,
 			"type": 3,
 			"title": "NextCloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
@@ -395,7 +436,7 @@
 			}
 		},
 		{
-			"id": 8,
+			"id": 9,
 			"type": 3,
 			"title": "OneDev",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
@@ -436,7 +477,7 @@
 			}
 		},
 		{
-			"id": 9,
+			"id": 10,
 			"type": 3,
 			"title": "DDclient",
 			"description": "A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
