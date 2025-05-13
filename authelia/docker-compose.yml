@@ -1,17 +1,24 @@
 services:
-  authelia-init-secrets:
+  authelia-init:
     image: alpine
-    container_name: authelia-init-secrets
+    container_name: authelia-init
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        mkdir -p /config/assets; \
+        apk add --no-cache wget docker-cli; \
+        [ -f /config/configuration.yml] || wget -O /config/configuration.yml https://apps.univrs.cloud/authelia/configuration.yml; \
+        [ -f /config/users.yml] || wget -O /config/users.yml https://apps.univrs.cloud/authelia/users.yml; \
+        mkdir -p /config/assets/locales/en; \
+        wget -O /config/assets/logo.png https://apps.univrs.cloud/authelia/assets/logo.png; \
+        wget -O /config/assets/favicon.ico https://apps.univrs.cloud/authelia/assets/favicon.ico; \
+        wget -O /config/assets//locales/en/portal.json https://apps.univrs.cloud/authelia/assets/locales/en/portal.json; \
         mkdir -p /secrets; \
         [ -f /secrets/jwt_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/jwt_secret; \
         [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/session_secret; \
         [ -f /secrets/storage_key ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/storage_key; \
-        echo 'Secrets initialized.'
+        docker rm -f $(hostname)
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets
     networks:
@@ -72,7 +79,7 @@ services:
     networks:
       virgo:
     depends_on:
-      - authelia-init-secrets
+      - authelia-init
       - authelia-redis
     restart: unless-stopped
 
