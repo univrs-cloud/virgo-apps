@@ -257,7 +257,7 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "terminal."
+					"prefix": "mail."
 				},
 				{
 					"type": "radio",
