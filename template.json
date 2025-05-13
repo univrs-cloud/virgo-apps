@@ -276,7 +276,7 @@
 					]
 				}
 			],
-			"name": "docker-mailserver",
+			"name": "mailserver",
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
