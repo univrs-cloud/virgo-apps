@@ -1,4 +1,20 @@
 services:
+  traefik-init:
+    image: alpine
+    container_name: traefik-init
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        apk add --no-cache wget docker-cli; \
+        [ -f /etc/traefik/config/local-service.yml] || wget -O /etc/traefik/config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
+        docker rm -f $(hostname)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /messier/apps/traefik/config:/etc/traefik/config
+    networks:
+      virgo:
+    restart: no
+  
   traefik:
     image: traefik:latest
     container_name: traefik
@@ -84,6 +100,8 @@ services:
       - "8080:8080" # Dashboard
     networks:
       virgo:
+    depends_on:
+      - traefik-init
     restart: unless-stopped
 
 networks:

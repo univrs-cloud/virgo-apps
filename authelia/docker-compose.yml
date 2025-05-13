@@ -6,12 +6,12 @@ services:
     command:
       - |
         apk add --no-cache wget docker-cli; \
-        [ -f /config/configuration.yml] || wget -O /config/configuration.yml https://apps.univrs.cloud/authelia/configuration.yml; \
-        [ -f /config/users.yml] || wget -O /config/users.yml https://apps.univrs.cloud/authelia/users.yml; \
+        [ -f /config/configuration.yml] || wget -O /config/configuration.yml https://apps.univrs.cloud/authelia/config/configuration.yml; \
+        [ -f /config/users.yml] || wget -O /config/users.yml https://apps.univrs.cloud/authelia/config/users.yml; \
         mkdir -p /config/assets/locales/en; \
-        wget -O /config/assets/logo.png https://apps.univrs.cloud/authelia/assets/logo.png; \
-        wget -O /config/assets/favicon.ico https://apps.univrs.cloud/authelia/assets/favicon.ico; \
-        wget -O /config/assets//locales/en/portal.json https://apps.univrs.cloud/authelia/assets/locales/en/portal.json; \
+        wget -O /config/assets/logo.png https://apps.univrs.cloud/authelia/config/assets/logo.png; \
+        wget -O /config/assets/favicon.ico https://apps.univrs.cloud/authelia/config/assets/favicon.ico; \
+        wget -O /config/assets/locales/en/portal.json https://apps.univrs.cloud/authelia/config/assets/locales/en/portal.json; \
         mkdir -p /secrets; \
         [ -f /secrets/jwt_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/jwt_secret; \
         [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/session_secret; \
