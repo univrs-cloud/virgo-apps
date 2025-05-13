@@ -5,15 +5,24 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        apk add --no-cache wget docker-cli; \
-        [ -f /etc/traefik/config/local-service.yml] || wget -O /etc/traefik/config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
+        apk add --no-cache wget docker-cli || exit 1; \
+        [ -f /config/local-service.yml ] || wget -O /config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
+        touch /config/.init_complete; \
+        sleep 5; \
+        rm -f /config/.init_complete; \
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/traefik/config:/etc/traefik/config
+      - /messier/apps/traefik/config:/config
     networks:
       virgo:
     restart: no
+    healthcheck:
+      test: "[ -f /config/.init_complete ]"
+      interval: 1s
+      timeout: 1s
+      retries: 30
+      start_period: 1s
   
   traefik:
     image: traefik:latest
@@ -101,7 +110,8 @@ services:
     networks:
       virgo:
     depends_on:
-      - traefik-init
+      traefik-init:
+        condition: service_healthy
     restart: unless-stopped
 
 networks:
