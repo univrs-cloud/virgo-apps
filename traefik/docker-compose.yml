@@ -7,7 +7,7 @@ services:
       - |
         [ -f /config/local-service.yml ] || wget -O /config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
         touch /config/.init_complete; \
-        sleep 5; \
+        sleep 10; \
         rm -f /config/.init_complete; \
         docker rm -f $(hostname)
     volumes:
