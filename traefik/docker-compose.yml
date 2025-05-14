@@ -1,11 +1,10 @@
 services:
   traefik-init:
-    image: alpine
+    image: alpinelinux/docker-cli:latest-aarch64
     container_name: traefik-init
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        apk add --no-cache wget docker-cli || exit 1; \
         [ -f /config/local-service.yml ] || wget -O /config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
         touch /config/.init_complete; \
         sleep 5; \
