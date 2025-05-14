@@ -8,7 +8,7 @@ services:
         [ -f /config/15-mailboxes.conf ] || wget -O /config/15-mailboxes.conf https://apps.univrs.cloud/docker-mailserver/config/15-mailboxes.conf; \
         [ -f /config/postfix-main.cf ] || wget -O /config/postfix-main.cf https://apps.univrs.cloud/docker-mailserver/config/postfix-main.cf; \
         touch /config/.init_complete; \
-        sleep 5; \
+        sleep 10; \
         rm -f /config/.init_complete; \
         docker rm -f $(hostname)
     volumes:
