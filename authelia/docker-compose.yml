@@ -16,7 +16,7 @@ services:
         [ -f /secrets/session_secret ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/session_secret; \
         [ -f /secrets/storage_key ] || head -c 64 /dev/urandom | base64 | tr -d "\n" > /secrets/storage_key; \
         touch /config/.init_complete; \
-        sleep 5; \
+        sleep 10; \
         rm -f /config/.init_complete; \
         docker rm -f $(hostname)
     volumes:
