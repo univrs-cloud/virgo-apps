@@ -31,6 +31,7 @@ services:
       virgo:
     depends_on:
       - nextcloud-db
+      - nextcloud-redis
       - nextcloud-onlyoffice
     restart: unless-stopped
 
@@ -46,6 +47,18 @@ services:
       - MYSQL_ROOT_PASSWORD=nextcloud
     volumes:
       - /messier/apps/nextcloud/db:/config
+    networks:
+      virgo:
+    restart: unless-stopped
+
+  nextcloud-redis:
+    image: redis:latest
+    container_name: nextcloud-redis
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /messier/apps/nextcloud/redis:/data
     networks:
       virgo:
     restart: unless-stopped
