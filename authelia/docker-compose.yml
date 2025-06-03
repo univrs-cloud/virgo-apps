@@ -93,7 +93,6 @@ services:
   authelia-redis:
     image: redis:latest
     container_name: authelia-redis
-    command: ["redis-server", "--appendonly", "yes", "--protected-mode", "no", "--maxmemory", "32mb", "--maxmemory-policy", "allkeys-lru"]
     environment:
       - PUID=1000
       - PGID=100
