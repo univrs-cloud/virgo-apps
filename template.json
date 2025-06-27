@@ -45,7 +45,7 @@
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "nginx-proxy-manager/docker-compose.yml"
+				"stackfile": "traefik/docker-compose.yml"
 			}
 		},
 		{
