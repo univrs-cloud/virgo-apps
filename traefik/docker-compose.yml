@@ -101,6 +101,7 @@ services:
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Methods=GET,OPTIONS,PUT"
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Headers=authorization,content-type"
+      - "traefik.http.middlewares.secure-headers.headers.customRequestHeaders.X-Forwarded-Proto=https"
     ports:
       - "80:80"
       - "443:443/tcp"
