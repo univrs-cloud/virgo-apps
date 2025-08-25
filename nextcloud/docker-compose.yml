@@ -14,7 +14,7 @@ services:
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_TRUSTED_DOMAINS}
       - DOCKER_MODS=linuxserver/mods:universal-package-install|linuxserver/mods:nextcloud-memories
-      - INSTALL_PACKAGES=nodejs|npm
+      - INSTALL_PACKAGES=nodejs|npm|ffmpeg|imagemagick
       - NODEJS_MOD_VERSION=22
     volumes:
       - /messier/apps/nextcloud/config:/config
