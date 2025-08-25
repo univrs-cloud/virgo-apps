@@ -96,7 +96,6 @@ services:
       - "traefik.http.middlewares.secure-headers.headers.stsSeconds=31536000"
       - "traefik.http.middlewares.secure-headers.headers.contentTypeNosniff=true"
       - "traefik.http.middlewares.secure-headers.headers.browserXssFilter=true"
-      - "traefik.http.middlewares.secure-headers.headers.customRequestHeaders.X-Forwarded-Proto=https"
       # WebSocket Middleware
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
       - "traefik.http.middlewares.secure-headers.headers.customResponseHeaders.Access-Control-Allow-Methods=GET,OPTIONS,PUT"
