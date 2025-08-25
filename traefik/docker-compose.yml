@@ -5,7 +5,8 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        [ -f /config/local-service.yml ] || wget -O /config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
+        wget -O /config/traefik.yml https://apps.univrs.cloud/traefik/config/traefik.yml; \
+        wget -O /config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
