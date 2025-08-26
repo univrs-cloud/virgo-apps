@@ -6,7 +6,7 @@
 			"type": 3,
 			"title": "Traefik",
 			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
-			"logo": "https://apps.univrs.cloud/images/traefik.png",
+			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
 			"categories": [
 				"Networking"
 			],
@@ -53,7 +53,7 @@
 			"type": 3,
 			"title": "Authelia",
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
-			"logo": "https://apps.univrs.cloud/images/authelia.png",
+			"logo": "https://apps.univrs.cloud/images/authelia.svg",
 			"categories": [
 				"System"
 			],
@@ -94,7 +94,7 @@
 			"type": 3,
 			"title": "Pi-hole",
 			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"logo": "https://apps.univrs.cloud/images/pihole.png",
+			"logo": "https://apps.univrs.cloud/images/pi-hole.svg",
 			"categories": [
 				"Networking"
 			],
@@ -181,7 +181,7 @@
 			"type": 3,
 			"title": "WireGuard",
 			"description": "An extremely simple yet fast and modern VPN.",
-			"logo": "https://apps.univrs.cloud/images/wireguard.png",
+			"logo": "https://apps.univrs.cloud/images/wireguard.svg",
 			"categories": [
 				"Networking"
 			],
@@ -247,7 +247,7 @@
 			"type": 3,
 			"title": "MailServer",
 			"description": "A production-ready fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
-			"logo": "https://apps.univrs.cloud/images/docker-mailserver.png",
+			"logo": "https://apps.univrs.cloud/images/docker-mailserver.svg",
 			"categories": [
 				"Productivity"
 			],
@@ -288,7 +288,7 @@
 			"type": 3,
 			"title": "WeTTY",
 			"description": "A terminal in a browser.",
-			"logo": "https://apps.univrs.cloud/images/terminal.png",
+			"logo": "https://apps.univrs.cloud/images/terminal.svg",
 			"categories": [
 				"Networking"
 			],
@@ -335,7 +335,7 @@
 			"type": 3,
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
-			"logo": "https://apps.univrs.cloud/images/qbittorrent.png",
+			"logo": "https://apps.univrs.cloud/images/qbittorrent.svg",
 			"categories": [
 				"Productivity"
 			],
@@ -377,7 +377,7 @@
 			"title": "NextCloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note": "The host of the database is nextcloud-db:3306. The database, database user and database password is `nextcloud`.",
-			"logo": "https://apps.univrs.cloud/images/nextcloud.png",
+			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"categories": [
 				"Productivity"
 			],
@@ -440,7 +440,7 @@
 			"type": 3,
 			"title": "OneDev",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
-			"logo": "https://apps.univrs.cloud/images/onedev.png",
+			"logo": "https://apps.univrs.cloud/images/onedev.svg",
 			"categories": [
 				"Productivity"
 			],
@@ -481,7 +481,7 @@
 			"type": 3,
 			"title": "DDclient",
 			"description": "A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
-			"logo": "https://apps.univrs.cloud/images/ddns-updater.png",
+			"logo": "https://apps.univrs.cloud/images/ddclient.svg",
 			"categories": [
 				"Networking"
 			],
