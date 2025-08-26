@@ -475,22 +475,6 @@
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile": "onedev/docker-compose.yml"
 			}
-		},
-		{
-			"id": 10,
-			"type": 3,
-			"title": "DDclient",
-			"description": "A client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.",
-			"logo": "https://apps.univrs.cloud/images/ddclient.svg",
-			"categories": [
-				"Networking"
-			],
-			"name": "ddclient",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "ddclient/docker-compose.yml"
-			}
 		}
 	]
 }
