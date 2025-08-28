@@ -113,7 +113,7 @@ services:
     depends_on:
       traefik-init:
         condition: service_healthy
-    restart: unless-stopped
+    restart: always
 
 networks:
   virgo:

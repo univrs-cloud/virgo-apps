@@ -41,7 +41,7 @@ services:
       - NET_ADMIN
     depends_on:
       - dhcphelper
-    restart: unless-stopped
+    restart: always
 
   dhcphelper:
     container_name: dhcphelper
@@ -51,7 +51,7 @@ services:
       IP: 172.30.0.2
     cap_add:
       - NET_ADMIN
-    restart: unless-stopped
+    restart: always
 
 networks:
   virgo:

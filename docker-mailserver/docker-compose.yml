@@ -88,7 +88,7 @@ services:
     depends_on:
       mailserver-init:
         condition: service_healthy
-    restart: unless-stopped
+    restart: always
     stop_grace_period: 1m
     cap_add:
       - NET_ADMIN
