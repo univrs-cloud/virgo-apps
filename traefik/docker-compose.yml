@@ -44,6 +44,7 @@ services:
       # API and Dashboard
       - "--api.dashboard=true"
       # EntryPoints
+      #- "--entrypoints.ssh.address=:22"
       - "--entrypoints.http.address=:80"
       - "--entrypoints.https.address=:443"
       - "--entrypoints.https.http3=true"
