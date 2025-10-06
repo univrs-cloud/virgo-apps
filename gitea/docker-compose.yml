@@ -1,0 +1,50 @@
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: gitea
+    environment:
+      - PUID=1000
+      - PGID=100
+      - GITEA__database__DB_TYPE=mysql
+      - GITEA__database__HOST=gitea-db:3306
+      - GITEA__database__NAME=gitea
+      - GITEA__database__USER=gitea
+      - GITEA__database__PASSWD=gitea
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /messier/apps/gitea/data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gitea.rule=Host(`gitea.${DOMAIN}`)"
+      - "traefik.http.routers.gitea.entrypoints=https"
+      - "traefik.http.routers.gitea.tls=true"
+      - "traefik.http.routers.gitea.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.gitea.service=gitea"
+      - "traefik.http.routers.gitea.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.services.gitea.loadbalancer.server.port=3000"
+    networks:
+      virgo:
+    depends_on:
+      - gitea-db
+    restart: unless-stopped
+
+  gitea-db:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: gitea-db
+    environment:
+      - PUID=1000
+      - PGID=100
+      - MYSQL_DATABASE=gitea
+      - MYSQL_USER=gitea
+      - MYSQL_PASSWORD=gitea
+      - MYSQL_ROOT_PASSWORD=gitea
+    volumes:
+      - /messier/apps/gitea/db:/config
+    networks:
+      virgo:
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

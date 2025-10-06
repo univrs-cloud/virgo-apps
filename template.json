@@ -438,9 +438,9 @@
 		{
 			"id": 9,
 			"type": 3,
-			"title": "OneDev",
+			"title": "Gitea",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
-			"logo": "https://apps.univrs.cloud/images/onedev.svg",
+			"logo": "https://apps.univrs.cloud/images/gitea.svg",
 			"categories": [
 				"Productivity"
 			],
@@ -450,7 +450,7 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "onedev."
+					"prefix": "gitea."
 				},
 				{
 					"type": "radio",
@@ -467,31 +467,13 @@
 							"text": "No"
 						}
 					]
-				},
-				{
-					"type": "text",
-					"label": "Username (administrator)",
-					"name": "ONEDEV_ADMIN_USER",
-					"default": "voyager"
-				},
-				{
-					"type": "password",
-					"label": "Password (administrator)",
-					"name": "ONEDEV_ADMIN_PASSWORD",
-					"default": ""
-				},
-				{
-					"type": "email",
-					"label": "Email (administrator)",
-					"name": "ONEDEV_ADMIN_EMAIL",
-					"default": ""
 				}
 			],
-			"name": "onedev",
+			"name": "gitea",
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "onedev/docker-compose.yml"
+				"stackfile": "gitea/docker-compose.yml"
 			}
 		}
 	]

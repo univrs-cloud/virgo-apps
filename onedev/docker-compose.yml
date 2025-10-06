@@ -5,10 +5,6 @@ services:
     environment:
       - PUID=1000
       - PGID=100
-      - initial_user=${ONEDEV_ADMIN_USER}
-      - initial_password=${ONEDEV_ADMIN_PASSWORD}
-      - initial_email=${ONEDEV_ADMIN_EMAIL}
-      - initial_server_url=https://onedev.${DOMAIN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /messier/apps/onedev:/opt/onedev
