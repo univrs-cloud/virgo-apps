@@ -467,6 +467,24 @@
 							"text": "No"
 						}
 					]
+				},
+				{
+					"type": "text",
+					"label": "Username (administrator)",
+					"name": "ONEDEV_ADMIN_USER",
+					"default": "voyager"
+				},
+				{
+					"type": "password",
+					"label": "Password (administrator)",
+					"name": "ONEDEV_ADMIN_PASSWORD",
+					"default": ""
+				},
+				{
+					"type": "email",
+					"label": "Email (administrator)",
+					"name": "ONEDEV_ADMIN_EMAIL",
+					"default": ""
 				}
 			],
 			"name": "onedev",
