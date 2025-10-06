@@ -3,8 +3,8 @@ services:
     image: gitea/gitea:latest
     container_name: gitea
     environment:
-      - PUID=1000
-      - PGID=100
+      - USER_UID=1000
+      - USER_GID=100
       - GITEA__database__DB_TYPE=mysql
       - GITEA__database__HOST=gitea-db:3306
       - GITEA__database__NAME=gitea
