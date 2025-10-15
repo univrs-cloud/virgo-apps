@@ -423,7 +423,7 @@
 					"name": "NEXTCLOUD_TRUSTED_DOMAINS"
 				},
 				{
-					"type": "text",
+					"type": "password",
 					"label": "OnlyOffice JWT secret",
 					"name": "ONLYOFFICE_JWT_SECRET"
 				}
@@ -493,7 +493,7 @@
 					"default": "https://gitea."
 				},
 				{
-					"type": "text",
+					"type": "password",
 					"label": "Runner registration token",
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""

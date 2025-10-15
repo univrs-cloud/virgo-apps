@@ -1,14 +1,14 @@
 services:
-  gitea-runner-0:
+  gitea-runner:
     image: gitea/act_runner:latest
-    container_name: gitea-runner-0
+    container_name: gitea-runner
     environment:
       - GITEA_INSTANCE_URL=${GITEA_INSTANCE_URL}
-      - GITEA_RUNNER_NAME=runner-0
+      - GITEA_RUNNER_NAME=runner
       - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_REGISTRATION_TOKEN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/gitea/runners/runner-0/data:/data
+      - /messier/apps/gitea/runner/data:/data
     networks:
       virgo:
     restart: unless-stopped
