@@ -488,6 +488,12 @@
 			"env": [
 				{
 					"type": "text",
+					"label": "Gitea instance URL",
+					"name": "GITEA_INSTANCE_URL",
+					"default": "https://gitea."
+				},
+				{
+					"type": "text",
 					"label": "Runner registration token",
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
