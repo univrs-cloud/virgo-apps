@@ -5,7 +5,7 @@ services:
     environment:
       - GITEA_INSTANCE_URL=http://gitea:3000
       - GITEA_RUNNER_NAME=runner
-      - GITEA_RUNNER_REGISTRATION_TOKEN={RUNNER_REGISTRATION_TOKEN}
+      - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_REGISTRATION_TOKEN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/gitea/runners/runner/data:/data
