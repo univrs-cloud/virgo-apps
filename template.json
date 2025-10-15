@@ -475,6 +475,36 @@
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
 				"stackfile": "gitea/docker-compose.yml"
 			}
+		},
+		{
+			"id": 10,
+			"type": 3,
+			"title": "Gitea runner",
+			"description": "Gitea runner for actions.",
+			"logo": "https://apps.univrs.cloud/images/gitea.svg",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Gitea URL",
+					"name": "INSTANCEURL",
+					"default": "https://gitea."
+				},
+				{
+					"type": "text",
+					"label": "Registration token",
+					"name": "RUNNER_REGISTRATION_TOKEN",
+					"default": ""
+				}
+			],
+			"name": "gitea-runner",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "gitea-runner/docker-compose.yml"
+			}
 		}
 	]
 }
