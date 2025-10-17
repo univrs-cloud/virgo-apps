@@ -10,7 +10,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/gitea/runner/data:/data
     networks:
-      virgo:
+      - virgo
     restart: unless-stopped
 
 networks:

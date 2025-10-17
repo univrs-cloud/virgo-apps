@@ -8,7 +8,7 @@ services:
     volumes:
       - /messier/apps/ddclient:/config
     networks:
-      virgo:
+      - virgo
     restart: unless-stopped
 
 networks:

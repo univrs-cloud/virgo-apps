@@ -15,7 +15,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/traefik/config:/config
     networks:
-      virgo:
+      - virgo
     restart: no
     healthcheck:
       test: "[ -f /config/.init_complete ]"
@@ -63,6 +63,7 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=http"
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=virgo"
       # Special router for Let's Encrypt HTTP challenge
       - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
       - "traefik.http.routers.acme-challenge.entrypoints=http"
@@ -107,7 +108,7 @@ services:
       - "443:443/udp"
       - "8080:8080" # Dashboard
     networks:
-      virgo:
+      - virgo
     depends_on:
       traefik-init:
         condition: service_healthy

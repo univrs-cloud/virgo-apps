@@ -11,6 +11,7 @@ services:
       - /downloads:/downloads
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=virgo"
       - "traefik.http.routers.qbittorrent.rule=Host(`torrent.${DOMAIN}`)"
       - "traefik.http.routers.qbittorrent.entrypoints=https"
       - "traefik.http.routers.qbittorrent.tls=true"
@@ -22,7 +23,7 @@ services:
       - "6881:6881/tcp"
       - "6881:6881/udp"
     networks:
-      virgo:
+      - virgo
     restart: unless-stopped
 
 networks:

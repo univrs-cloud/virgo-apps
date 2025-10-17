@@ -24,7 +24,7 @@ services:
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets
     networks:
-      virgo:
+      - virgo
     restart: no
     healthcheck:
       test: "[ -f /config/.init_complete ]"
@@ -77,13 +77,15 @@ services:
       - /messier/apps/authelia/secrets:/secrets
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=virgo"
       - "traefik.http.routers.authelia.rule=Host(`auth.${DOMAIN}`)"
       - "traefik.http.routers.authelia.entrypoints=https"
       - "traefik.http.routers.authelia.tls=true"
       - "traefik.http.routers.authelia.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.services.authelia.loadbalancer.server.port=9091"
     networks:
-      virgo:
+      - internal
+      - virgo
     depends_on:
       authelia-init:
         condition: service_healthy
@@ -100,9 +102,10 @@ services:
     volumes:
       - /messier/apps/authelia/redis:/data
     networks:
-      virgo:
+      - internal
     restart: always
 
 networks:
+  internal:
   virgo:
     external: true

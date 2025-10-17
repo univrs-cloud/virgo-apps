@@ -18,6 +18,7 @@ services:
       - /messier/apps/gitea/data:/data
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=virgo"
       - "traefik.http.routers.gitea.rule=Host(`gitea.${DOMAIN}`)"
       - "traefik.http.routers.gitea.entrypoints=https"
       - "traefik.http.routers.gitea.tls=true"
@@ -26,7 +27,8 @@ services:
       - "traefik.http.routers.gitea.middlewares=secure-headers@docker,authelia@docker"
       - "traefik.http.services.gitea.loadbalancer.server.port=3000"
     networks:
-      virgo:
+      - internal
+      - virgo
     depends_on:
       - gitea-db
     restart: unless-stopped
@@ -44,9 +46,10 @@ services:
     volumes:
       - /messier/apps/gitea/db:/config
     networks:
-      virgo:
+      - internal
     restart: unless-stopped
 
 networks:
+  internal:
   virgo:
     external: true

@@ -17,7 +17,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/docker-mailserver/config:/config
     networks:
-      virgo:
+      - virgo
     restart: no
     healthcheck:
       test: "[ -f /config/.init_complete ]"
@@ -64,6 +64,7 @@ services:
       - /messier/apps/docker-mailserver/config:/tmp/docker-mailserver
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=virgo"
       - "traefik.http.routers.mail-cert.rule=Host(`mail.${DOMAIN}`)"
       - "traefik.http.routers.mail-cert.entrypoints=https"
       - "traefik.http.routers.mail-cert.tls=true"
@@ -84,7 +85,7 @@ services:
       - "993:993"
       - "4190:4190"
     networks:
-      virgo:
+      - virgo
     depends_on:
       mailserver-init:
         condition: service_healthy
