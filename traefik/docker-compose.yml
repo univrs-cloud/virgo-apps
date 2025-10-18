@@ -53,6 +53,7 @@ services:
       - "--entryPoints.https.forwardedHeaders.trustedIPs=10.6.0.0/16,172.0.0.0/8,192.168.0.0/16"
       # Providers
       - "--providers.docker=true"
+      - "--providers.docker.network=virgo"
       - "--providers.docker.exposedbydefault=false"
       - "--providers.file.watch=true"
       - "--providers.file.directory=/etc/traefik/config" 
@@ -63,7 +64,6 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=http"
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=virgo"
       # Special router for Let's Encrypt HTTP challenge
       - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
       - "traefik.http.routers.acme-challenge.entrypoints=http"

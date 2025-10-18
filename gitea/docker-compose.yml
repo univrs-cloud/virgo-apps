@@ -18,7 +18,6 @@ services:
       - /messier/apps/gitea/data:/data
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=virgo"
       - "traefik.http.routers.gitea.rule=Host(`gitea.${DOMAIN}`)"
       - "traefik.http.routers.gitea.entrypoints=https"
       - "traefik.http.routers.gitea.tls=true"
