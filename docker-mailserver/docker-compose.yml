@@ -15,7 +15,7 @@ services:
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/docker-mailserver/config:/config
+      - /messier/apps/mailserver/config:/config
     networks:
       - virgo
     restart: no
@@ -57,11 +57,11 @@ services:
       - ENABLE_SPAMASSASSIN=0
     volumes:
       - /messier/apps/traefik/letsencrypt/acme.json:/etc/letsencrypt/acme.json:ro
-      - /messier/apps/docker-mailserver/config/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf:ro
-      - /messier/apps/docker-mailserver/data:/var/mail
-      - /messier/apps/docker-mailserver/state:/var/mail-state
-      - /messier/apps/docker-mailserver/logs:/var/log/mail
-      - /messier/apps/docker-mailserver/config:/tmp/docker-mailserver
+      - /messier/apps/mailserver/config/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf:ro
+      - /messier/apps/mailserver/data:/var/mail
+      - /messier/apps/mailserver/state:/var/mail-state
+      - /messier/apps/mailserver/logs:/var/log/mail
+      - /messier/apps/mailserver/config:/tmp/docker-mailserver
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.mail-cert.rule=Host(`mail.${DOMAIN}`)"

@@ -11,7 +11,7 @@ services:
       - WG_DEFAULT_DNS=${DEFAULT_DNS}
       - WG_ALLOWED_IPS=${ALLOWED_IPS}
     volumes:
-      - /messier/apps/wireguard:/etc/wireguard
+      - /messier/apps/wg-easy:/etc/wireguard
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"

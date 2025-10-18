@@ -8,7 +8,7 @@ services:
       - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_REGISTRATION_TOKEN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/gitea/runner/data:/data
+      - /messier/apps/gitea-runner/data:/data
     networks:
       - virgo
     restart: unless-stopped
