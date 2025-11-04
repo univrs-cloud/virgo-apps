@@ -424,8 +424,13 @@
 				},
 				{
 					"type": "password",
-					"label": "OnlyOffice JWT secret",
+					"label": "OnlyOffice secret",
 					"name": "ONLYOFFICE_JWT_SECRET"
+				},
+				{
+					"type": "password",
+					"label": "TURN secret",
+					"name": "TURN_SECRET"
 				}
 			],
 			"name": "nextcloud",
