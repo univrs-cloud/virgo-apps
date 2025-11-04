@@ -36,7 +36,6 @@ services:
     depends_on:
       - nextcloud-db
       - nextcloud-redis
-      - nextcloud-onlyoffice
     restart: unless-stopped
 
   nextcloud-db:
