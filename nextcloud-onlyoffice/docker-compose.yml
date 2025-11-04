@@ -1,0 +1,32 @@
+services:
+  nextcloud-onlyoffice:
+    image: onlyoffice/documentserver:latest
+    container_name: nextcloud-onlyoffice
+    environment:
+      - PUID=1000
+      - PGID=100
+      - JWT_SECRET=${SECRET}
+    volumes:
+      - /messier/apps/nextcloud-onlyoffice/logs:/var/log/onlyoffice
+      - /messier/apps/nextcloud-onlyoffice/data:/var/www/onlyoffice/Data
+      - /messier/apps/nextcloud-onlyoffice/lib:/var/lib/onlyoffice
+      - /messier/apps/nextcloud-onlyoffice/db:/var/lib/postgresql
+      - /messier/apps/nextcloud-onlyoffice/redis:/var/lib/redis
+      - /messier/apps/nextcloud-onlyoffice/rabbitmq:/var/lib/rabbitmq
+      - /messier/apps/nextcloud-onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.onlyoffice.rule=Host(`onlyoffice.${DOMAIN}`)"
+      - "traefik.http.routers.onlyoffice.entrypoints=https"
+      - "traefik.http.routers.onlyoffice.tls=true"
+      - "traefik.http.routers.onlyoffice.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.onlyoffice.service=onlyoffice"
+      - "traefik.http.routers.onlyoffice.middlewares=secure-headers@docker"
+      - "traefik.http.services.onlyoffice.loadbalancer.server.port=80"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

@@ -421,16 +421,6 @@
 					"type": "text",
 					"label": "Trusted domains",
 					"name": "NEXTCLOUD_TRUSTED_DOMAINS"
-				},
-				{
-					"type": "password",
-					"label": "OnlyOffice secret",
-					"name": "ONLYOFFICE_JWT_SECRET"
-				},
-				{
-					"type": "password",
-					"label": "TURN secret",
-					"name": "TURN_SECRET"
 				}
 			],
 			"name": "nextcloud",
@@ -442,6 +432,100 @@
 		},
 		{
 			"id": 9,
+			"type": 3,
+			"title": "NextCloud - OnlyOffice",
+			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
+			"note": "",
+			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "onlyoffice."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Secret",
+					"name": "SECRET"
+				}
+			],
+			"name": "nextcloud-onlyoffice",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud-onlyoffice/docker-compose.yml"
+			}
+		},
+		{
+			"id": 10,
+			"type": 3,
+			"title": "NextCloud - TURN",
+			"description": "The TURN Server is a VoIP media traffic NAT traversal server and gateway.",
+			"note": "Port 3478 needs to be forwarded.",
+			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "turn."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Secret",
+					"name": "SECRET"
+				}
+			],
+			"name": "nextcloud-turn",
+			"platform": "linux",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud-turn/docker-compose.yml"
+			}
+		},
+		{
+			"id": 11,
 			"type": 3,
 			"title": "Gitea",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
@@ -482,7 +566,7 @@
 			}
 		},
 		{
-			"id": 10,
+			"id": 12,
 			"type": 3,
 			"title": "Gitea runner",
 			"description": "Gitea runner for actions.",
