@@ -480,7 +480,7 @@
 		{
 			"id": 10,
 			"type": 3,
-			"title": "NextCloud - TURN",
+			"title": "NextCloud - STUN/TURN",
 			"description": "The TURN Server is a VoIP media traffic NAT traversal server and gateway.",
 			"note": "Port 3478 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
@@ -493,7 +493,7 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "turn."
+					"prefix": "coturn."
 				},
 				{
 					"type": "radio",
@@ -521,7 +521,7 @@
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "nextcloud-turn/docker-compose.yml"
+				"stackfile": "nextcloud-coturn/docker-compose.yml"
 			}
 		},
 		{
@@ -568,7 +568,7 @@
 		{
 			"id": 12,
 			"type": 3,
-			"title": "Gitea runner",
+			"title": "Gitea - Runner",
 			"description": "Gitea runner for actions.",
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
 			"categories": [
@@ -577,13 +577,13 @@
 			"env": [
 				{
 					"type": "text",
-					"label": "Gitea instance URL",
+					"label": "Gitea URL",
 					"name": "GITEA_INSTANCE_URL",
 					"default": "https://gitea."
 				},
 				{
 					"type": "password",
-					"label": "Runner registration token",
+					"label": "Registration token",
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
 				}
