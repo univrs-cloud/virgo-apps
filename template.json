@@ -517,7 +517,7 @@
 					"name": "SECRET"
 				}
 			],
-			"name": "nextcloud-turn",
+			"name": "nextcloud-coturn",
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
