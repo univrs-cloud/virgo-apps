@@ -12,15 +12,14 @@ services:
       - "--use-auth-secret"
     labels:
       - "traefik.enable=true"
-      - "traefik.udp.routers.coturn.entrypoints=coturn-udp"
-      - "traefik.udp.routers.coturn.service=coturn"
-      - "traefik.udp.services.coturn.loadbalancer.server.port=3478"
       - "traefik.tcp.routers.coturn.rule=HostSNI(`coturn.${DOMAIN}`)"
       - "traefik.tcp.routers.coturn.entrypoints=https"
       - "traefik.tcp.routers.coturn.tls=true"
       - "traefik.tcp.routers.coturn.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.tcp.routers.coturn.service=coturn"
       - "traefik.tcp.services.coturn.loadbalancer.server.port=3478"
+    ports:
+      - "3478:3478/udp"
     networks:
       - virgo
     restart: unless-stopped
