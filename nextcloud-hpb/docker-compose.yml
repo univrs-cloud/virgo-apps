@@ -1,0 +1,30 @@
+services:
+  nextcloud-hpb:
+    image: ghcr.io/nextcloud-releases/aio-talk:latest
+    container_name: nextcloud-hpb
+    environment:
+      - NC_DOMAIN=nextcloud.${DOMAIN}
+      - TALK_HOST=talk.${DOMAIN}
+      - TURN_SECRET=${TURN_SECRET}
+      - SIGNALING_SECRET=${SIGNALING_SECRET}
+      - INTERNAL_SECRET=${INTERNAL_SECRET}
+      - TALK_PORT=3478
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.talk.rule=Host(`talk.${DOMAIN}`)"
+      - "traefik.http.routers.talk.entrypoints=https"
+      - "traefik.http.routers.talk.tls=true"
+      - "traefik.http.routers.talk.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.talk.service=talk"
+      - "traefik.http.routers.talk.middlewares=secure-headers@docker"
+      - "traefik.http.services.talk.loadbalancer.server.port=8081"
+    ports:
+      - "3478:3478/tcp"
+      - "3478:3478/udp"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

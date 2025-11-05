@@ -480,9 +480,9 @@
 		{
 			"id": 10,
 			"type": 3,
-			"title": "NextCloud - STUN/TURN",
-			"description": "The TURN Server is a VoIP media traffic NAT traversal server and gateway.",
-			"note": "Port 3478 needs to be forwarded.",
+			"title": "NextCloud - High performance backend",
+			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
+			"note": "Port 3478 needs to be forwarded for both TCP and UDP.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"categories": [
 				"Productivity"
@@ -493,7 +493,7 @@
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "coturn."
+					"prefix": "talk."
 				},
 				{
 					"type": "radio",
@@ -513,15 +513,25 @@
 				},
 				{
 					"type": "password",
-					"label": "Secret",
-					"name": "SECRET"
+					"label": "TURN secret",
+					"name": "TURN_SECRET"
+				},
+				{
+					"type": "password",
+					"label": "Signaling secret",
+					"name": "SIGNALING_SECRET"
+				},
+				{
+					"type": "password",
+					"label": "Internal secret",
+					"name": "INTERNAL_SECRET"
 				}
 			],
-			"name": "nextcloud-coturn",
+			"name": "nextcloud-hpb",
 			"platform": "linux",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "nextcloud-coturn/docker-compose.yml"
+				"stackfile": "nextcloud-hpb/docker-compose.yml"
 			}
 		},
 		{
