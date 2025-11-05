@@ -45,7 +45,7 @@ services:
       - "--api.dashboard=true"
       # EntryPoints
       #- "--entrypoints.ssh.address=:22"
-      - "--entrypoints.turn-udp.address=:3478/udp"
+      - "--entrypoints.coturn-udp.address=:3478/udp"
       - "--entrypoints.http.address=:80"
       - "--entrypoints.https.address=:443"
       - "--entrypoints.https.http3=true"
