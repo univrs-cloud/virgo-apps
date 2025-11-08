@@ -286,7 +286,7 @@
 		{
 			"id": 6,
 			"type": 3,
-			"title": "WeTTY",
+			"title": "Terminal",
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.svg",
 			"categories": [
