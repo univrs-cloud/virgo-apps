@@ -3,7 +3,7 @@ services:
     image: portainer/portainer-ce:latest
     container_name: portainer
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/portainer:/data
     labels:
       - "traefik.enable=true"
