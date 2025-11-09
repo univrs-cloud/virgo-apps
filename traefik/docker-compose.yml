@@ -54,14 +54,14 @@ services:
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.network=virgo"
-      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.exposedByDefault=false"
       - "--providers.file.watch=true"
       - "--providers.file.directory=/etc/traefik/config" 
       # ACME (Let's Encrypt)
-      - "--certificatesresolvers.le.acme.email=${EMAIL}"
-      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
-      - "--certificatesresolvers.le.acme.httpchallenge=true"
-      - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=http"
+      - "--certificatesResolvers.le.acme.email=${EMAIL}"
+      - "--certificatesResolvers.le.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesResolvers.le.acme.httpChallenge=true"
+      - "--certificatesResolvers.le.acme.httpChallenge.entrypoint=http"
     labels:
       - "traefik.enable=true"
       # Special router for Let's Encrypt HTTP challenge
