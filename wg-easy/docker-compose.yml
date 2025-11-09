@@ -14,6 +14,7 @@ services:
       - /messier/apps/wg-easy:/etc/wireguard
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"
       - "traefik.http.routers.wireguard.entrypoints=https"
       - "traefik.http.routers.wireguard.tls=true"

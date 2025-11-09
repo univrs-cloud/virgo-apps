@@ -16,6 +16,7 @@ services:
       - /messier/apps/nextcloud-onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.onlyoffice.rule=Host(`onlyoffice.${DOMAIN}`)"
       - "traefik.http.routers.onlyoffice.entrypoints=https"
       - "traefik.http.routers.onlyoffice.tls=true"

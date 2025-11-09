@@ -11,6 +11,7 @@ services:
       - /downloads:/downloads
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.qbittorrent.rule=Host(`torrent.${DOMAIN}`)"
       - "traefik.http.routers.qbittorrent.entrypoints=https"
       - "traefik.http.routers.qbittorrent.tls=true"
