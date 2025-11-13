@@ -17,10 +17,9 @@ services:
       - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"
       - "traefik.http.routers.wireguard.entrypoints=https"
-      - "traefik.http.routers.wireguard.tls=true"
       - "traefik.http.routers.wireguard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.wireguard.service=wireguard"
-      - "traefik.http.routers.wireguard.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.routers.wireguard.middlewares=secure-headers@file,authelia@file"
       - "traefik.http.services.wireguard.loadbalancer.server.port=51821"
     ports:
       - "51820:51820/udp"

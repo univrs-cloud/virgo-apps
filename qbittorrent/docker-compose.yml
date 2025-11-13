@@ -14,10 +14,9 @@ services:
       - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.qbittorrent.rule=Host(`torrent.${DOMAIN}`)"
       - "traefik.http.routers.qbittorrent.entrypoints=https"
-      - "traefik.http.routers.qbittorrent.tls=true"
       - "traefik.http.routers.qbittorrent.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.qbittorrent.service=qbittorrent"
-      - "traefik.http.routers.qbittorrent.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.routers.qbittorrent.middlewares=secure-headers@file,authelia@file"
       - "traefik.http.services.qbittorrent.loadbalancer.server.port=80"
     ports:
       - "6881:6881/tcp"

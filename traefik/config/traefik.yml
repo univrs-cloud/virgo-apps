@@ -2,6 +2,36 @@ http:
   serversTransports:
     insecure-transport:
       insecureSkipVerify: true
+  middlewares:
+    default-ratelimit:
+      rateLimit:
+        average: 100
+        burst: 120
+        period: 1s
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
+    secure-headers:
+      headers:
+        sslRedirect: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 31536000
+        contentTypeNosniff: true
+        browserXssFilter: true
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+        customResponseHeaders:
+          Access-Control-Allow-Origin: "*"
+          Access-Control-Allow-Methods: "GET,OPTIONS,PUT"
+          Access-Control-Allow-Headers: "authorization,content-type"
+    authelia:
+      forwardAuth:
+        address: "http://authelia:9091/api/authz/forward-auth?https://auth.`{{ env `DOMAIN` }}`"
+        trustForwardHeader: true
+        authResponseHeaders: "Remote-User,Remote-Groups,Remote-Name,Remote-Email"
 
 tls:
   options:

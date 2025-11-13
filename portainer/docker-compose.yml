@@ -10,10 +10,9 @@ services:
       - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.portainer.rule=Host(`portainer.${DOMAIN}`)"
       - "traefik.http.routers.portainer.entrypoints=https"
-      - "traefik.http.routers.portainer.tls=true"
       - "traefik.http.routers.portainer.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.portainer.service=portainer"
-      - "traefik.http.routers.portainer.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.routers.portainer.middlewares=secure-headers@file,authelia@file"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
     networks:
       - virgo

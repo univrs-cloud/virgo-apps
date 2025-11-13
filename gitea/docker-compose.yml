@@ -21,10 +21,9 @@ services:
       - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.gitea.rule=Host(`gitea.${DOMAIN}`)"
       - "traefik.http.routers.gitea.entrypoints=https"
-      - "traefik.http.routers.gitea.tls=true"
       - "traefik.http.routers.gitea.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.gitea.service=gitea"
-      - "traefik.http.routers.gitea.middlewares=secure-headers@docker,authelia@docker"
+      - "traefik.http.routers.gitea.middlewares=secure-headers@file,authelia@file"
       - "traefik.http.services.gitea.loadbalancer.server.port=3000"
     networks:
       - internal

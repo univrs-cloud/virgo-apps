@@ -11,8 +11,8 @@ http:
         {}
       {{ end }}
       middlewares:
-        - "secure-headers@docker"
-        - "authelia@docker"
+        - "secure-headers@file"
+        - "authelia@file"
 
   services:
     localservice:
