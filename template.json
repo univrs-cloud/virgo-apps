@@ -6,6 +6,7 @@
 			"type": 3,
 			"title": "Traefik",
 			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
+			"note": "Port 80 and 443 needs to be forwarded for both TCP and UDP.",
 			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
 			"categories": [
 				"Networking"
@@ -181,6 +182,7 @@
 			"type": 3,
 			"title": "WireGuard",
 			"description": "An extremely simple yet fast and modern VPN.",
+			"note": "Port 51820 needs to be forwarded for both TCP and UDP.",
 			"logo": "https://apps.univrs.cloud/images/wireguard.svg",
 			"categories": [
 				"Networking"
@@ -247,6 +249,7 @@
 			"type": 3,
 			"title": "MailServer",
 			"description": "A production-ready fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
+			"note": "Port 25, 465, 587 and 993 needs to be forwarded for both TCP.",
 			"logo": "https://apps.univrs.cloud/images/docker-mailserver.svg",
 			"categories": [
 				"Productivity"
