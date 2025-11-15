@@ -29,7 +29,8 @@ services:
   mailserver:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
     container_name: mailserver
-    hostname: mail.${DOMAIN}
+    hostname: mail
+    domainname: ${DOMAIN}
     environment:
       - PUID=1000
       - PGID=100
