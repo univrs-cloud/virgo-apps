@@ -5,10 +5,10 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        [ -f /config/15-mailboxes.conf ] || wget -O /config/15-mailboxes.conf https://apps.univrs.cloud/docker-mailserver/config/15-mailboxes.conf; \
-        [ -f /config/postfix-main.cf ] || wget -O /config/postfix-main.cf https://apps.univrs.cloud/docker-mailserver/config/postfix-main.cf; \
-        [ -f /config/fail2ban-jail.cf ] || wget -O /config/fail2ban-jail.cf https://apps.univrs.cloud/docker-mailserver/config/fail2ban-jail.cf; \
-        [ -f /config/rspamd/custom-commands.conf ] || wget -O /config/rspamd/custom-commands.conf https://apps.univrs.cloud/docker-mailserver/config/rspamd-custom-commands.conf; \
+        wget -O /config/15-mailboxes.conf https://apps.univrs.cloud/docker-mailserver/config/15-mailboxes.conf; \
+        wget -O /config/postfix-main.cf https://apps.univrs.cloud/docker-mailserver/config/postfix-main.cf; \
+        wget -O /config/fail2ban-jail.cf https://apps.univrs.cloud/docker-mailserver/config/fail2ban-jail.cf; \
+        wget -O /config/rspamd/custom-commands.conf https://apps.univrs.cloud/docker-mailserver/config/rspamd-custom-commands.conf; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
@@ -49,7 +49,7 @@ services:
       - ENABLE_SPF=1
       - ENABLE_RSPAMD=1
       - RSPAMD_LEARN=1
-      - RSPAMD_GREYLISTING=0
+      - RSPAMD_GREYLISTING=1
       - ENABLE_POSTGREY=0
       - ENABLE_OPENDKIM=0
       - ENABLE_OPENDMARC=0

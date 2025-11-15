@@ -1,6 +1,15 @@
-mynetworks = 127.0.0.0/8 10.6.0.0/16 172.0.0.0/8 192.168.0.0/16
+mynetworks = 127.0.0.0/8 172.30.0.0/16 192.168.0.0/16 10.6.0.0/16
+
 smtpd_recipient_restrictions =
-   permit_sasl_authenticated,
    permit_mynetworks,
+   permit_sasl_authenticated,
    reject_unauth_destination,
-   permit
+   reject_non_fqdn_recipient,
+   reject_unknown_sender_domain,
+   reject_unknown_recipient_domain
+
+smtpd_helo_restrictions =
+   permit_mynetworks,
+   permit_sasl_authenticated,
+   reject_invalid_helo_hostname,
+   reject_non_fqdn_helo_hostname
