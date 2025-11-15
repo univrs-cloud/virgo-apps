@@ -22,11 +22,13 @@ http:
         contentTypeNosniff: true
         browserXssFilter: true
         customRequestHeaders:
-          X-Forwarded-Proto: https
+          x-forwarded-proto: https
         customResponseHeaders:
-          Access-Control-Allow-Origin: "*"
-          Access-Control-Allow-Methods: "GET,OPTIONS,PUT"
-          Access-Control-Allow-Headers: "authorization,content-type"
+          access-control-allow-origin: "*"
+          access-control-allow-methods: "GET,OPTIONS,PUT"
+          access-control-allow-headers: "authorization,content-type"
+          server: ""
+          x-powered-by: ""
     authelia:
       forwardAuth:
         address: "http://authelia:9091/api/authz/forward-auth?https://auth.`{{ env `DOMAIN` }}`"
