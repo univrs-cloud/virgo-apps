@@ -4,10 +4,16 @@
 		{
 			"id": 1,
 			"type": 3,
+			"platform": "linux",
+			"name": "traefik",
 			"title": "Traefik",
 			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
 			"note": "Port 80 and 443 needs to be forwarded for both TCP and UDP.",
 			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "traefik/docker-compose.yml"
+			},
 			"categories": [
 				"Networking"
 			],
@@ -41,20 +47,20 @@
 					"name": "EMAIL",
 					"default": ""
 				}
-			],
-			"name": "traefik",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "traefik/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 2,
 			"type": 3,
+			"platform": "linux",
+			"name": "authelia",
 			"title": "Authelia",
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
 			"logo": "https://apps.univrs.cloud/images/authelia.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "authelia/docker-compose.yml"
+			},
 			"categories": [
 				"System"
 			],
@@ -82,20 +88,20 @@
 						}
 					]
 				}
-			],
-			"name": "authelia",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "authelia/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 3,
 			"type": 3,
+			"platform": "linux",
+			"name": "pihole",
 			"title": "Pi-hole",
 			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo": "https://apps.univrs.cloud/images/pi-hole.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "pihole/docker-compose.yml"
+			},
 			"categories": [
 				"Networking"
 			],
@@ -169,21 +175,21 @@
 					"name": "PASSWORD",
 					"default": ""
 				}
-			],
-			"name": "pihole",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "pihole/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 4,
 			"type": 3,
+			"platform": "linux",
+			"name": "wg-easy",
 			"title": "WireGuard",
 			"description": "An extremely simple yet fast and modern VPN.",
 			"note": "Port 51820 needs to be forwarded for both TCP and UDP.",
 			"logo": "https://apps.univrs.cloud/images/wireguard.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "wg-easy/docker-compose.yml"
+			},
 			"categories": [
 				"Networking"
 			],
@@ -236,21 +242,21 @@
 					"name": "ALLOWED_IPS",
 					"default": "0.0.0.0/0"
 				}
-			],
-			"name": "wg-easy",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "wg-easy/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 5,
 			"type": 3,
+			"platform": "linux",
+			"name": "mailserver",
 			"title": "MailServer",
 			"description": "A fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
 			"note": "Port 25, 465, 587 and 993 needs to be forwarded for both TCP.",
 			"logo": "https://apps.univrs.cloud/images/docker-mailserver.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "docker-mailserver/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -278,20 +284,20 @@
 						}
 					]
 				}
-			],
-			"name": "mailserver",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "docker-mailserver/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 6,
 			"type": 3,
+			"platform": "linux",
+			"name": "wetty",
 			"title": "Terminal",
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "wetty/docker-compose.yml"
+			},
 			"categories": [
 				"Networking"
 			],
@@ -325,20 +331,20 @@
 					"name": "SSHHOST",
 					"default": "192.168.100.2"
 				}
-			],
-			"name": "wetty",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "wetty/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 7,
 			"type": 3,
+			"platform": "linux",
+			"name": "qbittorrent",
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
 			"logo": "https://apps.univrs.cloud/images/qbittorrent.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "qbittorrent/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -366,21 +372,21 @@
 						}
 					]
 				}
-			],
-			"name": "qbittorrent",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "qbittorrent/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 8,
 			"type": 3,
+			"platform": "linux",
+			"name": "nextcloud",
 			"title": "NextCloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note": "The host of the database is nextcloud-db:3306. The database, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -425,21 +431,21 @@
 					"label": "Trusted domains",
 					"name": "NEXTCLOUD_TRUSTED_DOMAINS"
 				}
-			],
-			"name": "nextcloud",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "nextcloud/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 9,
 			"type": 3,
+			"platform": "linux",
+			"name": "nextcloud-onlyoffice",
 			"title": "NextCloud - OnlyOffice",
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
 			"note": "",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud-onlyoffice/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -472,21 +478,21 @@
 					"label": "Secret",
 					"name": "SECRET"
 				}
-			],
-			"name": "nextcloud-onlyoffice",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "nextcloud-onlyoffice/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 10,
 			"type": 3,
+			"platform": "linux",
+			"name": "nextcloud-hpb",
 			"title": "NextCloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
 			"note": "Port 3478 needs to be forwarded for both TCP and UDP.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "nextcloud-hpb/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -529,20 +535,20 @@
 					"label": "Internal secret",
 					"name": "INTERNAL_SECRET"
 				}
-			],
-			"name": "nextcloud-hpb",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "nextcloud-hpb/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 11,
 			"type": 3,
+			"platform": "linux",
+			"name": "gitea",
 			"title": "Gitea",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "gitea/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -570,20 +576,20 @@
 						}
 					]
 				}
-			],
-			"name": "gitea",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "gitea/docker-compose.yml"
-			}
+			]
 		},
 		{
 			"id": 12,
 			"type": 3,
+			"platform": "linux",
+			"name": "gitea-runner",
 			"title": "Gitea - Runner",
 			"description": "Gitea runner for actions.",
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
+			"repository": {
+				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"stackfile": "gitea-runner/docker-compose.yml"
+			},
 			"categories": [
 				"Productivity"
 			],
@@ -600,13 +606,7 @@
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
 				}
-			],
-			"name": "gitea-runner",
-			"platform": "linux",
-			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
-				"stackfile": "gitea-runner/docker-compose.yml"
-			}
+			]
 		}
 	]
 }
