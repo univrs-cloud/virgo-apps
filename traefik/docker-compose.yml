@@ -83,15 +83,14 @@ services:
       - "traefik.http.routers.http-catchall.service=noop@internal"
       # Dashboard configuration only
       - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN}`)"
-      - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.entrypoints=https"
       - "traefik.http.routers.dashboard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.dashboard.middlewares=secure-headers@file,authelia@file"
+      - "traefik.http.routers.dashboard.service=api@internal"
     ports:
       - "80:80"
       - "443:443/tcp"
       - "443:443/udp"
-      - "8080:8080" # Dashboard
     networks:
       - virgo
     depends_on:
