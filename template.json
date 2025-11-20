@@ -8,7 +8,7 @@
 			"name": "traefik",
 			"title": "Traefik",
 			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
-			"note": "Port 80 and 443 needs to be forwarded for TCP and UDP.",
+			"note": "TCP and UDP ports 80 and 443 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
@@ -184,7 +184,7 @@
 			"name": "wg-easy",
 			"title": "WireGuard",
 			"description": "An extremely simple yet fast and modern VPN.",
-			"note": "Port 51820 needs to be forwarded for TCP and UDP.",
+			"note": "UDP port 51820 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/wireguard.svg",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
@@ -251,7 +251,7 @@
 			"name": "mailserver",
 			"title": "MailServer",
 			"description": "A fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
-			"note": "Port 25, 465, 587 and 993 needs to be forwarded for TCP.",
+			"note": "TCP ports 25, 465, 587 and 993 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/docker-mailserver.svg",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
@@ -487,7 +487,7 @@
 			"name": "nextcloud-hpb",
 			"title": "NextCloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
-			"note": "Port 3478 needs to be forwarded for TCP and UDP.",
+			"note": "TCP and UDP port 3478 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"repository": {
 				"url": "https://github.com/univrs-cloud/virgo-apps/",
