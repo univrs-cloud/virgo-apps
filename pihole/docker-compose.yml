@@ -70,6 +70,7 @@ services:
       pihole-init:
         condition: service_healthy
       dhcphelper:
+        condition: service_started
     restart: always
 
   dhcphelper:
