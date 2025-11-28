@@ -1,4 +1,28 @@
 services:
+  pihole-init:
+    image: alpinelinux/docker-cli:latest-aarch64
+    container_name: pihole-init
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "address=/${DOMAIN}/${HOST_IP}" > /dnsmasq.d/univrs.conf
+        touch /config/.init_complete; \
+        sleep 10; \
+        rm -f /config/.init_complete; \
+        docker rm -f $(hostname)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /messier/apps/pihole/dnsmasq.d:/dnsmasq.d
+    networks:
+      - virgo
+    restart: no
+    healthcheck:
+      test: "[ -f /config/.init_complete ]"
+      interval: 1s
+      timeout: 1s
+      retries: 30
+      start_period: 1s
+
   pihole:
     image: mpgirro/pihole-unbound:latest
     container_name: pihole
@@ -18,9 +42,9 @@ services:
       - FTLCONF_dhcp_rapidCommit=true
       - FTLCONF_webserver_api_password=${PASSWORD}
     volumes:
-      - /messier/apps/pihole/data:/etc/pihole/
+      - /messier/apps/pihole/data:/etc/pihole
       - /messier/apps/pihole/logs:/var/log/pihole
-      - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d/
+      - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
@@ -43,7 +67,9 @@ services:
     cap_add:
       - NET_ADMIN
     depends_on:
-      - dhcphelper
+      pihole-init:
+        condition: service_healthy
+      dhcphelper:
     restart: always
 
   dhcphelper:
