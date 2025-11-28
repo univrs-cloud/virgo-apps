@@ -5,14 +5,14 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        echo "address=/${DOMAIN}/${HOST_IP}" > /dnsmasq.d/univrs.conf
+        echo "address=/${DOMAIN}/${HOST_IP}" > /config/univrs.conf
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/pihole/dnsmasq.d:/dnsmasq.d
+      - /messier/apps/pihole/dnsmasq.d:/config
     networks:
       - virgo
     restart: no
