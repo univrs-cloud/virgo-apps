@@ -30,7 +30,7 @@ services:
       - TZ=Europe/Bucharest
       - PIHOLE_UID=1000
       - PIHOLE_GID=100
-      - FTLCONF_dns_listeningMode=all
+      - FTLCONF_dns_listeningMode=ALL
       - FTLCONF_misc_etc_dnsmasq_d=true
       - FTLCONF_misc_dnsmasq_lines=dhcp-option=6,${HOST_IP}
       - FTLCONF_dns_domain=univrs
