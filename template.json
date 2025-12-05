@@ -11,7 +11,7 @@
 			"note": "TCP and UDP ports 80 and 443 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "traefik/docker-compose.yml"
 			},
 			"categories": [
@@ -58,7 +58,7 @@
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
 			"logo": "https://apps.univrs.cloud/images/authelia.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "authelia/docker-compose.yml"
 			},
 			"categories": [
@@ -99,7 +99,7 @@
 			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo": "https://apps.univrs.cloud/images/pi-hole.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "pihole/docker-compose.yml"
 			},
 			"categories": [
@@ -187,7 +187,7 @@
 			"note": "UDP port 51820 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/wireguard.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "wg-easy/docker-compose.yml"
 			},
 			"categories": [
@@ -254,7 +254,7 @@
 			"note": "TCP ports 25, 465, 587 and 993 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/docker-mailserver.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "docker-mailserver/docker-compose.yml"
 			},
 			"categories": [
@@ -295,7 +295,7 @@
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "wetty/docker-compose.yml"
 			},
 			"categories": [
@@ -342,7 +342,7 @@
 			"description": "A BitTorrent client.",
 			"logo": "https://apps.univrs.cloud/images/qbittorrent.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "qbittorrent/docker-compose.yml"
 			},
 			"categories": [
@@ -384,7 +384,7 @@
 			"note": "The host of the database is nextcloud-db:3306. The database name, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud/docker-compose.yml"
 			},
 			"categories": [
@@ -443,7 +443,7 @@
 			"note": "",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud-onlyoffice/docker-compose.yml"
 			},
 			"categories": [
@@ -490,7 +490,7 @@
 			"note": "TCP and UDP port 3478 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud-hpb/docker-compose.yml"
 			},
 			"categories": [
@@ -546,7 +546,7 @@
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "gitea/docker-compose.yml"
 			},
 			"categories": [
@@ -587,7 +587,7 @@
 			"description": "Gitea runner for actions.",
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
 			"repository": {
-				"url": "https://github.com/univrs-cloud/virgo-apps/",
+				"url": "https://apps.univrs.cloud/",
 				"stackfile": "gitea-runner/docker-compose.yml"
 			},
 			"categories": [
