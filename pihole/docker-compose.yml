@@ -15,7 +15,7 @@ services:
       - /messier/apps/pihole/dnsmasq.d:/config
     networks:
       - virgo
-    restart: no
+    restart: "no"
     healthcheck:
       test: "[ -f /config/.init_complete ]"
       interval: 1s
