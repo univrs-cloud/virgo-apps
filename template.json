@@ -612,7 +612,7 @@
 			"id": 13,
 			"type": 3,
 			"platform": "linux",
-			"name": "performance-co-pilot",
+			"name": "pcp",
 			"title": "Performance Co-Pilot",
 			"description": "A system performance analysis toolkit for collecting, archiving, and analyzing CPU, memory, disk I/O, and network metrics.",
 			"note": "Only accessible from the host (localhost:44321 for pmcd, localhost:44322 for pmproxy).",
