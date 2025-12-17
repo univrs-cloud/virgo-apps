@@ -6,6 +6,7 @@ services:
       - PUID=1000
       - PGID=100
       - PCP_HOST_DIR=/host
+      - REDIS_SERVERS=pcp-redis:6379
     volumes:
       - /messier/apps/pcp/data:/var/log/pcp
       - /messier/apps/pcp/config:/etc/pcp
@@ -15,5 +16,24 @@ services:
     ports:
       - "127.0.0.1:44321:44321"  # pmcd
       - "127.0.0.1:44322:44322"  # pmproxy (REST API / Web UI)
+    networks:
+      - internal
     privileged: true
+    depends_on:
+      - pcp-redis
     restart: unless-stopped
+
+  pcp-redis:
+    image: redis:latest
+    container_name: pcp-redis
+    environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /messier/apps/pcp/redis:/data
+    networks:
+      - internal
+    restart: unless-stopped
+
+networks:
+  internal:
