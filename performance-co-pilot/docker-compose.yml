@@ -6,7 +6,7 @@ services:
       - PUID=1000
       - PGID=100
       - PCP_HOST_DIR=/host
-      - REDIS_SERVERS=pcp-redis:6379
+      - KEY_SERVERS=pcp-redis:6379
     volumes:
       - /messier/apps/pcp/data:/var/log/pcp
       - /messier/apps/pcp/config:/etc/pcp
