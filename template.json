@@ -619,7 +619,7 @@
 			"logo": "https://apps.univrs.cloud/images/pcp.png",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
-				"stackfile": "performance-co-pilot/docker-compose.yml"
+				"stackfile": "pcp/docker-compose.yml"
 			},
 			"categories": [
 				"System"
