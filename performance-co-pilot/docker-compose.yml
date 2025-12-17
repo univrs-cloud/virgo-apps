@@ -1,0 +1,19 @@
+services:
+  pcp:
+    image: ghcr.io/performancecopilot/pcp:latest
+    container_name: pcp
+    environment:
+      - PUID=1000
+      - PGID=100
+      - PCP_HOST_DIR=/host
+    volumes:
+      - /messier/apps/pcp/data:/var/log/pcp
+      - /messier/apps/pcp/config:/etc/pcp
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "127.0.0.1:44321:44321"  # pmcd
+      - "127.0.0.1:44322:44322"  # pmproxy (REST API / Web UI)
+    privileged: true
+    restart: unless-stopped

@@ -607,6 +607,23 @@
 					"default": ""
 				}
 			]
+		},
+		{
+			"id": 13,
+			"type": 3,
+			"platform": "linux",
+			"name": "performance-co-pilot",
+			"title": "Performance Co-Pilot",
+			"description": "A system performance analysis toolkit for collecting, archiving, and analyzing CPU, memory, disk I/O, and network metrics.",
+			"note": "Only accessible from the host (localhost:44321 for pmcd, localhost:44322 for pmproxy).",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "performance-co-pilot/docker-compose.yml"
+			},
+			"categories": [
+				"System"
+			],
+			"env": []
 		}
 	]
 }
