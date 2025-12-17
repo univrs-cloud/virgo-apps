@@ -74,8 +74,8 @@ services:
     restart: always
 
   dhcphelper:
-    container_name: dhcphelper
     image: homeall/dhcphelper:latest
+    container_name: dhcphelper
     network_mode: host
     environment:
       IP: 172.30.0.2
