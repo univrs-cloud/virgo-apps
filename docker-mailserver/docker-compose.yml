@@ -1,7 +1,6 @@
 services:
   mailserver-init:
     image: alpinelinux/docker-cli:latest-aarch64
-    container_name: mailserver-init
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -28,7 +27,6 @@ services:
 
   mailserver:
     image: ghcr.io/docker-mailserver/docker-mailserver:latest
-    container_name: mailserver
     hostname: mail
     domainname: ${DOMAIN}
     environment:

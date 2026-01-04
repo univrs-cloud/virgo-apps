@@ -1,7 +1,6 @@
 services:
   wg-easy:
     image: ghcr.io/wg-easy/wg-easy:latest
-    container_name: wg-easy
     environment:
       - PUID=1000
       - PGID=100

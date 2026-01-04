@@ -1,7 +1,6 @@
 services:
   nextcloud-onlyoffice:
     image: onlyoffice/documentserver:latest
-    container_name: nextcloud-onlyoffice
     environment:
       - PUID=1000
       - PGID=100

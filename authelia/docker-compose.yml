@@ -1,7 +1,6 @@
 services:
   authelia-init:
     image: alpinelinux/docker-cli:latest-aarch64
-    container_name: authelia-init
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -35,7 +34,6 @@ services:
 
   authelia:
     image: authelia/authelia:latest
-    container_name: authelia
     environment:
       - PUID=1000
       - PGID=100
@@ -94,7 +92,6 @@ services:
 
   authelia-redis:
     image: redis:latest
-    container_name: authelia-redis
     environment:
       - PUID=1000
       - PGID=100

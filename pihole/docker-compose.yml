@@ -1,7 +1,6 @@
 services:
   pihole-init:
     image: alpinelinux/docker-cli:latest-aarch64
-    container_name: pihole-init
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -25,7 +24,6 @@ services:
 
   pihole:
     image: mpgirro/pihole-unbound:latest
-    container_name: pihole
     environment:
       - TZ=Europe/Bucharest
       - PIHOLE_UID=1000
@@ -75,7 +73,6 @@ services:
 
   dhcphelper:
     image: homeall/dhcphelper:latest
-    container_name: dhcphelper
     network_mode: host
     environment:
       IP: 172.30.0.2

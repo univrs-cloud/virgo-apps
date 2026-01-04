@@ -1,7 +1,6 @@
 services:
   gitea-runner:
     image: gitea/act_runner:latest
-    container_name: gitea-runner
     environment:
       - GITEA_INSTANCE_URL=${GITEA_INSTANCE_URL}
       - GITEA_RUNNER_NAME=runner

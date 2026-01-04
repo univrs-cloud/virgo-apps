@@ -1,7 +1,6 @@
 services:
   nextcloud-hpb:
     image: ghcr.io/nextcloud-releases/aio-talk:latest
-    container_name: nextcloud-hpb
     environment:
       - NC_DOMAIN=nextcloud.${DOMAIN}
       - TALK_HOST=talk.${DOMAIN}

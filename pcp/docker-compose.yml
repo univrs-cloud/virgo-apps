@@ -1,7 +1,6 @@
 services:
   pcp:
     image: ghcr.io/performancecopilot/pcp:latest
-    container_name: pcp
     network_mode: host
     environment:
       - PUID=1000

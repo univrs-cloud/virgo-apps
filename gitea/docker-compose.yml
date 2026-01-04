@@ -1,7 +1,6 @@
 services:
   gitea:
     image: gitea/gitea:latest
-    container_name: gitea
     environment:
       - USER_UID=1000
       - USER_GID=100
@@ -34,7 +33,6 @@ services:
 
   gitea-db:
     image: lscr.io/linuxserver/mariadb:latest
-    container_name: gitea-db
     environment:
       - PUID=1000
       - PGID=100

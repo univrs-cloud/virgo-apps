@@ -1,7 +1,6 @@
 services:
   traefik-init:
     image: alpinelinux/docker-cli:latest-aarch64
-    container_name: traefik-init
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
@@ -26,7 +25,6 @@ services:
   
   traefik:
     image: traefik:latest
-    container_name: traefik
     environment:
       - PUID=1000
       - PGID=100
