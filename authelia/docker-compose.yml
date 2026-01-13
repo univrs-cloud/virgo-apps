@@ -33,7 +33,7 @@ services:
       start_period: 1s
 
   authelia:
-    image: authelia/authelia:latest
+    image: authelia/authelia:4
     environment:
       - PUID=1000
       - PGID=100

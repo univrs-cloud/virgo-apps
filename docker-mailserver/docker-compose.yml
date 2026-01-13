@@ -26,7 +26,7 @@ services:
       start_period: 1s
 
   mailserver:
-    image: ghcr.io/docker-mailserver/docker-mailserver:latest
+    image: ghcr.io/docker-mailserver/docker-mailserver:15
     hostname: mail
     domainname: ${DOMAIN}
     environment:
