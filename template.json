@@ -2,9 +2,6 @@
 	"version": "3",
 	"templates": [
 		{
-			"id": 1,
-			"type": 3,
-			"platform": "linux",
 			"name": "traefik",
 			"title": "Traefik",
 			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
@@ -50,9 +47,6 @@
 			]
 		},
 		{
-			"id": 2,
-			"type": 3,
-			"platform": "linux",
 			"name": "authelia",
 			"title": "Authelia",
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
@@ -91,9 +85,6 @@
 			]
 		},
 		{
-			"id": 3,
-			"type": 3,
-			"platform": "linux",
 			"name": "pihole",
 			"title": "Pi-hole",
 			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
@@ -178,9 +169,6 @@
 			]
 		},
 		{
-			"id": 4,
-			"type": 3,
-			"platform": "linux",
 			"name": "wg-easy",
 			"title": "WireGuard",
 			"description": "An extremely simple yet fast and modern VPN.",
@@ -245,9 +233,6 @@
 			]
 		},
 		{
-			"id": 5,
-			"type": 3,
-			"platform": "linux",
 			"name": "mailserver",
 			"title": "MailServer",
 			"description": "A fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
@@ -287,9 +272,6 @@
 			]
 		},
 		{
-			"id": 6,
-			"type": 3,
-			"platform": "linux",
 			"name": "wetty",
 			"title": "Terminal",
 			"description": "A terminal in a browser.",
@@ -334,9 +316,6 @@
 			]
 		},
 		{
-			"id": 7,
-			"type": 3,
-			"platform": "linux",
 			"name": "qbittorrent",
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
@@ -375,9 +354,6 @@
 			]
 		},
 		{
-			"id": 8,
-			"type": 3,
-			"platform": "linux",
 			"name": "nextcloud",
 			"title": "NextCloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
@@ -434,9 +410,6 @@
 			]
 		},
 		{
-			"id": 9,
-			"type": 3,
-			"platform": "linux",
 			"name": "nextcloud-onlyoffice",
 			"title": "NextCloud - OnlyOffice",
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
@@ -481,9 +454,6 @@
 			]
 		},
 		{
-			"id": 10,
-			"type": 3,
-			"platform": "linux",
 			"name": "nextcloud-hpb",
 			"title": "NextCloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
@@ -538,9 +508,6 @@
 			]
 		},
 		{
-			"id": 11,
-			"type": 3,
-			"platform": "linux",
 			"name": "gitea",
 			"title": "Gitea",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
@@ -579,9 +546,6 @@
 			]
 		},
 		{
-			"id": 12,
-			"type": 3,
-			"platform": "linux",
 			"name": "gitea-runner",
 			"title": "Gitea - Runner",
 			"description": "Gitea runner for actions.",
@@ -609,9 +573,6 @@
 			]
 		},
 		{
-			"id": 13,
-			"type": 3,
-			"platform": "linux",
 			"name": "pcp",
 			"title": "Performance Co-Pilot",
 			"description": "A system performance analysis toolkit for collecting, archiving, and analyzing CPU, memory, disk I/O, and network metrics.",
