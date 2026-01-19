@@ -1,5 +1,5 @@
 services:
-  authelia-init:
+  init:
     image: alpinelinux/docker-cli:latest-aarch64
     entrypoint: ["/bin/sh", "-c"]
     command:
@@ -61,7 +61,7 @@ services:
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_PASSWORD_BCRYPT_COST=12
       - AUTHELIA_ACCESS_CONTROL_DEFAULT_POLICY=one_factor
       - AUTHELIA_SESSION_NAME=virgoOS
-      - AUTHELIA_SESSION_REDIS_HOST=authelia-redis
+      - AUTHELIA_SESSION_REDIS_HOST=redis
       - AUTHELIA_SESSION_REDIS_PORT=6379
       - AUTHELIA_REGULATION_MODES=ip
       - AUTHELIA_REGULATION_MAX_RETRIES=3
@@ -84,13 +84,13 @@ services:
       - internal
       - virgo
     depends_on:
-      authelia-init:
+      init:
         condition: service_healthy
-      authelia-redis:
+      redis:
         condition: service_started
     restart: always
 
-  authelia-redis:
+  redis:
     image: redis:latest
     environment:
       - PUID=1000

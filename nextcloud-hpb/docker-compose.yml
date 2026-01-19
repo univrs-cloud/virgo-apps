@@ -1,5 +1,5 @@
 services:
-  nextcloud-hpb:
+  aio-talk:
     image: ghcr.io/nextcloud-releases/aio-talk:latest
     environment:
       - NC_DOMAIN=nextcloud.${DOMAIN}

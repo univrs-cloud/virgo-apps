@@ -5,7 +5,7 @@ services:
       - USER_UID=1000
       - USER_GID=100
       - GITEA__database__DB_TYPE=mysql
-      - GITEA__database__HOST=gitea-db:3306
+      - GITEA__database__HOST=db:3306
       - GITEA__database__NAME=gitea
       - GITEA__database__USER=gitea
       - GITEA__database__PASSWD=gitea
@@ -28,10 +28,10 @@ services:
       - internal
       - virgo
     depends_on:
-      - gitea-db
+      - db
     restart: unless-stopped
 
-  gitea-db:
+  db:
     image: lscr.io/linuxserver/mariadb:latest
     environment:
       - PUID=1000

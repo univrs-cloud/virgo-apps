@@ -4,7 +4,7 @@ services:
     environment:
       - PUID=1000
       - PGID=100
-      - MYSQL_HOST=nextcloud-db:3306
+      - MYSQL_HOST=db:3306
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_PASSWORD=nextcloud
@@ -33,11 +33,11 @@ services:
       - internal
       - virgo
     depends_on:
-      - nextcloud-db
-      - nextcloud-redis
+      - db
+      - redis
     restart: unless-stopped
 
-  nextcloud-db:
+  db:
     image: lscr.io/linuxserver/mariadb:latest
     environment:
       - PUID=1000
@@ -52,7 +52,7 @@ services:
       - internal
     restart: unless-stopped
 
-  nextcloud-redis:
+  redis:
     image: redis:latest
     environment:
       - PUID=1000

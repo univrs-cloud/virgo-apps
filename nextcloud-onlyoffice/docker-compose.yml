@@ -1,5 +1,5 @@
 services:
-  nextcloud-onlyoffice:
+  documentserver:
     image: onlyoffice/documentserver:latest
     environment:
       - PUID=1000

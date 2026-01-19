@@ -1,5 +1,5 @@
 services:
-  mailserver-init:
+  init:
     image: alpinelinux/docker-cli:latest-aarch64
     entrypoint: ["/bin/sh", "-c"]
     command:
@@ -84,7 +84,7 @@ services:
     networks:
       - virgo
     depends_on:
-      mailserver-init:
+      init:
         condition: service_healthy
     restart: always
     stop_grace_period: 1m
