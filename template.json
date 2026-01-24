@@ -586,44 +586,6 @@
 				"System"
 			],
 			"env": []
-		},
-		{
-			"name": "navidrome",
-			"title": "Navidrome",
-			"description": "A modern music server and streamer.",
-			"logo": "https://apps.univrs.cloud/images/navidrome.svg",
-			"repository": {
-				"url": "https://apps.univrs.cloud/",
-				"stackfile": "navidrome/docker-compose.yml"
-			},
-			"categories": [
-				"Productivity"
-			],
-			"env": [
-				{
-					"type": "text",
-					"label": "Domain",
-					"name": "DOMAIN",
-					"default": "",
-					"prefix": "music."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
-				}
-			]
 		}
 	]
 }
