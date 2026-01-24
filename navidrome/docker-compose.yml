@@ -4,7 +4,8 @@ services:
     environment:
       - PUID=1000
       - PGID=100
-      - ND_EXTAUTH_TRUSTEDSOURCES: 0.0.0.0/0
+      - ND_EXTAUTH_TRUSTEDSOURCES=0.0.0.0/0
+      - ND_ENABLEINSIGHTSCOLLECTOR=false
     volumes:
       - /messier/apps/navidrome/music:/music:ro
       - /messier/apps/navidrome/data:/data
