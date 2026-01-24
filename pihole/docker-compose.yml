@@ -25,7 +25,6 @@ services:
   pihole:
     image: mpgirro/pihole-unbound:latest
     environment:
-      - TZ=Europe/Bucharest
       - PIHOLE_UID=1000
       - PIHOLE_GID=100
       - FTLCONF_dns_listeningMode=ALL

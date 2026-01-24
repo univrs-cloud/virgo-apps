@@ -28,7 +28,6 @@ services:
     environment:
       - PUID=1000
       - PGID=100
-      - TZ=Europe/Bucharest
       - DOMAIN=${DOMAIN}
       - CERTRESOLVER=${CERTRESOLVER}
     volumes:
