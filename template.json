@@ -357,7 +357,7 @@
 			"name": "nextcloud",
 			"title": "NextCloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
-			"note": "The host of the database is nextcloud-db:3306. The database name, database user and database password is `nextcloud`.",
+			"note": "The host of the database is db:3306. The database name, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
@@ -389,23 +389,6 @@
 							"text": "No"
 						}
 					]
-				},
-				{
-					"type": "text",
-					"label": "Username (administrator)",
-					"name": "NEXTCLOUD_ADMIN_USER",
-					"default": "voyager"
-				},
-				{
-					"type": "password",
-					"label": "Password (administrator)",
-					"name": "NEXTCLOUD_ADMIN_PASSWORD",
-					"default": ""
-				},
-				{
-					"type": "text",
-					"label": "Trusted domains",
-					"name": "NEXTCLOUD_TRUSTED_DOMAINS"
 				}
 			]
 		},
