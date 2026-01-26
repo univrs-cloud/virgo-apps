@@ -13,3 +13,7 @@ smtpd_helo_restrictions =
    permit_sasl_authenticated,
    reject_invalid_helo_hostname,
    reject_non_fqdn_helo_hostname
+
+smtpd_client_connection_rate_limit = 30
+smtpd_client_message_rate_limit = 50
+anvil_rate_time_unit = 60s
