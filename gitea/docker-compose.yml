@@ -48,5 +48,6 @@ services:
 
 networks:
   internal:
+    internal: true
   virgo:
     external: true
