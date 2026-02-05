@@ -569,6 +569,44 @@
 				"System"
 			],
 			"env": []
+		},
+		{
+			"name": "dockhand",
+			"title": "Dockhand",
+			"description": "A simple Docker management dashboard.",
+			"logo": "https://apps.univrs.cloud/images/dockhand.png",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "dockhand/docker-compose.yml"
+			},
+			"categories": [
+				"System"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "dockhand."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			]
 		}
 	]
 }

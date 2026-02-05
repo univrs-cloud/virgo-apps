@@ -1,0 +1,22 @@
+services:
+  dockhand:
+    image: fnsys/dockhand:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /messier/apps/dockhand/data:/app/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.routers.dockhand.rule=Host(`dockhand.${DOMAIN}`)"
+      - "traefik.http.routers.dockhand.entrypoints=https"
+      - "traefik.http.routers.dockhand.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.dockhand.service=dockhand"
+      - "traefik.http.routers.dockhand.middlewares=secure-headers@file,authelia@file"
+      - "traefik.http.services.dockhand.loadbalancer.server.port=3000"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true
