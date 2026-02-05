@@ -9,6 +9,8 @@ services:
     volumes:
       - /etc/machine-id:/etc/machine-id:ro
       - /messier/apps/pcp/data:/var/log/pcp
+      - /messier/apps/pcp/pmlogger:/var/log/pcp/pmlogger
+      - /messier/apps/pcp/pmproxy:/var/log/pcp/pmproxy
     depends_on:
       - redis
     privileged: true
