@@ -57,12 +57,12 @@ services:
     ports:
       - "${HOST_IP}:53:53/tcp"
       - "${HOST_IP}:53:53/udp"
-      - "5335:5335/tcp"
     networks:
       virgo:
         ipv4_address: 172.30.0.2
     cap_add:
       - NET_ADMIN
+      - CAP_SYS_TIME
     depends_on:
       init:
         condition: service_healthy
