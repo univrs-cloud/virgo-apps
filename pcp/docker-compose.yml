@@ -25,10 +25,4 @@ services:
       - /messier/apps/pcp/redis:/data
     ports:
       - "127.0.0.1:6380:6379"
-    networks:
-      - virgo
     restart: unless-stopped
-
-networks:
-  virgo:
-    external: true
