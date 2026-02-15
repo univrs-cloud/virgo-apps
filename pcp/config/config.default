@@ -1,0 +1,196 @@
+#pmlogconf 2.0
+#
+# Custom pmlogger config - trimmed for actual system needs
+# Removes: NFS, RPC, KVM, XFS, tape, IPC, per-process, NUMA,
+#           buddyinfo, zoneinfo, KSM, serial TTY, per-partition,
+#           per-CPU (keeping all-CPU summary only)
+#
+
+# === CPU (summary across all CPUs) ===
+log advisory on default {
+	kernel.all.cpu.user
+	kernel.all.cpu.nice
+	kernel.all.cpu.sys
+	kernel.all.cpu.idle
+	kernel.all.cpu.wait.total
+	kernel.all.cpu.irq.hard
+	kernel.all.cpu.irq.soft
+	kernel.all.cpu.steal
+}
+
+# === Kernel / Load ===
+log advisory on default {
+	kernel.all.load
+	kernel.all.pswitch
+	kernel.all.intr
+	kernel.all.sysfork
+	kernel.all.runnable
+	kernel.all.blocked
+	kernel.all.nprocs
+	kernel.all.uptime
+	kernel.all.pressure.cpu.some.avg
+	kernel.all.pressure.io.some.avg
+	kernel.all.pressure.io.full.avg
+	kernel.all.pressure.memory.some.avg
+	kernel.all.pressure.memory.full.avg
+}
+
+# === Memory ===
+log advisory on default {
+	mem.physmem
+	mem.freemem
+	mem.util.available
+	mem.util.free
+	mem.util.bufmem
+	mem.util.cached
+	mem.util.shmem
+	mem.util.slab
+	mem.util.slabReclaimable
+	mem.util.active
+	mem.util.inactive
+	mem.util.dirty
+	mem.util.mapped
+	mem.util.anonpages
+	mem.util.committed_AS
+	mem.util.commitLimit
+	mem.util.swapTotal
+	mem.util.swapFree
+	mem.util.swapCached
+	mem.util.kernelStack
+	mem.util.pageTables
+}
+
+# === Swap ===
+log advisory on default {
+	swap.pagesin
+	swap.pagesout
+	swap.free
+	swap.used
+	swap.length
+}
+
+# === VM stats (trimmed) ===
+log advisory on default {
+	mem.vmstat.pgpgin
+	mem.vmstat.pgpgout
+	mem.vmstat.pgfault
+	mem.vmstat.pgmajfault
+	mem.vmstat.pgfree
+	mem.vmstat.pswpin
+	mem.vmstat.pswpout
+	mem.vmstat.oom_kill
+	mem.vmstat.nr_dirty
+	mem.vmstat.nr_writeback
+	mem.vmstat.nr_slab_reclaimable
+	mem.vmstat.nr_slab_unreclaimable
+}
+
+# === Disk I/O (summary across all disks) ===
+log advisory on default {
+	disk.all.read
+	disk.all.write
+	disk.all.total
+	disk.all.read_bytes
+	disk.all.write_bytes
+	disk.all.total_bytes
+	disk.all.avactive
+	disk.all.aveq
+	disk.all.read_merge
+	disk.all.write_merge
+	disk.all.read_rawactive
+	disk.all.write_rawactive
+	disk.all.discard
+	disk.all.blkdiscard
+}
+
+# === Disk I/O (per device - useful for separating SD card vs ZFS) ===
+log advisory on default {
+	disk.dev.read
+	disk.dev.write
+	disk.dev.read_bytes
+	disk.dev.write_bytes
+	disk.dev.avactive
+	disk.dev.aveq
+}
+
+# === Filesystem ===
+log advisory on default {
+	filesys.full
+	filesys.capacity
+	filesys.used
+	filesys.free
+	filesys.avail
+	filesys.freefiles
+	filesys.usedfiles
+	filesys.maxfiles
+}
+
+# === Network (per interface) ===
+log advisory on default {
+	network.interface.in.bytes
+	network.interface.in.packets
+	network.interface.in.errors
+	network.interface.in.drops
+	network.interface.out.bytes
+	network.interface.out.packets
+	network.interface.out.errors
+	network.interface.out.drops
+	network.interface.collisions
+	network.interface.total.bytes
+}
+
+# === TCP ===
+log advisory on default {
+	network.tcp.activeopens
+	network.tcp.passiveopens
+	network.tcp.attemptfails
+	network.tcp.estabresets
+	network.tcp.currestab
+	network.tcp.insegs
+	network.tcp.outsegs
+	network.tcp.retranssegs
+	network.tcp.inerrs
+	network.tcp.outrsts
+}
+
+# === UDP ===
+log advisory on default {
+	network.udp.indatagrams
+	network.udp.outdatagrams
+	network.udp.inerrors
+	network.udp.noports
+}
+
+# === Network sockets ===
+log advisory on default {
+	network.sockstat.total
+	network.sockstat.tcp.inuse
+	network.sockstat.tcp.tw
+	network.sockstat.udp.inuse
+}
+
+# === Softnet ===
+log advisory on default {
+	network.softnet.processed
+	network.softnet.dropped
+	network.softnet.time_squeeze
+}
+
+# === Platform info (once) ===
+log advisory on once {
+	hinv.ncpu
+	hinv.ndisk
+	hinv.physmem
+	hinv.pagesize
+	kernel.uname
+	kernel.all.boottime
+	mem.physmem
+	network.interface.mtu
+	network.interface.speed
+	network.interface.duplex
+}
+
+[access]
+disallow .* : all;
+disallow :* : all;
+allow local:* : enquire;

@@ -28,7 +28,8 @@ services:
       - internal
       - virgo
     depends_on:
-      - db
+      db:
+        condition: service_started
     restart: unless-stopped
 
   db:

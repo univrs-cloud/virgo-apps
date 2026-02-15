@@ -1,4 +1,26 @@
 services:
+  init:
+    image: alpinelinux/docker-cli:latest-aarch64
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        mkdir -p /config; \
+        wget -O /config/config.default https://apps.univrs.cloud/pcp/config/config.default; \
+        touch /config/.init_complete; \
+        sleep 10; \
+        rm -f /config/.init_complete; \
+        docker rm -f $(hostname)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /messier/apps/pcp/config:/config
+    restart: "no"
+    healthcheck:
+      test: "[ -f /config/.init_complete ]"
+      interval: 1s
+      timeout: 1s
+      retries: 30
+      start_period: 1s
+
   pcp:
     image: ghcr.io/performancecopilot/pcp:latest
     network_mode: host
@@ -11,8 +33,12 @@ services:
       - /messier/apps/pcp/data:/var/log/pcp
       - /messier/apps/pcp/pmlogger:/var/log/pcp/pmlogger
       - /messier/apps/pcp/pmproxy:/var/log/pcp/pmproxy
+      - /messier/apps/pcp/config/config.default:/var/lib/pcp/config/pmlogger/config.default:ro
     depends_on:
-      - redis
+      init:
+        condition: service_healthy
+      redis:
+        condition: service_started
     privileged: true
     restart: unless-stopped
 
