@@ -176,6 +176,28 @@ log advisory on default {
 	network.softnet.time_squeeze
 }
 
+# === ZFS pool I/O ===
+log advisory on default {
+	zfs.pool.state
+	zfs.pool.nread
+	zfs.pool.nwritten
+	zfs.pool.reads
+	zfs.pool.writes
+}
+
+# === ZFS ARC ===
+log advisory on default {
+	zfs.arc.hits
+	zfs.arc.misses
+	zfs.arc.size
+	zfs.arc.c
+	zfs.arc.c_max
+	zfs.arc.data_size
+	zfs.arc.metadata_size
+	zfs.arc.compressed_size
+	zfs.arc.uncompressed_size
+}
+
 # === Platform info (once) ===
 log advisory on once {
 	hinv.ncpu

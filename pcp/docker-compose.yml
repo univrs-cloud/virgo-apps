@@ -6,8 +6,6 @@ services:
       - |
         mkdir -p /config; \
         wget -O /config/config.default https://apps.univrs.cloud/pcp/config/config.default; \
-        wget -O /config/rc.local https://apps.univrs.cloud/pcp/config/rc.local; \
-        chmod +x /config/rc.local; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
@@ -30,13 +28,13 @@ services:
       - PUID=1000
       - PGID=100
       - KEY_SERVERS=127.0.0.1:6380
+      - PCP_DOMAIN_AGENTS=zfs
     volumes:
       - /etc/machine-id:/etc/machine-id:ro
       - /messier/apps/pcp/data:/var/log/pcp
       - /messier/apps/pcp/pmlogger:/var/log/pcp/pmlogger
       - /messier/apps/pcp/pmproxy:/var/log/pcp/pmproxy
       - /messier/apps/pcp/config/config.default:/var/lib/pcp/config/pmlogger/config.default:ro
-      - /messier/apps/pcp/config/rc.local:/etc/pcp/pmcd/rc.local:ro
     depends_on:
       init:
         condition: service_healthy
