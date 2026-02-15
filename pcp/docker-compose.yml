@@ -28,7 +28,6 @@ services:
       - PUID=1000
       - PGID=100
       - KEY_SERVERS=127.0.0.1:6380
-      - PCP_DOMAIN_AGENTS=zfs
     volumes:
       - /etc/machine-id:/etc/machine-id:ro
       - /messier/apps/pcp/data:/var/log/pcp
