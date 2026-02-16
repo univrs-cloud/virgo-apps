@@ -69,11 +69,6 @@ log advisory on default {
 	swap.length
 }
 
-# === ZFS ===
-log advisory on default {
-	zfs
-}
-
 # === VM stats (trimmed) ===
 log advisory on default {
 	mem.vmstat.pgpgin
