@@ -355,7 +355,7 @@
 		},
 		{
 			"name": "nextcloud",
-			"title": "NextCloud",
+			"title": "Nextcloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note": "The host of the database is db:3306. The database name, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
@@ -394,7 +394,7 @@
 		},
 		{
 			"name": "nextcloud-onlyoffice",
-			"title": "NextCloud - OnlyOffice",
+			"title": "Nextcloud - OnlyOffice",
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
 			"note": "",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
@@ -438,7 +438,7 @@
 		},
 		{
 			"name": "nextcloud-hpb",
-			"title": "NextCloud - High performance backend",
+			"title": "Nextcloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
 			"note": "TCP and UDP port 3478 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
