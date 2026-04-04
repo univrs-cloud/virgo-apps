@@ -6,13 +6,13 @@ services:
       - PGID=100
       - JWT_SECRET=${SECRET}
     volumes:
-      - /messier/apps/nextcloud-onlyoffice/logs:/var/log/onlyoffice
-      - /messier/apps/nextcloud-onlyoffice/data:/var/www/onlyoffice/Data
-      - /messier/apps/nextcloud-onlyoffice/lib:/var/lib/onlyoffice
-      - /messier/apps/nextcloud-onlyoffice/db:/var/lib/postgresql
-      - /messier/apps/nextcloud-onlyoffice/redis:/var/lib/redis
-      - /messier/apps/nextcloud-onlyoffice/rabbitmq:/var/lib/rabbitmq
-      - /messier/apps/nextcloud-onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
+      - /messier/apps/onlyoffice/logs:/var/log/onlyoffice
+      - /messier/apps/onlyoffice/data:/var/www/onlyoffice/Data
+      - /messier/apps/onlyoffice/lib:/var/lib/onlyoffice
+      - /messier/apps/onlyoffice/db:/var/lib/postgresql
+      - /messier/apps/onlyoffice/redis:/var/lib/redis
+      - /messier/apps/onlyoffice/rabbitmq:/var/lib/rabbitmq
+      - /messier/apps/onlyoffice/fonts-custom:/usr/share/fonts/truetype/custom
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"

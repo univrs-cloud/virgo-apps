@@ -393,14 +393,14 @@
 			]
 		},
 		{
-			"name": "nextcloud-onlyoffice",
-			"title": "Nextcloud - OnlyOffice",
+			"name": "onlyoffice",
+			"title": "OnlyOffice",
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
 			"note": "",
-			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"logo": "https://apps.univrs.cloud/images/onlyoffice.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
-				"stackfile": "nextcloud-onlyoffice/docker-compose.yml"
+				"stackfile": "onlyoffice/docker-compose.yml"
 			},
 			"categories": [
 				"Productivity"
