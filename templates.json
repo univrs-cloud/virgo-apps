@@ -12,7 +12,7 @@
 				"stackfile": "traefik/docker-compose.yml"
 			},
 			"categories": [
-				"Networking"
+				"System"
 			],
 			"env": [
 				{
