@@ -29,7 +29,7 @@ services:
       - PIHOLE_GID=100
       - FTLCONF_dns_listeningMode=ALL
       - FTLCONF_misc_etc_dnsmasq_d=true
-      - FTLCONF_misc_dnsmasq_lines=dhcp-option=6,${HOST_IP}
+      - FTLCONF_misc_dnsmasq_lines=dhcp-option=6,${HOST_IP};dhcp-option=43,${DHCP_ROUTER}
       - FTLCONF_dns_domain=univrs
       - FTLCONF_dns_upstreams=127.0.0.1#5335;127.0.0.1#5335
       - FTLCONF_dhcp_active=${DHCP_ACTIVE}
