@@ -96,7 +96,7 @@ services:
       retries: 3
 
   autodiscover:
-    image: monogramm/autodiscover-email-settings:latest
+    image: ghcr.io/univrs-cloud/autodiscover-email-settings:latest
     environment:
       - COMPANY_NAME=${DOMAIN}
       - SUPPORT_URL=https://autodiscover.${DOMAIN}
