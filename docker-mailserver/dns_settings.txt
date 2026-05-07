@@ -8,4 +8,3 @@ _imaps._tcp             IN      SRV    0 0 {{IMAP_PORT}} {{MX_DOMAIN}}.
 _pop3s._tcp             IN      SRV    0 0 {{POP_PORT}} {{MX_DOMAIN}}.
 _submission._tcp        IN      SRV    0 0 {{SMTP_PORT}} {{MX_DOMAIN}}.
 _autodiscover._tcp      IN      SRV    0 0 443 autodiscover.{{$DOMAIN}}.
-_ldap._tcp              IN      SRV    0 0 {{LDAP_PORT}} {{LDAP_HOST}}.
