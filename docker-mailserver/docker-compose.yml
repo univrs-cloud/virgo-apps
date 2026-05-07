@@ -106,8 +106,8 @@ services:
       - IMAP_PORT=993
       - IMAP_SOCKET=SSL
       - SMTP_HOST=mail.${DOMAIN}
-      - SMTP_PORT=587
-      - SMTP_SOCKET=STARTTLS
+      - SMTP_PORT=465
+      - SMTP_SOCKET=SSL
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
