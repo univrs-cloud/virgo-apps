@@ -77,10 +77,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
       - "traefik.http.routers.authelia.rule=Host(`auth.${DOMAIN}`)"
       - "traefik.http.routers.authelia.entrypoints=https"
       - "traefik.http.routers.authelia.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
     networks:
       - internal
       - virgo

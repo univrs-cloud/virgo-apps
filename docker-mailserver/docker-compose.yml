@@ -69,12 +69,12 @@ services:
       - "traefik.http.routers.mail-cert.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
       - "traefik.http.routers.mail-cert.service=noop@internal"
       - "traefik.http.routers.mail-cert.middlewares=secure-headers@file"
+      - "traefik.http.services.rspamd.loadbalancer.server.port=11334"
+      - "traefik.http.routers.rspamd.service=rspamd"
       - "traefik.http.routers.rspamd.rule=Host(`rspamd${HOSTNAME:+.${HOSTNAME}}.${DOMAIN}`)"
       - "traefik.http.routers.rspamd.entrypoints=https"
       - "traefik.http.routers.rspamd.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.routers.rspamd.service=rspamd"
       - "traefik.http.routers.rspamd.middlewares=secure-headers@file,authelia@file"
-      - "traefik.http.services.rspamd.loadbalancer.server.port=11334"
     ports:
       - "25:25"
       - "465:465"
@@ -94,6 +94,39 @@ services:
       test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
       timeout: 3s
       retries: 3
+
+  autodiscover:
+    image: monogramm/autodiscover-email-settings:latest
+    environment:
+      - COMPANY_NAME=${DOMAIN}
+      - SUPPORT_URL=https://autodiscover.${DOMAIN}
+      - PROFILE_IDENTIFIER=${DOMAIN}.autodiscover
+      - DOMAIN=${DOMAIN}
+      - IMAP_HOST=mail.${DOMAIN}
+      - IMAP_PORT=993
+      - IMAP_SOCKET=SSL
+      - SMTP_HOST=mail.${DOMAIN}
+      - SMTP_PORT=587
+      - SMTP_SOCKET=STARTTLS
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.autodiscover.loadbalancer.server.port=8000"
+      # Thunderbird / Apple Mail
+      - "traefik.http.routers.autoconfig.service=autodiscover"
+      - "traefik.http.routers.autoconfig.rule=Host(`autoconfig.${DOMAIN}`)"
+      - "traefik.http.routers.autoconfig.entrypoints=https"
+      - "traefik.http.routers.autoconfig.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.autoconfig.middlewares=secure-headers@file"
+      # Outlook
+      - "traefik.http.routers.autodiscover.service=autodiscover"
+      - "traefik.http.routers.autodiscover.rule=Host(`autodiscover.${DOMAIN}`)"
+      - "traefik.http.routers.autodiscover.entrypoints=https"
+      - "traefik.http.routers.autodiscover.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.autodiscover.middlewares=secure-headers@file"
+    networks:
+      - virgo
+    restart: always
 
 networks:
   virgo:

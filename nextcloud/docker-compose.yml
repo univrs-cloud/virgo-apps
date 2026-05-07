@@ -13,14 +13,14 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
-      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.${DOMAIN}`)"
-      - "traefik.http.routers.nextcloud.entrypoints=https"
-      - "traefik.http.routers.nextcloud.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.routers.nextcloud.service=nextcloud"
-      - "traefik.http.routers.nextcloud.middlewares=secure-headers@file"
       - "traefik.http.services.nextcloud.loadbalancer.server.port=443"
       - "traefik.http.services.nextcloud.loadbalancer.server.scheme=https"
       - "traefik.http.services.nextcloud.loadbalancer.serversTransport=insecure-transport@file"
+      - "traefik.http.routers.nextcloud.service=nextcloud"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.${DOMAIN}`)"
+      - "traefik.http.routers.nextcloud.entrypoints=https"
+      - "traefik.http.routers.nextcloud.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.nextcloud.middlewares=secure-headers@file"
     networks:
       - internal
       - virgo

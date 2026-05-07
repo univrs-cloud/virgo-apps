@@ -9,12 +9,12 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.wetty.loadbalancer.server.port=3000"
+      - "traefik.http.routers.wetty.service=wetty"
       - "traefik.http.routers.wetty.rule=Host(`terminal.${DOMAIN}`)"
       - "traefik.http.routers.wetty.entrypoints=https"
       - "traefik.http.routers.wetty.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.routers.wetty.service=wetty"
       - "traefik.http.routers.wetty.middlewares=secure-headers@file,authelia@file"
-      - "traefik.http.services.wetty.loadbalancer.server.port=3000"
     networks:
       - virgo
     restart: unless-stopped
