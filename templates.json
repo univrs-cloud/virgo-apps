@@ -248,10 +248,17 @@
 			"env": [
 				{
 					"type": "text",
+					"label": "MX domain",
+					"name": "MX_DOMAIN",
+					"default": "",
+					"prefix": "mail."
+				},
+				{
+					"type": "text",
 					"label": "Domain",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "mail."
+					"prefix": "rspamd."
 				},
 				{
 					"type": "radio",
