@@ -207,28 +207,9 @@
 				},
 				{
 					"type": "text",
-					"label": "Password hash (brypt)",
-					"name": "PASSWORD_HASH",
-					"default": "",
-					"description": "Leave blank to access UI without logging in."
-				},
-				{
-					"type": "text",
 					"label": "DNS",
 					"name": "DEFAULT_DNS",
 					"default": "192.168.100.2"
-				},
-				{
-					"type": "text",
-					"label": "Default address",
-					"name": "DEFAULT_ADDRESS",
-					"default": "10.6.0.x"
-				},
-				{
-					"type": "text",
-					"label": "Allowed IPs",
-					"name": "ALLOWED_IPS",
-					"default": "0.0.0.0/0"
 				}
 			]
 		},
