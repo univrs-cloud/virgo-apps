@@ -5,8 +5,8 @@ http:
   middlewares:
     default-ratelimit:
       rateLimit:
-        average: 100
-        burst: 120
+        average: 300
+        burst: 520
         period: 1s
     https-redirect:
       redirectScheme:
