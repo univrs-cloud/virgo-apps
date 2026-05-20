@@ -8,6 +8,8 @@ services:
         wget -O /config/postfix-main.cf https://apps.univrs.cloud/docker-mailserver/config/postfix-main.cf; \
         wget -O /config/fail2ban-jail.cf https://apps.univrs.cloud/docker-mailserver/config/fail2ban-jail.cf; \
         wget -O /config/rspamd/custom-commands.conf https://apps.univrs.cloud/docker-mailserver/config/rspamd-custom-commands.conf; \
+        wget -O /config/rspamd/local.d/brevo-whitelist.map https://apps.univrs.cloud/docker-mailserver/config/rspamd-brevo-whitelist.map; \
+        wget -O /config/rspamd/local.d/multimap.conf https://apps.univrs.cloud/docker-mailserver/config/rspamd-multimap.conf; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
