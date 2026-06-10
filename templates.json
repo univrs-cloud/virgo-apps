@@ -479,50 +479,6 @@
 			]
 		},
 		{
-			"name": "onlyoffice",
-			"title": "OnlyOffice",
-			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
-			"note": "",
-			"logo": "https://apps.univrs.cloud/images/onlyoffice.svg",
-			"repository": {
-				"url": "https://apps.univrs.cloud/",
-				"stackfile": "onlyoffice/docker-compose.yml"
-			},
-			"categories": [
-				"Productivity"
-			],
-			"env": [
-				{
-					"type": "text",
-					"label": "Domain",
-					"name": "DOMAIN",
-					"default": "",
-					"prefix": "onlyoffice."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
-				},
-				{
-					"type": "password",
-					"label": "Secret",
-					"name": "SECRET"
-				}
-			]
-		},
-		{
 			"name": "gitea",
 			"title": "Gitea",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
