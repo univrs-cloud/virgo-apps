@@ -3,7 +3,7 @@ services:
     image: ghcr.io/euro-office/documentserver:latest
     environment:
       - JWT_SECRET=${SECRET}
-      - THEME: euro-office
+      - THEME=euro-office
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
