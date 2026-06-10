@@ -381,50 +381,6 @@
 			]
 		},
 		{
-			"name": "onlyoffice",
-			"title": "OnlyOffice",
-			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
-			"note": "",
-			"logo": "https://apps.univrs.cloud/images/onlyoffice.svg",
-			"repository": {
-				"url": "https://apps.univrs.cloud/",
-				"stackfile": "onlyoffice/docker-compose.yml"
-			},
-			"categories": [
-				"Productivity"
-			],
-			"env": [
-				{
-					"type": "text",
-					"label": "Domain",
-					"name": "DOMAIN",
-					"default": "",
-					"prefix": "onlyoffice."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
-				},
-				{
-					"type": "password",
-					"label": "Secret",
-					"name": "SECRET"
-				}
-			]
-		},
-		{
 			"name": "nextcloud-hpb",
 			"title": "Nextcloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
@@ -475,6 +431,94 @@
 					"type": "password",
 					"label": "Internal secret",
 					"name": "INTERNAL_SECRET"
+				}
+			]
+		},
+		{
+			"name": "euro-office",
+			"title": "Euro Office",
+			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
+			"note": "",
+			"logo": "https://apps.univrs.cloud/images/euro-office.svg",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "euro-office/docker-compose.yml"
+			},
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "euro-office."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Secret",
+					"name": "SECRET"
+				}
+			]
+		},
+		{
+			"name": "onlyoffice",
+			"title": "OnlyOffice",
+			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
+			"note": "",
+			"logo": "https://apps.univrs.cloud/images/onlyoffice.svg",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "onlyoffice/docker-compose.yml"
+			},
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "onlyoffice."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Secret",
+					"name": "SECRET"
 				}
 			]
 		},

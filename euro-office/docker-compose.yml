@@ -1,0 +1,22 @@
+services:
+  documentserver:
+    image: ghcr.io/euro-office/documentserver:latest
+    environment:
+      - JWT_SECRET=${SECRET}
+      - THEME: euro-office
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.euro-office.loadbalancer.server.port=80"
+      - "traefik.http.routers.euro-office.service=euro-office"
+      - "traefik.http.routers.euro-office.rule=Host(`euro-office.${DOMAIN}`)"
+      - "traefik.http.routers.euro-office.entrypoints=https"
+      - "traefik.http.routers.euro-office.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.euro-office.middlewares=secure-headers@file"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true
