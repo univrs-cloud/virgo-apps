@@ -29,6 +29,8 @@ services:
     image: ghcr.io/docker-mailserver/docker-mailserver:15
     hostname: mail
     domainname: ${MX_DOMAIN}
+    dns:
+      - 172.30.0.2
     environment:
       - PUID=1000
       - PGID=100
