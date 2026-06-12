@@ -73,7 +73,7 @@ services:
       - "traefik.http.routers.acme-challenge.priority=100"
       - "traefik.http.routers.acme-challenge.service=noop@internal"
       # HTTP to HTTPS redirect router - lower priority (10) than the ACME router
-      - "traefik.http.routers.http-catchall.rule=HostRegexp(`{host:.+}`)"
+      - "traefik.http.routers.http-catchall.rule=HostRegexp(`^.+$`)"
       - "traefik.http.routers.http-catchall.entrypoints=http"
       - "traefik.http.routers.http-catchall.priority=10"
       - "traefik.http.routers.http-catchall.middlewares=https-redirect@file"
