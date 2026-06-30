@@ -263,7 +263,7 @@
 			"name": "fleet",
 			"title": "Fleet",
 			"description": "Univrs fleet management",
-			"logo": "https://apps.univrs.cloud/images/univrs.svg",
+			"logo": "https://apps.univrs.cloud/images/fleet.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "fleet/docker-compose.yml"
