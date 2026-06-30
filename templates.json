@@ -260,6 +260,44 @@
 			]
 		},
 		{
+			"name": "fleet",
+			"title": "Fleet",
+			"description": "Univrs fleet management",
+			"logo": "https://apps.univrs.cloud/images/univrs.svg",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "fleet/docker-compose.yml"
+			},
+			"categories": [
+				"System"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "fleet."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessbile?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "wetty",
 			"title": "Terminal",
 			"description": "A terminal in a browser.",
