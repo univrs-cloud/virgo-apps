@@ -2,6 +2,10 @@ services:
   fleet:
     image: fleet:latest
     environment:
+      - PUID=1000
+      - PGID=100
+    volumes:
+      - /messier/apps/fleet/data:/data
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
