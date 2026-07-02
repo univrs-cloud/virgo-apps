@@ -1,6 +1,6 @@
 services:
   fleet:
-    image: fleet:latest
+    image: ghcr.io/univrs-cloud/virgo-fleet:latest
     environment:
       - PUID=1000
       - PGID=100
