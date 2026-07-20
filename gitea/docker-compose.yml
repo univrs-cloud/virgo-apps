@@ -26,7 +26,7 @@ services:
       - "traefik.http.routers.gitea.rule=Host(`gitea.${DOMAIN}`)"
       - "traefik.http.routers.gitea.entrypoints=https"
       - "traefik.http.routers.gitea.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.routers.gitea.middlewares=secure-headers@file,authelia@file"
+      - "traefik.http.routers.gitea.middlewares=secure-headers@file"
     networks:
       - internal
       - virgo
