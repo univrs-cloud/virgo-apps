@@ -1,13 +1,16 @@
 services:
   aio-talk:
     image: ghcr.io/nextcloud-releases/aio-talk:latest
+    init: true
     environment:
       - NC_DOMAIN=nextcloud.${DOMAIN}
-      - TALK_HOST=talk.${DOMAIN}
+      - TALK_HOST=aio-talk
+      - TURN_DOMAIN=talk.${DOMAIN}
       - TURN_SECRET=${TURN_SECRET}
       - SIGNALING_SECRET=${SIGNALING_SECRET}
       - INTERNAL_SECRET=${INTERNAL_SECRET}
       - TALK_PORT=3478
+      - SKIP_CERT_VERIFY=${SKIP_CERT_VERIFY:-false}
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
