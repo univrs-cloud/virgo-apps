@@ -2,6 +2,7 @@ services:
   documentserver:
     image: ghcr.io/euro-office/documentserver:latest
     environment:
+      - JWT_ENABLED=true
       - JWT_SECRET=${SECRET}
       - THEME=euro-office
     labels:
