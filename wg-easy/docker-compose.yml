@@ -6,7 +6,10 @@ services:
       - INSECURE=true
       - INIT_ENABLED=true
       - INIT_HOST=vpn.${DOMAIN}
+      - INIT_PORT=51820
       - INIT_DNS=${DEFAULT_DNS}
+      - INIT_USERNAME=voyager
+      - INIT_PASSWORD=${PASSWORD}
     volumes:
       - /lib/modules:/lib/modules:ro
       - /messier/apps/wg-easy:/etc/wireguard
