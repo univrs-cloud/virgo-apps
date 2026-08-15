@@ -16,7 +16,7 @@ access_control:
     policy: "bypass"
     networks:
       - "192.168.0.0/16" #bypass if connected on local network
-      - "10.6.0.0/16" #bypass if connected over VPN
+      - "10.8.0.0/16" #bypass if connected over VPN
 
 session:
   cookies:
