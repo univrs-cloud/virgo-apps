@@ -1,6 +1,13 @@
 services:
   wg-easy:
     image: ghcr.io/wg-easy/wg-easy:15
+    # The image pins iptables to the legacy backend, which needs the ip_tables
+    # kernel module. Kernels 6.18+ (Raspberry Pi OS) ship without legacy xtables,
+    # so point iptables at the nft backend before starting the server.
+    command:
+      - /bin/sh
+      - -c
+      - "ln -sf xtables-nft-multi /usr/sbin/iptables && ln -sf xtables-nft-multi /usr/sbin/iptables-save && ln -sf xtables-nft-multi /usr/sbin/iptables-restore && ln -sf xtables-nft-multi /usr/sbin/ip6tables && ln -sf xtables-nft-multi /usr/sbin/ip6tables-save && ln -sf xtables-nft-multi /usr/sbin/ip6tables-restore && exec /usr/bin/dumb-init node server/index.mjs"
     environment:
       - DISABLE_IPV6=true
       - INSECURE=true
