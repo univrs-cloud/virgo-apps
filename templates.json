@@ -23,22 +23,6 @@
 					"prefix": "traefik."
 				},
 				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
-				},
-				{
 					"type": "email",
 					"label": "Email address (Let's Encrypt)",
 					"name": "EMAIL",
@@ -65,22 +49,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "auth."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				}
 			]
 		},
@@ -103,22 +71,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "pihole."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				},
 				{
 					"type": "text",
@@ -190,26 +142,16 @@
 					"prefix": "vpn."
 				},
 				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
-				},
-				{
 					"type": "text",
 					"label": "DNS",
 					"name": "DEFAULT_DNS",
 					"default": "192.168.100.2"
+				},
+				{
+					"type": "password",
+					"label": "Password (administrator)",
+					"name": "PASSWORD",
+					"default": ""
 				}
 			]
 		},
@@ -240,22 +182,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "rspamd."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				}
 			]
 		},
@@ -278,22 +204,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "terminal."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				},
 				{
 					"type": "text",
@@ -322,22 +232,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "torrent."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				}
 			]
 		},
@@ -361,22 +255,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "nextcloud."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				}
 			]
 		},
@@ -400,22 +278,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "talk."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				},
 				{
 					"type": "password",
@@ -456,22 +318,6 @@
 					"prefix": "euro-office."
 				},
 				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
-				},
-				{
 					"type": "password",
 					"label": "Secret",
 					"name": "SECRET"
@@ -497,22 +343,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "gitea."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				}
 			]
 		},
@@ -562,22 +392,6 @@
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "dockhand."
-				},
-				{
-					"type": "radio",
-					"label": "Is the domain publicly accessbile?",
-					"name": "CERTRESOLVER",
-					"select": [
-						{
-							"value": "le",
-							"text": "Yes",
-							"default": true
-						},
-						{
-							"value": "",
-							"text": "No"
-						}
-					]
 				}
 			]
 		}

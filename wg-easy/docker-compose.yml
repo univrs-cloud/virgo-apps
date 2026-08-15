@@ -6,7 +6,10 @@ services:
       - INSECURE=true
       - INIT_ENABLED=true
       - INIT_HOST=vpn.${DOMAIN}
+      - INIT_PORT=51820
       - INIT_DNS=${DEFAULT_DNS}
+      - INIT_USERNAME=voyager
+      - INIT_PASSWORD=${PASSWORD}
     volumes:
       - /lib/modules:/lib/modules:ro
       - /messier/apps/wg-easy:/etc/wireguard
@@ -17,7 +20,7 @@ services:
       - "traefik.http.routers.wireguard.service=wireguard"
       - "traefik.http.routers.wireguard.rule=Host(`vpn.${DOMAIN}`)"
       - "traefik.http.routers.wireguard.entrypoints=https"
-      - "traefik.http.routers.wireguard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.wireguard.tls.certresolver=le"
       - "traefik.http.routers.wireguard.middlewares=secure-headers@file,authelia@file"
     ports:
       - "51820:51820/udp"
