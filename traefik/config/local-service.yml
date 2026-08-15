@@ -12,7 +12,6 @@ http:
       {{ end }}
       middlewares:
         - "secure-headers@file"
-        - "authelia@file"
 
   services:
     localservice:

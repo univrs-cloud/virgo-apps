@@ -31,7 +31,7 @@ http:
           x-powered-by: ""
     authelia:
       forwardAuth:
-        address: "http://authelia:9091/api/authz/forward-auth?https://auth.{{ env `DOMAIN` }}"
+        address: "http://authelia:9091/api/authz/forward-auth?authelia_url=https%3A%2F%2F{{ env `DOMAIN` }}%2Flogin"
         trustForwardHeader: true
         authResponseHeaders: "Remote-User,Remote-Groups,Remote-Name,Remote-Email"
 
