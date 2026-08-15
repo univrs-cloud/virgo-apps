@@ -210,6 +210,12 @@
 					"label": "DNS",
 					"name": "DEFAULT_DNS",
 					"default": "192.168.100.2"
+				},
+				{
+					"type": "password",
+					"label": "Password (administrator)",
+					"name": "PASSWORD",
+					"default": ""
 				}
 			]
 		},
