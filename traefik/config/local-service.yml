@@ -5,7 +5,13 @@ http:
       entryPoints:
         - "https"
       service: "localservice"
-      tls: {{ if ne (env `CERTRESOLVER`) "" }}
+      tls: {{ if eq (env `CERTRESOLVER`) "ledns" }}
+        certResolver: "ledns"
+        domains:
+          - main: "{{ env `DOMAIN` }}"
+            sans:
+              - "*.{{ env `DOMAIN` }}"
+      {{ else if ne (env `CERTRESOLVER`) "" }}
         certResolver: "{{ env `CERTRESOLVER` }}"
       {{ else }}
         {}
@@ -13,9 +19,23 @@ http:
       middlewares:
         - "secure-headers@file"
 
+    dashboard:
+      rule: "Host(`traefik.{{ env `DOMAIN` }}`)"
+      entryPoints:
+        - "https"
+      service: "api@internal"
+      tls: {{ if or (eq (env `CERTRESOLVER`) "") (eq (env `CERTRESOLVER`) "ledns") }}
+        {}
+      {{ else }}
+        certResolver: "{{ env `CERTRESOLVER` }}"
+      {{ end }}
+      middlewares:
+        - "secure-headers@file"
+        - "authelia@file"
+
   services:
     localservice:
       loadBalancer:
         servers:
-          - url: "https://172.17.0.1:3000"
+          - url: "https://172.30.0.1:3000"
         serversTransport: "insecure-transport@file"
