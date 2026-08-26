@@ -68,7 +68,6 @@ services:
       - "--certificatesResolvers.ledns.acme.storage=/letsencrypt/acme-dns.json"
       - "--certificatesResolvers.ledns.acme.dnsChallenge=true"
       - "--certificatesResolvers.ledns.acme.dnsChallenge.provider=httpreq"
-      - "--certificatesResolvers.ledns.acme.dnsChallenge.resolvers=1.1.1.1:53,8.8.8.8:53"
     labels:
       - "traefik.enable=true"
       # Special router for Let's Encrypt HTTP challenge
