@@ -81,6 +81,13 @@ services:
       - "traefik.http.routers.http-catchall.priority=10"
       - "traefik.http.routers.http-catchall.middlewares=https-redirect@file"
       - "traefik.http.routers.http-catchall.service=noop@internal"
+      # Dashboard configuration only
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN}`)"
+      - "traefik.http.routers.dashboard.entrypoints=https"
+      - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.tls.certresolver=${TRAEFIK_DASHBOARD_CERTRESOLVER:+${TRAEFIK_DASHBOARD_CERTRESOLVER}}"
+      - "traefik.http.routers.dashboard.middlewares=secure-headers@file,authelia@file"
+      - "traefik.http.routers.dashboard.service=api@internal"
     ports:
       - "80:80"
       - "443:443/tcp"

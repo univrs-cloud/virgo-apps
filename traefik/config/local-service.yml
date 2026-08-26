@@ -19,20 +19,6 @@ http:
       middlewares:
         - "secure-headers@file"
 
-    dashboard:
-      rule: "Host(`traefik.{{ env `DOMAIN` }}`)"
-      entryPoints:
-        - "https"
-      service: "api@internal"
-      tls: {{ if or (eq (env `CERTRESOLVER`) "") (eq (env `CERTRESOLVER`) "ledns") }}
-        {}
-      {{ else }}
-        certResolver: "{{ env `CERTRESOLVER` }}"
-      {{ end }}
-      middlewares:
-        - "secure-headers@file"
-        - "authelia@file"
-
   services:
     localservice:
       loadBalancer:
