@@ -69,7 +69,7 @@ services:
       - "traefik.docker.allowNonRunning=true"
       - "traefik.http.routers.mail-cert.rule=Host(`mail.${MX_DOMAIN}`)"
       - "traefik.http.routers.mail-cert.entrypoints=https"
-      - "traefik.http.routers.mail-cert.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.mail-cert.tls.certresolver=le"
       - "traefik.http.routers.mail-cert.service=noop@internal"
       - "traefik.http.routers.mail-cert.middlewares=secure-headers@file"
       - "traefik.http.services.rspamd.loadbalancer.server.port=11334"
@@ -119,13 +119,13 @@ services:
       - "traefik.http.routers.autoconfig.service=autodiscover"
       - "traefik.http.routers.autoconfig.rule=Host(`autoconfig.${MX_DOMAIN}`)"
       - "traefik.http.routers.autoconfig.entrypoints=https"
-      - "traefik.http.routers.autoconfig.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.autoconfig.tls.certresolver=le"
       - "traefik.http.routers.autoconfig.middlewares=secure-headers@file"
       # Outlook
       - "traefik.http.routers.autodiscover.service=autodiscover"
       - "traefik.http.routers.autodiscover.rule=Host(`autodiscover.${MX_DOMAIN}`)"
       - "traefik.http.routers.autodiscover.entrypoints=https"
-      - "traefik.http.routers.autodiscover.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.autodiscover.tls.certresolver=le"
       - "traefik.http.routers.autodiscover.middlewares=secure-headers@file"
     networks:
       - virgo
