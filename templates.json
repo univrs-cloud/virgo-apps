@@ -550,6 +550,50 @@
 			]
 		},
 		{
+			"name": "plausible",
+			"title": "Plausible",
+			"description": "A lightweight, privacy-friendly and cookie-free web analytics alternative to Google Analytics.",
+			"note": "The secret needs to be at least 64 characters long and must not be changed after the first start.",
+			"logo": "https://apps.univrs.cloud/images/plausible.svg",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "plausible/docker-compose.yml"
+			},
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "analytics."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessible?",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Secret",
+					"name": "SECRET"
+				}
+			]
+		},
+		{
 			"name": "dockhand",
 			"title": "Dockhand",
 			"description": "A simple Docker management dashboard.",

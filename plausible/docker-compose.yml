@@ -1,0 +1,108 @@
+services:
+  init:
+    image: alpinelinux/docker-cli:latest-aarch64
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        wget -O /config/logs.xml https://apps.univrs.cloud/plausible/config/logs.xml; \
+        wget -O /config/low-resources.xml https://apps.univrs.cloud/plausible/config/low-resources.xml; \
+        wget -O /config/default-profile-low-resources-overrides.xml https://apps.univrs.cloud/plausible/config/default-profile-low-resources-overrides.xml; \
+        touch /config/.init_complete; \
+        sleep 10; \
+        rm -f /config/.init_complete; \
+        docker rm -f $(hostname)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /messier/apps/plausible/config:/config
+    networks:
+      - virgo
+    restart: "no"
+    healthcheck:
+      test: "[ -f /config/.init_complete ]"
+      interval: 1s
+      timeout: 1s
+      retries: 30
+      start_period: 1s
+
+  plausible:
+    image: ghcr.io/plausible/community-edition:v3
+    command: sh -c "/entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run"
+    environment:
+      - TMPDIR=/var/lib/plausible/tmp
+      - BASE_URL=https://analytics.${DOMAIN}
+      - SECRET_KEY_BASE=${SECRET}
+      - HTTP_PORT=8000
+      - DISABLE_REGISTRATION=invite_only
+      - DATABASE_URL=postgres://plausible:plausible@db:5432/plausible
+      - CLICKHOUSE_DATABASE_URL=http://events:8123/plausible_events
+    volumes:
+      - /messier/apps/plausible/data:/var/lib/plausible
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.plausible.loadbalancer.server.port=8000"
+      - "traefik.http.routers.plausible.service=plausible"
+      - "traefik.http.routers.plausible.rule=Host(`analytics.${DOMAIN}`)"
+      - "traefik.http.routers.plausible.entrypoints=https"
+      - "traefik.http.routers.plausible.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.plausible.middlewares=secure-headers@file"
+    ulimits:
+      nofile:
+        soft: 65535
+        hard: 65535
+    networks:
+      - internal
+      - virgo
+    depends_on:
+      db:
+        condition: service_healthy
+      events:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:18-alpine
+    environment:
+      - POSTGRES_DB=plausible
+      - POSTGRES_USER=plausible
+      - POSTGRES_PASSWORD=plausible
+    volumes:
+      # PostgreSQL 18 keeps its data in $PGDATA=/var/lib/postgresql/18/docker
+      - /messier/apps/plausible/db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U plausible"]
+      start_period: 1m
+    networks:
+      - internal
+    restart: unless-stopped
+
+  events:
+    image: clickhouse/clickhouse-server:24.12-alpine
+    environment:
+      - CLICKHOUSE_SKIP_USER_SETUP=1
+    volumes:
+      - /messier/apps/plausible/events/data:/var/lib/clickhouse
+      - /messier/apps/plausible/events/logs:/var/log/clickhouse-server
+      - /messier/apps/plausible/config/logs.xml:/etc/clickhouse-server/config.d/logs.xml:ro
+      - /messier/apps/plausible/config/low-resources.xml:/etc/clickhouse-server/config.d/low-resources.xml:ro
+      - /messier/apps/plausible/config/default-profile-low-resources-overrides.xml:/etc/clickhouse-server/users.d/default-profile-low-resources-overrides.xml:ro
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    mem_limit: 2g
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 -O - http://127.0.0.1:8123/ping || exit 1"]
+      start_period: 1m
+    networks:
+      - internal
+    depends_on:
+      init:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  internal:
+    internal: true
+  virgo:
+    external: true
