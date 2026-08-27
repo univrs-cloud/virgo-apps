@@ -7,6 +7,7 @@ services:
         wget -O /config/logs.xml https://apps.univrs.cloud/plausible/config/logs.xml; \
         wget -O /config/low-resources.xml https://apps.univrs.cloud/plausible/config/low-resources.xml; \
         wget -O /config/default-profile-low-resources-overrides.xml https://apps.univrs.cloud/plausible/config/default-profile-low-resources-overrides.xml; \
+        chown -R 999 /data; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
@@ -14,6 +15,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/plausible/config:/config
+      - /messier/apps/plausible/data:/data
     networks:
       - virgo
     restart: "no"
@@ -54,6 +56,8 @@ services:
       - internal
       - virgo
     depends_on:
+      init:
+        condition: service_healthy
       db:
         condition: service_healthy
       events:

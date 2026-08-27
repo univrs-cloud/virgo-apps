@@ -18,6 +18,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The dashboard is served on the traefik subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "traefik."
@@ -25,6 +26,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -41,6 +43,7 @@
 				{
 					"type": "email",
 					"label": "Email address (Let's Encrypt)",
+					"description": "Address Let's Encrypt uses for expiry notices and account recovery. It is never shown publicly.",
 					"name": "EMAIL",
 					"default": ""
 				}
@@ -62,6 +65,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The sign-on portal is served on the auth subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "auth."
@@ -69,6 +73,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -100,6 +105,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The admin interface is served on the pihole subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "pihole."
@@ -107,6 +113,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -123,12 +130,14 @@
 				{
 					"type": "text",
 					"label": "Host IP address",
+					"description": "LAN address of this node. Pi-hole answers DNS on port 53 here and hands this address to clients.",
 					"name": "HOST_IP",
 					"default": "192.168.100.2"
 				},
 				{
 					"type": "radio",
 					"label": "DHCP server enabled",
+					"description": "Enable only if nothing else on the network leases addresses. Two DHCP servers on one LAN will conflict.",
 					"name": "DHCP_ACTIVE",
 					"select": [
 						{
@@ -145,24 +154,28 @@
 				{
 					"type": "text",
 					"label": "DHCP from",
+					"description": "First address in the range Pi-hole may lease to clients.",
 					"name": "DHCP_START",
 					"default": "192.168.100.100"
 				},
 				{
 					"type": "text",
 					"label": "DHCP to",
+					"description": "Last address in the range Pi-hole may lease to clients.",
 					"name": "DHCP_END",
 					"default": "192.168.100.250"
 				},
 				{
 					"type": "text",
 					"label": "Router (gateway) IP address",
+					"description": "Default gateway handed to DHCP clients, normally your router.",
 					"name": "DHCP_ROUTER",
 					"default": "192.168.100.1"
 				},
 				{
 					"type": "password",
 					"label": "Password (administrator)",
+					"description": "Password for the Pi-hole admin interface and API.",
 					"name": "PASSWORD",
 					"default": ""
 				}
@@ -185,6 +198,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The VPN interface is served on the vpn subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "vpn."
@@ -192,6 +206,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -208,12 +223,14 @@
 				{
 					"type": "text",
 					"label": "DNS",
+					"description": "DNS server pushed to connected clients. Point it at Pi-hole to keep filtering active over the VPN.",
 					"name": "DEFAULT_DNS",
 					"default": "192.168.100.2"
 				},
 				{
 					"type": "password",
 					"label": "Password (administrator)",
+					"description": "Password for the wg-easy web interface. The user name is voyager.",
 					"name": "PASSWORD",
 					"default": ""
 				}
@@ -236,6 +253,7 @@
 				{
 					"type": "text",
 					"label": "MX domain",
+					"description": "The domain your email addresses end in. The mail host needs public MX and reverse DNS records.",
 					"name": "MX_DOMAIN",
 					"default": "",
 					"prefix": "mail."
@@ -243,6 +261,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The Rspamd filter interface is served on the rspamd subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "rspamd."
@@ -250,6 +269,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -281,6 +301,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The browser terminal is served on the terminal subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "terminal."
@@ -288,6 +309,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -304,6 +326,7 @@
 				{
 					"type": "text",
 					"label": "Host",
+					"description": "Address Wetty opens the SSH session to, normally this node.",
 					"name": "SSHHOST",
 					"default": "192.168.100.2"
 				}
@@ -325,6 +348,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The web interface is served on the torrent subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "torrent."
@@ -332,6 +356,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -364,6 +389,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. Nextcloud is served on the nextcloud subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "nextcloud."
@@ -371,6 +397,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -403,6 +430,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The high-performance backend is served on the talk subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "talk."
@@ -410,6 +438,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -426,16 +455,19 @@
 				{
 					"type": "password",
 					"label": "TURN secret",
+					"description": "Shared secret between Nextcloud Talk and the TURN server. Enter the same value in the Talk settings.",
 					"name": "TURN_SECRET"
 				},
 				{
 					"type": "password",
 					"label": "Signaling secret",
+					"description": "Shared secret between Nextcloud Talk and the signaling server. Enter the same value in the Talk settings.",
 					"name": "SIGNALING_SECRET"
 				},
 				{
 					"type": "password",
 					"label": "Internal secret",
+					"description": "Shared secret used between the backend services. It is not entered anywhere else.",
 					"name": "INTERNAL_SECRET"
 				}
 			]
@@ -457,6 +489,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The editor is served on the euro-office subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "euro-office."
@@ -464,6 +497,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -480,6 +514,7 @@
 				{
 					"type": "password",
 					"label": "Secret",
+					"description": "JWT secret shared with Nextcloud. Enter the same value in the Nextcloud Office settings.",
 					"name": "SECRET"
 				}
 			]
@@ -500,6 +535,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. Gitea is served on the gitea subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "gitea."
@@ -507,6 +543,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -538,12 +575,14 @@
 				{
 					"type": "text",
 					"label": "Gitea URL",
+					"description": "Address of the Gitea instance this runner registers with.",
 					"name": "GITEA_INSTANCE_URL",
 					"default": "https://gitea."
 				},
 				{
 					"type": "password",
 					"label": "Registration token",
+					"description": "Registration token from Gitea, under Site Administration, Actions, Runners.",
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
 				}
@@ -566,6 +605,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The dashboard is served on the analytics subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "analytics."
@@ -573,6 +613,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
@@ -589,6 +630,7 @@
 				{
 					"type": "password",
 					"label": "Secret",
+					"description": "Key used to sign sessions and cookies. Changing it later signs everyone out.",
 					"name": "SECRET"
 				}
 			]
@@ -609,6 +651,7 @@
 				{
 					"type": "text",
 					"label": "Domain",
+					"description": "Base domain of this node. The dashboard is served on the dockhand subdomain.",
 					"name": "DOMAIN",
 					"default": "",
 					"prefix": "dockhand."
@@ -616,6 +659,7 @@
 				{
 					"type": "radio",
 					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
