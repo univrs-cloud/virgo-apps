@@ -43,7 +43,9 @@ services:
       # EntryPoints
       #- "--entrypoints.ssh.address=:22"
       - "--entrypoints.http.address=:80"
+      - "--entrypoints.http.http.aliasHeadersStrategy=keep"
       - "--entrypoints.https.address=:443"
+      - "--entrypoints.https.http.aliasHeadersStrategy=keep"
       - "--entrypoints.https.http.tls=true"
       - "--entrypoints.https.http.middlewares=default-ratelimit@file"
       - "--entrypoints.https.http3=true"
