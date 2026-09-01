@@ -26,14 +26,12 @@ services:
       start_period: 1s
 
   mailserver:
-    image: ghcr.io/docker-mailserver/docker-mailserver:15
+    image: ghcr.io/docker-mailserver/docker-mailserver:16
     hostname: mail
     domainname: ${MX_DOMAIN}
     dns:
       - 172.30.0.2
     environment:
-      - PUID=1000
-      - PGID=100
       - SSL_TYPE=letsencrypt
       - SSL_DOMAIN=mail.${MX_DOMAIN}
       - POSTMASTER_ADDRESS=postmaster@${MX_DOMAIN}
@@ -93,10 +91,6 @@ services:
     stop_grace_period: 1m
     cap_add:
       - NET_ADMIN
-    healthcheck:
-      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
-      timeout: 3s
-      retries: 3
 
   autodiscover:
     image: ghcr.io/univrs-cloud/autodiscover-email-settings:latest
