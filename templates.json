@@ -560,8 +560,8 @@
 				},
 				{
 					"type": "password",
-					"label": "Secret",
-					"description": "JWT secret shared with Nextcloud. Enter the same value in the Nextcloud Office settings.",
+					"label": "Shared secret",
+					"description": "Shared secret between Nextcloud and the Euro Office server. Enter the same value in the Nextcloud Office settings.",
 					"name": "SECRET"
 				}
 			]
