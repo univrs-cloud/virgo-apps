@@ -11,10 +11,11 @@ services:
       - "traefik.docker.allowNonRunning=true"
       - "traefik.http.services.whiteboard.loadbalancer.server.port=3002"
       - "traefik.http.routers.whiteboard.service=whiteboard"
-      - "traefik.http.routers.whiteboard.rule=Host(`whiteboard.${DOMAIN}`)"
+      - "traefik.http.routers.whiteboard.rule=Host(`nextcloud.${DOMAIN}`) && PathPrefix(`/whiteboard`)"
       - "traefik.http.routers.whiteboard.entrypoints=https"
       - "traefik.http.routers.whiteboard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
-      - "traefik.http.routers.whiteboard.middlewares=secure-headers@file"
+      - "traefik.http.middlewares.whiteboard-stripprefix.stripprefix.prefixes=/whiteboard"
+      - "traefik.http.routers.whiteboard.middlewares=secure-headers@file,whiteboard-stripprefix"
     networks:
       - virgo
     restart: unless-stopped

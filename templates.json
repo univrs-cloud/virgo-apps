@@ -476,7 +476,7 @@
 			"name": "nextcloud-whiteboard",
 			"title": "Nextcloud - Whiteboard",
 			"description": "Collaboration server for the Nextcloud Whiteboard app, letting several people draw on the same board at once.",
-			"note": "Install the Whiteboard app in Nextcloud, then open Administration settings, Whiteboard and enter the server URL `https://whiteboard.<domain>` together with the same shared secret.",
+			"note": "Install the Whiteboard app in Nextcloud, then open Administration settings, Whiteboard and enter the server URL `https://nextcloud.<domain>/whiteboard` together with the same shared secret.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-whiteboard.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
@@ -489,10 +489,10 @@
 				{
 					"type": "text",
 					"label": "Domain",
-					"description": "Base domain of this node. The whiteboard is served on the whiteboard subdomain, Nextcloud is expected on the nextcloud subdomain.",
+					"description": "Base domain of this node. The whiteboard is served under the whiteboard path on the nextcloud subdomain, so it shares the origin with Nextcloud.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "whiteboard."
+					"prefix": "nextcloud."
 				},
 				{
 					"type": "radio",
