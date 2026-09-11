@@ -1,6 +1,6 @@
 services:
   init:
-    image: alpinelinux/docker-cli:latest-aarch64
+    image: alpinelinux/docker-cli:latest
     entrypoint: ["/bin/sh", "-c"]
     environment:
       - DOMAIN=${DOMAIN}
