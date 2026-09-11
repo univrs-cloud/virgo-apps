@@ -1,0 +1,24 @@
+services:
+  whiteboard:
+    image: ghcr.io/nextcloud-releases/whiteboard:stable
+    init: true
+    environment:
+      - NEXTCLOUD_URL=https://nextcloud.${DOMAIN}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - PORT=3002
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.whiteboard.loadbalancer.server.port=3002"
+      - "traefik.http.routers.whiteboard.service=whiteboard"
+      - "traefik.http.routers.whiteboard.rule=Host(`whiteboard.${DOMAIN}`)"
+      - "traefik.http.routers.whiteboard.entrypoints=https"
+      - "traefik.http.routers.whiteboard.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.whiteboard.middlewares=secure-headers@file"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true

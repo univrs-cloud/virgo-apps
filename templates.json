@@ -418,7 +418,7 @@
 			"title": "Nextcloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
 			"note": "TCP and UDP port 3478 need to be forwarded.",
-			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"logo": "https://apps.univrs.cloud/images/nextcloud-hpb.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud-hpb/docker-compose.yml"
@@ -469,6 +469,53 @@
 					"label": "Internal secret",
 					"description": "Shared secret used between the backend services. It is not entered anywhere else.",
 					"name": "INTERNAL_SECRET"
+				}
+			]
+		},
+		{
+			"name": "nextcloud-whiteboard",
+			"title": "Nextcloud - Whiteboard",
+			"description": "Collaboration server for the Nextcloud Whiteboard app, letting several people draw on the same board at once.",
+			"note": "Install the Whiteboard app in Nextcloud, then open Administration settings, Whiteboard and enter the server URL `https://whiteboard.<domain>` together with the same shared secret.",
+			"logo": "https://apps.univrs.cloud/images/nextcloud-whiteboard.svg",
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "nextcloud-whiteboard/docker-compose.yml"
+			},
+			"categories": [
+				"Productivity"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"description": "Base domain of this node. The whiteboard is served on the whiteboard subdomain, Nextcloud is expected on the nextcloud subdomain.",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "whiteboard."
+				},
+				{
+					"type": "radio",
+					"label": "Is the domain publicly accessible?",
+					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Yes",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "No"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Shared secret",
+					"description": "Shared secret between Nextcloud and the whiteboard server. Enter the same value in the Whiteboard settings.",
+					"name": "JWT_SECRET_KEY"
 				}
 			]
 		},
