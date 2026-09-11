@@ -417,7 +417,7 @@
 			"name": "nextcloud-hpb",
 			"title": "Nextcloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
-			"note": "TCP and UDP port 3478 need to be forwarded.",
+			"note": "TCP and UDP port 3478 need to be forwarded. Install the Talk app in Nextcloud, then open Administration settings, Talk and add the STUN servers `talk.<domain>:443` and `talk.<domain>:3478`, the TURN server `talk.<domain>:3478` with the TURN secret over UDP and TCP, and the high-performance backend `wss://talk.<domain>` with the signaling secret.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-hpb.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
