@@ -417,7 +417,7 @@
 			"name": "nextcloud-hpb",
 			"title": "Nextcloud - High performance backend",
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
-			"note": "TCP and UDP port 3478 need to be forwarded. Install the Talk app in Nextcloud, then open Administration settings, Talk and add the STUN servers `talk.<domain>:443` and `talk.<domain>:3478`, the TURN server `talk.<domain>:3478` with the TURN secret over UDP and TCP, and the high-performance backend `wss://talk.<domain>` with the signaling secret.",
+			"note": "TCP and UDP port 3478 need to be forwarded. Install the Talk app in Nextcloud, then open Administration settings, Talk and add the high-performance backend `wss://talk.<domain>` with the signaling secret, the STUN servers `talk.<domain>:443` and `talk.<domain>:3478`, and the TURN server `talk.<domain>:3478` with the TURN secret over UDP and TCP.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-hpb.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
@@ -523,7 +523,7 @@
 			"name": "euro-office",
 			"title": "Euro Office",
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
-			"note": "",
+			"note": "Install the Nextcloud Office app in Nextcloud, then open Administration settings, Nextcloud Office and enter the address `https://euro-office.<domain>/` together with the same secret key. Tick Disable certificate verification if the domain is not publicly accessible.",
 			"logo": "https://apps.univrs.cloud/images/euro-office.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
@@ -639,7 +639,7 @@
 			"name": "plausible",
 			"title": "Plausible",
 			"description": "A lightweight, privacy-friendly and cookie-free web analytics alternative to Google Analytics.",
-			"note": "The secret needs to be at least 64 characters long and must not be changed after the first start.",
+			"note": "",
 			"logo": "https://apps.univrs.cloud/images/plausible.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
