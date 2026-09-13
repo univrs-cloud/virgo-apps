@@ -89,6 +89,7 @@ services:
       virgo:
         priority: 100
       internal:
+        ipv4_address: 10.30.0.3
         priority: 10
     depends_on:
       init:
@@ -151,5 +152,6 @@ networks:
     ipam:
       config:
         - subnet: 10.30.0.0/24
+          ip_range: 10.30.0.128/25
   virgo:
     external: true
