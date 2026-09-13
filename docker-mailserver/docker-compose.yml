@@ -87,10 +87,9 @@ services:
       - "4190:4190"
     networks:
       virgo:
-        priority: 100
-      internal:
+        gw_priority: 1
+      resolver:
         ipv4_address: 10.30.0.3
-        priority: 10
     depends_on:
       init:
         condition: service_healthy
@@ -104,7 +103,7 @@ services:
   unbound:
     image: klutchell/unbound:latest
     networks:
-      internal:
+      resolver:
         ipv4_address: 10.30.0.2
     healthcheck:
       test: ["CMD", "drill-hc", "@127.0.0.1", "dnssec.works"]
@@ -148,7 +147,7 @@ services:
     restart: always
 
 networks:
-  internal:
+  resolver:
     ipam:
       config:
         - subnet: 10.30.0.0/24
