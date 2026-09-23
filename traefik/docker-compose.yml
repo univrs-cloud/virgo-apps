@@ -92,7 +92,8 @@ services:
       - "443:443/tcp"
       - "443:443/udp"
     networks:
-      - virgo
+      virgo:
+        ipv4_address: 172.30.0.2
     depends_on:
       init:
         condition: service_healthy
