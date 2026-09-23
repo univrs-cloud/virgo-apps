@@ -52,8 +52,6 @@ services:
       - "--entrypoints.https.http3.advertisedPort=443"
       - "--entryPoints.https.forwardedHeaders.insecure=false"
       - "--entryPoints.https.forwardedHeaders.trustedIPs=10.8.0.0/16,172.16.0.0/12,192.168.0.0/16"
-      # Disable upstream HTTPS certificate checks (https > https)
-      - "--serversTransport.insecureSkipVerify=true"
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.network=virgo"
