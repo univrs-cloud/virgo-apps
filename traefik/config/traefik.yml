@@ -24,9 +24,6 @@ http:
         customRequestHeaders:
           x-forwarded-proto: https
         customResponseHeaders:
-          access-control-allow-origin: "*"
-          access-control-allow-methods: "GET,OPTIONS,PUT"
-          access-control-allow-headers: "authorization,content-type"
           server: ""
           x-powered-by: ""
     authelia:
