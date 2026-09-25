@@ -48,10 +48,9 @@ services:
       - "--entrypoints.https.http.aliasHeadersStrategy=keep"
       - "--entrypoints.https.http.tls=true"
       - "--entrypoints.https.http.middlewares=default-ratelimit@file"
-      - "--entrypoints.https.http3=true"
-      - "--entrypoints.https.http3.advertisedPort=443"
       - "--entryPoints.https.forwardedHeaders.insecure=false"
       - "--entryPoints.https.forwardedHeaders.trustedIPs=10.8.0.0/16,172.16.0.0/12,192.168.0.0/16"
+      - "--entryPoints.https.proxyProtocol.trustedIPs=10.8.0.0/16,172.16.0.0/12,192.168.0.0/16"
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.network=virgo"
@@ -90,7 +89,6 @@ services:
     ports:
       - "80:80"
       - "443:443/tcp"
-      - "443:443/udp"
     networks:
       virgo:
         ipv4_address: 172.30.0.2
