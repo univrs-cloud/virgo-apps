@@ -141,9 +141,9 @@
 				},
 				{
 					"type": "text",
-					"label": "Host IP address",
-					"description": "LAN address of this node. Pi-hole answers DNS on port 53 here and hands this address to clients.",
-					"name": "HOST_IP",
+					"label": "IP address",
+					"description": "The virtual IP if this node has one, otherwise the node's LAN address. Pi-hole answers DNS on port 53 here and hands this address to clients.",
+					"name": "INGRESS_IP",
 					"default": "192.168.100.2"
 				},
 				{
@@ -239,7 +239,7 @@
 				{
 					"type": "text",
 					"label": "DNS",
-					"description": "DNS server pushed to connected clients. Point it at Pi-hole to keep filtering active over the VPN.",
+					"description": "DNS server for VPN clients. With Pi-hole installed, use its address (the virtual IP, or the node's LAN address if there is none) to keep ad blocking over the VPN. Without Pi-hole, use your router's address.",
 					"name": "DEFAULT_DNS",
 					"default": "192.168.100.2"
 				},
