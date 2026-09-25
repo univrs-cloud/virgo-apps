@@ -44,6 +44,7 @@ services:
       #- "--entrypoints.ssh.address=:22"
       - "--entrypoints.http.address=:80"
       - "--entrypoints.http.http.aliasHeadersStrategy=keep"
+      - "--entryPoints.http.allowACMEByPass=true"
       - "--entrypoints.https.address=:443"
       - "--entrypoints.https.http.aliasHeadersStrategy=keep"
       - "--entrypoints.https.http.tls=true"
@@ -68,11 +69,6 @@ services:
       - "--certificatesResolvers.ledns.acme.dnsChallenge.provider=httpreq"
     labels:
       - "traefik.enable=true"
-      # Special router for Let's Encrypt HTTP challenge
-      - "traefik.http.routers.acme-challenge.rule=PathPrefix(`/.well-known/acme-challenge/`)"
-      - "traefik.http.routers.acme-challenge.entrypoints=http"
-      - "traefik.http.routers.acme-challenge.priority=100"
-      - "traefik.http.routers.acme-challenge.service=noop@internal"
       # HTTP to HTTPS redirect router - lower priority (10) than the ACME router
       - "traefik.http.routers.http-catchall.rule=HostRegexp(`^.+$`)"
       - "traefik.http.routers.http-catchall.entrypoints=http"
