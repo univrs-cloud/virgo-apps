@@ -4,7 +4,7 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       - |
-        [ -f /config/configuration.yml ] || wget -O /config/configuration.yml https://apps.univrs.cloud/authelia/config/configuration.yml; \
+        wget -O /config/configuration.yml https://apps.univrs.cloud/authelia/config/configuration.yml; \
         [ -f /config/users.yml ] || wget -O /config/users.yml https://apps.univrs.cloud/authelia/config/users.yml; \
         mkdir -p /config/assets/locales/en; \
         wget -O /config/assets/logo.png https://apps.univrs.cloud/authelia/config/assets/logo.png; \
@@ -60,7 +60,6 @@ services:
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_PASSWORD_BCRYPT_VARIANT=standard
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_PASSWORD_BCRYPT_COST=12
       - AUTHELIA_ACCESS_CONTROL_DEFAULT_POLICY=one_factor
-      - AUTHELIA_SESSION_NAME=virgoOS
       - AUTHELIA_SESSION_REDIS_HOST=redis
       - AUTHELIA_SESSION_REDIS_PORT=6379
       - AUTHELIA_SESSION_REMEMBER_ME=7d

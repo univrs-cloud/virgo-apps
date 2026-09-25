@@ -8,9 +8,8 @@ http:
       tls: {{ if eq (env `CERTRESOLVER`) "ledns" }}
         certResolver: "ledns"
         domains:
-          - main: "{{ env `DOMAIN` }}"
-            sans:
-              - "*.{{ env `DOMAIN` }}"
+          - main: "*.{{ join `.` (rest (splitList `.` (env `DOMAIN`))) }}"
+          - main: "*.{{ env `DOMAIN` }}"
       {{ else if ne (env `CERTRESOLVER`) "" }}
         certResolver: "{{ env `CERTRESOLVER` }}"
       {{ else }}

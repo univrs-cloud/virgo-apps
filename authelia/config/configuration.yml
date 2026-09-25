@@ -12,7 +12,7 @@ access_control:
   rules:
   - domain: "auth.{{ env `DOMAIN` }}" #this should be your authentication URL
     policy: "bypass"
-  - domain: ["*.{{ env `DOMAIN` }}", "{{ env `DOMAIN` }}"]
+  - domain: ["*.{{ join `.` (slice (splitList `.` (env `DOMAIN`)) 1) }}", "*.{{ env `DOMAIN` }}", "{{ env `DOMAIN` }}"]
     policy: "bypass"
     networks:
       - "192.168.0.0/16" #bypass if connected on local network
@@ -20,6 +20,7 @@ access_control:
 
 session:
   cookies:
-  - domain: "{{ env `DOMAIN` }}" #should match whatever your root protected domain is
+  - domain: "{{ join `.` (slice (splitList `.` (env `DOMAIN`)) 1) }}" #should match whatever your root protected domain is
+    name: "virgoOS_{{ index (splitList `.` (env `DOMAIN`)) 0 }}"
     authelia_url: "https://auth.{{ env `DOMAIN` }}"
 ...
