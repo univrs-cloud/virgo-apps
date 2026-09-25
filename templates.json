@@ -14,6 +14,10 @@
 			"categories": [
 				"System"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -61,6 +65,10 @@
 			"categories": [
 				"System"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -100,6 +108,10 @@
 			},
 			"categories": [
 				"Networking"
+			],
+			"platforms": [
+				"arm64",
+				"amd64"
 			],
 			"env": [
 				{
@@ -194,6 +206,10 @@
 			"categories": [
 				"Networking"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -249,6 +265,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -297,6 +317,10 @@
 			"categories": [
 				"Networking"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -344,6 +368,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -385,6 +413,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -425,6 +457,10 @@
 			},
 			"categories": [
 				"Productivity"
+			],
+			"platforms": [
+				"arm64",
+				"amd64"
 			],
 			"env": [
 				{
@@ -485,6 +521,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -532,6 +572,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -578,6 +622,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -618,6 +666,10 @@
 			"categories": [
 				"Productivity"
 			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -647,6 +699,10 @@
 			},
 			"categories": [
 				"Productivity"
+			],
+			"platforms": [
+				"arm64",
+				"amd64"
 			],
 			"env": [
 				{
@@ -693,6 +749,10 @@
 			},
 			"categories": [
 				"System"
+			],
+			"platforms": [
+				"arm64",
+				"amd64"
 			],
 			"env": [
 				{
