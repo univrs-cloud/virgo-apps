@@ -17,6 +17,20 @@ http:
       {{ end }}
       middlewares:
         - "secure-headers@file"
+    misdirected:
+      rule: "PathPrefix(`/`)"
+      priority: 1
+      entryPoints:
+        - "https"
+      service: "localservice"
+      tls: {}
+      middlewares:
+        - "misdirected"
+
+  middlewares:
+    misdirected:
+      addPrefix:
+        prefix: "/__misdirected"
 
   services:
     localservice:
