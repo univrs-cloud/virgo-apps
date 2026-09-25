@@ -29,18 +29,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -80,18 +80,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				}
@@ -124,18 +124,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -221,18 +221,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -288,18 +288,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				}
@@ -332,18 +332,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -383,18 +383,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				}
@@ -428,18 +428,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				}
@@ -473,18 +473,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -536,18 +536,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -587,18 +587,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -637,18 +637,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				}
@@ -715,18 +715,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				},
@@ -765,18 +765,18 @@
 				},
 				{
 					"type": "radio",
-					"label": "Is the domain publicly accessible?",
-					"description": "Choose Yes to request a Let's Encrypt certificate over the internet. Choose No if the domain only resolves on the local network.",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
 					"name": "CERTRESOLVER",
 					"select": [
 						{
 							"value": "le",
-							"text": "Yes",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
 							"default": true
 						},
 						{
 							"value": "",
-							"text": "No"
+							"text": "Self-signed (local network only)"
 						}
 					]
 				}
