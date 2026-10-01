@@ -26,7 +26,10 @@
 					"name": "DOMAIN",
 					"readonly": true,
 					"default": "",
-					"prefix": "traefik."
+					"prefix": "traefik.",
+					"auth": {
+						"policy": "required"
+					}
 				},
 				{
 					"type": "radio",
@@ -52,15 +55,7 @@
 					"name": "EMAIL",
 					"default": ""
 				}
-			],
-			"auth": {
-				"mode": "required",
-				"defaultEnabled": true,
-				"routers": [
-					"dashboard"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "authelia",
@@ -86,7 +81,10 @@
 					"name": "DOMAIN",
 					"readonly": true,
 					"default": "",
-					"prefix": "auth."
+					"prefix": "auth.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -105,15 +103,7 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"authelia"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "pihole",
@@ -138,7 +128,10 @@
 					"description": "Base domain of this node. The admin interface is served on the pihole subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "pihole."
+					"prefix": "pihole.",
+					"auth": {
+						"policy": "required"
+					}
 				},
 				{
 					"type": "radio",
@@ -209,15 +202,7 @@
 					"name": "PASSWORD",
 					"default": ""
 				}
-			],
-			"auth": {
-				"mode": "required",
-				"defaultEnabled": true,
-				"routers": [
-					"pihole"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "wg-easy",
@@ -243,7 +228,10 @@
 					"description": "Base domain of this node. The VPN interface is served on the vpn subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "vpn."
+					"prefix": "vpn.",
+					"auth": {
+						"policy": "required"
+					}
 				},
 				{
 					"type": "radio",
@@ -276,15 +264,7 @@
 					"name": "PASSWORD",
 					"default": ""
 				}
-			],
-			"auth": {
-				"mode": "required",
-				"defaultEnabled": true,
-				"routers": [
-					"wireguard"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "mailserver",
@@ -310,7 +290,10 @@
 					"description": "The domain your email addresses end in. The mail host needs public MX and reverse DNS records.",
 					"name": "MX_DOMAIN",
 					"default": "",
-					"prefix": "mail."
+					"prefix": "mail.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "text",
@@ -318,7 +301,10 @@
 					"description": "Base domain of this node. The Rspamd filter interface is served on the rspamd subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "rspamd."
+					"prefix": "rspamd.",
+					"auth": {
+						"policy": "required"
+					}
 				},
 				{
 					"type": "radio",
@@ -337,15 +323,7 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"mode": "required",
-				"defaultEnabled": true,
-				"routers": [
-					"rspamd"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "wetty",
@@ -371,7 +349,10 @@
 					"name": "DOMAIN",
 					"readonly": true,
 					"default": "",
-					"prefix": "terminal."
+					"prefix": "terminal.",
+					"auth": {
+						"policy": "required"
+					}
 				},
 				{
 					"type": "radio",
@@ -397,15 +378,7 @@
 					"name": "SSHHOST",
 					"default": "192.168.100.2"
 				}
-			],
-			"auth": {
-				"mode": "required",
-				"defaultEnabled": true,
-				"routers": [
-					"wetty"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "qbittorrent",
@@ -430,7 +403,11 @@
 					"description": "Base domain of this node. The web interface is served on the torrent subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "torrent."
+					"prefix": "torrent.",
+					"auth": {
+						"policy": "optional",
+						"default": true
+					}
 				},
 				{
 					"type": "radio",
@@ -449,15 +426,7 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"mode": "optional",
-				"defaultEnabled": true,
-				"routers": [
-					"qbittorrent"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "nextcloud",
@@ -483,7 +452,10 @@
 					"description": "Base domain of this node. Nextcloud is served on the nextcloud subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "nextcloud."
+					"prefix": "nextcloud.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -502,15 +474,7 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"nextcloud"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "nextcloud-hpb",
@@ -536,7 +500,10 @@
 					"description": "Base domain of this node. The high-performance backend is served on the talk subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "talk."
+					"prefix": "talk.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -573,15 +540,7 @@
 					"description": "Shared secret used between the backend services. It is not entered anywhere else.",
 					"name": "INTERNAL_SECRET"
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"talk"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "nextcloud-whiteboard",
@@ -607,7 +566,10 @@
 					"description": "Base domain of this node. The whiteboard is served under the whiteboard path on the nextcloud subdomain, so it shares the origin with Nextcloud.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "nextcloud."
+					"prefix": "nextcloud.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -632,15 +594,7 @@
 					"description": "Shared secret between Nextcloud and the whiteboard server. Enter the same value in the Whiteboard settings.",
 					"name": "JWT_SECRET_KEY"
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"whiteboard"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "euro-office",
@@ -666,7 +620,10 @@
 					"description": "Base domain of this node. The editor is served on the euro-office subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "euro-office."
+					"prefix": "euro-office.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -691,15 +648,7 @@
 					"description": "Shared secret between Nextcloud and the Euro Office server. Enter the same value in the Nextcloud Office settings.",
 					"name": "SECRET"
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"euro-office"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "gitea",
@@ -724,7 +673,10 @@
 					"description": "Base domain of this node. Gitea is served on the gitea subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "gitea."
+					"prefix": "gitea.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -743,15 +695,7 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"gitea"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "gitea-runner",
@@ -784,13 +728,7 @@
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [],
-				"envName": null
-			}
+			]
 		},
 		{
 			"name": "plausible",
@@ -816,7 +754,10 @@
 					"description": "Base domain of this node. The dashboard is served on the analytics subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "analytics."
+					"prefix": "analytics.",
+					"auth": {
+						"policy": "none"
+					}
 				},
 				{
 					"type": "radio",
@@ -841,15 +782,7 @@
 					"description": "Key used to sign sessions and cookies. Changing it later signs everyone out.",
 					"name": "SECRET"
 				}
-			],
-			"auth": {
-				"mode": "unsupported",
-				"defaultEnabled": false,
-				"routers": [
-					"plausible"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		},
 		{
 			"name": "dockhand",
@@ -874,7 +807,10 @@
 					"description": "Base domain of this node. The dashboard is served on the dockhand subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "dockhand."
+					"prefix": "dockhand.",
+					"auth": {
+						"policy": "required"
+					}
 				},
 				{
 					"type": "radio",
@@ -893,15 +829,7 @@
 						}
 					]
 				}
-			],
-			"auth": {
-				"mode": "required",
-				"defaultEnabled": true,
-				"routers": [
-					"dockhand"
-				],
-				"envName": "DOMAIN"
-			}
+			]
 		}
 	]
 }
