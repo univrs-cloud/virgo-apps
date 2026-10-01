@@ -24,6 +24,7 @@
 					"label": "Domain",
 					"description": "Base domain of this node. The dashboard is served on the traefik subdomain.",
 					"name": "DOMAIN",
+					"readonly": true,
 					"default": "",
 					"prefix": "traefik."
 				},
@@ -51,7 +52,15 @@
 					"name": "EMAIL",
 					"default": ""
 				}
-			]
+			],
+			"auth": {
+				"mode": "required",
+				"defaultEnabled": true,
+				"routers": [
+					"dashboard"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "authelia",
@@ -75,6 +84,7 @@
 					"label": "Domain",
 					"description": "Base domain of this node. The sign-on portal is served on the auth subdomain.",
 					"name": "DOMAIN",
+					"readonly": true,
 					"default": "",
 					"prefix": "auth."
 				},
@@ -95,7 +105,15 @@
 						}
 					]
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"authelia"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "pihole",
@@ -191,7 +209,15 @@
 					"name": "PASSWORD",
 					"default": ""
 				}
-			]
+			],
+			"auth": {
+				"mode": "required",
+				"defaultEnabled": true,
+				"routers": [
+					"pihole"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "wg-easy",
@@ -250,7 +276,15 @@
 					"name": "PASSWORD",
 					"default": ""
 				}
-			]
+			],
+			"auth": {
+				"mode": "required",
+				"defaultEnabled": true,
+				"routers": [
+					"wireguard"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "mailserver",
@@ -303,7 +337,15 @@
 						}
 					]
 				}
-			]
+			],
+			"auth": {
+				"mode": "required",
+				"defaultEnabled": true,
+				"routers": [
+					"rspamd"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "wetty",
@@ -327,6 +369,7 @@
 					"label": "Domain",
 					"description": "Base domain of this node. The browser terminal is served on the terminal subdomain.",
 					"name": "DOMAIN",
+					"readonly": true,
 					"default": "",
 					"prefix": "terminal."
 				},
@@ -354,7 +397,15 @@
 					"name": "SSHHOST",
 					"default": "192.168.100.2"
 				}
-			]
+			],
+			"auth": {
+				"mode": "required",
+				"defaultEnabled": true,
+				"routers": [
+					"wetty"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "qbittorrent",
@@ -398,7 +449,15 @@
 						}
 					]
 				}
-			]
+			],
+			"auth": {
+				"mode": "optional",
+				"defaultEnabled": true,
+				"routers": [
+					"qbittorrent"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "nextcloud",
@@ -443,7 +502,15 @@
 						}
 					]
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"nextcloud"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "nextcloud-hpb",
@@ -506,7 +573,15 @@
 					"description": "Shared secret used between the backend services. It is not entered anywhere else.",
 					"name": "INTERNAL_SECRET"
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"talk"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "nextcloud-whiteboard",
@@ -557,7 +632,15 @@
 					"description": "Shared secret between Nextcloud and the whiteboard server. Enter the same value in the Whiteboard settings.",
 					"name": "JWT_SECRET_KEY"
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"whiteboard"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "euro-office",
@@ -608,7 +691,15 @@
 					"description": "Shared secret between Nextcloud and the Euro Office server. Enter the same value in the Nextcloud Office settings.",
 					"name": "SECRET"
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"euro-office"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "gitea",
@@ -652,7 +743,15 @@
 						}
 					]
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"gitea"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "gitea-runner",
@@ -685,7 +784,13 @@
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [],
+				"envName": null
+			}
 		},
 		{
 			"name": "plausible",
@@ -736,7 +841,15 @@
 					"description": "Key used to sign sessions and cookies. Changing it later signs everyone out.",
 					"name": "SECRET"
 				}
-			]
+			],
+			"auth": {
+				"mode": "unsupported",
+				"defaultEnabled": false,
+				"routers": [
+					"plausible"
+				],
+				"envName": "DOMAIN"
+			}
 		},
 		{
 			"name": "dockhand",
@@ -780,7 +893,15 @@
 						}
 					]
 				}
-			]
+			],
+			"auth": {
+				"mode": "required",
+				"defaultEnabled": true,
+				"routers": [
+					"dockhand"
+				],
+				"envName": "DOMAIN"
+			}
 		}
 	]
 }
