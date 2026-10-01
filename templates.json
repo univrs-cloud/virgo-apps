@@ -335,7 +335,7 @@
 				"stackfile": "wetty/docker-compose.yml"
 			},
 			"categories": [
-				"Networking"
+				"System"
 			],
 			"platforms": [
 				"arm64",
