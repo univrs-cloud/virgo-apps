@@ -18,6 +18,10 @@
 				"arm64",
 				"amd64"
 			],
+			"restoreZones": [
+				"/config",
+				"/letsencrypt"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -73,6 +77,10 @@
 				"arm64",
 				"amd64"
 			],
+			"restoreZones": [
+				"/config",
+				"/secrets"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -120,6 +128,11 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"restoreZones": [
+				"/data",
+				"/dnsmasq.d",
+				"/unbound.conf.d"
 			],
 			"env": [
 				{
@@ -221,6 +234,9 @@
 				"arm64",
 				"amd64"
 			],
+			"restoreZones": [
+				"/"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -282,6 +298,10 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"restoreZones": [
+				"/config",
+				"/data"
 			],
 			"env": [
 				{
@@ -396,6 +416,9 @@
 				"arm64",
 				"amd64"
 			],
+			"restoreZones": [
+				"/"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -444,6 +467,10 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"restoreZones": [
+				"/config",
+				"/data/*/files"
 			],
 			"env": [
 				{
@@ -666,6 +693,9 @@
 				"arm64",
 				"amd64"
 			],
+			"restoreZones": [
+				"/data"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -713,6 +743,9 @@
 				"arm64",
 				"amd64"
 			],
+			"restoreZones": [
+				"/data"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -746,6 +779,10 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"restoreZones": [
+				"/config",
+				"/data"
 			],
 			"env": [
 				{
@@ -799,6 +836,9 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"restoreZones": [
+				"/data"
 			],
 			"env": [
 				{
