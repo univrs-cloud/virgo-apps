@@ -7,6 +7,7 @@ services:
       - DOCKER_MODS=linuxserver/mods:universal-package-install|linuxserver/mods:nextcloud-notify-push|linuxserver/mods:nextcloud-memories
       - INSTALL_PACKAGES=nodejs|npm
       - NODEJS_MOD_VERSION=24
+      - NC_filesystem_check_changes=1
     volumes:
       - /messier/apps/nextcloud/config:/config
       - /messier/apps/nextcloud/data:/data
