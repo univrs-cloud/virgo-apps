@@ -701,6 +701,7 @@
 			"name": "gitea-runner",
 			"title": "Gitea - Runner",
 			"description": "Gitea runner for actions.",
+			"multiple": true,
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
@@ -716,6 +717,14 @@
 			"env": [
 				{
 					"type": "text",
+					"label": "Name",
+					"description": "Name of this runner, used to tell several runners apart.",
+					"name": "INSTANCE",
+					"default": "",
+					"prefix": "gitea-runner-"
+				},
+				{
+					"type": "text",
 					"label": "Gitea URL",
 					"description": "Address of the Gitea instance this runner registers with.",
 					"name": "GITEA_INSTANCE_URL",
@@ -727,6 +736,13 @@
 					"description": "Registration token from Gitea, under Site Administration, Actions, Runners.",
 					"name": "RUNNER_REGISTRATION_TOKEN",
 					"default": ""
+				},
+				{
+					"type": "text",
+					"label": "Capacity",
+					"description": "Number of jobs this runner executes at the same time.",
+					"name": "RUNNER_CAPACITY",
+					"default": "1"
 				}
 			]
 		},

@@ -3,14 +3,24 @@ services:
     image: gitea/act_runner:latest
     environment:
       - GITEA_INSTANCE_URL=${GITEA_INSTANCE_URL}
-      - GITEA_RUNNER_NAME=runner
+      - GITEA_RUNNER_NAME=gitea-runner-${INSTANCE}
       - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_REGISTRATION_TOKEN}
+      - CONFIG_FILE=/config.yaml
+    configs:
+      - source: runner
+        target: /config.yaml
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/gitea-runner/data:/data
+      - /messier/apps/gitea-runner-${INSTANCE}/data:/data
     networks:
       - virgo
     restart: unless-stopped
+
+configs:
+  runner:
+    content: |
+      runner:
+        capacity: ${RUNNER_CAPACITY}
 
 networks:
   virgo:
