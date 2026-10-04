@@ -16,6 +16,8 @@ services:
       - "traefik.http.routers.euro-office.middlewares=secure-headers@file"
     networks:
       - virgo
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost/healthcheck"]
     restart: unless-stopped
 
 networks:

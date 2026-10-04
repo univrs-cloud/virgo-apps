@@ -40,6 +40,7 @@ services:
       # API and Dashboard
       - "--api.dashboard=true"
       - "--api.insecure=false"
+      - "--ping=true"
       # EntryPoints
       #- "--entrypoints.ssh.address=:22"
       - "--entrypoints.http.address=:80"
@@ -91,6 +92,8 @@ services:
     depends_on:
       init:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
     restart: always
 
 networks:

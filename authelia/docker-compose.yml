@@ -101,6 +101,8 @@ services:
       - /messier/apps/authelia/redis:/data
     networks:
       - internal
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --raw ping | grep -qx PONG"]
     restart: always
 
 networks:
