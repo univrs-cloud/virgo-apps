@@ -6,6 +6,7 @@ services:
       - PGID=100
       - BASE=/
       - SSHHOST=${SSHHOST}
+      - ALLOWEDORIGINS=https://terminal.${DOMAIN}
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
