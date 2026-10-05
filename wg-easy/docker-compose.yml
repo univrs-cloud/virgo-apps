@@ -19,7 +19,7 @@ services:
       - INIT_PASSWORD=${PASSWORD}
     volumes:
       - /lib/modules:/lib/modules:ro
-      - /messier/apps/wg-easy:/etc/wireguard
+      - /messier/apps/wg-easy/config:/etc/wireguard
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
