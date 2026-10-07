@@ -6,6 +6,15 @@ services:
       - |
         wget -O /config/traefik.yml https://apps.univrs.cloud/traefik/config/traefik.yml; \
         wget -O /config/local-service.yml https://apps.univrs.cloud/traefik/config/local-service.yml; \
+        P=/plugins/src/github.com/XciD/traefik-plugin-rewrite-headers; \
+        U=https://apps.univrs.cloud/traefik/plugins/rewrite-headers; \
+        mkdir -p $$P; \
+        for f in .traefik.yml go.mod rewrite_headers.go; do \
+          wget -O /tmp/$$f $$U/$$f && [ -s /tmp/$$f ] && mv /tmp/$$f $$P/$$f; \
+        done; \
+        if [ ! -s $$P/.traefik.yml ] || [ ! -s $$P/go.mod ] || [ ! -s $$P/rewrite_headers.go ]; then \
+          sed -i '/- "embed-csp"/d' /config/traefik.yml; \
+        fi; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
@@ -13,6 +22,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /messier/apps/traefik/config:/config
+      - /messier/apps/traefik/plugins:/plugins
     networks:
       - virgo
     restart: "no"
@@ -32,6 +42,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /messier/apps/traefik/config:/etc/traefik/config
+      - /messier/apps/traefik/plugins:/plugins-local
       - /messier/apps/traefik/letsencrypt:/letsencrypt
     command:
       # Global
@@ -53,6 +64,8 @@ services:
       - "--entryPoints.https.forwardedHeaders.insecure=false"
       - "--entryPoints.https.forwardedHeaders.trustedIPs=10.8.0.0/16,172.16.0.0/12,192.168.0.0/16"
       - "--entryPoints.https.proxyProtocol.trustedIPs=10.8.0.0/16,172.16.0.0/12,192.168.0.0/16"
+      # Plugins
+      - "--experimental.localPlugins.rewriteheaders.moduleName=github.com/XciD/traefik-plugin-rewrite-headers"
       # Providers
       - "--providers.docker=true"
       - "--providers.docker.network=virgo"

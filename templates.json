@@ -7,6 +7,7 @@
 			"description": "A modern HTTP reverse proxy and load balancer that makes deploying microservices easy.",
 			"note": "TCP and UDP ports 80 and 443 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "traefik/docker-compose.yml"
@@ -62,6 +63,7 @@
 			"title": "Authelia",
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
 			"logo": "https://apps.univrs.cloud/images/authelia.svg",
+			"embed": false,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "authelia/docker-compose.yml"
@@ -110,6 +112,7 @@
 			"title": "Pi-hole",
 			"description": "A network-level advertisement and internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
 			"logo": "https://apps.univrs.cloud/images/pi-hole.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "pihole/docker-compose.yml"
@@ -210,6 +213,7 @@
 			"description": "An extremely simple yet fast and modern VPN.",
 			"note": "UDP port 51820 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/wireguard.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "wg-easy/docker-compose.yml"
@@ -272,6 +276,7 @@
 			"description": "A fullstack but simple mail server (SMTP, IMAP, Anti-spam, Anti-virus, ...).",
 			"note": "TCP ports 25, 465, 587 and 993 needs to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/docker-mailserver.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "docker-mailserver/docker-compose.yml"
@@ -330,6 +335,7 @@
 			"title": "Terminal",
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "wetty/docker-compose.yml"
@@ -385,6 +391,7 @@
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
 			"logo": "https://apps.univrs.cloud/images/qbittorrent.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "qbittorrent/docker-compose.yml"
@@ -434,6 +441,7 @@
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",
 			"note": "The host of the database is `db:3306`. The database name, database user and database password is `nextcloud`.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud/docker-compose.yml"
@@ -482,6 +490,7 @@
 			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
 			"note": "TCP and UDP port 3478 need to be forwarded. Install the Talk app in Nextcloud, then open Administration settings, Talk and add the high-performance backend `wss://talk.<domain>` with the signaling secret, the STUN servers `talk.<domain>:443` and `talk.<domain>:3478`, and the TURN server `talk.<domain>:3478` with the TURN secret over UDP and TCP.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-hpb.svg",
+			"embed": false,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud-hpb/docker-compose.yml"
@@ -548,6 +557,7 @@
 			"description": "Collaboration server for the Nextcloud Whiteboard app, letting several people draw on the same board at once.",
 			"note": "Install the Whiteboard app in Nextcloud, then open Administration settings, Whiteboard and enter the server URL `https://nextcloud.<domain>/whiteboard` together with the same shared secret.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-whiteboard.svg",
+			"embed": false,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "nextcloud-whiteboard/docker-compose.yml"
@@ -602,6 +612,7 @@
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
 			"note": "Install the Nextcloud Office app in Nextcloud, then open Administration settings, Nextcloud Office and enter the address `https://euro-office.<domain>/` together with the same secret key. Tick Disable certificate verification if the domain is not publicly accessible.",
 			"logo": "https://apps.univrs.cloud/images/euro-office.svg",
+			"embed": false,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "euro-office/docker-compose.yml"
@@ -655,6 +666,7 @@
 			"title": "Gitea",
 			"description": "Git hosting, code review, team collaboration, package registry and CI/CD.",
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "gitea/docker-compose.yml"
@@ -703,6 +715,7 @@
 			"description": "Gitea runner for actions.",
 			"multiple": true,
 			"logo": "https://apps.univrs.cloud/images/gitea.svg",
+			"embed": false,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "gitea-runner/docker-compose.yml"
@@ -752,6 +765,7 @@
 			"description": "A lightweight, privacy-friendly and cookie-free web analytics alternative to Google Analytics.",
 			"note": "",
 			"logo": "https://apps.univrs.cloud/images/plausible.svg",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "plausible/docker-compose.yml"
@@ -805,6 +819,7 @@
 			"title": "Dockhand",
 			"description": "A simple Docker management dashboard.",
 			"logo": "https://apps.univrs.cloud/images/dockhand.png",
+			"embed": true,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "dockhand/docker-compose.yml"

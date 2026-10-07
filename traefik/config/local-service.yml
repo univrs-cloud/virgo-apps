@@ -16,7 +16,7 @@ http:
         {}
       {{ end }}
       middlewares:
-        - "secure-headers@file"
+        - "security-headers@file"
     misdirected:
       rule: "PathPrefix(`/`)"
       priority: 1

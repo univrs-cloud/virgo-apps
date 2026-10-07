@@ -13,6 +13,12 @@ http:
         scheme: https
         permanent: true
     secure-headers:
+      chain:
+        middlewares:
+          - "security-headers"
+          - "embed-headers"
+          - "embed-csp"
+    security-headers:
       headers:
         sslRedirect: true
         forceSTSHeader: true
@@ -26,6 +32,20 @@ http:
         customResponseHeaders:
           server: ""
           x-powered-by: ""
+    embed-headers:
+      headers:
+        customResponseHeaders:
+          x-frame-options: ""
+    embed-csp:
+      plugin:
+        rewriteheaders:
+          rewrites:
+            - header: "Content-Security-Policy"
+              regex: "frame-ancestors[^;]*;?"
+              replacement: ""
+            - header: "Content-Security-Policy"
+              regex: "$"
+              replacement: "; frame-ancestors 'self' https://{{ env `DOMAIN` }}"
     authelia:
       forwardAuth:
         address: "http://authelia:9091/api/authz/forward-auth?authelia_url=https%3A%2F%2F{{ env `DOMAIN` }}%2Flogin"
