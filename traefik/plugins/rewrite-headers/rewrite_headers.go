@@ -1,4 +1,5 @@
 // nolint
+// Modified from github.com/XciD/traefik-plugin-rewrite-headers v0.0.4: added the fallback option.
 package traefik_plugin_rewrite_headers
 
 import (
@@ -15,6 +16,7 @@ type Rewrite struct {
 	Header      string `json:"header,omitempty"`
 	Regex       string `json:"regex,omitempty"`
 	Replacement string `json:"replacement,omitempty"`
+	Fallback    string `json:"fallback,omitempty"`
 }
 
 // Config holds the plugin configuration.
@@ -31,6 +33,7 @@ type rewrite struct {
 	header      string
 	regex       *regexp.Regexp
 	replacement string
+	fallback    string
 }
 
 type rewriteBody struct {
@@ -53,6 +56,7 @@ func New(_ context.Context, next http.Handler, config *Config, name string) (htt
 			header:      rewriteConfig.Header,
 			regex:       regex,
 			replacement: rewriteConfig.Replacement,
+			fallback:    rewriteConfig.Fallback,
 		}
 	}
 
@@ -90,6 +94,10 @@ func (r *responseWriter) WriteHeader(statusCode int) {
 		headers := r.writer.Header().Values(rewrite.header)
 
 		if len(headers) == 0 {
+			if rewrite.fallback != "" {
+				r.writer.Header().Set(rewrite.header, rewrite.fallback)
+			}
+
 			continue
 		}
 

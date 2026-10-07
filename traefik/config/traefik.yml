@@ -46,6 +46,7 @@ http:
             - header: "Content-Security-Policy"
               regex: "$"
               replacement: "; frame-ancestors 'self' https://{{ env `DOMAIN` }}"
+              fallback: "frame-ancestors 'self' https://{{ env `DOMAIN` }}"
     authelia:
       forwardAuth:
         address: "http://authelia:9091/api/authz/forward-auth?authelia_url=https%3A%2F%2F{{ env `DOMAIN` }}%2Flogin"
