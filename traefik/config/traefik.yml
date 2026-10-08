@@ -16,7 +16,6 @@ http:
       chain:
         middlewares:
           - "security-headers"
-          - "embed-headers"
           - "embed-csp"
     security-headers:
       headers:
@@ -32,10 +31,6 @@ http:
         customResponseHeaders:
           server: ""
           x-powered-by: ""
-    embed-headers:
-      headers:
-        customResponseHeaders:
-          x-frame-options: ""
     embed-csp:
       plugin:
         rewriteheaders:
