@@ -391,7 +391,7 @@
 			"title": "qBittorrent",
 			"description": "A BitTorrent client.",
 			"logo": "https://apps.univrs.cloud/images/qbittorrent.svg",
-			"embed": true,
+			"embed": false,
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "qbittorrent/docker-compose.yml"
