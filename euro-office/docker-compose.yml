@@ -1,6 +1,7 @@
 services:
   documentserver:
     image: ghcr.io/euro-office/documentserver:latest
+    init: true
     environment:
       - JWT_ENABLED=true
       - JWT_SECRET=${SECRET}
