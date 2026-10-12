@@ -610,7 +610,7 @@
 			"name": "euro-office",
 			"title": "Euro Office",
 			"description": "Document editing and collaboration tools directly in your Nextcloud environment.",
-			"note": "Install the Nextcloud Office app in Nextcloud, then open Administration settings, Nextcloud Office and enter the address `https://euro-office.<domain>/` together with the same secret key. Tick Disable certificate verification if the domain is not publicly accessible.",
+			"note": "Install the Nextcloud Office app in Nextcloud, then open Administration settings, Nextcloud Office and enter the address `https://nextcloud.<domain>/euro-office/` together with the same secret key. Tick Disable certificate verification if the domain is not publicly accessible.",
 			"logo": "https://apps.univrs.cloud/images/euro-office.svg",
 			"embed": false,
 			"repository": {
@@ -628,10 +628,10 @@
 				{
 					"type": "text",
 					"label": "Domain",
-					"description": "Base domain of this node. The editor is served on the euro-office subdomain.",
+					"description": "Base domain of this node. The editor is served under the euro-office path on the nextcloud subdomain.",
 					"name": "DOMAIN",
 					"default": "",
-					"prefix": "euro-office.",
+					"prefix": "nextcloud.",
 					"auth": {
 						"policy": "none"
 					}
