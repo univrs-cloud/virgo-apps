@@ -79,11 +79,10 @@
 				{
 					"type": "text",
 					"label": "Domain",
-					"description": "Base domain of this node. The sign-on portal is served on the auth subdomain.",
+					"description": "Base domain of this node.",
 					"name": "DOMAIN",
 					"readonly": true,
 					"default": "",
-					"prefix": "auth.",
 					"auth": {
 						"policy": "none"
 					}

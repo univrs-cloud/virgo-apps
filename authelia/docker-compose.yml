@@ -73,13 +73,6 @@ services:
     volumes:
       - /messier/apps/authelia/config:/config
       - /messier/apps/authelia/secrets:/secrets
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.allowNonRunning=true"
-      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
-      - "traefik.http.routers.authelia.rule=Host(`auth.${DOMAIN}`)"
-      - "traefik.http.routers.authelia.entrypoints=https"
-      - "traefik.http.routers.authelia.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
     ports:
       - "127.0.0.1:9091:9091"
     networks:
