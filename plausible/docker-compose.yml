@@ -14,8 +14,8 @@ services:
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/plausible/config:/config
-      - /messier/apps/plausible/data:/data
+      - ${APP_DIR:-/messier/apps/plausible}/config:/config
+      - ${APP_DIR:-/messier/apps/plausible}/data:/data
     networks:
       - virgo
     restart: "no"
@@ -38,7 +38,7 @@ services:
       - DATABASE_URL=postgres://plausible:plausible@db:5432/plausible
       - CLICKHOUSE_DATABASE_URL=http://events:8123/plausible_events
     volumes:
-      - /messier/apps/plausible/data:/var/lib/plausible
+      - ${APP_DIR:-/messier/apps/plausible}/data:/var/lib/plausible
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
@@ -72,7 +72,7 @@ services:
       - POSTGRES_PASSWORD=plausible
     volumes:
       # PostgreSQL 18 keeps its data in $PGDATA=/var/lib/postgresql/18/docker
-      - /messier/apps/plausible/db:/var/lib/postgresql
+      - ${APP_DIR:-/messier/apps/plausible}/db:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U plausible"]
       start_period: 1m
@@ -85,11 +85,11 @@ services:
     environment:
       - CLICKHOUSE_SKIP_USER_SETUP=1
     volumes:
-      - /messier/apps/plausible/events/data:/var/lib/clickhouse
-      - /messier/apps/plausible/events/logs:/var/log/clickhouse-server
-      - /messier/apps/plausible/config/logs.xml:/etc/clickhouse-server/config.d/logs.xml:ro
-      - /messier/apps/plausible/config/low-resources.xml:/etc/clickhouse-server/config.d/low-resources.xml:ro
-      - /messier/apps/plausible/config/default-profile-low-resources-overrides.xml:/etc/clickhouse-server/users.d/default-profile-low-resources-overrides.xml:ro
+      - ${APP_DIR:-/messier/apps/plausible}/events/data:/var/lib/clickhouse
+      - ${APP_DIR:-/messier/apps/plausible}/events/logs:/var/log/clickhouse-server
+      - ${APP_DIR:-/messier/apps/plausible}/config/logs.xml:/etc/clickhouse-server/config.d/logs.xml:ro
+      - ${APP_DIR:-/messier/apps/plausible}/config/low-resources.xml:/etc/clickhouse-server/config.d/low-resources.xml:ro
+      - ${APP_DIR:-/messier/apps/plausible}/config/default-profile-low-resources-overrides.xml:/etc/clickhouse-server/users.d/default-profile-low-resources-overrides.xml:ro
     ulimits:
       nofile:
         soft: 262144

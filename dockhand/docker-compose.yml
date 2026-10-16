@@ -3,7 +3,7 @@ services:
     image: fnsys/dockhand:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/dockhand/data:/app/data
+      - ${APP_DIR:-/messier/apps/dockhand}/data:/app/data
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"

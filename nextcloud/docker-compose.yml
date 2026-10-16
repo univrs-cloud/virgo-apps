@@ -9,8 +9,8 @@ services:
       - NODEJS_MOD_VERSION=24
       - NC_filesystem_check_changes=1
     volumes:
-      - /messier/apps/nextcloud/config:/config
-      - /messier/apps/nextcloud/data:/data
+      - ${APP_DIR:-/messier/apps/nextcloud}/config:/config
+      - ${APP_DIR:-/messier/apps/nextcloud}/data:/data
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
@@ -42,7 +42,7 @@ services:
       - MYSQL_PASSWORD=nextcloud
       - MYSQL_ROOT_PASSWORD=nextcloud
     volumes:
-      - /messier/apps/nextcloud/db:/config
+      - ${APP_DIR:-/messier/apps/nextcloud}/db:/config
     networks:
       - internal
     restart: unless-stopped
@@ -53,7 +53,7 @@ services:
       - PUID=1000
       - PGID=100
     volumes:
-      - /messier/apps/nextcloud/redis:/data
+      - ${APP_DIR:-/messier/apps/nextcloud}/redis:/data
     networks:
       - internal
     healthcheck:

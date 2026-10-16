@@ -21,8 +21,8 @@ services:
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/traefik/config:/config
-      - /messier/apps/traefik/plugins:/plugins
+      - ${APP_DIR:-/messier/apps/traefik}/config:/config
+      - ${APP_DIR:-/messier/apps/traefik}/plugins:/plugins
     networks:
       - virgo
     restart: "no"
@@ -41,9 +41,9 @@ services:
       - HTTPREQ_ENDPOINT=http://172.30.0.1:2999/acme
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /messier/apps/traefik/config:/etc/traefik/config
-      - /messier/apps/traefik/plugins:/plugins-local
-      - /messier/apps/traefik/letsencrypt:/letsencrypt
+      - ${APP_DIR:-/messier/apps/traefik}/config:/etc/traefik/config
+      - ${APP_DIR:-/messier/apps/traefik}/plugins:/plugins-local
+      - ${APP_DIR:-/messier/apps/traefik}/letsencrypt:/letsencrypt
     command:
       # Global
       - "--global.sendAnonymousUsage=false"

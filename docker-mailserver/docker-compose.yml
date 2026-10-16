@@ -15,7 +15,7 @@ services:
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/mailserver/config:/config
+      - ${APP_DIR:-/messier/apps/mailserver}/config:/config
     networks:
       - virgo
     restart: "no"
@@ -58,12 +58,12 @@ services:
       - ENABLE_SRS=1
     volumes:
       - /messier/apps/traefik/letsencrypt/acme.json:/etc/letsencrypt/acme.json:ro
-      - /messier/apps/mailserver/config/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf:ro
-      - /messier/apps/mailserver/config/90-fts-flatcurve.conf:/etc/dovecot/conf.d/90-fts-flatcurve.conf:ro
-      - /messier/apps/mailserver/data:/var/mail
-      - /messier/apps/mailserver/state:/var/mail-state
-      - /messier/apps/mailserver/logs:/var/log/mail
-      - /messier/apps/mailserver/config:/tmp/docker-mailserver
+      - ${APP_DIR:-/messier/apps/mailserver}/config/15-mailboxes.conf:/etc/dovecot/conf.d/15-mailboxes.conf:ro
+      - ${APP_DIR:-/messier/apps/mailserver}/config/90-fts-flatcurve.conf:/etc/dovecot/conf.d/90-fts-flatcurve.conf:ro
+      - ${APP_DIR:-/messier/apps/mailserver}/data:/var/mail
+      - ${APP_DIR:-/messier/apps/mailserver}/state:/var/mail-state
+      - ${APP_DIR:-/messier/apps/mailserver}/logs:/var/log/mail
+      - ${APP_DIR:-/messier/apps/mailserver}/config:/tmp/docker-mailserver
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"

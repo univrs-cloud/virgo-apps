@@ -20,8 +20,8 @@ services:
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/authelia/config:/config
-      - /messier/apps/authelia/secrets:/secrets
+      - ${APP_DIR:-/messier/apps/authelia}/config:/config
+      - ${APP_DIR:-/messier/apps/authelia}/secrets:/secrets
     networks:
       - virgo
     restart: "no"
@@ -71,8 +71,8 @@ services:
       - AUTHELIA_NOTIFIER_DISABLE_STARTUP_CHECK=true
       - AUTHELIA_NOTIFIER_FILESYSTEM_FILENAME=/config/notification.txt
     volumes:
-      - /messier/apps/authelia/config:/config
-      - /messier/apps/authelia/secrets:/secrets
+      - ${APP_DIR:-/messier/apps/authelia}/config:/config
+      - ${APP_DIR:-/messier/apps/authelia}/secrets:/secrets
     ports:
       - "127.0.0.1:9091:9091"
     networks:
@@ -91,7 +91,7 @@ services:
       - PUID=1000
       - PGID=100
     volumes:
-      - /messier/apps/authelia/redis:/data
+      - ${APP_DIR:-/messier/apps/authelia}/redis:/data
     networks:
       - internal
     healthcheck:

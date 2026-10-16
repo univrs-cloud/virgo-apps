@@ -15,8 +15,8 @@ services:
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /messier/apps/pihole/dnsmasq.d:/config
-      - /messier/apps/pihole/unbound.conf.d:/unbound
+      - ${APP_DIR:-/messier/apps/pihole}/dnsmasq.d:/config
+      - ${APP_DIR:-/messier/apps/pihole}/unbound.conf.d:/unbound
     networks:
       - virgo
     restart: "no"
@@ -45,10 +45,10 @@ services:
       - FTLCONF_dhcp_rapidCommit=true
       - FTLCONF_webserver_api_password=${PASSWORD}
     volumes:
-      - /messier/apps/pihole/data:/etc/pihole
-      - /messier/apps/pihole/logs:/var/log/pihole
-      - /messier/apps/pihole/dnsmasq.d:/etc/dnsmasq.d
-      - /messier/apps/pihole/unbound.conf.d/univrs.conf:/etc/unbound/unbound.conf.d/univrs.conf
+      - ${APP_DIR:-/messier/apps/pihole}/data:/etc/pihole
+      - ${APP_DIR:-/messier/apps/pihole}/logs:/var/log/pihole
+      - ${APP_DIR:-/messier/apps/pihole}/dnsmasq.d:/etc/dnsmasq.d
+      - ${APP_DIR:-/messier/apps/pihole}/unbound.conf.d/univrs.conf:/etc/unbound/unbound.conf.d/univrs.conf
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"

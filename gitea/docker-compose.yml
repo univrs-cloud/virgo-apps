@@ -17,7 +17,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      - /messier/apps/gitea/data:/data
+      - ${APP_DIR:-/messier/apps/gitea}/data:/data
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
@@ -45,7 +45,7 @@ services:
       - MYSQL_PASSWORD=gitea
       - MYSQL_ROOT_PASSWORD=gitea
     volumes:
-      - /messier/apps/gitea/db:/config
+      - ${APP_DIR:-/messier/apps/gitea}/db:/config
     networks:
       - internal
     restart: unless-stopped
