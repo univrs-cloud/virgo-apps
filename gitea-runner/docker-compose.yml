@@ -1,6 +1,6 @@
 services:
   runner:
-    image: gitea/act_runner:latest
+    image: gitea/runner:latest
     environment:
       - GITEA_INSTANCE_URL=${GITEA_INSTANCE_URL}
       - GITEA_RUNNER_NAME=gitea-runner-${INSTANCE}
