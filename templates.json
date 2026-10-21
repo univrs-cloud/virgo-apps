@@ -435,6 +435,80 @@
 			]
 		},
 		{
+			"name": "music",
+			"title": "Music",
+			"description": "Navidrome music server with Soulbeet, which finds music on Soulseek, tags it and adds it to the library.",
+			"note": "Create the Navidrome admin account first, then sign in to Soulbeet with it.",
+			"logo": "https://apps.univrs.cloud/images/navidrome.svg",
+			"embed": true,
+			"repository": {
+				"url": "https://apps.univrs.cloud/",
+				"stackfile": "music/docker-compose.yml"
+			},
+			"categories": [
+				"Productivity"
+			],
+			"platforms": [
+				"arm64",
+				"amd64"
+			],
+			"env": [
+				{
+					"type": "text",
+					"label": "Domain",
+					"description": "Base domain of this node. Navidrome is served on the navidrome subdomain and Soulbeet on the soulbeet subdomain.",
+					"name": "DOMAIN",
+					"default": "",
+					"prefix": "navidrome.",
+					"auth": {
+						"policy": "none"
+					}
+				},
+				{
+					"type": "radio",
+					"label": "HTTPS certificate",
+					"description": "Let's Encrypt needs the domain's public DNS to point at this network and port 80 forwarded to this node. Use self-signed when the domain only resolves on the local network or the node is behind CGNAT.",
+					"name": "CERTRESOLVER",
+					"select": [
+						{
+							"value": "le",
+							"text": "Let's Encrypt (DNS points here, port 80 forwarded)",
+							"default": true
+						},
+						{
+							"value": "",
+							"text": "Self-signed (local network only)"
+						}
+					]
+				},
+				{
+					"type": "password",
+					"label": "Secret",
+					"description": "Key Soulbeet uses to encrypt stored tokens and credentials.",
+					"name": "SECRET"
+				},
+				{
+					"type": "text",
+					"label": "Soulseek username",
+					"description": "Account slskd uses to sign in to the Soulseek network. There is no sign-up: an unused name is registered on the first login, and a name left unused for a month is freed.",
+					"name": "SLSK_USERNAME",
+					"default": ""
+				},
+				{
+					"type": "password",
+					"label": "Soulseek password",
+					"description": "Password of the Soulseek account. For a new name, this becomes its password.",
+					"name": "SLSK_PASSWORD"
+				},
+				{
+					"type": "password",
+					"label": "slskd API key",
+					"description": "Key Soulbeet uses to reach slskd. Enter it in Soulbeet under Settings > Config, with http://slskd:5030 as the URL.",
+					"name": "API_KEY"
+				}
+			]
+		},
+		{
 			"name": "nextcloud",
 			"title": "Nextcloud",
 			"description": "A file sharing and collaboration platform that allows users to store, access, and share their data from any device or location.",

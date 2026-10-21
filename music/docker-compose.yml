@@ -1,0 +1,68 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    environment:
+      - ND_MUSICFOLDER=/music
+    volumes:
+      - ${APP_DIR:-/messier/apps/music}/library:/music:ro
+      - ${APP_DIR:-/messier/apps/music}/navidrome:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.navidrome.loadbalancer.server.port=4533"
+      - "traefik.http.routers.navidrome.service=navidrome"
+      - "traefik.http.routers.navidrome.rule=Host(`navidrome.${DOMAIN}`)"
+      - "traefik.http.routers.navidrome.entrypoints=https"
+      - "traefik.http.routers.navidrome.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.navidrome.middlewares=secure-headers@file"
+    networks:
+      - virgo
+    restart: unless-stopped
+
+  soulbeet:
+    image: docker.io/docccccc/soulbeet:latest
+    environment:
+      - DATABASE_URL=sqlite:/data/soulbeet.db
+      - DOWNLOAD_PATH=/downloads
+      - SECRET_KEY=${SECRET}
+      - NAVIDROME_URL=http://navidrome:4533
+    volumes:
+      - ${APP_DIR:-/messier/apps/music}/soulbeet:/data
+      - ${APP_DIR:-/messier/apps/music}/slskd/downloads:/downloads
+      - ${APP_DIR:-/messier/apps/music}/library:/music
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.soulbeet.loadbalancer.server.port=9765"
+      - "traefik.http.routers.soulbeet.service=soulbeet"
+      - "traefik.http.routers.soulbeet.rule=Host(`soulbeet.${DOMAIN}`)"
+      - "traefik.http.routers.soulbeet.entrypoints=https"
+      - "traefik.http.routers.soulbeet.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.soulbeet.middlewares=secure-headers@file"
+    networks:
+      - virgo
+    depends_on:
+      navidrome:
+        condition: service_started
+      slskd:
+        condition: service_started
+    restart: unless-stopped
+
+  slskd:
+    image: slskd/slskd:latest
+    environment:
+      - PUID=1000
+      - PGID=100
+      - SLSKD_REMOTE_CONFIGURATION=true
+      - SLSKD_SLSK_USERNAME=${SLSK_USERNAME}
+      - SLSKD_SLSK_PASSWORD=${SLSK_PASSWORD}
+      - SLSKD_API_KEY=${API_KEY}
+    volumes:
+      - ${APP_DIR:-/messier/apps/music}/slskd:/app
+    networks:
+      - virgo
+    restart: unless-stopped
+
+networks:
+  virgo:
+    external: true
