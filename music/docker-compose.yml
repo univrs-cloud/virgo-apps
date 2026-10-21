@@ -51,8 +51,6 @@ services:
   slskd:
     image: slskd/slskd:latest
     environment:
-      - PUID=1000
-      - PGID=100
       - SLSKD_REMOTE_CONFIGURATION=true
       - SLSKD_SLSK_USERNAME=${SLSK_USERNAME}
       - SLSKD_SLSK_PASSWORD=${SLSK_PASSWORD}
