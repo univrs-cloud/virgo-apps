@@ -7,16 +7,24 @@ services:
       - DOCKER_MODS=linuxserver/mods:universal-package-install|linuxserver/mods:nextcloud-notify-push|linuxserver/mods:nextcloud-memories
       - INSTALL_PACKAGES=nodejs|npm
       - NODEJS_MOD_VERSION=24
+      - NC_overwriteprotocol=https
+      - NC_overwrite.cli.url=https://nextcloud.${DOMAIN}
       - NC_filesystem_check_changes=1
+      - NC_maintenance_window_start=1
+      - NC_simpleSignUpLink.shown=0
+      - NC_knowledgebaseenabled=0
+      - NC_updatechecker=0
+      - NC_upgrade.disable-web=1
+      - NC_preview_max_x=1024
+      - NC_preview_max_y=1024
+      - NC_defaultapp=files
     volumes:
       - ${APP_DIR:-/messier/apps/nextcloud}/config:/config
       - ${APP_DIR:-/messier/apps/nextcloud}/data:/data
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
-      - "traefik.http.services.nextcloud.loadbalancer.server.port=443"
-      - "traefik.http.services.nextcloud.loadbalancer.server.scheme=https"
-      - "traefik.http.services.nextcloud.loadbalancer.serversTransport=insecure-transport@file"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
       - "traefik.http.routers.nextcloud.service=nextcloud"
       - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.${DOMAIN}`)"
       - "traefik.http.routers.nextcloud.entrypoints=https"
