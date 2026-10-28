@@ -3,6 +3,7 @@ services:
     image: deluan/navidrome:latest
     environment:
       - ND_MUSICFOLDER=/music
+      - ND_SCANNER_PURGEMISSING=always
     volumes:
       - ${APP_DIR:-/messier/apps/music}/library:/music:ro
       - ${APP_DIR:-/messier/apps/music}/navidrome:/data
