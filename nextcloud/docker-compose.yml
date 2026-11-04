@@ -15,8 +15,6 @@ services:
       - NC_knowledgebaseenabled=0
       - NC_updatechecker=0
       - NC_upgrade.disable-web=1
-      - NC_preview_max_x=1024
-      - NC_preview_max_y=1024
       - NC_defaultapp=files
     volumes:
       - ${APP_DIR:-/messier/apps/nextcloud}/config:/config
