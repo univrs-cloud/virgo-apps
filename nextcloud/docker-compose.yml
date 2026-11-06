@@ -21,9 +21,9 @@ services:
       - ${APP_DIR:-/messier/apps/nextcloud}/data:/data
     configs:
       - source: php-ini
-        target: /config/php/nextcloud.ini
+        target: /config/php/univrs.ini
       - source: php-fpm
-        target: /config/php/nextcloud.conf
+        target: /config/php/univrs.conf
     labels:
       - "traefik.enable=true"
       - "traefik.docker.allowNonRunning=true"
