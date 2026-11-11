@@ -446,7 +446,7 @@
 				"stackfile": "music/docker-compose.yml"
 			},
 			"categories": [
-				"Productivity"
+				"Media"
 			],
 			"platforms": [
 				"arm64",
@@ -559,8 +559,8 @@
 		},
 		{
 			"name": "nextcloud-hpb",
-			"title": "Nextcloud - High performance backend",
-			"description": "While the High-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
+			"title": "Talk",
+			"description": "While the high-performance backend is optional, please note, that it is already helpful in calls with three participants (reducing required upload bandwidth by 50%).",
 			"note": "TCP and UDP port 3478 need to be forwarded. Install the Talk app in Nextcloud, then open Administration settings, Talk and add the high-performance backend `wss://talk.<domain>` with the signaling secret, the STUN servers `talk.<domain>:443` and `talk.<domain>:3478`, and the TURN server `talk.<domain>:3478` with the TURN secret over UDP and TCP.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-hpb.svg",
 			"embed": false,
@@ -626,7 +626,7 @@
 		},
 		{
 			"name": "nextcloud-whiteboard",
-			"title": "Nextcloud - Whiteboard",
+			"title": "Whiteboard",
 			"description": "Collaboration server for the Nextcloud Whiteboard app, letting several people draw on the same board at once.",
 			"note": "Install the Whiteboard app in Nextcloud, then open Administration settings, Whiteboard and enter the server URL `https://nextcloud.<domain>/whiteboard` together with the same shared secret.",
 			"logo": "https://apps.univrs.cloud/images/nextcloud-whiteboard.svg",
@@ -745,7 +745,7 @@
 				"stackfile": "gitea/docker-compose.yml"
 			},
 			"categories": [
-				"Productivity"
+				"Dev"
 			],
 			"platforms": [
 				"arm64",
@@ -794,7 +794,7 @@
 				"stackfile": "gitea-runner/docker-compose.yml"
 			},
 			"categories": [
-				"Productivity"
+				"Dev"
 			],
 			"platforms": [
 				"arm64",
@@ -844,7 +844,7 @@
 				"stackfile": "plausible/docker-compose.yml"
 			},
 			"categories": [
-				"Productivity"
+				"Dev"
 			],
 			"platforms": [
 				"arm64",
@@ -898,7 +898,7 @@
 				"stackfile": "dockhand/docker-compose.yml"
 			},
 			"categories": [
-				"System"
+				"Dev"
 			],
 			"platforms": [
 				"arm64",
