@@ -9,12 +9,19 @@ services:
         echo "address=/${DOMAIN}/${INGRESS_IP}" > /config/univrs.conf; \
         echo "rebind-domain-ok=/$${DOMAIN#*.}/" >> /config/univrs.conf; \
         printf 'server:\n    private-domain: "%s"\n' "$${DOMAIN#*.}" > /unbound/univrs.conf; \
+        [ -f /pihole/gravity.db ] || printf '%s\n' \
+          https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts \
+          https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.txt \
+          https://big.oisd.nl \
+          https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt \
+          > /pihole/adlists.list; \
         touch /config/.init_complete; \
         sleep 10; \
         rm -f /config/.init_complete; \
         docker rm -f $(hostname)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DIR:-/messier/apps/pihole}/data:/pihole
       - ${APP_DIR:-/messier/apps/pihole}/dnsmasq.d:/config
       - ${APP_DIR:-/messier/apps/pihole}/unbound.conf.d:/unbound
     networks:
