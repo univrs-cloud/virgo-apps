@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
 
   soulbeet:
-    image: docker.io/docccccc/soulbeet:latest
+    image: docker.io/docccccc/soulbeet:full
     environment:
       - DATABASE_URL=sqlite:/data/soulbeet.db
       - DOWNLOAD_PATH=/downloads
