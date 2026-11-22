@@ -9,6 +9,8 @@ http:
         certResolver: "ledns"
         domains:
           - main: "*.{{ join `.` (rest (splitList `.` (env `DOMAIN`))) }}"
+            sans:
+              - "{{ join `.` (rest (splitList `.` (env `DOMAIN`))) }}"
           - main: "*.{{ env `DOMAIN` }}"
       {{ else if ne (env `CERTRESOLVER`) "" }}
         certResolver: "{{ env `CERTRESOLVER` }}"
