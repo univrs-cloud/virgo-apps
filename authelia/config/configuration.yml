@@ -12,7 +12,7 @@ access_control:
   rules:
   - domain: "auth.{{ env `DOMAIN` }}" #this should be your authentication URL
     policy: "bypass"
-  - domain: ["*.{{ join `.` (slice (splitList `.` (env `DOMAIN`)) 1) }}", "*.{{ env `DOMAIN` }}", "{{ env `DOMAIN` }}"]
+  - domain: ["{{ join `.` (slice (splitList `.` (env `DOMAIN`)) 1) }}", "*.{{ join `.` (slice (splitList `.` (env `DOMAIN`)) 1) }}", "*.{{ env `DOMAIN` }}", "{{ env `DOMAIN` }}"]
     policy: "bypass"
     networks:
       - "192.168.0.0/16" #bypass if connected on local network

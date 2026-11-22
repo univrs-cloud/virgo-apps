@@ -1,7 +1,7 @@
 http:
   routers:
     localservice:
-      rule: "Host(`{{ env `DOMAIN` }}`)"
+      rule: "Host(`{{ env `DOMAIN` }}`) || Host(`{{ join `.` (rest (splitList `.` (env `DOMAIN`))) }}`)"
       entryPoints:
         - "https"
       service: "localservice"
