@@ -8,6 +8,7 @@
 			"note": "TCP and UDP ports 80 and 443 need to be forwarded.",
 			"logo": "https://apps.univrs.cloud/images/traefik-proxy.svg",
 			"embed": true,
+			"scope": "node",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "traefik/docker-compose.yml"
@@ -64,6 +65,7 @@
 			"description": "The Single Sign-On Multi-Factor portal for web apps.",
 			"logo": "https://apps.univrs.cloud/images/authelia.svg",
 			"embed": false,
+			"scope": "node",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "authelia/docker-compose.yml"
@@ -335,6 +337,7 @@
 			"description": "A terminal in a browser.",
 			"logo": "https://apps.univrs.cloud/images/terminal.svg",
 			"embed": true,
+			"scope": "node",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "wetty/docker-compose.yml"
@@ -893,6 +896,7 @@
 			"description": "A simple Docker management dashboard.",
 			"logo": "https://apps.univrs.cloud/images/dockhand.png",
 			"embed": true,
+			"scope": "node",
 			"repository": {
 				"url": "https://apps.univrs.cloud/",
 				"stackfile": "dockhand/docker-compose.yml"
