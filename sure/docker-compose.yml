@@ -1,0 +1,120 @@
+services:
+  init:
+    image: alpinelinux/docker-cli:latest
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        chown -R 1000:1000 /storage; \
+        touch /storage/.init_complete; \
+        sleep 10; \
+        rm -f /storage/.init_complete; \
+        docker rm -f $(hostname)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DIR:-/messier/apps/sure}/storage:/storage
+    networks:
+      - internal
+    restart: "no"
+    healthcheck:
+      test: "[ -f /storage/.init_complete ]"
+      interval: 1s
+      timeout: 1s
+      retries: 30
+      start_period: 1s
+
+  sure:
+    image: ghcr.io/we-promise/sure:stable
+    environment:
+      - SELF_HOSTED=true
+      - RAILS_FORCE_SSL=false
+      - RAILS_ASSUME_SSL=true
+      - APP_DOMAIN=sure.${DOMAIN}
+      - SECRET_KEY_BASE=${SECRET}
+      - DB_HOST=db
+      - DB_PORT=5432
+      - POSTGRES_DB=sure
+      - POSTGRES_USER=sure
+      - POSTGRES_PASSWORD=sure
+      - REDIS_URL=redis://redis:6379/1
+    volumes:
+      - ${APP_DIR:-/messier/apps/sure}/storage:/rails/storage
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.allowNonRunning=true"
+      - "traefik.http.services.sure.loadbalancer.server.port=3000"
+      - "traefik.http.routers.sure.service=sure"
+      - "traefik.http.routers.sure.rule=Host(`sure.${DOMAIN}`)"
+      - "traefik.http.routers.sure.entrypoints=https"
+      - "traefik.http.routers.sure.tls.certresolver=${CERTRESOLVER:+${CERTRESOLVER}}"
+      - "traefik.http.routers.sure.middlewares=secure-headers@file"
+    networks:
+      - internal
+      - virgo
+    depends_on:
+      init:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    image: ghcr.io/we-promise/sure:stable
+    command: bundle exec sidekiq
+    environment:
+      - SELF_HOSTED=true
+      - RAILS_FORCE_SSL=false
+      - RAILS_ASSUME_SSL=true
+      - APP_DOMAIN=sure.${DOMAIN}
+      - SECRET_KEY_BASE=${SECRET}
+      - DB_HOST=db
+      - DB_PORT=5432
+      - POSTGRES_DB=sure
+      - POSTGRES_USER=sure
+      - POSTGRES_PASSWORD=sure
+      - REDIS_URL=redis://redis:6379/1
+    volumes:
+      - ${APP_DIR:-/messier/apps/sure}/storage:/rails/storage
+    networks:
+      - internal
+      - virgo
+    depends_on:
+      init:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:18-alpine
+    environment:
+      - POSTGRES_DB=sure
+      - POSTGRES_USER=sure
+      - POSTGRES_PASSWORD=sure
+    volumes:
+      - ${APP_DIR:-/messier/apps/sure}/db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sure -d sure"]
+      start_period: 1m
+    networks:
+      - internal
+    restart: unless-stopped
+
+  redis:
+    image: redis:latest
+    volumes:
+      - ${APP_DIR:-/messier/apps/sure}/redis:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --raw ping | grep -qx PONG"]
+    networks:
+      - internal
+    restart: unless-stopped
+
+networks:
+  internal:
+    internal: true
+  virgo:
+    external: true
