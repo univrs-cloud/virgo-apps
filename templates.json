@@ -20,6 +20,10 @@
 				"arm64",
 				"amd64"
 			],
+			"ports": [
+				"80/tcp",
+				"443/tcp"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -77,6 +81,9 @@
 				"arm64",
 				"amd64"
 			],
+			"ports": [
+				"9091/tcp"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -125,6 +132,11 @@
 				"arm64",
 				"amd64"
 			],
+			"ports": [
+				"53/tcp",
+				"53/udp",
+				"67/udp"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -135,7 +147,8 @@
 					"prefix": "pihole.",
 					"auth": {
 						"policy": "required"
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -152,14 +165,16 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "text",
 					"label": "IP address",
 					"description": "The virtual IP if this node has one, otherwise the node's LAN address. Pi-hole answers DNS on port 53 here and hands this address to clients.",
 					"name": "INGRESS_IP",
-					"default": "192.168.100.2"
+					"default": "192.168.100.2",
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -176,35 +191,40 @@
 							"value": "false",
 							"text": "No"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "text",
 					"label": "DHCP from",
 					"description": "First address in the range Pi-hole may lease to clients.",
 					"name": "DHCP_START",
-					"default": "192.168.100.100"
+					"default": "192.168.100.100",
+					"editable": true
 				},
 				{
 					"type": "text",
 					"label": "DHCP to",
 					"description": "Last address in the range Pi-hole may lease to clients.",
 					"name": "DHCP_END",
-					"default": "192.168.100.250"
+					"default": "192.168.100.250",
+					"editable": true
 				},
 				{
 					"type": "text",
 					"label": "Router (gateway) IP address",
 					"description": "Default gateway handed to DHCP clients, normally your router.",
 					"name": "DHCP_ROUTER",
-					"default": "192.168.100.1"
+					"default": "192.168.100.1",
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "Password (administrator)",
 					"description": "Password for the Pi-hole admin interface and API.",
 					"name": "PASSWORD",
-					"default": ""
+					"default": "",
+					"editable": true
 				}
 			]
 		},
@@ -225,6 +245,9 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"ports": [
+				"51820/udp"
 			],
 			"env": [
 				{
@@ -253,7 +276,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "text",
@@ -289,6 +313,13 @@
 				"arm64",
 				"amd64"
 			],
+			"ports": [
+				"25/tcp",
+				"465/tcp",
+				"587/tcp",
+				"993/tcp",
+				"4190/tcp"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -310,7 +341,8 @@
 					"prefix": "rspamd.",
 					"auth": {
 						"policy": "required"
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -327,7 +359,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				}
 			]
 		},
@@ -405,6 +438,10 @@
 				"arm64",
 				"amd64"
 			],
+			"ports": [
+				"6881/tcp",
+				"6881/udp"
+			],
 			"env": [
 				{
 					"type": "text",
@@ -416,7 +453,8 @@
 					"auth": {
 						"policy": "optional",
 						"default": true
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -433,7 +471,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				}
 			]
 		},
@@ -465,7 +504,8 @@
 					"prefix": "navidrome.",
 					"auth": {
 						"policy": "none"
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -482,7 +522,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "password",
@@ -556,7 +597,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				}
 			]
 		},
@@ -577,6 +619,10 @@
 			"platforms": [
 				"arm64",
 				"amd64"
+			],
+			"ports": [
+				"3478/tcp",
+				"3478/udp"
 			],
 			"env": [
 				{
@@ -605,25 +651,29 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "TURN secret",
 					"description": "Shared secret between Nextcloud Talk and the TURN server. Enter the same value in the Talk settings.",
-					"name": "TURN_SECRET"
+					"name": "TURN_SECRET",
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "Signaling secret",
 					"description": "Shared secret between Nextcloud Talk and the signaling server. Enter the same value in the Talk settings.",
-					"name": "SIGNALING_SECRET"
+					"name": "SIGNALING_SECRET",
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "Internal secret",
 					"description": "Shared secret used between the backend services. It is not entered anywhere else.",
-					"name": "INTERNAL_SECRET"
+					"name": "INTERNAL_SECRET",
+					"editable": true
 				}
 			]
 		},
@@ -672,13 +722,15 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "Shared secret",
 					"description": "Shared secret between Nextcloud and the whiteboard server. Enter the same value in the Whiteboard settings.",
-					"name": "JWT_SECRET_KEY"
+					"name": "JWT_SECRET_KEY",
+					"editable": true
 				}
 			]
 		},
@@ -727,13 +779,15 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "Shared secret",
 					"description": "Shared secret between Nextcloud and the Euro Office server. Enter the same value in the Nextcloud Office settings.",
-					"name": "SECRET"
+					"name": "SECRET",
+					"editable": true
 				}
 			]
 		},
@@ -764,7 +818,8 @@
 					"prefix": "gitea.",
 					"auth": {
 						"policy": "none"
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -781,7 +836,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				}
 			]
 		},
@@ -831,7 +887,8 @@
 					"label": "Capacity",
 					"description": "Number of jobs this runner executes at the same time.",
 					"name": "RUNNER_CAPACITY",
-					"default": "1"
+					"default": "1",
+					"editable": true
 				}
 			]
 		},
@@ -863,7 +920,8 @@
 					"prefix": "analytics.",
 					"auth": {
 						"policy": "none"
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -880,13 +938,15 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				},
 				{
 					"type": "password",
 					"label": "Secret",
 					"description": "Key used to sign sessions and cookies. Changing it later signs everyone out.",
-					"name": "SECRET"
+					"name": "SECRET",
+					"editable": true
 				}
 			]
 		},
@@ -918,7 +978,8 @@
 					"prefix": "dockhand.",
 					"auth": {
 						"policy": "required"
-					}
+					},
+					"editable": true
 				},
 				{
 					"type": "radio",
@@ -935,7 +996,8 @@
 							"value": "",
 							"text": "Self-signed (local network only)"
 						}
-					]
+					],
+					"editable": true
 				}
 			]
 		}
